@@ -1,4 +1,4 @@
-# Rocio Jacob · portfolio
+# Rocío Jacob · portfolio
 
 Cuatro direcciones de diseño para el mismo contenido. Cada archivo es autocontenido (HTML + CSS + JS, sin build).
 
@@ -19,7 +19,9 @@ Todo el texto (EN/ES), libros y artículos viven en `src/core.js`, en el objeto 
 node src/build.mjs
 ```
 
-Eso regenera los cuatro HTML. Los ítems marcados `// REPLACE` y los `[CORCHETES]` son datos pendientes.
+Eso regenera los cuatro HTML. Para verificar: `node scripts/check.js`.
+
+El contexto completo del proyecto, las decisiones y los pendientes están en `docs/HANDOFF.md`. Los ítems marcados `// REPLACE` y los `[CORCHETES]` son datos pendientes.
 
 ## Deploy en Vercel
 
