@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rocío Jacob · Product Engineer</title>
+<meta name="description" content="">
+<meta name="theme-color" content="#e56b9a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rocío Jacob · Product Engineer">
+<meta property="og:description" content="I build products, automation and analytics so organizations decide better and do less manual work.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23003049'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fdf0d5'%3ERJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#e56b9a;--cream:#fdf0d5;--ink:#003049;--sky:#669bbc;--deep:#001824;--mut:#3f5a69;
+  --d:"Syne","Arial Black",sans-serif;--m:"Space Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 .98rem/1.65 var(--m);overflow-x:hidden}
+a{color:inherit;text-underline-offset:4px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.dk :focus-visible{outline-color:var(--cream)}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:var(--cream);padding:8px 12px;z-index:99}
+.pad{padding-left:clamp(18px,5vw,70px);padding-right:clamp(18px,5vw,70px)}
+.bar{background:var(--deep);color:var(--cream);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2px 18px;padding-top:4px;padding-bottom:4px;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+.bar a{text-decoration:none;font:800 1rem var(--d);letter-spacing:0;padding:10px 0}
+.lang{display:inline-flex;align-items:center;gap:2px}
+.lang button{min-width:40px;min-height:40px;font-weight:700;font-size:.78rem}
+.lang button[aria-pressed=true]{background:var(--pink);color:var(--ink);border-radius:50%}
+.hero{background:var(--pink);display:grid;gap:30px;align-items:center;padding-top:clamp(36px,7vw,90px);padding-bottom:clamp(36px,7vw,90px);overflow:hidden}
+h1{font:800 clamp(2.5rem,8.4vw,7.4rem)/.9 var(--d);letter-spacing:-.04em;margin:14px 0 22px;text-transform:uppercase}
+.hero p{max-width:46ch;font-weight:700}
+.hero .s{font-weight:400}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--cream);font:700 1.05rem var(--d);padding:16px 28px;border-radius:999px;text-decoration:none;border:3px solid var(--ink);transition:transform .2s,background .2s,color .2s}
+.btn:hover{background:var(--cream);color:var(--ink);transform:rotate(-2deg) scale(1.04)}
+.deck{position:relative;width:min(100%,430px);aspect-ratio:1;justify-self:center}
+.sleeve{position:absolute;inset:0 22% 0 0;background:var(--cream);border:3px solid var(--ink);padding:18px;display:flex;flex-direction:column;justify-content:space-between;z-index:2;font-size:.74rem;text-transform:uppercase}
+.sleeve b{font:800 clamp(1.05rem,2.3vw,1.6rem)/.95 var(--d);letter-spacing:-.03em;overflow-wrap:anywhere}
+.vinyl{position:absolute;top:4%;right:0;width:74%;aspect-ratio:1;border-radius:50%;background:repeating-radial-gradient(circle,#001824 0 3px,#07283a 3px 4px);display:grid;place-items:center;animation:spin 9s linear infinite}
+.vinyl::after{content:"RJ";width:36%;aspect-ratio:1;border-radius:50%;background:var(--sky);border:3px solid var(--cream);display:grid;place-items:center;font:800 1.3rem var(--d);color:var(--ink)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tl{background:var(--ink);color:var(--cream);padding-top:38px;padding-bottom:38px}
+.tl ol{list-style:none;margin:14px 0 0;padding:0;columns:2 300px;column-gap:50px}
+.tl a{display:flex;align-items:baseline;gap:10px;padding:10px 0;text-decoration:none;break-inside:avoid;border-bottom:1px dashed rgba(253,240,213,.3)}
+.tl a b{color:var(--pink);min-width:2.2em}.tl a i{flex:1;font-style:normal;font:700 1.15rem var(--d)}
+.tl a:hover i{color:var(--pink)}
+.k{font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut)}
+.dk .k,.tl .k{color:#b9cdd8}
+section{padding-top:clamp(46px,7vw,90px);padding-bottom:clamp(20px,3vw,40px);scroll-margin-top:8px}
+h2{overflow-wrap:anywhere;font:800 clamp(1.7rem,5.6vw,4.6rem)/.95 var(--d);letter-spacing:-.04em;text-transform:uppercase;margin:6px 0 28px}
+h2 span{color:var(--pink);-webkit-text-stroke:2px var(--ink);margin-right:.25em}
+h3{font:700 1.3rem/1.1 var(--d);margin:0;letter-spacing:-.02em}
+p{margin:0 0 1em}
+.wave{display:block;width:100%;height:46px;margin-top:40px}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:22px}
+.rc{border:3px solid var(--ink);background:#fff8e6;display:flex;flex-direction:column}
+.rc .cv{aspect-ratio:16/10;padding:16px;display:flex;flex-direction:column;justify-content:space-between;background:var(--sky);border-bottom:3px solid var(--ink);transition:background .25s}
+.rc:nth-child(3n+2) .cv{background:var(--pink)}.rc:nth-child(3n) .cv{background:var(--ink);color:var(--cream)}
+.rc:nth-child(3n) .cv .k{color:#b9cdd8}.rc .cv .k{color:var(--ink)}
+.rc .cv h3{font-size:clamp(1.25rem,2vw,1.6rem);text-transform:uppercase;overflow-wrap:anywhere}
+.rc .bd{padding:14px 16px 16px;font-size:.9rem}
+details summary{cursor:pointer;font-weight:700;padding:10px 0;list-style:none;min-height:40px}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▶  "}details[open] summary::before{content:"■  "}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:26px clamp(30px,6vw,80px)}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:grid;grid-template-columns:minmax(0,170px) 1fr;gap:4px 22px;padding:14px 0;border-top:2px solid var(--ink)}
+.rows small{display:block;font-size:.86rem;color:var(--mut)}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:22px;margin:30px 0 0}
+.nums b{display:block;font:800 clamp(1.6rem,2.6vw,2.2rem)/1 var(--d);letter-spacing:-.03em}
+.nums span{font-size:.78rem;display:block;margin-top:4px;line-height:1.4}
+.portrait{width:92px;height:92px;border-radius:50%;border:3px solid var(--ink);background:var(--sky);display:grid;place-items:center;font:800 1.4rem var(--d);position:relative;overflow:hidden;margin-bottom:18px}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dk{background:var(--ink);color:var(--cream)}
+.dk .rows li{border-color:rgba(253,240,213,.35)}.dk .rows small{color:#b9cdd8}
+.bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px}
+.bk>div{border:3px solid var(--cream);padding:18px;border-radius:14px}
+.bk>div:nth-child(1){background:var(--pink);color:var(--ink);border-color:var(--pink)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}.tags span{border:2px solid currentColor;border-radius:999px;padding:1px 10px;font-size:.8rem}
+.crate{display:flex;padding:26px 10px 30px 4px;overflow-x:auto;border-bottom:8px solid var(--ink)}
+.lp{flex:0 0 190px;aspect-ratio:1;border:3px solid var(--ink);background:var(--sky);padding:14px;margin-right:-34px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(var(--r));transition:transform .25s cubic-bezier(.2,1.5,.4,1);position:relative;font-size:.76rem;box-shadow:-6px 4px 0 rgba(0,48,73,.18)}
+.lp:nth-child(3n+2){background:var(--pink)}.lp:nth-child(3n){background:#f1d9a7}
+.lp:hover,.lp:focus-within{transform:translateY(-22px) rotate(0);z-index:5}
+.lp b{font:800 1.15rem/1 var(--d);overflow-wrap:anywhere;padding-right:30px}
+.end{background:var(--pink);text-align:center;padding-bottom:clamp(46px,7vw,90px)}
+.end h2{font-size:clamp(2.2rem,9vw,7rem)}
+.end p{max-width:56ch;margin:0 auto 1em;font-weight:700}
+footer{background:var(--deep);color:var(--cream);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;padding-top:20px;padding-bottom:26px;font-size:.78rem;text-transform:uppercase}
+footer a{margin-right:16px;display:inline-block;padding:10px 0}
+.rv{opacity:0;transform:translateY(30px) rotate(-1.5deg);transition:opacity .4s,transform .55s cubic-bezier(.2,1.3,.4,1)}
+.rv.in{opacity:1;transform:none}
+@media(min-width:900px){.hero{grid-template-columns:1.25fr 1fr}}
+@media(max-width:560px){.rows li{grid-template-columns:1fr}.lp{flex-basis:160px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/*CORE*/
+
+/* ---------- Site G · Record ---------- */
+function wave(seed, color) {
+  let h = hash(seed), bars = "";
+  for (let i = 0; i < 120; i++) { h = (Math.imul(h, 1103515245) + 12345) >>> 0; const v = 4 + (h >>> 16) % 38 * (0.45 + 0.55 * Math.abs(Math.sin(i / 9))); bars += `<rect x="${i * 5}" y="${(46 - v) / 2}" width="3" height="${v.toFixed(1)}"/>`; }
+  return `<svg class="wave" viewBox="0 0 600 46" preserveAspectRatio="none" fill="${color}" aria-hidden="true">${bars}</svg>`;
+}
+function render(t) {
+  const g = t.g;
+  const tracks = [["A1", "work", g.releases], ["A2", "about", t.h.about], ["A3", "offers", g.bookings], ["A4", "experience", g.disco], ["B1", "skills", g.credits], ["B2", "lab", g.bsides], ["B3", "books", g.crate], ["B4", "writing", g.liner]];
+  const hd = (i, extra = "") => `<div class="k">${tracks[i][0].startsWith("A") ? g.sideA : g.sideB} ${extra}</div><h2 class="rv"><span>${tracks[i][0]}</span>${tracks[i][2]}</h2>`;
+  $("#app").innerHTML = `
+<a class="skip" href="#main">${t.skip}</a>
+<header class="bar pad"><a href="#top">${t.name}</a><span><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>${g.playing}: ${t.status}</span>${langToggle()}</header>
+<main id="main">
+  <div class="hero pad" id="top">
+    <div><div class="k" style="color:var(--ink)">${t.role} · ${t.remote}</div>
+      <h1>${t.name}</h1>
+      <p>${t.pitch}</p><p class="s">${t.sub}</p>
+      <a class="btn" href="${mailto()}">${t.cta} →</a></div>
+    <div class="deck" aria-hidden="true"><div class="vinyl"></div>
+      <div class="sleeve"><span>RJ-000 · 2026</span><b>${t.role}</b><span style="display:flex;justify-content:space-between;align-items:flex-end">${t.location}${pixelCat(4)}</span></div></div>
+  </div>
+
+  <nav class="tl pad" aria-label="${g.tracklist}"><div class="k">${g.tracklist}</div>
+    <ol>${tracks.map(([n, id, l]) => `<li><a href="#${id}"><b>${n}</b><i>${l}</i></a></li>`).join("")}</ol>
+  </nav>
+
+  <section id="work" class="pad">${hd(0)}
+    <div class="rel">${t.cases.map((c, i) => `<article class="rc"><div class="cv"><span class="k">${g.cat} RJ-00${i + 1} · ${c.org}</span><h3>${c.name}</h3></div>
+      <div class="bd"><b>${c.impact}</b><br><span class="k">${c.role} · ${c.when}</span>
+        <details><summary>${g.notes}</summary><p>${caseBody(c)}</p><div class="tags">${c.tags.map(x => `<span>${x}</span>`).join("")}</div>${c.url ? `<p style="margin:10px 0 0"><a href="${c.url}" ${ext}>${t.repo} ↗</a></p>` : ""}</details></div></article>`).join("")}</div>
+    ${wave("a1", "#669bbc")}
+  </section>
+
+  <section id="about" class="pad">${hd(1)}
+    <div class="two"><div>${portrait()}${t.about.map(p => `<p>${p}</p>`).join("")}${offClock()}</div>
+      <div><div class="k">${t.h.finance}</div><ul class="rows" style="margin-top:10px">${t.finance.map(f => `<li style="grid-template-columns:90px 1fr"><b>${f.k}</b><span>${f.v}</span></li>`).join("")}</ul></div></div>
+    <div class="nums">${t.stats.map(s => `<div><b>${s.n}</b><span>${s.l}</span></div>`).join("")}</div>
+  </section>
+
+  <section id="offers" class="pad dk" style="padding-bottom:clamp(46px,7vw,90px);margin-top:40px">${hd(2)}
+    <div class="bk">${t.services.map(s => `<div><span class="k" style="color:inherit">${s.code} · ${s.sub}</span><h3 style="margin:8px 0 10px;font-size:1.7rem">${s.name}</h3><p style="margin:0">${svcBody(s)}</p></div>`).join("")}</div>
+    <p style="max-width:66ch;margin:26px 0 20px">${t.freelance}</p>
+    <a class="btn" style="background:var(--pink);color:var(--ink);border-color:var(--pink)" href="${mailto()}">${t.ctaAlt} →</a>
+  </section>
+
+  <section id="experience" class="pad">${hd(3)}
+    <ul class="rows">${t.timeline.map(e => `<li><span class="k">${e.when}</span><div><h3>${e.role}</h3><small>${e.org}${e.note ? " · " + e.note : ""}</small></div></li>`).join("")}</ul>
+    ${wave("a4", "#e56b9a")}
+  </section>
+
+  <section id="skills" class="pad">${hd(4)}
+    <ul class="rows">${t.skills.map(s => `<li><h3>${s.name}</h3><span class="tags">${s.items.map(x => `<span>${x}</span>`).join("")}</span></li>`).join("")}</ul>
+  </section>
+
+  <section id="lab" class="pad">${hd(5)}<p>${t.labIntro}</p>
+    <ul class="rows">${t.lab.map(l => `<li><h3>${labName(l)}</h3><span>${l.why}</span></li>`).join("")}</ul>
+  </section>
+
+  <section id="books" class="pad">${hd(6)}<p>${t.booksIntro}</p>
+    <div class="crate" tabindex="0" role="group" aria-label="${g.crate}">${content.books.map((b, i) => `<div class="lp" style="--r:${[-3, 2, -1, 3, -2, 1][i % 6]}deg"><b>${b.url ? `<a href="${b.url}" ${ext}>${esc(b.title)}</a>` : esc(b.title)}</b><span style="padding-right:30px">${esc(b.note[lang] || "")}</span><span class="k" style="color:var(--ink)">${esc(b.author)}</span></div>`).join("")}</div>
+    <p class="k" style="margin-top:14px">${t.booksNote}</p>
+  </section>
+
+  <section id="writing" class="pad" style="padding-bottom:clamp(46px,7vw,90px)">${hd(7)}<p>${t.writingIntro}</p>
+    <ul class="rows">${content.writing.map(w => `<li><span class="k">${fmtDate(w.date)}${w.url ? "" : " · " + t.soon}</span><h3>${w.url ? `<a href="${w.url}" ${ext}>${esc(w.title[lang])}</a>` : esc(w.title[lang])}</h3></li>`).join("")}</ul>
+  </section>
+
+  <section id="contact" class="end pad"><div class="k" style="color:var(--ink)">${t.h.contact}</div><h2 class="rv">${t.ctaAlt}.</h2>
+    <p>${t.contactTitle}</p><p style="font-weight:400">${t.contactBody}</p>
+    <a class="btn" href="${mailto()}">${t.cta} →</a>
+  </section>
+</main>
+<footer class="pad"><span>${t.footer.rights}</span><span>${footerLinks()}</span></footer>`;
+}
+apply();
+</script>
+</body>
+</html>

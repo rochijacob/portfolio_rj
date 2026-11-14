@@ -13,7 +13,7 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 
 ## Estado
 
-Hay cuatro direcciones de diseño completas con el mismo contenido. Rocío todavía no eligió una. Cuando elija, esa pasa a ser `index.html` (hoy `index.html` es una página para comparar las cuatro).
+Hay siete direcciones de diseño completas (cuatro iniciales y tres agregadas) con el mismo contenido. Rocío todavía no eligió una. Cuando elija, esa pasa a ser `index.html` (hoy `index.html` es una página para comparar todas).
 
 | Archivo | Dirección | Inclinación |
 |---|---|---|
@@ -21,6 +21,16 @@ Hay cuatro direcciones de diseño completas con el mismo contenido. Rocío todav
 | `site-B-dock.html` | Azul marino, dock flotante, juego en canvas, modo claro/oscuro | Freelance / ingeniería |
 | `site-C-poster.html` | Celeste pleno, tipografía gigante, stickers arrastrables, casos que se expanden | Freelance / liderazgo |
 | `site-D-ledger.html` | Perfil de inversión: ticker `ROCI`, gráfico de carrera, tenencias | VC |
+
+Tres direcciones adicionales, agregadas después cuando Rocío pidió variantes estéticamente más distintas:
+
+| Archivo | Dirección | Idea |
+|---|---|---|
+| `site-E-arcade.html` | 8 bits: tipografía pixel, HUD, niveles, inventario, cartuchos, gato que camina | Su gusto por lo 8 bits; avatar pixel de mihircodes |
+| `site-F-gallery.html` | Museo: serif itálica, obras enmarcadas con arte generativo, índice de salas, libros como hoja de contactos fotográfica | Arte y fotografía; limpieza de sakthi, tarjetas enmarcadas de eduardbodak |
+| `site-G-record.html` | Disco: hero rosa, vinilo girando, tracklist como navegación, libros en batea | Música electrónica; póster de lucchaissac |
+
+En E, F y G los nombres de sección son metáforas (niveles, obras, lanzamientos) y viven en `content.*.e`, `.f` y `.g`.
 
 No está desplegado. La rama de trabajo es `claude/bold-feynman-x0n91n`; no hay PR abierto.
 
@@ -48,7 +58,7 @@ node src/build.mjs
 node scripts/check.js
 ```
 
-`check.js` abre cada sitio en 390, 768 y 1440 px, en EN y ES (24 combinaciones). Reporta scroll horizontal, errores de consola, links externos sin `rel="noopener"`, textos sueltos en el otro idioma (por palabras clave) y objetivos táctiles chicos. Guarda capturas en la carpeta temporal del sistema, o en `$SHOTS`. Necesita Playwright con Chromium disponible.
+`check.js` abre cada sitio en 390, 768 y 1440 px, en EN y ES (42 combinaciones con las siete direcciones). Reporta scroll horizontal, errores de consola, links externos sin `rel="noopener"`, textos sueltos en el otro idioma (por palabras clave) y objetivos táctiles chicos. Guarda capturas en la carpeta temporal del sistema, o en `$SHOTS`. Necesita Playwright con Chromium disponible.
 
 ### Cómo funciona cada sitio
 

@@ -1,6 +1,6 @@
 # Rocío Jacob · portfolio
 
-Cuatro direcciones de diseño para el mismo contenido. Cada archivo es autocontenido (HTML + CSS + JS, sin build).
+Siete direcciones de diseño para el mismo contenido. Cada archivo es autocontenido (HTML + CSS + JS, sin build).
 
 | Archivo | Dirección |
 |---|---|
@@ -8,8 +8,11 @@ Cuatro direcciones de diseño para el mismo contenido. Cada archivo es autoconte
 | `site-B-dock.html` | Dark, dock flotante, juego en canvas |
 | `site-C-poster.html` | Celeste pleno, tipografía gigante |
 | `site-D-ledger.html` | Perfil de inversión, ticker `ROCI` |
+| `site-E-arcade.html` | 8 bits: niveles, inventario, gato que camina |
+| `site-F-gallery.html` | Museo: obras enmarcadas, hoja de contactos |
+| `site-G-record.html` | Disco: vinilo, tracklist, batea de libros |
 
-`index.html` es una página para comparar las cuatro.
+`index.html` es una página para comparar todas.
 
 ## Editar contenido
 
@@ -19,7 +22,7 @@ Todo el texto (EN/ES), libros y artículos viven en `src/core.js`, en el objeto 
 node src/build.mjs
 ```
 
-Eso regenera los cuatro HTML. Para verificar: `node scripts/check.js`.
+Eso regenera los HTML. Para verificar: `node scripts/check.js`.
 
 El contexto completo del proyecto, las decisiones y los pendientes están en `docs/HANDOFF.md`. Los ítems marcados `// REPLACE` y los `[CORCHETES]` son datos pendientes.
 
