@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rocío Jacob · Product Engineer</title>
+<meta name="description" content="">
+<meta name="theme-color" content="#fdf0d5">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rocío Jacob · Product Engineer">
+<meta property="og:description" content="I build products, automation and analytics so organizations decide better and do less manual work.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23003049'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fdf0d5'%3ERJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..600&family=Geist:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Design rules for this direction: one accent, hairlines instead of boxes, a fixed
+   label column, type does the work. If something needs a border to be understood, cut it. */
+:root{--bg:#fdf0d5;--ink:#003049;--soft:#4a6676;--hair:rgba(0,48,73,.16);--blue:#1b5e85;--sky:#669bbc;
+  --dis:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;--txt:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--txt);font-feature-settings:"tnum";-webkit-font-smoothing:antialiased}
+::selection{background:var(--sky);color:var(--ink)}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em;text-decoration-color:var(--hair);transition:text-decoration-color .2s,color .2s}
+a:hover{text-decoration-color:currentColor;color:var(--blue)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:2px}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:99}
+.w{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.s{font-size:.875rem;color:var(--soft)}
+header{position:sticky;top:0;z-index:20;background:var(--bg)}
+.hd{display:flex;align-items:center;gap:8px 28px;min-height:64px}
+.hd .me{font:500 1.0625rem var(--dis);text-decoration:none;margin-right:auto;padding:10px 0}
+.hd nav{display:flex;gap:26px}.hd nav a{text-decoration:none;font-size:.9375rem;padding:10px 0}
+.lang{display:inline-flex;align-items:center;gap:0;color:var(--soft);font-size:.875rem}
+.lang button{min-width:36px;min-height:40px;color:var(--soft)}
+.lang button[aria-pressed=true]{color:var(--ink);font-weight:500}
+.track{position:relative;height:1px;background:var(--hair)}
+.track span{position:absolute;bottom:0;left:0;line-height:0;will-change:transform}
+.hero{padding:clamp(72px,13vw,168px) 0 clamp(56px,8vw,104px)}
+h1{font:500 clamp(2.15rem,5.5vw,4.6rem)/1.04 var(--dis);letter-spacing:-.035em;margin:0;max-width:17ch;text-wrap:balance}
+h1 span{color:#5a8fb1}
+.hero .row{display:flex;flex-wrap:wrap;align-items:center;gap:18px 34px;margin-top:clamp(32px,5vw,56px)}
+.hero p{margin:0;max-width:44ch;color:var(--soft)}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);padding:15px 24px;border-radius:999px;text-decoration:none;font-weight:500;font-size:.9375rem;transition:background .2s}
+.btn:hover{background:var(--blue);color:var(--bg)}
+.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(56px,8vw,104px) 0;border-top:1px solid var(--hair);scroll-margin-top:66px}
+.sec>h2{grid-column:1/4;font:500 .875rem/1.6 var(--txt);margin:0 0 28px;color:var(--soft);position:sticky;top:90px;align-self:start}
+.sec>div{grid-column:4/13;min-width:0}
+h3{font:500 1.375rem/1.2 var(--dis);letter-spacing:-.02em;margin:0}
+p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
+.lead{font:400 clamp(1.3rem,2.2vw,1.75rem)/1.32 var(--dis);letter-spacing:-.02em;max-width:30ch;margin-bottom:1.2em}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--hair)}
+.nums div{padding:26px 20px 30px 0}
+.nums b{display:block;font:500 clamp(1.9rem,3.6vw,3rem)/1 var(--dis);letter-spacing:-.04em}
+.nums span{display:block;margin-top:10px;font-size:.875rem;color:var(--soft);line-height:1.45;max-width:24ch}
+ul.r{list-style:none;margin:0;padding:0}
+ul.r>li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:4px 24px;padding:16px 0;border-top:1px solid var(--hair)}
+ul.r>li:first-child{border-top:0;padding-top:0}
+details{border-top:1px solid var(--hair)}details:first-of-type{border-top:0}
+summary{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 20px;gap:4px 24px;align-items:baseline;padding:22px 0;cursor:pointer;list-style:none}
+details:first-of-type summary{padding-top:0}
+summary::-webkit-details-marker{display:none}
+summary h3{transition:color .2s}summary:hover h3{color:var(--blue)}
+summary .i{font-weight:500}
+summary .x{font:400 1.25rem/1 var(--dis);transition:transform .25s;justify-self:end}
+details[open] .x{transform:rotate(45deg)}
+.b{padding:0 0 26px;max-width:62ch}
+.tri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 28px;margin-bottom:44px}
+.tri h3{margin:10px 0 12px}.tri p{font-size:.9688rem}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 40px}
+.bk h3{font-size:1.1875rem}.bk p{margin:6px 0 0;font-size:.9375rem;color:var(--soft)}
+.portrait{display:block;width:88px;height:88px;border-radius:50%;background:rgba(102,155,188,.3);position:relative;overflow:hidden;margin-bottom:26px}
+.portrait span{position:absolute;inset:0;display:grid;place-items:center;font:500 1.125rem var(--dis)}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.off{color:var(--soft)}
+.end{padding:clamp(72px,12vw,160px) 0}
+.end .big{font:500 clamp(1.9rem,5.2vw,4.2rem)/1.06 var(--dis);letter-spacing:-.035em;margin:0 0 .5em;max-width:18ch;text-wrap:balance}
+.end a.m{font:500 clamp(1.2rem,2.6vw,1.9rem)/1.3 var(--dis);letter-spacing:-.02em;text-decoration-color:var(--sky);text-decoration-thickness:2px;overflow-wrap:anywhere}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding:22px 0 44px;border-top:1px solid var(--hair);font-size:.875rem;color:var(--soft)}
+footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-child{margin-left:0}
+.rv{opacity:0;transition:opacity .9s ease}.rv.in{opacity:1}
+@media(max-width:860px){
+  .sec{display:block}.sec>h2{position:static}
+  .hd nav{display:none}
+  .nums{grid-template-columns:repeat(2,minmax(0,1fr))}.nums div:nth-child(n+3){border-top:1px solid var(--hair)}
+  .tri,.two{grid-template-columns:1fr}
+  summary{grid-template-columns:minmax(0,1fr) 20px}summary .i{grid-column:1}
+  summary .x{grid-row:1;grid-column:2}
+  ul.r>li{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/*CORE*/
+
+/* ---------- Site H · Studio ---------- */
+const clock = () => new Date().toLocaleTimeString(lang === "es" ? "es-AR" : "en-GB", { timeZone: "America/Argentina/Buenos_Aires", hour: "2-digit", minute: "2-digit", hour12: false });
+function render(t) {
+  const m = t.pitch.match(/^(.*?)( so | para que )(.*)$/);
+  const h1 = m ? `${m[1]}<span>${m[2]}${m[3]}</span>` : t.pitch;
+  const sec = (id, title, body) => `<section class="sec" id="${id}"><h2>${title}</h2><div class="rv">${body}</div></section>`;
+  $("#app").innerHTML = `
+<a class="skip" href="#main">${t.skip}</a>
+<header><div class="w"><div class="hd">
+  <a class="me" href="#top">${t.name}</a>
+  <nav aria-label="Sections"><a href="#work">${t.nav.work}</a><a href="#offers">${t.nav.services}</a><a href="#about">${t.nav.about}</a><a href="#contact">${t.nav.contact}</a></nav>
+  ${langToggle()}
+</div><div class="track" aria-hidden="true"><span id="cat">${pixelCat(2)}</span></div></div></header>
+<main id="main" class="w">
+  <div class="hero" id="top">
+    <h1>${h1}</h1>
+    <div class="row"><a class="btn" href="${mailto()}">${t.cta}</a><p>${t.sub}</p></div>
+    <p class="s" style="margin-top:28px">Buenos Aires, <span id="clock">${clock()}</span></p>
+  </div>
+
+  <div class="nums">${t.stats.slice(0, 4).map(s => `<div><b>${s.n}</b><span>${s.l}</span></div>`).join("")}</div>
+  <div style="height:clamp(40px,6vw,72px)"></div>
+
+  ${sec("work", t.h.work, t.cases.map(c => `<details><summary><h3>${c.name}</h3><span class="s i">${c.impact}</span><span class="x" aria-hidden="true">+</span></summary>
+    <div class="b"><p class="s">${c.org} · ${c.role} · ${c.when}</p><p>${caseBody(c)}</p><p class="s">${c.tags.join(" · ")}${c.url ? ` · <a href="${c.url}" ${ext}>${t.repo}</a>` : ""}</p></div></details>`).join(""))}
+
+  ${sec("offers", t.h.services, `<div class="tri">${t.services.map((s, i) => `<div><span class="s">0${i + 1}</span><h3>${s.name}</h3><p>${svcBody(s)}</p></div>`).join("")}</div>
+    <p>${t.freelance}</p><a class="btn" href="${mailto()}">${t.ctaAlt}</a>`)}
+
+  ${sec("about", t.h.about, `${portrait()}<p class="lead">${t.about[0]}</p>${t.about.slice(1).map(p => `<p>${p}</p>`).join("")}${offClock()}
+    <ul class="r" style="margin-top:44px">${t.finance.map(f => `<li><span class="s">${f.k}</span><span>${f.v}</span></li>`).join("")}</ul>`)}
+
+  ${sec("experience", t.h.experience, `<ul class="r">${t.timeline.map(e => `<li><span class="s">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}${e.note ? ". " + e.note : ""}</span></span></li>`).join("")}</ul>`)}
+
+  ${sec("skills", t.h.skills, `<ul class="r">${t.skills.map(s => `<li><span class="s">${s.name}</span><span>${s.items.join(", ")}</span></li>`).join("")}</ul>`)}
+
+  ${sec("lab", t.h.lab, `<p>${t.labIntro}</p><ul class="r" style="margin-top:28px">${t.lab.map(l => `<li><span style="font-weight:500">${labName(l)}</span><span class="s">${l.why}</span></li>`).join("")}</ul>`)}
+
+  ${sec("books", t.h.books, `<p>${t.booksIntro}</p><div class="two bk" style="margin-top:32px">${content.books.map(b => `<div><h3>${b.url ? `<a href="${b.url}" ${ext}>${esc(b.title)}</a>` : esc(b.title)}</h3><p>${esc(b.author)}. ${esc(b.note[lang] || "")}</p></div>`).join("")}</div>
+    <p class="s" style="margin-top:28px">${t.booksNote}</p>`)}
+
+  ${sec("writing", t.h.writing, `<p>${t.writingIntro}</p><ul class="r" style="margin-top:28px">${content.writing.map(w => `<li><span class="s">${fmtDate(w.date)}${w.url ? "" : " · " + t.soon}</span><span style="font-weight:500">${w.url ? `<a href="${w.url}" ${ext}>${esc(w.title[lang])}</a>` : esc(w.title[lang])}</span></li>`).join("")}</ul>`)}
+
+  <section class="end" id="contact" style="border-top:1px solid var(--hair)">
+    <p class="big">${t.contactTitle}</p>
+    <p class="s" style="margin-bottom:26px">${t.contactBody}</p>
+    <a class="m" href="${mailto()}">${L.email}</a>
+  </section>
+  <footer><span>${t.footer.rights}</span><span>${footerLinks()}</span></footer>
+</main>`;
+  walk();
+}
+/* The only flourish: a small pixel cat walks the header rule as you scroll. */
+function walk() {
+  const c = $("#cat"); if (!c) return;
+  const max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? Math.min(1, scrollY / max) : 0;
+  c.style.transform = `translateX(${(p * (c.parentNode.offsetWidth - 28)).toFixed(1)}px)`;
+}
+addEventListener("scroll", () => requestAnimationFrame(walk), { passive: true });
+addEventListener("resize", walk);
+setInterval(() => { const c = $("#clock"); if (c) c.textContent = clock(); }, 30000);
+apply();
+</script>
+</body>
+</html>

@@ -13,7 +13,7 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 
 ## Estado
 
-Hay siete direcciones de diseño completas (cuatro iniciales y tres agregadas) con el mismo contenido. Rocío todavía no eligió una. Cuando elija, esa pasa a ser `index.html` (hoy `index.html` es una página para comparar todas).
+Hay ocho direcciones de diseño completas (cuatro iniciales, tres temáticas y una sobria, H, que es la que mejor responde al último pedido) con el mismo contenido. Rocío todavía no eligió una. Cuando elija, esa pasa a ser `index.html` (hoy `index.html` es una página para comparar todas).
 
 | Archivo | Dirección | Inclinación |
 |---|---|---|
@@ -29,6 +29,18 @@ Tres direcciones adicionales, agregadas después cuando Rocío pidió variantes 
 | `site-E-arcade.html` | 8 bits: tipografía pixel, HUD, niveles, inventario, cartuchos, gato que camina | Su gusto por lo 8 bits; avatar pixel de mihircodes |
 | `site-F-gallery.html` | Museo: serif itálica, obras enmarcadas con arte generativo, índice de salas, libros como hoja de contactos fotográfica | Arte y fotografía; limpieza de sakthi, tarjetas enmarcadas de eduardbodak |
 | `site-G-record.html` | Disco: hero rosa, vinilo girando, tracklist como navegación, libros en batea | Música electrónica; póster de lucchaissac |
+
+**Dirección H, la de referencia actual** (`site-H-studio.html`). Rocío dijo el 2026-11-14 que las anteriores se veían "hechas por una IA sin criterio de diseño" y pidió algo sobrio, creativo, fresco y limpio. H responde a eso y sus reglas valen para cualquier trabajo de diseño futuro:
+
+- Un solo acento de color (celeste) sobre crema y azul. El rosa aparece solo en el gato.
+- Líneas finas en vez de cajas. Sin tarjetas, sombras, bordes gruesos ni píldoras decorativas.
+- Columna fija de etiquetas a la izquierda y contenido a la derecha, en una grilla de 12.
+- La tipografía hace el trabajo (Bricolage Grotesque para títulos, Geist para texto).
+- Un único detalle lúdico: el gato pixel camina sobre la línea del encabezado según el scroll.
+- Sin metáforas en los nombres de sección, sin etiquetas numeradas decorativas, movimiento mínimo.
+- Contenido editado: los casos se abren al hacer clic; se muestran 4 números, no 8.
+
+Antes de agregar algo a H, preguntarse si se entiende sin eso. Si la respuesta es sí, no va.
 
 En E, F y G los nombres de sección son metáforas (niveles, obras, lanzamientos) y viven en `content.*.e`, `.f` y `.g`.
 
@@ -58,7 +70,7 @@ node src/build.mjs
 node scripts/check.js
 ```
 
-`check.js` abre cada sitio en 390, 768 y 1440 px, en EN y ES (42 combinaciones con las siete direcciones). Reporta scroll horizontal, errores de consola, links externos sin `rel="noopener"`, textos sueltos en el otro idioma (por palabras clave) y objetivos táctiles chicos. Guarda capturas en la carpeta temporal del sistema, o en `$SHOTS`. Necesita Playwright con Chromium disponible.
+`check.js` abre cada sitio en 390, 768 y 1440 px, en EN y ES (48 combinaciones con las ocho direcciones). Reporta scroll horizontal, errores de consola, links externos sin `rel="noopener"`, textos sueltos en el otro idioma (por palabras clave) y objetivos táctiles chicos. Guarda capturas en la carpeta temporal del sistema, o en `$SHOTS`. Necesita Playwright con Chromium disponible.
 
 ### Cómo funciona cada sitio
 

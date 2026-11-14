@@ -1,6 +1,6 @@
 # Rocío Jacob · portfolio
 
-Siete direcciones de diseño para el mismo contenido. Cada archivo es autocontenido (HTML + CSS + JS, sin build).
+Ocho direcciones de diseño para el mismo contenido. Cada archivo es autocontenido (HTML + CSS + JS, sin build).
 
 | Archivo | Dirección |
 |---|---|
@@ -11,6 +11,7 @@ Siete direcciones de diseño para el mismo contenido. Cada archivo es autoconten
 | `site-E-arcade.html` | 8 bits: niveles, inventario, gato que camina |
 | `site-F-gallery.html` | Museo: obras enmarcadas, hoja de contactos |
 | `site-G-record.html` | Disco: vinilo, tracklist, batea de libros |
+| `site-H-studio.html` | Sobria y limpia: líneas finas, tipografía, un solo detalle |
 
 `index.html` es una página para comparar todas.
 
