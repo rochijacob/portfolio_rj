@@ -151,8 +151,8 @@ function render(t) {
     <div class="note"><p>“${d.manifesto}”</p><div class="sig"><span>— Rocio</span><span class="mono">${d.scroll} ↓</span></div></div>
     <div class="intro">
       <div class="mono">${t.name} · ${t.role} · ${t.remote}</div>
-      <h1>${t.oneLiner}</h1>
-      <p>${t.about[1]}</p>
+      <h1>${t.pitch}</h1>
+      <p>${t.sub}</p>
       <p class="talk">${d.talk}</p>
       <a class="btn" href="${mailto()}">${t.cta} →</a>
     </div>
@@ -188,7 +188,7 @@ function render(t) {
 
   <section class="panel rv" id="positions"><div class="ph"><h2>${d.positionsTitle}</h2><span class="mono">${d.positionsSub}</span></div>
     <table><thead><tr><th>${d.cols.position}</th><th>${d.cols.entry}</th><th>${d.cols.impact}</th></tr></thead>
-    <tbody>${t.cases.map(c => `<tr><td data-l="${d.cols.position}"><div><b>${c.url ? `<a href="${c.url}" ${ext}>${c.name}</a>` : c.name}</b> <span class="mono">${c.org} · ${c.role}</span><small>${c.body}</small></div></td><td data-l="${d.cols.entry}"><span class="mono" style="white-space:nowrap">${c.when}</span></td><td data-l="${d.cols.impact}"><span class="up">▲ ${c.impact}</span></td></tr>`).join("")}</tbody></table>
+    <tbody>${t.cases.map(c => `<tr><td data-l="${d.cols.position}"><div><b>${c.url ? `<a href="${c.url}" ${ext}>${c.name}</a>` : c.name}</b> <span class="mono">${c.org} · ${c.role}</span><small>${caseBody(c)}</small></div></td><td data-l="${d.cols.entry}"><span class="mono" style="white-space:nowrap">${c.when}</span></td><td data-l="${d.cols.impact}"><span class="up">▲ ${c.impact}</span></td></tr>`).join("")}</tbody></table>
   </section>
 
   <div class="two">
@@ -197,7 +197,7 @@ function render(t) {
     </section>
     <div>
       <section class="panel rv" id="about"><div class="ph"><h2>${t.h.about}</h2>${portrait()}</div>
-        <p>${t.about[0]}</p><p>${t.about[2]}</p>
+        <p>${t.about[0]}</p><p>${t.about[1]}</p><p>${t.about[2]}</p>
         <ul class="kv">${t.finance.map(f => `<li><span class="mono">${f.k}</span><span>${f.v}</span></li>`).join("")}</ul>
       </section>
       <section class="panel rv" id="skills"><div class="ph"><h2>${t.h.skills}</h2></div>
@@ -211,6 +211,16 @@ function render(t) {
     <table><thead><tr><th>${d.cols.ticker}</th><th>${d.cols.title}</th><th>${d.cols.conviction}</th><th>${d.cols.thesis}</th></tr></thead>
     <tbody>${content.books.map((b, i) => `<tr><td data-l="${d.cols.ticker}"><span class="t">${bookTk(b, i)}</span></td><td data-l="${d.cols.title}"><div><b>${b.url ? `<a href="${b.url}" ${ext}>${esc(b.title)}</a>` : esc(b.title)}</b><small>${esc(b.author)}</small></div></td><td data-l="${d.cols.conviction}"><span><span class="cv ${b.conviction}">${d.conviction[b.conviction] || ""}</span></span></td><td data-l="${d.cols.thesis}">${esc(b.note[lang] || "")}</td></tr>`).join("")}</tbody></table>
   </section>
+
+  <div class="two">
+    <section class="panel rv" id="offers"><div class="ph"><h2>${t.h.services}</h2></div>
+      <ul class="kv">${t.services.map(s => `<li><span class="mono">${s.sub}</span><span><b>${s.name}</b><small style="display:block;color:var(--mut)">${svcBody(s)}</small></span></li>`).join("")}</ul>
+    </section>
+    <section class="panel rv" id="lab"><div class="ph"><h2>${t.h.lab}</h2></div>
+      <p>${t.labIntro}</p>
+      <ul class="kv">${t.lab.map(l => `<li style="grid-template-columns:1fr;gap:0"><b>${labName(l)}</b><span style="color:var(--mut)">${l.why}</span></li>`).join("")}</ul>
+    </section>
+  </div>
 
   <section class="panel rv" id="writing"><div class="ph"><h2>${t.h.writing}</h2><span class="mono">${t.writingIntro}</span></div>
     <ul class="kv">${content.writing.map(w => `<li><span class="mono">${fmtDate(w.date)}</span>${w.url ? `<a href="${w.url}" ${ext}>${esc(w.title[lang])}</a>` : `<span>${esc(w.title[lang])} <span class="mono">· ${t.soon}</span></span>`}</li>`).join("")}</ul>

@@ -119,6 +119,7 @@ function render(t) {
   <section class="hero">
     <div class="mono">${t.a.kicker} · ${t.location}</div>
     <p>${t.a.hero}</p>
+    <div class="mono" style="margin:-10px 0 24px">${t.sub}</div>
     <a class="pill" href="${mailto()}">${t.cta} →</a>
   </section>
 
@@ -145,7 +146,9 @@ function render(t) {
     <div class="mono">04</div><h2>${t.h.work}</h2>
     <div class="stats">${t.stats.slice(0, 4).map(s => `<div><b>${s.n}</b><span>${s.l}</span></div>`).join("")}</div>
     ${t.cases.map(c => `<article class="case"><h3>${c.url ? `<a href="${c.url}" ${ext}>${c.name}</a>` : c.name}</h3>
-      <div class="meta mono"><span>${c.org}</span><span>${c.role}</span><span>${c.when}</span><span class="imp">${c.impact}</span></div><p>${c.body}</p></article>`).join("")}
+      <div class="meta mono"><span>${c.org}</span><span>${c.role}</span><span>${c.when}</span><span class="imp">${c.impact}</span></div><p>${caseBody(c)}</p></article>`).join("")}
+    <h3 id="lab" style="margin-top:34px">${t.h.lab}</h3><p>${t.labIntro}</p>
+    <ul class="list fin">${t.lab.map(l => `<li style="grid-template-columns:1fr;gap:0"><b>${labName(l)}</b><span>${l.why}</span></li>`).join("")}</ul>
   </section>
 
   <section id="experience" class="rv">
@@ -160,7 +163,9 @@ function render(t) {
 
   <section id="contact" class="contact rv">
     <div class="mono">07 · ${t.h.contact}</div><h2>${t.contactTitle}</h2>
-    <p>${t.freelance}</p><p>${t.contactBody}</p>
+    <p>${t.freelance}</p>
+    ${t.services.map(s => `<article class="case"><h3>${s.name}</h3><div class="meta mono"><span>${s.sub}</span></div><p>${svcBody(s)}</p></article>`).join("")}
+    <p style="margin-top:20px">${t.contactBody}</p>
     <a class="pill" href="${mailto()}">${t.cta} →</a>
   </section>
 </main>

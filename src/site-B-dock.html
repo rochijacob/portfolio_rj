@@ -114,7 +114,8 @@ function render(t) {
     <span class="status"><span class="dot" aria-hidden="true"></span>${t.status}</span>
     <div class="who">${portrait()}<div><h3>${t.name}</h3><span class="mut">${t.remote}</span></div></div>
     <h1>Product <em>Engineer</em></h1>
-    <p class="lead">${t.b.lead}</p>
+    <p class="lead">${t.pitch}</p>
+    <p class="mut">${t.sub}</p>
     <div class="btns"><a class="btn p" href="${mailto()}">${t.cta} →</a><a class="btn" href="${L.github}" ${ext}>GitHub ↗</a><a class="btn" href="${L.linkedin}" ${ext}>LinkedIn ↗</a></div>
     <div class="stats">${t.stats.slice(0, 6).map(s => `<div><b>${s.n}</b><span>${s.l}</span></div>`).join("")}</div>
   </section>
@@ -133,7 +134,7 @@ function render(t) {
   </section>
 
   <section id="work" class="rv"><h2><small>04</small>${t.h.work}</h2>
-    ${t.cases.map((c, i) => `<article class="row"><span class="n">${String(i + 1).padStart(2, "0")}</span><div><h3>${c.name}</h3><span class="w">${c.org} · ${c.role} · ${c.when}</span><span class="imp">▲ ${c.impact}</span><p>${c.body}</p><span class="chips">${c.tags.map(x => `<span class="chip">${x}</span>`).join("")}${c.url ? `<a class="chip" style="padding:7px 10px" href="${c.url}" ${ext}>${t.repo} ↗</a>` : ""}</span></div></article>`).join("")}
+    ${t.cases.map((c, i) => `<article class="row"><span class="n">${String(i + 1).padStart(2, "0")}</span><div><h3>${c.name}</h3><span class="w">${c.org} · ${c.role} · ${c.when}</span><span class="imp">▲ ${c.impact}</span><p>${caseBody(c)}</p><span class="chips">${c.tags.map(x => `<span class="chip">${x}</span>`).join("")}${c.url ? `<a class="chip" style="padding:7px 10px" href="${c.url}" ${ext}>${t.repo} ↗</a>` : ""}</span></div></article>`).join("")}
   </section>
 
   <section id="play" class="rv"><h2><small>05</small>${t.b.playTitle}</h2>
@@ -141,8 +142,8 @@ function render(t) {
     <div class="hud"><span>${t.b.playHint}</span><span>${t.b.playScore}: <b id="sc">0</b> · ${t.b.playBest}: <b id="bs">0</b></span></div>
     <canvas id="game" width="640" height="360" tabindex="0" role="button" aria-label="${esc(t.b.playTitle)}: ${esc(t.b.playHint)}"></canvas>
     <div class="btns"><a class="btn" href="${L.games}" ${ext}>${t.b.originals} ↗</a></div>
-    <h3 style="margin-top:34px">${t.h.lab}</h3>
-    ${t.lab.map(l => `<div class="row" style="grid-template-columns:1fr"><div><a href="${l.url}" ${ext}><b>~/${l.name}</b> ↗</a><p style="margin-bottom:0">${l.body}</p></div></div>`).join("")}
+    <h3 style="margin-top:34px">${t.h.lab}</h3><p class="mut">${t.labIntro}</p>
+    ${t.lab.map(l => `<div class="row" style="grid-template-columns:1fr"><div><b>${labName(l)}${l.url ? " ↗" : ""}</b><p style="margin-bottom:0"># ${l.why}</p></div></div>`).join("")}
   </section>
 
   <section id="books" class="rv"><h2><small>06</small>${t.h.books}</h2>
@@ -160,7 +161,9 @@ function render(t) {
 
   <section id="contact" class="contact rv">
     <h2>${t.h.contact}</h2>
-    <p>${t.freelance}</p><p class="mut">${t.contactBody}</p>
+    <p>${t.freelance}</p>
+    <div style="text-align:left">${t.services.map((s, i) => `<div class="row"><span class="n">${String(i + 1).padStart(2, "0")}</span><div><h3>${s.name}</h3><span class="w">${s.sub}</span><p style="margin-bottom:0">${svcBody(s)}</p></div></div>`).join("")}</div>
+    <p class="mut" style="margin-top:18px">${t.contactBody}</p>
     <div class="btns" style="justify-content:center"><a class="btn p" href="${mailto()}">${t.cta} →</a></div>
   </section>
 </main>
