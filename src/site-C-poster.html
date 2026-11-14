@@ -117,7 +117,7 @@ function render(t) {
     <h1>${words}</h1>
     <div><p class="big">${t.pitch}</p><p style="max-width:52ch;font-weight:600">${t.sub}</p>
       <div class="hrow"><a class="btn" href="${mailto()}">${t.cta} →</a><span class="code">${t.status}</span></div></div>
-    <div class="stick" id="stick" aria-hidden="true">${STICKERS.map(([n, l, tp, r]) => `<span class="st" style="left:${l}%;top:${tp}%;--r:${r}deg">${n}</span>`).join("")}<small>${t.c.stickersHint}</small></div>
+    <div class="stick" id="stick" aria-hidden="true">${STICKERS.map(([n, l, tp, r]) => `<span class="st" style="left:${l}%;top:${tp}%;--r:${r}deg">${n}</span>`).join("")}<span class="st" style="left:72%;top:5%;--r:5deg;padding:9px 11px;line-height:0;border-radius:12px;background:var(--w)">${pixelCat(4)}</span><small>${t.c.stickersHint}</small></div>
   </div>
 
   <section aria-label="${t.h.numbers}" class="rv"><div class="code">NO.00 — ${t.h.numbers}</div>
@@ -142,7 +142,7 @@ function render(t) {
 
   <section id="about"><div class="code">AB.00</div><h2 class="rv">${t.h.about}</h2>
     <p class="big" style="max-width:40ch">${t.about[0]}</p>
-    <div style="max-width:62ch">${t.about.slice(1).map(p => `<p>${p}</p>`).join("")}</div>
+    <div style="max-width:62ch">${t.about.slice(1).map(p => `<p>${p}</p>`).join("")}${offClock()}</div>
     <ul class="rows" style="margin-top:30px">${t.finance.map((f, i) => `<li><span class="code">FN.0${i + 1}</span><b>${f.k}</b><span>${f.v}</span></li>`).join("")}</ul>
   </section>
 

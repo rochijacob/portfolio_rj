@@ -136,7 +136,7 @@ function render(t) {
 
   <section id="books" class="rv">
     <div class="mono">02</div><h2>${t.h.books}</h2><p>${t.booksIntro}</p>
-    <div class="shelf">${content.books.map((b, i) => { const h = hash(b.title); return `<button type="button" class="spine" data-book="${i}" aria-pressed="${i === book}" aria-label="${esc(b.title)}, ${esc(b.author)}" style="height:${150 + h % 64}px;width:${38 + (h >>> 7) % 20}px;background:${SPINES[(h >>> 3) % SPINES.length]}"><span>${esc(b.title)}</span></button>`; }).join("")}</div>
+    <div class="shelf">${content.books.map((b, i) => { const h = hash(b.title); return `<button type="button" class="spine" data-book="${i}" aria-pressed="${i === book}" aria-label="${esc(b.title)}, ${esc(b.author)}" style="height:${150 + h % 64}px;width:${38 + (h >>> 7) % 20}px;background:${SPINES[(h >>> 3) % SPINES.length]}"><span>${esc(b.title)}</span></button>`; }).join("")}<span style="margin-left:auto;align-self:flex-end;line-height:0;padding-left:14px">${pixelCat(5)}</span></div>
     <div class="bookd" id="bookd" aria-live="polite">${bookDetail(t)}</div>
     <p class="mono">${t.booksNote}</p>
   </section>
@@ -144,6 +144,7 @@ function render(t) {
   <section id="about" class="rv">
     <div class="mono">03</div><h2>${t.h.about}</h2>
     ${t.about.map(p => `<p>${p}</p>`).join("")}
+    ${offClock()}
     <h3 id="finance" style="margin-top:28px">${t.h.finance}</h3>
     <ul class="list fin">${t.finance.map(f => `<li><span class="mono">${f.k}</span><span>${f.v}</span></li>`).join("")}</ul>
   </section>

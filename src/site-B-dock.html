@@ -128,6 +128,7 @@ function render(t) {
 
   <section id="about" class="rv"><h2><small>01</small>${t.h.about}</h2>
     ${t.about.map(p => `<p>${p}</p>`).join("")}
+    ${offClock()}
   </section>
 
   <section id="skills" class="rv"><h2><small>02</small>${t.h.skills}</h2>
@@ -210,7 +211,7 @@ function game() {
     x.clearRect(0, 0, W, H);
     x.fillStyle = line; for (let i = 0; i < W; i += 22) for (let j = 0; j < H; j += 22) x.fillRect(i, j, 1.5, 1.5);
     x.fillStyle = mut; pipes.forEach(p => { x.fillRect(p.x, 0, 46, p.g); x.fillRect(p.x, p.g + 120, 46, H); });
-    x.fillStyle = acc; x.fillRect(120, y - 11, 22, 22);
+    CAT.forEach((r, j) => [...r].forEach((ch, i) => { if (ch !== ".") { x.fillStyle = ch === "o" ? "#003049" : PINK; x.fillRect(113 + i * 2.5, y - 12 + j * 2.5, 2.6, 2.6); } }));
     x.fillStyle = ink; x.textAlign = "center";
     if (st !== "play") { x.font = '500 20px "JetBrains Mono",monospace'; x.fillText(st === "idle" ? T().b.playStart : T().b.playOver, W / 2, H / 2 - 40); }
   }

@@ -159,7 +159,7 @@ function render(t) {
       <div class="mono">${t.name} · ${t.role} · ${t.remote}</div>
       <h1>${t.pitch}</h1>
       <p>${t.sub}</p>
-      <p class="talk">${d.talk}</p>
+      <p class="talk">${d.talk} <span style="margin-left:8px">${pixelCat(3)}</span></p>
       <a class="btn" href="${mailto()}">${t.cta} →</a>
     </div>
   </div>
@@ -203,7 +203,7 @@ function render(t) {
     </section>
     <div>
       <section class="panel rv" id="about"><div class="ph"><h2>${t.h.about}</h2>${portrait()}</div>
-        <p>${t.about[0]}</p><p>${t.about[1]}</p><p>${t.about[2]}</p>
+        <p>${t.about[0]}</p><p>${t.about[1]}</p><p>${t.about[2]}</p>${offClock()}
         <ul class="kv">${t.finance.map(f => `<li><span class="mono">${f.k}</span><span>${f.v}</span></li>`).join("")}</ul>
       </section>
       <section class="panel rv" id="skills"><div class="ph"><h2>${t.h.skills}</h2></div>

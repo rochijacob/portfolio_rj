@@ -104,6 +104,11 @@ Paleta pedida por Rocío: crema `#fdf0d5`, azul `#003049` (su favorito), celeste
 
 Sitios de referencia que Rocío relevó (se toman decisiones de diseño, nunca se copian layouts, textos ni assets): alejandrocrosa.com, magic-bubblez.github.io, ozzyx.xyz, mihircodes.in, sakthi-portfolio-mauve.vercel.app, lucchaissac.com, eduardbodak.com, pranshuagarwal.com, pukha.world.
 
+Gustos personales, usados como decoración (pedido de Rocío, 2026-11-14):
+
+- Le encanta la Pantera Rosa, mejor si es en estilo 8 bits. **El personaje no se reproduce** (es propiedad de MGM y esto es un sitio comercial). En su lugar hay un gato rosa original en pixel art (`CAT` y `pixelCat()` en `core.js`, rosa `#e56b9a`): sentado en el estante de A, como jugador del juego de B, como sticker en C y junto al "¿Hablamos?" de D. No acercar el dibujo al diseño del personaje ni usar su nombre o tipografía.
+- Es DJ y toca música electrónica; le gustan el arte y la fotografía. Es un dato decorativo: va en la línea "Fuera de horario" (`content.*.off`, helper `offClock()`), con un ecualizador animado. No es una sección ni una oferta.
+
 En D, los valores del índice y los pesos de las tenencias son decisiones creativas y están rotulados "ilustrativos" en el sitio. Mantener ese rótulo.
 
 Límite orientativo: cada archivo cerca de 60 KB. D está en el borde.
@@ -113,12 +118,10 @@ Límite orientativo: cada archivo cerca de 60 KB. D está en el borde.
 Bloquean el caso de trabajos finales (están como marcadores visibles en el sitio):
 
 1. Cómo se hacía antes (¿planillas a mano, mails uno por uno?).
-2. Por qué se eligió esa solución y no otra.
-3. Resultado anonimizado, en órdenes de magnitud.
-4. Aprendizaje: elegir entre "Definir la fuente de verdad antes que la herramienta" y "Una solución vale si el equipo operativo la adopta, aunque no sea la más elegante".
-5. Confirmación de la universidad de que el caso se puede mostrar.
+2. Resultado anonimizado, en órdenes de magnitud (cuánto tardaba una entrega grande antes y cuánto ahora).
+3. Confirmación de la universidad de que el caso se puede mostrar.
 
-Rocío dijo que mandaba estas respuestas el 2026-11-14, pero el mensaje llegó sin el texto. Hay que pedírselas de nuevo.
+Ya cargado en el caso (2026-11-14): las alternativas descartadas y el aprendizaje (fuente de verdad primero; adopción del equipo como frase secundaria). Rocío los envió desde un borrador donde figuraban como propuestas a confirmar; en particular, la razón para descartar "leer los mails" (depende del formato y se rompe con cambios) no fue confirmada como la suya.
 
 Sin respuesta todavía:
 

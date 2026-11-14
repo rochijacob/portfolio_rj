@@ -164,9 +164,9 @@ const content = {
         steps: [
           { k: "Context", v: "Each final-project submission cycle at a university involved more than a hundred projects, with defence panels to coordinate in a window of a few days. [CONFIRM: how it was done before: spreadsheets by hand, emails one by one?]" },
           { k: "Problem", v: "Recording each approved project and notifying students, mentors and jurors depended on repetitive manual tasks, with a risk of errors at peak times." },
-          { k: "Decision", v: "Take the data from a single source, a central data hub, instead of reading emails or the operational database. Run the sync as a scheduled process inside the secure network. Keep Sheets and Gmail as the interface, because that is what the team already uses. Model the circuit as numbered flows: confirm grouping, form, juror availability and convergence detection. [COMPLETE: why this and not something else]" },
+          { k: "Decision", v: "Take the data from a single source, a central data hub, instead of reading emails or the operational database. Run the sync as a scheduled process inside the secure network. Keep Sheets and Gmail as the interface, because that is what the team already uses. Model the circuit as numbered flows: confirm grouping, form, juror availability and convergence detection. Why not the alternatives: reading emails depends on the format of each email and breaks with any change; the operational database was not the right source; a script inside Sheets could not reach the data hub, which lives inside the university's private network, so the sync runs as a separate process; and a new tool would have asked the team to change its habits." },
           { k: "Result", v: "[COMPLETE: e.g. from days of coordination to minutes, no exact figures]" },
-          { k: "Learning", v: "[CHOOSE: (1) Define the source of truth before the tool. (2) A solution is worth it if the operations team adopts it, even if it is not the most elegant.]" }
+          { k: "Learning", v: "Define the source of truth before the tool. And a solution only counts if the operations team adopts it, even if it is not the most elegant." }
         ], tags: ["API design", "Backend", "Automation", "BI", "AI"] },
       { code: "WK.05", name: "FP&A transformation", org: "Global consulting firm", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Anaplan Model Builder certified",
         body: "Anaplan implementation for a North American airline, run in Scrum with Jira. I also led a CFO & Enterprise Value process-optimisation initiative using Excel and Power Automate.", tags: ["Anaplan", "FP&A", "Scrum", "Power Automate"] },
@@ -213,6 +213,7 @@ const content = {
       { name: "Python games", why: "How I learned Python: loops, state and collisions.", url: "https://github.com/rochijacob/python_games" }
     ],
     labIntro: "Experiments I build out of curiosity. Each one has a reason.",
+    off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The pink pixel cat on this page is a nod to my favourite cartoon." },
     booksIntro: "I learn by reading books and then building something with what I read.",
     booksNote: "Placeholders for now. Real shelf coming soon.",
     writingIntro: "Notes on product, finance and what I am learning.",
@@ -321,9 +322,9 @@ const content = {
         steps: [
           { k: "Contexto", v: "Cada entrega de trabajos finales de grado de una universidad movilizaba a más de cien trabajos, con las mesas de defensa a coordinar en una ventana de pocos días. [CONFIRMAR: cómo se hacía antes, ¿planillas a mano, mails uno por uno?]" },
           { k: "Problema", v: "Registrar cada trabajo aprobado y avisar a alumnos, mentores y jurados dependía de tareas manuales repetitivas, con riesgo de errores en los picos." },
-          { k: "Decisión", v: "Tomar los datos de una fuente única, un data hub central, en vez de leer mails o la base operativa. Correr la sincronización como proceso programado dentro de la red segura. Dejar Sheets y Gmail como interfaz, porque es lo que el equipo ya usa. Modelar el circuito como flujos numerados: confirmar agrupamiento, formulario, disponibilidad de jurados y detección de convergencia. [COMPLETAR: el porqué de elegir esto y no otra cosa]" },
+          { k: "Decisión", v: "Tomar los datos de una fuente única, un data hub central, en vez de leer mails o la base operativa. Correr la sincronización como proceso programado dentro de la red segura. Dejar Sheets y Gmail como interfaz, porque es lo que el equipo ya usa. Modelar el circuito como flujos numerados: confirmar agrupamiento, formulario, disponibilidad de jurados y detección de convergencia. Por qué no las alternativas: leer los mails depende del formato de cada mail y se rompe con cualquier cambio; la base operativa no era la fuente correcta; un script dentro de Sheets no podía llegar al data hub, que está dentro de la red privada de la universidad, y por eso la sincronización corre en un proceso aparte; y una herramienta nueva le habría pedido al equipo que cambiara de hábitos." },
           { k: "Resultado", v: "[COMPLETAR: por ejemplo, de días de coordinación a minutos, sin cifras exactas]" },
-          { k: "Aprendizaje", v: "[ELEGIR: (1) Definir la fuente de verdad antes que la herramienta. (2) Una solución vale si el equipo operativo la adopta, aunque no sea la más elegante.]" }
+          { k: "Aprendizaje", v: "Definir la fuente de verdad antes que la herramienta. Y una solución solo vale si el equipo operativo la adopta, aunque no sea la más elegante." }
         ], tags: ["Diseño de APIs", "Backend", "Automatización", "BI", "IA"] },
       { code: "WK.05", name: "Transformación de FP&A", org: "Consultora global", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Certificación Anaplan Model Builder",
         body: "Implementación de Anaplan para una aerolínea norteamericana, con Scrum y Jira. También lideré una iniciativa de optimización de procesos de CFO & Enterprise Value con Excel y Power Automate.", tags: ["Anaplan", "FP&A", "Scrum", "Power Automate"] },
@@ -370,6 +371,7 @@ const content = {
       { name: "Juegos en Python", why: "Cómo aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" }
     ],
     labIntro: "Experimentos que hago por curiosidad. Cada uno tiene un porqué.",
+    off: { t: "Fuera de horario", p: "Soy DJ: toco y amo la música electrónica. También me encantan el arte y la fotografía. El gato rosa en píxeles de esta página es un guiño a mi dibujo animado favorito." },
     booksIntro: "Aprendo leyendo libros y después construyendo algo con lo que leí.",
     booksNote: "Por ahora son marcadores. La biblioteca real llega pronto.",
     writingIntro: "Notas sobre producto, finanzas y lo que voy aprendiendo.",
@@ -484,6 +486,13 @@ function portrait() {
 const caseBody = c => c.body + (c.steps ? "<br><br>" + c.steps.map(x => `<b>${x.k}.</b> ${x.v}`).join("<br>") : "");
 const svcBody = s => s.body + (s.deliv ? `<br><b>${T().delivLabel}:</b> ${s.deliv}` : "") + (s.ideal ? `<br><b>${T().idealLabel}:</b> ${s.ideal}` : "");
 const labName = l => l.url ? `<a href="${l.url}" ${ext}>${l.name}</a>` : l.name;
+/* Original pixel-art mascot (a generic pink cat) and a small equalizer. Decorative only. */
+const PINK = "#e56b9a";
+const CAT = ["..........X..X", "X.........XXXX", "X.........XoXo", "X.........XXXX", ".X..XXXXXXXXX.", "..XXXXXXXXXXX.", "...XXXXXXXXXX.", "...XXXXXXXXX..", "...X..X..X.X..", "...X..X..X.X.."];
+const pixelCat = (px = 4) => `<svg width="${14 * px}" height="${10 * px}" viewBox="0 0 14 10" shape-rendering="crispEdges" aria-hidden="true">` +
+  CAT.map((r, j) => [...r].map((c, i) => c === "." ? "" : `<rect x="${i}" y="${j}" width="1" height="1" fill="${c === "o" ? "#003049" : PINK}"/>`).join("")).join("") + `</svg>`;
+document.head.insertAdjacentHTML("beforeend", `<style>.eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px;margin-right:8px}.eq i{width:3px;height:14px;background:${PINK};transform-origin:bottom;animation:eq .9s ease-in-out infinite alternate}.eq i:nth-child(2){animation-delay:-.3s}.eq i:nth-child(3){animation-delay:-.6s}.eq i:nth-child(4){animation-delay:-.15s}@keyframes eq{from{transform:scaleY(.2)}to{transform:scaleY(1)}}@media(prefers-reduced-motion:reduce){.eq i{animation:none;transform:scaleY(.6)}}</style>`);
+const offClock = () => `<p class="off"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><b>${T().off.t}.</b> ${T().off.p}</p>`;
 function apply() {
   document.documentElement.lang = lang;
   document.title = T().meta.title;
@@ -519,7 +528,7 @@ function render(t) {
     <h1>${words}</h1>
     <div><p class="big">${t.pitch}</p><p style="max-width:52ch;font-weight:600">${t.sub}</p>
       <div class="hrow"><a class="btn" href="${mailto()}">${t.cta} →</a><span class="code">${t.status}</span></div></div>
-    <div class="stick" id="stick" aria-hidden="true">${STICKERS.map(([n, l, tp, r]) => `<span class="st" style="left:${l}%;top:${tp}%;--r:${r}deg">${n}</span>`).join("")}<small>${t.c.stickersHint}</small></div>
+    <div class="stick" id="stick" aria-hidden="true">${STICKERS.map(([n, l, tp, r]) => `<span class="st" style="left:${l}%;top:${tp}%;--r:${r}deg">${n}</span>`).join("")}<span class="st" style="left:72%;top:5%;--r:5deg;padding:9px 11px;line-height:0;border-radius:12px;background:var(--w)">${pixelCat(4)}</span><small>${t.c.stickersHint}</small></div>
   </div>
 
   <section aria-label="${t.h.numbers}" class="rv"><div class="code">NO.00 — ${t.h.numbers}</div>
@@ -544,7 +553,7 @@ function render(t) {
 
   <section id="about"><div class="code">AB.00</div><h2 class="rv">${t.h.about}</h2>
     <p class="big" style="max-width:40ch">${t.about[0]}</p>
-    <div style="max-width:62ch">${t.about.slice(1).map(p => `<p>${p}</p>`).join("")}</div>
+    <div style="max-width:62ch">${t.about.slice(1).map(p => `<p>${p}</p>`).join("")}${offClock()}</div>
     <ul class="rows" style="margin-top:30px">${t.finance.map((f, i) => `<li><span class="code">FN.0${i + 1}</span><b>${f.k}</b><span>${f.v}</span></li>`).join("")}</ul>
   </section>
 
