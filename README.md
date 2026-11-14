@@ -1,16 +1,12 @@
 # Rocío Jacob · portfolio
 
-Ocho direcciones de diseño para el mismo contenido. Cada archivo es autocontenido (HTML + CSS + JS, sin build).
+Cuatro direcciones de diseño para el mismo contenido. Cada archivo es autocontenido (HTML + CSS + JS, sin build).
 
 | Archivo | Dirección |
 |---|---|
 | `site-A-notebook.html` | Editorial, texto primero, estante de libros |
 | `site-B-dock.html` | Dark, dock flotante, juego en canvas |
-| `site-C-poster.html` | Celeste pleno, tipografía gigante |
 | `site-D-ledger.html` | Perfil de inversión, ticker `ROCI` |
-| `site-E-arcade.html` | 8 bits: niveles, inventario, gato que camina |
-| `site-F-gallery.html` | Museo: obras enmarcadas, hoja de contactos |
-| `site-G-record.html` | Disco: vinilo, tracklist, batea de libros |
 | `site-H-studio.html` | Sobria y limpia: líneas finas, tipografía, un solo detalle |
 
 `index.html` es una página para comparar todas.

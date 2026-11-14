@@ -215,7 +215,7 @@ function render(t) {
   <section class="panel rv" id="books"><div class="ph"><h2>${d.booksTitle}</h2><span class="mono">${t.booksNote}</span></div>
     <p>${t.booksIntro}</p>
     <table><thead><tr><th>${d.cols.ticker}</th><th>${d.cols.title}</th><th>${d.cols.conviction}</th><th>${d.cols.thesis}</th></tr></thead>
-    <tbody>${content.books.map((b, i) => `<tr><td data-l="${d.cols.ticker}"><span class="t">${bookTk(b, i)}</span></td><td data-l="${d.cols.title}"><div><b>${b.url ? `<a href="${b.url}" ${ext}>${esc(b.title)}</a>` : esc(b.title)}</b><small>${esc(b.author)}</small></div></td><td data-l="${d.cols.conviction}"><span><span class="cv ${b.conviction}">${d.conviction[b.conviction] || ""}</span></span></td><td data-l="${d.cols.thesis}">${esc(b.note[lang] || "")}</td></tr>`).join("")}</tbody></table>
+    <tbody>${content.books.map((b, i) => `<tr><td data-l="${d.cols.ticker}"><span class="t">${bookTk(b, i)}</span></td><td data-l="${d.cols.title}"><div><b>${b.url ? `<a href="${b.url}" ${ext}>${esc(b.title)}</a>` : esc(b.title)}</b><small>${esc(b.author)}</small></div></td><td data-l="${d.cols.conviction}"><span>${b.conviction ? `<span class="cv ${b.conviction}">${d.conviction[b.conviction]}</span>` : "—"}</span></td><td data-l="${d.cols.thesis}">${esc(b.note[lang] || "")}</td></tr>`).join("")}</tbody></table>
   </section>
 
   <div class="two">

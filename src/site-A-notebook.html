@@ -15,12 +15,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fdf0d5;--ink:#003049;--mut:#48606e;--line:#e6d6b4;--acc:#1b5e85;--chip:#c9dde9;--card:#fff8e6;--shelf:#003049;
+:root{--bg:#fdf0d5;--ink:#003049;--mut:#48606e;--line:#e6d6b4;--acc:#1b5e85;--chip:#c9dde9;--card:#fff8e6;--shelf:#003049;--dot:rgba(0,48,73,.17);
   --serif:"Newsreader",Georgia,"Times New Roman",serif;--mono:"DM Mono",ui-monospace,Menlo,Consolas,monospace}
-:root[data-theme=dark]{--bg:#00202f;--ink:#fdf0d5;--mut:#9fb6c3;--line:#123f55;--acc:#8fbcd6;--chip:#0f4560;--card:#00283b;--shelf:#669bbc}
+:root[data-theme=dark]{--bg:#00202f;--ink:#fdf0d5;--mut:#9fb6c3;--line:#123f55;--acc:#8fbcd6;--chip:#0f4560;--card:#00283b;--shelf:#669bbc;--dot:rgba(253,240,213,.13)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1.125rem/1.65 var(--serif);transition:background .3s,color .3s}
+body{margin:0;background:var(--bg) radial-gradient(var(--dot) 1px,transparent 1.4px) 0 0/22px 22px;color:var(--ink);font:400 1.125rem/1.65 var(--serif);transition:background-color .3s,color .3s}
 a{color:inherit;text-decoration-color:var(--acc);text-underline-offset:3px}
 a:hover{color:var(--acc)}
 :focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:3px}
@@ -53,15 +53,6 @@ p{margin:0 0 1em}
 .list{list-style:none;margin:0;padding:0}
 .wr li{display:grid;grid-template-columns:92px 1fr;gap:16px;padding:12px 0;border-bottom:1px dotted var(--line);align-items:baseline}
 .wr li>span:last-child,.wr a{font-size:1.15rem}
-/* shelf */
-.shelf{display:flex;align-items:flex-end;gap:5px;padding:26px 10px 0;border-bottom:10px solid var(--shelf);border-radius:0 0 3px 3px;overflow-x:auto;min-height:250px}
-.spine{flex:0 0 auto;border-radius:3px 3px 0 0;color:#fdf0d5;display:flex;align-items:center;justify-content:center;padding:10px 0;position:relative;transition:transform .25s cubic-bezier(.2,.8,.2,1);box-shadow:inset -5px 0 0 rgba(0,0,0,.18),inset 3px 0 0 rgba(255,255,255,.12)}
-.spine span{writing-mode:vertical-rl;transform:rotate(180deg);font:500 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-height:100%}
-.spine::before,.spine::after{content:"";position:absolute;left:0;right:0;height:2px;background:currentColor;opacity:.4}
-.spine::before{top:12px}.spine::after{bottom:12px}
-.spine:hover,.spine:focus-visible,.spine[aria-pressed=true]{transform:translateY(-14px)}
-.bookd{min-height:104px;padding:16px 0 0}
-.bookd b{font-weight:600;font-size:1.2rem}
 /* work */
 .case{padding:20px 0;border-bottom:1px dotted var(--line)}
 .case .meta{display:flex;flex-wrap:wrap;gap:4px 14px;margin:4px 0 8px}
@@ -100,17 +91,9 @@ footer a{margin-right:18px;padding:10px 0;display:inline-block}
 /*CORE*/
 
 /* ---------- Site A · Notebook ---------- */
-// [background, text] pairs from the site palette: navy, sky, cream and the mascot pink
-const SPINES = [["#003049", "#fdf0d5"], ["#669bbc", "#003049"], ["#f1d9a7", "#003049"], ["#1b5e85", "#fdf0d5"], ["#eeb3c9", "#003049"], ["#0b4a6b", "#fdf0d5"]];
-let book = 0;
 let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 document.documentElement.dataset.theme = theme;
 
-function bookDetail(t) {
-  const b = content.books[book];
-  const title = b.url ? `<a href="${b.url}" ${ext}>${esc(b.title)}</a>` : esc(b.title);
-  return `<b>${title}</b><br><span class="mono">${esc(b.author)}</span><br>${esc(b.note[lang] || "")}`;
-}
 function render(t) {
   const nav = ["writing", "books", "about", "work", "experience", "skills"].map(k => `<a href="#${k}">${t.nav[k]}</a>`).join("");
   $("#app").innerHTML = `
@@ -137,9 +120,8 @@ function render(t) {
 
   <section id="books" class="rv">
     <div class="mono">02</div><h2>${t.h.books}</h2><p>${t.booksIntro}</p>
-    <div class="shelf">${content.books.map((b, i) => { const h = hash(b.title); return `<button type="button" class="spine" data-book="${i}" aria-pressed="${i === book}" aria-label="${esc(b.title)}, ${esc(b.author)}" style="height:${150 + h % 64}px;width:${38 + (h >>> 7) % 20}px;background:${SPINES[i % SPINES.length][0]};color:${SPINES[i % SPINES.length][1]}"><span>${esc(b.title)}</span></button>`; }).join("")}<span style="margin-left:auto;align-self:flex-end;line-height:0;padding-left:14px">${pixelCat(5)}</span></div>
-    <div class="bookd" id="bookd" aria-live="polite">${bookDetail(t)}</div>
-    <p class="mono">${t.booksNote}</p>
+    ${bookShelf(true)}
+    <p class="mono" style="margin-top:14px">${t.booksNote}</p>
   </section>
 
   <section id="about" class="rv">
@@ -191,20 +173,12 @@ function render(t) {
 </div>
 <footer><span class="mono">${t.footer.rights}</span><span class="mono">${footerLinks()}</span></footer>`;
 }
-function pick(i) {
-  book = i;
-  $$(".spine").forEach((s, j) => s.setAttribute("aria-pressed", j === i));
-  $("#bookd").innerHTML = bookDetail(T());
-}
 document.addEventListener("click", e => {
-  const s = e.target.closest("[data-book]"); if (s) pick(+s.dataset.book);
   if (e.target.closest("[data-theme-btn]")) {
     theme = theme === "dark" ? "light" : "dark"; store.set("rj-theme", theme);
     document.documentElement.dataset.theme = theme; apply(); $("[data-theme-btn]").focus();
   }
 });
-document.addEventListener("mouseover", e => { const s = e.target.closest("[data-book]"); if (s && +s.dataset.book !== book) pick(+s.dataset.book); });
-document.addEventListener("focusin", e => { const s = e.target.closest("[data-book]"); if (s && +s.dataset.book !== book) pick(+s.dataset.book); });
 apply();
 </script>
 </body>

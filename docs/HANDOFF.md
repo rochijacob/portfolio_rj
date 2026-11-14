@@ -13,38 +13,40 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 
 ## Estado
 
-Hay ocho direcciones de diseño completas (cuatro iniciales, tres temáticas y una sobria, H, que es la que mejor responde al último pedido) con el mismo contenido. Rocío todavía no eligió una. Cuando elija, esa pasa a ser `index.html` (hoy `index.html` es una página para comparar todas).
+Rocío eligió quedarse con cuatro direcciones (2026-11-14): **A, B, D y H**. Las que más le gustan son **A y H**. C, E, F y G se eliminaron del repo (siguen en el historial de git).
 
-| Archivo | Dirección | Inclinación |
+| Archivo | Dirección | Qué le gusta a Rocío |
 |---|---|---|
-| `site-A-notebook.html` | Editorial, columna de lectura, estante de lomos de libros, modo claro/oscuro | VC |
-| `site-B-dock.html` | Azul marino, dock flotante, juego en canvas, modo claro/oscuro | Freelance / ingeniería |
-| `site-C-poster.html` | Celeste pleno, tipografía gigante, stickers arrastrables, casos que se expanden | Freelance / liderazgo |
-| `site-D-ledger.html` | Perfil de inversión: ticker `ROCI`, gráfico de carrera, tenencias | VC |
+| `site-H-studio.html` | Sobria: papel punteado, líneas finas, tipografía, dock flotante | La principal. Es donde se van combinando las ideas de las otras |
+| `site-A-notebook.html` | Editorial, columna de lectura, tarjeta lateral, modo claro/oscuro | El estilo en general y el estante de libros con el gato |
+| `site-B-dock.html` | Azul marino, dock flotante, juego en canvas | El fondo de puntitos, "como los cuadernos donde dibujás" |
+| `site-D-ledger.html` | Perfil de inversión: ticker `ROCI`, gráfico, tenencias | Cómo espacia y muestra la información: el track record, la tesis y los tags de pares |
 
-Tres direcciones adicionales, agregadas después cuando Rocío pidió variantes estéticamente más distintas:
+`index.html` es una página para comparar las cuatro. No está desplegado. La rama de trabajo es `claude/bold-feynman-x0n91n`; no hay PR abierto.
 
-| Archivo | Dirección | Idea |
-|---|---|---|
-| `site-E-arcade.html` | 8 bits: tipografía pixel, HUD, niveles, inventario, cartuchos, gato que camina | Su gusto por lo 8 bits; avatar pixel de mihircodes |
-| `site-F-gallery.html` | Museo: serif itálica, obras enmarcadas con arte generativo, índice de salas, libros como hoja de contactos fotográfica | Arte y fotografía; limpieza de sakthi, tarjetas enmarcadas de eduardbodak |
-| `site-G-record.html` | Disco: hero rosa, vinilo girando, tracklist como navegación, libros en batea | Música electrónica; póster de lucchaissac |
+### Criterio de diseño (vale para todo lo que siga)
 
-**Dirección H, la de referencia actual** (`site-H-studio.html`). Rocío dijo el 2026-11-14 que las anteriores se veían "hechas por una IA sin criterio de diseño" y pidió algo sobrio, creativo, fresco y limpio. H responde a eso y sus reglas valen para cualquier trabajo de diseño futuro:
+Rocío dijo que las primeras versiones se veían "hechas por una IA sin criterio de diseño". Quiere algo **sobrio, creativo, fresco y limpio**. Le gustan los fondos tipo hoja de dibujo o cuadriculada.
 
-- Un solo acento de color (celeste) sobre crema y azul. El rosa aparece solo en el gato.
-- Líneas finas en vez de cajas. Sin tarjetas, sombras, bordes gruesos ni píldoras decorativas.
+Reglas de H, la referencia:
+
+- Un solo acento de color (celeste) sobre crema y azul. El rosa aparece solo en el gato y en una caja de libro.
+- Líneas finas en vez de cajas. Sin tarjetas, sombras ni bordes gruesos.
 - Columna fija de etiquetas a la izquierda y contenido a la derecha, en una grilla de 12.
 - La tipografía hace el trabajo (Bricolage Grotesque para títulos, Geist para texto).
-- Un único detalle lúdico: el gato pixel camina sobre la línea del encabezado según el scroll.
-- Sin metáforas en los nombres de sección, sin etiquetas numeradas decorativas, movimiento mínimo.
-- Contenido editado: los casos se abren al hacer clic; se muestran 4 números, no 8.
+- Fondo de papel punteado (también en A).
+- Sin metáforas en los nombres de sección, movimiento mínimo, contenido editado (casos que se abren al clic, 4 números).
+- Un único detalle lúdico: el gato pixel camina sobre el borde del dock según el scroll.
 
-Antes de agregar algo a H, preguntarse si se entiende sin eso. Si la respuesta es sí, no va.
+Antes de agregar algo, preguntarse si se entiende sin eso. Si la respuesta es sí, no va.
 
-En E, F y G los nombres de sección son metáforas (niveles, obras, lanzamientos) y viven en `content.*.e`, `.f` y `.g`.
+Qué tomó H de D, a pedido de Rocío: la sección de tesis, la historia `[01]` a `[04]` con los tags de pares, y el track record como tabla (posición, entrada, impacto) cuyas filas se abren.
 
-No está desplegado. La rama de trabajo es `claude/bold-feynman-x0n91n`; no hay PR abierto.
+**Navegación de H:** a Rocío no le cerraba la barra superior original (no dijo qué exactamente). Se reemplazó por un encabezado mínimo más un dock flotante abajo con texto. Falta que confirme si esto lo resuelve.
+
+**Libros:** le gusta el estante de A, pero no con forma de lomo de libro sino de caja tipo DVD: más gruesa, se toca y se abre mostrando la descripción. Está implementado una sola vez en `core.js` (`bookShelf()`, estilos `.dvds`/`.dvd`) y lo usan A y H. B y D mantienen sus propias listas.
+
+**FP&A:** Rocío no quiere hablar mucho de su experiencia en FP&A. De la consultora, lo que más le gustó fue la iniciativa de automatización, y eso es lo que se destaca. "FP&A" queda solo como una habilidad más en la lista de skills.
 
 ## Arquitectura
 
@@ -70,7 +72,7 @@ node src/build.mjs
 node scripts/check.js
 ```
 
-`check.js` abre cada sitio en 390, 768 y 1440 px, en EN y ES (48 combinaciones con las ocho direcciones). Reporta scroll horizontal, errores de consola, links externos sin `rel="noopener"`, textos sueltos en el otro idioma (por palabras clave) y objetivos táctiles chicos. Guarda capturas en la carpeta temporal del sistema, o en `$SHOTS`. Necesita Playwright con Chromium disponible.
+`check.js` abre cada sitio en 390, 768 y 1440 px, en EN y ES (24 combinaciones). Reporta scroll horizontal, errores de consola, links externos sin `rel="noopener"`, textos sueltos en el otro idioma (por palabras clave) y objetivos táctiles chicos. Guarda capturas en la carpeta temporal del sistema, o en `$SHOTS`. Necesita Playwright con Chromium disponible.
 
 ### Cómo funciona cada sitio
 
@@ -153,7 +155,7 @@ Sin respuesta todavía:
 
 Los carga Rocío más adelante:
 
-- 6 libros reales (`content.books`, marcados `// REPLACE`).
+- Una línea propia por libro. Los 8 títulos ya están cargados (Shoe Dog, Sapiens, Factfulness, Life 3.0, Creativity, Inc., The Hard Thing About Hard Things, Brave New World, Fahrenheit 451), pero cada `note` es una descripción neutra, no su opinión. Tampoco definió la "convicción" que usa D (se muestra "—").
 - 3 artículos reales (`content.writing`).
 - `profile.jpg`.
 - Revisar su GitHub público antes de publicar: el footer enlaza al perfil y los repos pueden mostrar nombres de empresas.
