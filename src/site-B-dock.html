@@ -156,9 +156,9 @@ function render(t) {
   <section id="books" class="rv"><h2><small>06</small>${t.h.books}</h2>
     <p>${t.booksIntro}</p>
     <div class="term"><span class="cmd">$ ls ~/books --notes</span>
-      <ol>${content.books.map(b => `<li><span>${b.url ? `<a href="${b.url}" ${ext}>${esc(b.title)}</a>` : `<b>${esc(b.title)}</b>`} — ${esc(b.author)}<br><span class="mut"># ${esc(b.note[lang] || "")}</span></span></li>`).join("")}</ol>
+      <ol>${content.books.map(b => `<li><span>${b.url ? `<a href="${b.url}" ${ext}>${esc(b.title)}</a>` : `<b>${esc(b.title)}</b>`} — ${esc(b.author)}${b.note[lang] ? `<br><span class="mut"># ${esc(b.note[lang])}</span>` : ""}</span></li>`).join("")}</ol>
     </div>
-    <p class="mut" style="margin-top:10px">// ${t.booksNote}</p>
+    
   </section>
 
   <section id="writing" class="rv"><h2><small>07</small>${t.h.writing}</h2>

@@ -10,18 +10,18 @@ const content = {
     games: "https://github.com/rochijacob/python_games"
   },
 
-  // Books Rocío chose to highlight. `note` is a neutral one-line description for now:
-  // REPLACE each note with her own line on why the book matters to her.
+  // Books Rocío chose to highlight. She does not want a note per book, so `note` stays empty.
+  // `spine` evokes the look of a common edition's cover: colours, type and width (px). Approximations, not scans.
   // conviction ("high" | "medium" | "low") is only used by the Ledger site; leave "" until she sets it.
   books: [
-    { title: "Shoe Dog", author: "Phil Knight", note: { en: "The Nike founder's memoir of building the company from nothing.", es: "Las memorias del fundador de Nike sobre cómo construyó la empresa desde cero." }, url: "", conviction: "" },
-    { title: "Sapiens", author: "Yuval Noah Harari", note: { en: "A brief history of humankind.", es: "Una breve historia de la humanidad." }, url: "", conviction: "" },
-    { title: "Factfulness", author: "Hans Rosling", note: { en: "Why we get the world wrong, and why things are better than we think.", es: "Por qué entendemos mal el mundo, y por qué las cosas están mejor de lo que creemos." }, url: "", conviction: "" },
-    { title: "Life 3.0", author: "Max Tegmark", note: { en: "Being human in the age of artificial intelligence.", es: "Ser humano en la era de la inteligencia artificial." }, url: "", conviction: "" },
-    { title: "Creativity, Inc.", author: "Ed Catmull", note: { en: "How Pixar built and protected a creative culture.", es: "Cómo Pixar construyó y cuidó una cultura creativa." }, url: "", conviction: "" },
-    { title: "The Hard Thing About Hard Things", author: "Ben Horowitz", note: { en: "Building a business when there are no easy answers.", es: "Construir una empresa cuando no hay respuestas fáciles." }, url: "", conviction: "" },
-    { title: "Brave New World", author: "Aldous Huxley", note: { en: "The 1932 novel of an engineered, comfortable dystopia.", es: "La novela de 1932 sobre una distopía diseñada y confortable." }, url: "", conviction: "" },
-    { title: "Fahrenheit 451", author: "Ray Bradbury", note: { en: "A novel about a society that burns its books.", es: "Una novela sobre una sociedad que quema sus libros." }, url: "", conviction: "" }
+    { title: "Shoe Dog", author: "Phil Knight", spine: { bg: "#111111", fg: "#ffffff", ac: "#f26522", font: "'Permanent Marker',cursive", w: 44, h: 228, up: 1 }, note: { en: "", es: "" }, url: "", conviction: "" },
+    { title: "Sapiens", author: "Yuval Noah Harari", spine: { bg: "#f4f1ea", fg: "#1a1a1a", ac: "#c8102e", font: "'Playfair Display',Georgia,serif", w: 48, h: 236 }, note: { en: "", es: "" }, url: "", conviction: "" },
+    { title: "Factfulness", author: "Hans Rosling", spine: { bg: "#f58220", fg: "#ffffff", ac: "#ffffff", font: "Anton,Impact,sans-serif", w: 40, h: 222, up: 1 }, note: { en: "", es: "" }, url: "", conviction: "" },
+    { title: "Life 3.0", author: "Max Tegmark", spine: { bg: "#0b1b3a", fg: "#ffffff", ac: "#6fb1e0", font: "Oswald,'Arial Narrow',sans-serif", w: 42, h: 232, up: 1, wt: 300, ls: ".18em" }, note: { en: "", es: "" }, url: "", conviction: "" },
+    { title: "Creativity, Inc.", author: "Ed Catmull", spine: { bg: "#c8102e", fg: "#ffffff", ac: "#111111", font: "Oswald,'Arial Narrow',sans-serif", w: 46, h: 236, up: 1, wt: 600 }, note: { en: "", es: "" }, url: "", conviction: "" },
+    { title: "The Hard Thing About Hard Things", author: "Ben Horowitz", spine: { bg: "#1c1c1c", fg: "#ffffff", ac: "#2f80ed", font: "Anton,Impact,sans-serif", w: 50, h: 240, up: 1, fs: ".78rem" }, note: { en: "", es: "" }, url: "", conviction: "" },
+    { title: "Brave New World", author: "Aldous Huxley", spine: { bg: "#e9dcc0", fg: "#1d3557", ac: "#d1495b", font: "'Playfair Display',Georgia,serif", w: 38, h: 214 }, note: { en: "", es: "" }, url: "", conviction: "" },
+    { title: "Fahrenheit 451", author: "Ray Bradbury", spine: { bg: "#d62818", fg: "#111111", ac: "#ffd23f", font: "Anton,Impact,sans-serif", w: 36, h: 208, up: 1 }, note: { en: "", es: "" }, url: "", conviction: "" }
   ],
 
   // REPLACE: paste real articles. date is "YYYY-MM".
@@ -59,13 +59,13 @@ const content = {
       { n: "100+", l: "final projects per submission cycle on the tracking system I built" }
     ],
     cases: [
-      { code: "WK.01", name: "Gym chain app", org: "Software studio", role: "Mobile development", when: "2021 – 2025", impact: "500K+ downloads · 40K DAU",
+      { code: "WK.01", line: "Más de 500K descargas y 40K personas por día.", line: "500K+ downloads and 40K people a day.", name: "Gym chain app", org: "Software studio", role: "Mobile development", when: "2021 – 2025", impact: "500K+ downloads · 40K DAU",
         body: "Built and maintained the mobile app for Argentina's largest gym chain. The work was speed, UX and polish at scale: an app that tens of thousands of people open every day has no room for rough edges.", tags: ["React Native", "Expo"] },
-      { code: "WK.02", name: "Event SaaS platform", org: "Software studio", role: "Project Leader", when: "Nov 2023 – Apr 2025", impact: "15K+ users · 5+ clients",
+      { code: "WK.02", line: "Ticketing para más de 15K usuarios en tres continentes.", line: "Ticketing for 15K+ users on three continents.", name: "Event SaaS platform", org: "Software studio", role: "Project Leader", when: "Nov 2023 – Apr 2025", impact: "15K+ users · 5+ clients",
         body: "Led end-to-end development of a platform for ticketing, access control and client relationships, used by music festivals and crypto event organisers across America, Europe and Asia. I managed a six-person cross-functional team, handled 5+ client accounts directly, prioritised features from client needs and presented the roadmap to internal and external stakeholders.", tags: ["Project leadership", "Jira", "Roadmap", "React"] },
       { code: "WK.03", name: "High-volume checkout", org: "Software studio", role: "Senior Developer", when: "2021 – 2023", impact: "300+ payments / day",
         body: "Designed and launched a checkout with custom billing that processes 300+ payments a day. It was one of the first React integrations of Mercado Pago.", tags: ["React", "Mercado Pago", "Billing"] },
-      { code: "WK.04", name: "Final-project tracking", org: "A university", role: "Project Manager & Business Partner", when: "Apr 2026 – present", impact: "100+ final projects per cycle",
+      { code: "WK.04", line: "De la coordinación manual a un flujo automático.", line: "From manual coordination to an automatic flow.", name: "Final-project tracking", org: "A university", role: "Project Manager & Business Partner", when: "Apr 2026 – present", impact: "100+ final projects per cycle",
         body: "I own the backend of the system that tracks student final projects and coordinates their defence panels. Alongside it I drive automation, BI and AI projects for university operations.",
         steps: [
           { k: "Context", v: "Each final-project submission cycle at a university involved more than a hundred projects, with defence panels to coordinate in a window of a few days. [CONFIRM: how it was done before: spreadsheets by hand, emails one by one?]" },
@@ -113,15 +113,20 @@ const content = {
     freelance: "I take freelance work in three shapes: automation and BI, AI agents for internal processes, and web and product with monthly support. I run each one as its project manager too. I work remotely from Buenos Aires and hold EU work authorization (Argentina, Germany and Italy citizenship).",
     lab: [
       { name: "Dog-in-the-pool detector", why: "Computer vision applied to a household problem." },
-      { name: "Fitness agent on Telegram", why: "Agents working with personal data." },
       { name: "Crypto payment terminals", why: "How money moves on-chain." },
       { name: "Mental-health bot for an NGO", why: "AI with judgement and human supervision." },
       { name: "Python games", why: "How I learned Python: loops, state and collisions.", url: "https://github.com/rochijacob/python_games" }
     ],
     labIntro: "Experiments I build out of curiosity. Each one has a reason.",
     off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The pink pixel cat on this page is a nod to my favourite cartoon." },
+    today: "Today, Project Manager & Business Partner in BI, Automation and AI at a university.",
+    seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
+    fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
+    gotMind: "Got something in mind?", reach: "Or write to me at",
+    illo: "Line drawing of the Buenos Aires skyline with the Obelisk",
+    papers: { label: "Paper", cold: "Cold white", bone: "Bone", mist: "Mist", rust: "Ink and rust" },
     booksIntro: "I learn by reading books and then building something with what I read.",
-    booksNote: "Tap a case to open it.",
+    booksNote: "Hover or tap a spine.",
     writingIntro: "Notes on product, finance and what I am learning.",
     soon: "soon",
     contactTitle: "Have a product, a project or a process that needs an owner?",
@@ -265,15 +270,20 @@ const content = {
     freelance: "Tomo trabajo freelance en tres formatos: automatización y BI, agentes de IA para procesos internos, y web y producto con soporte mensual. En todos me ocupo también de la gestión del proyecto. Trabajo de forma remota desde Buenos Aires y tengo autorización para trabajar en la UE (ciudadanía argentina, alemana e italiana).",
     lab: [
       { name: "Detector de caída de perro a la pileta", why: "Visión por computadora aplicada a un problema doméstico." },
-      { name: "Agente de fitness por Telegram", why: "Agentes con datos personales." },
       { name: "Terminales de pago cripto", why: "Cómo se mueve el dinero on-chain." },
       { name: "Bot de salud mental para una ONG", why: "IA con criterio y supervisión humana." },
       { name: "Juegos en Python", why: "Cómo aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" }
     ],
     labIntro: "Experimentos que hago por curiosidad. Cada uno tiene un porqué.",
     off: { t: "Fuera de horario", p: "Soy DJ: toco y amo la música electrónica. También me encantan el arte y la fotografía. El gato rosa en píxeles de esta página es un guiño a mi dibujo animado favorito." },
+    today: "Hoy, Project Manager & Business Partner en BI, Automatización e IA en una universidad.",
+    seeWork: "Ver el trabajo", remoteNote: "Buenos Aires, trabajo remoto", moreWork: "Más trabajo",
+    fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
+    gotMind: "¿Tenés algo en mente?", reach: "O escribime a",
+    illo: "Dibujo lineal del perfil de Buenos Aires con el Obelisco",
+    papers: { label: "Papel", cold: "Blanco frío", bone: "Hueso", mist: "Niebla", rust: "Tinta y óxido" },
     booksIntro: "Aprendo leyendo libros y después construyendo algo con lo que leí.",
-    booksNote: "Tocá una caja para abrirla.",
+    booksNote: "Pasá o tocá un lomo.",
     writingIntro: "Notas sobre producto, finanzas y lo que voy aprendiendo.",
     soon: "pronto",
     contactTitle: "¿Tenés un producto, un proyecto o un proceso que necesita dueña?",
@@ -388,30 +398,30 @@ const pixelCat = (px = 4) => `<svg width="${14 * px}" height="${10 * px}" viewBo
   CAT.map((r, j) => [...r].map((c, i) => c === "." ? "" : `<rect x="${i}" y="${j}" width="1" height="1" fill="${c === "o" ? "#003049" : PINK}"/>`).join("")).join("") + `</svg>`;
 document.head.insertAdjacentHTML("beforeend", `<style>.eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px;margin-right:8px}.eq i{width:3px;height:14px;background:${PINK};transform-origin:bottom;animation:eq .9s ease-in-out infinite alternate}.eq i:nth-child(2){animation-delay:-.3s}.eq i:nth-child(3){animation-delay:-.6s}.eq i:nth-child(4){animation-delay:-.15s}@keyframes eq{from{transform:scaleY(.2)}to{transform:scaleY(1)}}@media(prefers-reduced-motion:reduce){.eq i{animation:none;transform:scaleY(.6)}}</style>`);
 const offClock = () => `<p class="off"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><b>${T().off.t}.</b> ${T().off.p}</p>`;
-/* Books as a shelf of cases (thicker than a spine, like a DVD case). Tap one and it opens sideways. */
-const CASES = [["#003049", "#fdf0d5"], ["#669bbc", "#003049"], ["#f1d9a7", "#003049"], ["#1b5e85", "#fdf0d5"], ["#eeb3c9", "#003049"], ["#0b4a6b", "#fdf0d5"]];
-let openBook = -1;
-document.head.insertAdjacentHTML("beforeend", `<style>
-.dvds{display:flex;align-items:flex-end;gap:7px;overflow-x:auto;padding:22px 4px 0;border-bottom:8px solid var(--shelf,var(--ink))}
-.dvd{flex:0 0 auto;width:60px;height:216px;padding:0;display:flex;overflow:hidden;text-align:left;border-radius:5px 5px 0 0;box-shadow:inset 0 0 0 1px rgba(0,48,73,.22),inset 6px 0 0 rgba(255,255,255,.14);transition:width .4s cubic-bezier(.2,.8,.2,1),transform .25s}
-.dvd:hover{transform:translateY(-6px)}
-.dvd[aria-expanded=true]{width:min(318px,80vw);transform:none}
-.dvd .sp{flex:0 0 60px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:14px 0}
-.dvd .sp i{width:24px;height:4px;border-radius:2px;background:currentColor;opacity:.45}
-.dvd .sp b{writing-mode:vertical-rl;transform:rotate(180deg);font-size:.8rem;font-weight:600;letter-spacing:.02em;white-space:nowrap;max-height:150px;overflow:hidden;text-overflow:ellipsis}
-.dvd .in{flex:0 0 min(258px,calc(80vw - 60px));padding:16px 18px 16px 6px;display:flex;flex-direction:column;justify-content:flex-end;gap:7px;opacity:0;transition:opacity .3s .12s}
-.dvd[aria-expanded=true] .in{opacity:1}
-.dvd .in strong{font-size:1.25rem;line-height:1.1;font-weight:600}
-.dvd .in em{font-style:normal;font-size:.8rem;opacity:.8}
-.dvd .in span{font-size:.875rem;line-height:1.4}
-.dvds>.cat{margin-left:auto;align-self:flex-end;line-height:0;padding-left:14px}
+/* Books as slim spines, each styled after its cover. Hover or tap to read title and author. */
+document.head.insertAdjacentHTML("beforeend", `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;600&family=Permanent+Marker&family=Playfair+Display:wght@700&display=swap"><style>
+.spines{display:flex;align-items:flex-end;gap:5px;overflow-x:auto;padding:26px 6px 0}
+.spines.shelf{border-bottom:8px solid var(--shelf,var(--ink))}
+.spn{flex:0 0 auto;padding:12px 0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:10px;border-radius:2px;transform-origin:bottom center;box-shadow:2px 4px 10px rgba(0,0,0,.2),inset 3px 0 0 rgba(255,255,255,.14),inset -3px 0 0 rgba(0,0,0,.16);transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.spn:nth-child(4n+2){transform:rotate(-1.6deg)}.spn:nth-child(5n+4){transform:rotate(1.2deg)}
+.spn:hover,.spn:focus-visible,.spn[aria-pressed=true]{transform:translateY(-12px)}
+.spn i{flex:0 0 auto;width:60%;height:5px;background:var(--ac)}
+.spn span{writing-mode:vertical-rl;display:flex;align-items:center;gap:14px;min-height:0;white-space:nowrap;overflow:hidden}
+.spn b{font-weight:inherit;line-height:1}
+.spn em{font:400 .62rem/1 system-ui,sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.spines>.cat{margin-left:auto;align-self:flex-end;line-height:0;padding-left:14px}
+.spcap{min-height:1.6em;margin:14px 0 0}
 </style>`);
-const bookShelf = (cat = false) => `<div class="dvds">${content.books.map((b, i) => { const [bg, fg] = CASES[i % CASES.length]; return `<button type="button" class="dvd" data-dvd="${i}" aria-expanded="${i === openBook}" aria-label="${esc(b.title)}, ${esc(b.author)}" style="background:${bg};color:${fg}"><span class="sp"><i></i><b>${esc(b.title)}</b><i></i></span><span class="in"><strong>${esc(b.title)}</strong><em>${esc(b.author)}</em><span>${esc(b.note[lang] || "")}</span></span></button>`; }).join("")}${cat ? `<span class="cat">${pixelCat(5)}</span>` : ""}</div>`;
-document.addEventListener("click", e => {
-  const d = e.target.closest("[data-dvd]"); if (!d) return;
-  openBook = openBook === +d.dataset.dvd ? -1 : +d.dataset.dvd;
-  $$("[data-dvd]").forEach(x => x.setAttribute("aria-expanded", +x.dataset.dvd === openBook));
-});
+let openBook = -1;
+const spineCap = () => openBook < 0 ? T().booksNote : `${esc(content.books[openBook].title)} · ${esc(content.books[openBook].author)}`;
+const bookShelf = (shelf = false) => `<div class="spines${shelf ? " shelf" : ""}">${content.books.map((b, i) => { const p = b.spine; return `<button type="button" class="spn" data-spine="${i}" aria-pressed="${i === openBook}" aria-label="${esc(b.title)}, ${esc(b.author)}" style="width:${p.w}px;height:${p.h}px;background:${p.bg};color:${p.fg};--ac:${p.ac};font-family:${p.font};font-weight:${p.wt || 400};font-size:${p.fs || ".95rem"};letter-spacing:${p.ls || ".02em"}${p.up ? ";text-transform:uppercase" : ""}"><i></i><span><b>${esc(b.title)}</b><em>${esc(b.author.split(" ").pop())}</em></span><i></i></button>`; }).join("")}${shelf ? `<span class="cat">${pixelCat(5)}</span>` : ""}</div><p class="spcap" id="spcap" aria-live="polite">${spineCap()}</p>`;
+function pickSpine(i) {
+  openBook = i; $$("[data-spine]").forEach(x => x.setAttribute("aria-pressed", +x.dataset.spine === i));
+  const c = $("#spcap"); if (c) c.textContent = spineCap().replace(/&amp;/g, "&");
+}
+document.addEventListener("click", e => { const d = e.target.closest("[data-spine]"); if (d) pickSpine(+d.dataset.spine); });
+document.addEventListener("mouseover", e => { const d = e.target.closest("[data-spine]"); if (d && +d.dataset.spine !== openBook) pickSpine(+d.dataset.spine); });
+document.addEventListener("focusin", e => { const d = e.target.closest("[data-spine]"); if (d && +d.dataset.spine !== openBook) pickSpine(+d.dataset.spine); });
 function apply() {
   document.documentElement.lang = lang;
   document.title = T().meta.title;

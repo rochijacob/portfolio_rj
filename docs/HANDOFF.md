@@ -33,8 +33,9 @@ Reglas de H, la referencia:
 - Un solo acento de color (celeste) sobre crema y azul. El rosa aparece solo en el gato y en una caja de libro.
 - Líneas finas en vez de cajas. Sin tarjetas, sombras ni bordes gruesos.
 - Columna fija de etiquetas a la izquierda y contenido a la derecha, en una grilla de 12.
-- La tipografía hace el trabajo (Bricolage Grotesque para títulos, Geist para texto).
+- La tipografía hace el trabajo (Geist, con Geist Mono para etiquetas).
 - Fondo de papel punteado (también en A).
+- Una sola ilustración: el dibujo lineal de Buenos Aires.
 - Sin metáforas en los nombres de sección, movimiento mínimo, contenido editado (casos que se abren al clic, 4 números).
 - Un único detalle lúdico: el gato pixel camina sobre el borde del dock según el scroll.
 
@@ -44,7 +45,30 @@ Qué tomó H de D, a pedido de Rocío: la sección de tesis, la historia `[01]` 
 
 **Navegación de H:** a Rocío no le cerraba la barra superior original (no dijo qué exactamente). Se reemplazó por un encabezado mínimo más un dock flotante abajo con texto. Falta que confirme si esto lo resuelve.
 
-**Libros:** le gusta el estante de A, pero no con forma de lomo de libro sino de caja tipo DVD: más gruesa, se toca y se abre mostrando la descripción. Está implementado una sola vez en `core.js` (`bookShelf()`, estilos `.dvds`/`.dvd`) y lo usan A y H. B y D mantienen sus propias listas.
+**Segunda ronda de referencias (2026-11-15).** Rocío mandó ocho sitios y qué le gusta de cada uno. Se revisaron con capturas y texto, y H se rehízo combinándolos:
+
+| Referencia | Qué le gusta | Cómo quedó en H |
+|---|---|---|
+| ozzyx.xyz | El wording, conversacional | Cierre "¿Tenés algo en mente? Trabajemos juntos." |
+| nachi.design | El CTA | Par de botones (principal con ↗ y secundario con borde) y "O escribime a" con el mail |
+| rotimi.design | Tipografía, estética, espacios, "prolija y con aire" | Geist para todo, etiquetas chicas en mayúsculas mono (Geist Mono), más espacio vertical |
+| thanhdatnguyen.com | Los libros "tal cual", y el blog | Lomos finos con la estética de cada tapa (`bookShelf()` en `core.js`) |
+| davidakh.com | Una ilustración lineal, prolija | Dibujo lineal de Buenos Aires bajo el hero |
+| isablyns.vercel.app | El hero y las ilustraciones | Idem; ella sugirió ilustraciones 8 bits o lineales de Buenos Aires |
+| alejandrocrosa.com | La parte de libros | Pendiente evaluar una página propia de libros |
+| teodorovillanueva.com | El hero, que aclara trabajo remoto, el destaque inicial de trabajos y cómo expande sus 3 proyectos | Línea "Hoy, ...", nota "Buenos Aires, trabajo remoto", fila de 3 trabajos destacados y una sección grande por cada uno con tabla de datos |
+
+Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H-studio.html` (app de gimnasios, SaaS de eventos, seguimiento de trabajos finales). El resto va en "Más trabajo".
+
+**Color de fondo:** el crema `#fdf0d5` le resulta muy amarillo. Prefiere un blanco frío o un crema más neutro, siempre con su azul `#003049`. H tiene un selector temporal de cuatro papeles (blanco frío, hueso, niebla, tinta y óxido) para que elija. **Es una herramienta de revisión: cuando elija, fijar ese fondo, quitar el selector y llevar el mismo fondo a A, B y D.** A, B y D siguen con el crema original.
+
+**El 8 bits:** a veces siente que no se alinea con la estética sobria. El gato pixel queda solo como detalle chico (sobre el dock en H, en el estante en A). Le encanta la frase "El gato rosa en píxeles de esta página es un guiño a mi dibujo animado favorito".
+
+**Libros:** no quiere escribir por qué destaca cada uno (`note` vacío, no pedirlo de nuevo). Quiere que conserven la estética de sus tapas, idealmente con sus tipografías, como los lomos de thanhdatnguyen.com. Están hechos en CSS con colores y tipografías que evocan una edición conocida de cada título (campo `spine` de cada libro). Son aproximaciones de memoria, no escaneos: si Rocío manda fotos de los lomos reales, se reemplazan. Al pasar o tocar un lomo se muestra título y autor. Lo usan A y H; B y D mantienen sus propias listas.
+
+**Lab:** el agente de fitness se quitó a pedido de Rocío. Preguntó cómo mejorar la sección; se le pidió por cada experimento: qué hace en una línea, con qué está hecho, en qué estado está, si hay link o captura, y qué aprendió.
+
+**Foto de perfil:** Rocío dijo que adjuntaba su foto de siempre como referencia, pero no llegó ninguna imagen a la sesión.
 
 **FP&A:** Rocío no quiere hablar mucho de su experiencia en FP&A. De la consultora, lo que más le gustó fue la iniciativa de automatización, y eso es lo que se destaca. "FP&A" queda solo como una habilidad más en la lista de skills.
 
