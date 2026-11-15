@@ -66,7 +66,13 @@ Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H
 
 **Puntos del fondo:** pidió que sean más suaves para que no compitan con el texto. Están en opacidad ~0.075 (claro) y ~0.055 (oscuro). No subirlos.
 
-**Ilustración:** la primera versión le pareció "muy cuadrada"; quiere que parezca un boceto. Ahora es un dibujo lineal de Buenos Aires pasado dos veces por un filtro SVG de desplazamiento, con rayado a mano. Ojo técnico: las formas viven en `<defs>` y se dibujan con `<use>`, así que los estilos tienen que heredarse desde el `<g>` que envuelve al `<use>` (los selectores con ancestros no llegan adentro).
+**Ilustración (tercera versión):** la primera le pareció "muy cuadrada" y la segunda, un boceto suelto, tampoco. Pidió algo "tipo croquis arquitectónico". Ahora es un alzado de Buenos Aires con recursos de croquis: esquinas donde las líneas se pasan, ejes de simetría en línea de trazo y punto, una cota (67,5 m del Obelisco), suelo rayado, árboles y figuras de escala, flecha de norte y rótulos chicos. Se genera en la función `city()` de `src/site-H-studio.html`. Falta que confirme si esta versión le gusta.
+
+**Foto de perfil:** su foto de siempre es un avatar en pixel art. Está en `profile.png` (recorte de cabeza y hombros, ampliado con píxeles duros) y `avatar-full.png` (cuerpo entero, sin usar todavía). Se muestra con `image-rendering: pixelated`.
+
+**Experiencia:** pidió separar lo laboral de la educación. Las entradas de educación llevan `kind: "edu"` en `content.*.timeline` y el helper `expSplit()` de `core.js` arma los dos grupos en las cuatro direcciones.
+
+**Escritos / artículos:** todavía no tiene artículos y por ahora **no quiere esa sección**. Se quitó de las cuatro direcciones. Los datos de ejemplo siguen en `content.writing` para cuando la retome; no volver a mostrarla hasta que lo pida.
 
 **"Sobre mí" en H:** Rocío notó que repetía contenido. Ahora es un solo bloque: foto, una frase sobre qué le importa, la historia `[01]` a `[04]`, los tags y la línea "Fuera de horario". Se quitaron los párrafos largos y la lista de finanzas, que repetían la historia y la experiencia. A, B y D conservan el "Sobre mí" largo.
 
@@ -85,8 +91,6 @@ Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H
 En el sitio el Lab es por ahora una lista corta con el estado de cada experimento (campo `status`, helper `labMeta()`).
 
 **Cortes entre secciones en H:** a Rocío le resultaban raros, sobre todo por las líneas. Se quitaron todas las líneas entre secciones: ahora se separan solo con espacio (el mismo valor en todas) y su etiqueta. Las líneas finas quedan únicamente dentro de listas y tablas. No volver a poner reglas entre secciones.
-
-**Foto de perfil:** Rocío dijo que adjuntaba su foto de siempre como referencia, pero no llegó ninguna imagen a la sesión.
 
 **FP&A:** Rocío no quiere hablar mucho de su experiencia en FP&A. De la consultora, lo que más le gustó fue la iniciativa de automatización, y eso es lo que se destaca. "FP&A" queda solo como una habilidad más en la lista de skills.
 

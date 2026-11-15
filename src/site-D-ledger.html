@@ -204,7 +204,7 @@ function render(t) {
 
   <div class="two">
     <section class="panel rv" id="experience"><div class="ph"><h2>${t.h.experience}</h2></div>
-      <ul class="kv">${t.timeline.map(e => `<li><span class="mono">${e.when}</span><span><b>${e.role}</b><br>${e.org}${e.note ? `<small style="display:block;color:var(--mut)">${e.note}</small>` : ""}</span></li>`).join("")}</ul>
+      <ul class="kv">${expSplit(t, e => `<li><span class="mono">${e.when}</span><span><b>${e.role}</b><br>${e.org}${e.note ? `<small style="display:block;color:var(--mut)">${e.note}</small>` : ""}</span></li>`)}</ul>
     </section>
     <div>
       <section class="panel rv" id="about"><div class="ph"><h2>${t.h.about}</h2>${portrait()}</div>
@@ -232,10 +232,6 @@ function render(t) {
       <ul class="kv">${t.lab.map(l => `<li style="grid-template-columns:1fr;gap:0"><b>${labName(l)}</b><span style="color:var(--mut)">${labMeta(l)}</span></li>`).join("")}</ul>
     </section>
   </div>
-
-  <section class="panel rv" id="writing"><div class="ph"><h2>${t.h.writing}</h2><span class="mono">${t.writingIntro}</span></div>
-    <ul class="kv">${content.writing.map(w => `<li><span class="mono">${fmtDate(w.date)}</span>${w.url ? `<a href="${w.url}" ${ext}>${esc(w.title[lang])}</a>` : `<span>${esc(w.title[lang])} <span class="mono">· ${t.soon}</span></span>`}</li>`).join("")}</ul>
-  </section>
 
   <section class="end rv" id="contact">
     <p class="h">${d.talk}</p>

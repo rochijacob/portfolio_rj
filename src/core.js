@@ -42,7 +42,7 @@ const content = {
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remote worldwide",
     status: "Open to freelance · Buenos Aires",
     cta: "Work with me", ctaAlt: "Let's talk", mailSubject: "Project for Rocío",
-    skip: "Skip to content", langLabel: "Language", themeLabel: "Toggle light / dark", portraitAlt: "Portrait of Rocío Jacob",
+    skip: "Skip to content", langLabel: "Language", themeLabel: "Toggle light / dark", portraitAlt: "Pixel-art avatar of Rocío Jacob",
     nav: { home: "Home", about: "About", work: "Work", experience: "Experience", skills: "Stack", books: "Books", writing: "Writing", contact: "Contact", play: "Playground", services: "Services" },
     h: { services: "What I offer", about: "About", work: "Selected work", experience: "Experience", skills: "Skills & stack", books: "Books", writing: "Writing", contact: "Work with me", finance: "The finance side", lab: "Lab", numbers: "In numbers" },
     about: [
@@ -84,12 +84,12 @@ const content = {
     timeline: [
       { when: "Apr 2026 – present", org: "A university", role: "Project Manager & Business Partner · BI, Automation, AI", note: "Backend owner of the final-project tracking system; automation, BI and AI projects for university operations.", tags: ["API", "BI", "AI agents"] },
       { when: "Jun 2026 – present", org: "A university", role: "Tutorial instructor, Corporate Finance", note: "Part-time teaching assistant for Corporate Finance.", tags: ["Teaching", "Finance"] },
-      { when: "Apr 2027 – 2028", org: "Universidad de San Andrés", role: "Master in Finance (MFin), incoming", note: "Class of 2028.", tags: ["MFin"] },
+      { when: "Apr 2027 – 2028", org: "Universidad de San Andrés", kind: "edu", role: "Master in Finance (MFin), incoming", note: "Class of 2028.", tags: ["MFin"] },
       { when: "May 2025 – Mar 2026", org: "Global consulting firm", role: "Management Consultant Senior Analyst", note: "Led a process-automation initiative for the CFO & Enterprise Value practice; Anaplan for a North American airline.", tags: ["Anaplan", "Scrum", "Power Automate"] },
       { when: "Nov 2023 – Apr 2025", org: "Software studio", role: "Project Leader", note: "Event SaaS for 5+ clients on three continents; team of six.", tags: ["Jira", "Roadmap", "Clients"] },
       { when: "Mar 2021 – Oct 2023", org: "Software studio", role: "Senior Developer", note: "Mobile apps and a checkout processing 300+ daily payments.", tags: ["React Native", "Expo", "React"] },
-      { when: "Jan – May 2023", org: "IE University, Madrid", role: "Exchange semester, BBA", note: "", tags: [] },
-      { when: "Mar 2020 – Dec 2024", org: "Universidad de San Andrés", role: "Lic. in Business Administration & Digital Business", note: "GPA 8.6/10, top 10%, merit scholarship. TA in Data Architecture, Finance Club.", tags: [] }
+      { when: "Jan – May 2023", org: "IE University, Madrid", kind: "edu", role: "Exchange semester, BBA", note: "", tags: [] },
+      { when: "Mar 2020 – Dec 2024", org: "Universidad de San Andrés", kind: "edu", role: "Lic. in Business Administration & Digital Business", note: "GPA 8.6/10, top 10%, merit scholarship. TA in Data Architecture, Finance Club.", tags: [] }
     ],
     skills: [
       { code: "SK.01", name: "Build", items: ["React", "React Native", "Expo", "JavaScript / TypeScript", "HTML / CSS", "Node / Express", "Python", "SQL", "MongoDB", "Webflow"] },
@@ -121,6 +121,7 @@ const content = {
     labIntro: "Experiments I build out of curiosity. Each one has a reason.",
     off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The pink pixel cat on this page is a nod to my favourite cartoon." },
     today: "Today, Project Manager & Business Partner in BI, Automation and AI at a university.",
+    expWork: "Work", expEdu: "Education",
     seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
     fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
     gotMind: "Got something in mind?", reach: "Or write to me at",
@@ -135,7 +136,7 @@ const content = {
     view: "View", close: "Close", open: "Open", repo: "Repository",
     /* A · Notebook */
     a: {
-      hero: "Hi, I'm Rocío. I'm a <a class=\"chip\" href=\"#work\">product engineer</a> in Buenos Aires. I build products, automation and analytics so organizations decide better and do less manual work. I taught myself to code in 2021 from <a class=\"chip\" href=\"#books\">books</a> and the open web. Since then I have built an app that 40K people open every day, led a team of six, and worked in <a class=\"chip\" href=\"#finance\">finance</a>. Now I am teaching Corporate Finance, getting ready for a Master in Finance (April 2027), and <a class=\"chip\" href=\"#writing\">writing</a> down what I learn.",
+      hero: "Hi, I'm Rocío. I'm a <a class=\"chip\" href=\"#work\">product engineer</a> in Buenos Aires. I build products, automation and analytics so organizations decide better and do less manual work. I taught myself to code in 2021 from <a class=\"chip\" href=\"#books\">books</a> and the open web. Since then I have built an app that 40K people open every day, led a team of six, and worked in <a class=\"chip\" href=\"#finance\">finance</a>. Now I am teaching Corporate Finance and getting ready for a Master in Finance (April 2027).",
       kicker: "A notebook, kept in public", cardNow: "Now", cardNowBody: "Building automation, BI and AI for a university. Teaching Corporate Finance. MFin starts April 2027.", cardReading: "Reading", cardReadingLink: "Books I've read"
     },
     /* B · Dock */
@@ -197,7 +198,7 @@ const content = {
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remoto a todo el mundo",
     status: "Disponible para freelance · Buenos Aires",
     cta: "Trabajemos juntos", ctaAlt: "Hablemos", mailSubject: "Proyecto para Rocío",
-    skip: "Ir al contenido", langLabel: "Idioma", themeLabel: "Cambiar modo claro / oscuro", portraitAlt: "Retrato de Rocío Jacob",
+    skip: "Ir al contenido", langLabel: "Idioma", themeLabel: "Cambiar modo claro / oscuro", portraitAlt: "Avatar en pixel art de Rocío Jacob",
     nav: { home: "Inicio", about: "Sobre mí", work: "Trabajo", experience: "Experiencia", skills: "Stack", books: "Libros", writing: "Escritos", contact: "Contacto", play: "Playground", services: "Servicios" },
     h: { services: "Qué ofrezco", about: "Sobre mí", work: "Trabajo seleccionado", experience: "Experiencia", skills: "Habilidades y stack", books: "Libros", writing: "Escritos", contact: "Trabajemos juntos", finance: "El lado financiero", lab: "Lab", numbers: "En números" },
     about: [
@@ -239,12 +240,12 @@ const content = {
     timeline: [
       { when: "Abr 2026 – presente", org: "Una universidad", role: "Project Manager & Business Partner · BI, Automatización, IA", note: "Responsable del backend del sistema de seguimiento de trabajos finales; proyectos de automatización, BI e IA para la operación de la universidad.", tags: ["API", "BI", "Agentes de IA"] },
       { when: "Jun 2026 – presente", org: "Una universidad", role: "Docente de tutoriales, Finanzas Corporativas", note: "Ayudante de cátedra part-time en Finanzas Corporativas.", tags: ["Docencia", "Finanzas"] },
-      { when: "Abr 2027 – 2028", org: "Universidad de San Andrés", role: "Maestría en Finanzas (MFin), ingresante", note: "Promoción 2028.", tags: ["MFin"] },
+      { when: "Abr 2027 – 2028", org: "Universidad de San Andrés", kind: "edu", role: "Maestría en Finanzas (MFin), ingresante", note: "Promoción 2028.", tags: ["MFin"] },
       { when: "May 2025 – Mar 2026", org: "Consultora global", role: "Management Consultant Senior Analyst", note: "Lideré una iniciativa de automatización de procesos para la práctica de CFO & Enterprise Value; Anaplan para una aerolínea norteamericana.", tags: ["Anaplan", "Scrum", "Power Automate"] },
       { when: "Nov 2023 – Abr 2025", org: "Estudio de software", role: "Project Leader", note: "SaaS de eventos para más de 5 clientes en tres continentes; equipo de seis.", tags: ["Jira", "Roadmap", "Clientes"] },
       { when: "Mar 2021 – Oct 2023", org: "Estudio de software", role: "Senior Developer", note: "Apps móviles y un checkout que procesa más de 300 pagos diarios.", tags: ["React Native", "Expo", "React"] },
-      { when: "Ene – May 2023", org: "IE University, Madrid", role: "Semestre de intercambio, BBA", note: "", tags: [] },
-      { when: "Mar 2020 – Dic 2024", org: "Universidad de San Andrés", role: "Lic. en Administración de Empresas y Negocios Digitales", note: "Promedio 8,6/10, top 10%, beca al mérito. Ayudante en Arquitectura de Datos, Finance Club.", tags: [] }
+      { when: "Ene – May 2023", org: "IE University, Madrid", kind: "edu", role: "Semestre de intercambio, BBA", note: "", tags: [] },
+      { when: "Mar 2020 – Dic 2024", org: "Universidad de San Andrés", kind: "edu", role: "Lic. en Administración de Empresas y Negocios Digitales", note: "Promedio 8,6/10, top 10%, beca al mérito. Ayudante en Arquitectura de Datos, Finance Club.", tags: [] }
     ],
     skills: [
       { code: "SK.01", name: "Construcción", items: ["React", "React Native", "Expo", "JavaScript / TypeScript", "HTML / CSS", "Node / Express", "Python", "SQL", "MongoDB", "Webflow"] },
@@ -276,6 +277,7 @@ const content = {
     labIntro: "Experimentos que hago por curiosidad. Cada uno tiene un porqué.",
     off: { t: "Fuera de horario", p: "Soy DJ: toco y amo la música electrónica. También me encantan el arte y la fotografía. El gato rosa en píxeles de esta página es un guiño a mi dibujo animado favorito." },
     today: "Hoy, Project Manager & Business Partner en BI, Automatización e IA en una universidad.",
+    expWork: "Laboral", expEdu: "Educación",
     seeWork: "Ver el trabajo", remoteNote: "Buenos Aires, trabajo remoto", moreWork: "Más trabajo",
     fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
     gotMind: "¿Tenés algo en mente?", reach: "O escribime a",
@@ -289,7 +291,7 @@ const content = {
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "Ver", close: "Cerrar", open: "Abrir", repo: "Repositorio",
     a: {
-      hero: "Hola, soy Rocío. Soy <a class=\"chip\" href=\"#work\">product engineer</a> en Buenos Aires. Construyo producto, automatización y analítica para que las organizaciones decidan mejor y trabajen menos a mano. Aprendí a programar sola en 2021, con <a class=\"chip\" href=\"#books\">libros</a> y la web. Desde entonces construí una app que 40 mil personas abren todos los días, lideré un equipo de seis y trabajé en <a class=\"chip\" href=\"#finance\">finanzas</a>. Hoy doy clases de Finanzas Corporativas, en abril de 2027 empiezo una Maestría en Finanzas y dejo por <a class=\"chip\" href=\"#writing\">escrito</a> lo que aprendo.",
+      hero: "Hola, soy Rocío. Soy <a class=\"chip\" href=\"#work\">product engineer</a> en Buenos Aires. Construyo producto, automatización y analítica para que las organizaciones decidan mejor y trabajen menos a mano. Aprendí a programar sola en 2021, con <a class=\"chip\" href=\"#books\">libros</a> y la web. Desde entonces construí una app que 40 mil personas abren todos los días, lideré un equipo de seis y trabajé en <a class=\"chip\" href=\"#finance\">finanzas</a>. Hoy doy clases de Finanzas Corporativas y en abril de 2027 empiezo una Maestría en Finanzas.",
       kicker: "Un cuaderno, llevado en público", cardNow: "Ahora", cardNowBody: "Automatización, BI e IA para una universidad. Dando Finanzas Corporativas. El MFin arranca en abril de 2027.", cardReading: "Leyendo", cardReadingLink: "Libros que leí"
     },
     b: {
@@ -384,10 +386,14 @@ function footerLinks() {
   return `<a href="mailto:${L.email}">${f.email}</a><a href="${L.linkedin}" ${ext}>${f.linkedin}</a><a href="${L.github}" ${ext}>${f.github}</a>`;
 }
 function portrait() {
-  return `<span class="portrait"><span aria-hidden="true">RJ</span><img src="profile.jpg" alt="${esc(T().portraitAlt)}" width="96" height="96" onerror="this.remove()"></span>`;
+  return `<span class="portrait"><span aria-hidden="true">RJ</span><img src="profile.png" alt="${esc(T().portraitAlt)}" width="96" height="96" style="image-rendering:pixelated" onload="this.previousElementSibling.style.visibility='hidden'" onerror="this.remove()"></span>`;
 }
 const caseBody = c => c.body + (c.steps ? "<br><br>" + c.steps.map(x => `<b>${x.k}.</b> ${x.v}`).join("<br>") : "");
 const svcBody = s => s.body + (s.deliv ? `<br><b>${T().delivLabel}:</b> ${s.deliv}` : "") + (s.ideal ? `<br><b>${T().idealLabel}:</b> ${s.ideal}` : "");
+/* Experience split in two groups: work first, then education. */
+document.head.insertAdjacentHTML("beforeend", "<style>.exh{display:block!important;font-weight:600;padding:26px 0 10px!important;border:0!important;margin:0}.exh:first-child{padding-top:0!important}</style>");
+const expSplit = (t, row, tag = "li", cls = "") => [[t.expWork, t.timeline.filter(e => e.kind !== "edu")], [t.expEdu, t.timeline.filter(e => e.kind === "edu")]]
+  .map(([label, list]) => `<${tag} class="exh ${cls}">${label}</${tag}>` + list.map(row).join("")).join("");
 const labMeta = l => (l.status ? l.status + " · " : "") + l.why;
 const labName = l => l.url ? `<a href="${l.url}" ${ext}>${l.name}</a>` : l.name;
 /* Original pixel-art mascot (a generic pink cat) and a small equalizer. Decorative only. */

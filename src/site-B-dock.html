@@ -137,7 +137,7 @@ function render(t) {
   </section>
 
   <section id="experience" class="rv"><h2><small>03</small>${t.h.experience}</h2>
-    ${t.timeline.map((e, i) => `<div class="row"><span class="n">${String(i + 1).padStart(2, "0")}</span><div><h3>${e.role}</h3><span class="w">${e.org} · ${e.when}</span>${e.note ? `<p>${e.note}</p>` : "<p></p>"}<span class="chips">${e.tags.map(x => `<span class="chip">${x}</span>`).join("")}</span></div></div>`).join("")}
+    ${expSplit(t, (e, i) => `<div class="row"><span class="n">${String(i + 1).padStart(2, "0")}</span><div><h3>${e.role}</h3><span class="w">${e.org} · ${e.when}</span>${e.note ? `<p>${e.note}</p>` : "<p></p>"}<span class="chips">${e.tags.map(x => `<span class="chip">${x}</span>`).join("")}</span></div></div>`, "h3", "")}
   </section>
 
   <section id="work" class="rv"><h2><small>04</small>${t.h.work}</h2>
@@ -159,11 +159,6 @@ function render(t) {
       <ol>${content.books.map(b => `<li><span>${b.url ? `<a href="${b.url}" ${ext}>${esc(b.title)}</a>` : `<b>${esc(b.title)}</b>`} — ${esc(b.author)}${b.note[lang] ? `<br><span class="mut"># ${esc(b.note[lang])}</span>` : ""}</span></li>`).join("")}</ol>
     </div>
     
-  </section>
-
-  <section id="writing" class="rv"><h2><small>07</small>${t.h.writing}</h2>
-    <p>${t.writingIntro}</p>
-    <ul class="log">${content.writing.map(w => `<li><span class="mut">${fmtDate(w.date)}</span>${w.url ? `<a href="${w.url}" ${ext}>${esc(w.title[lang])}</a>` : `<span>${esc(w.title[lang])} <span class="mut">· ${t.soon}</span></span>`}</li>`).join("")}</ul>
   </section>
 
   <section id="contact" class="contact rv">
