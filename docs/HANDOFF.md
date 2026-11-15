@@ -68,11 +68,23 @@ Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H
 
 **Ilustración (tercera versión):** la primera le pareció "muy cuadrada" y la segunda, un boceto suelto, tampoco. Pidió algo "tipo croquis arquitectónico". Ahora es un alzado de Buenos Aires con recursos de croquis: esquinas donde las líneas se pasan, ejes de simetría en línea de trazo y punto, una cota (67,5 m del Obelisco), suelo rayado, árboles y figuras de escala, flecha de norte y rótulos chicos. Se genera en la función `city()` de `src/site-H-studio.html`. Falta que confirme si esta versión le gusta.
 
+**Croquis, ajuste:** con más detalle le pareció "poco elegante, todo medio movido", y no le gustó "la pelota con la dirección" (la flecha de norte). Se quitó el filtro que hacía temblar las líneas (ahora son rectas y nítidas), la flecha de norte, los ejes con círculos, la cadena de cotas y las cruces de los árboles. Se mantienen ventanas, edificios de fondo, la cota del Obelisco y los rótulos. Regla: líneas limpias, sin temblor ni símbolos redondos decorativos.
+
+**Mascota:** quiere que se parezca más a una pantera que a un gato. Hay tres grillas en `MASCOTS` de `core.js`: `cat` (la original, que pidió conservar), `walk` (pantera caminando) y `sit` (pantera sentada). Se elige con la constante `MASCOT`. Sigue en `cat` hasta que Rocío elija. Siguen siendo dibujos propios: no acercarlos al personaje de la Pantera Rosa.
+
+**Juegos en Python:** estaban repetidos en trabajo y en Lab. Se quitaron de los casos (`WK.06`); quedan solo en el Lab.
+
+**Caso de trabajos finales:** cerrado. El resultado es "Completo e implementado". Ya no quedan marcadores en el caso.
+
 **El croquis le encantó** ("va re por ahí"). Pidió más detalle y se agregó: ventanas, edificios de fondo, escalinata y tambor del Congreso, base del Obelisco, faroles, baranda del puente, grúas del puerto, nubes, cadena de cotas bajo el suelo y ejes A y B. Seguir en esta línea; no volver al boceto suelto.
 
 **Aire y síntesis (2026-11-15):** Rocío siente el contenido "compactado y apretado". Se hizo las dos cosas en H: menos contenido a la vista (el caso largo se abre con "Leer el caso completo", la experiencia muestra solo rol, lugar y fechas) y más espacio (interlineado, separación entre secciones y columnas, párrafos más angostos). Regla: ante la duda, sacar texto antes que achicar espacios.
 
 **Redacción en español:** pidió que sea más eficiente. Se reescribió todo el español más corto y directo (frases breves, menos subordinadas, "armo" y "hice" en vez de construcciones largas). Mantener ese registro en textos nuevos.
+
+**Navegación de H (2026-11-15):** pidió bajar el modo oscuro y el idioma a la navegación. El dock flotante ahora tiene las secciones, un separador, el botón de tema y un único botón de idioma (EN/ES, con el activo subrayado). El encabezado quedó solo con el nombre y los links de contacto. En celular el dock muestra Trabajo, Sobre mí y Contacto más tema e idioma (Servicios y Libros se ocultan con la clase `opt`).
+
+**Mobile en H:** optimizado a pedido de Rocío. A 640 px o menos: el croquis se muestra más grande y recortado, centrado en el Obelisco; los botones del hero ocupan el ancho; menos espacio entre secciones; los lomos de libros se achican para entrar sin scroll; el pie se apila. Verificado a 390 px sin scroll horizontal. Al tocar H, revisar siempre 390 px.
 
 **Foto de perfil:** su foto de siempre es un avatar en pixel art. Está en `profile.png` (recorte de cabeza y hombros, ampliado con píxeles duros) y `avatar-full.png` (cuerpo entero, sin usar todavía). Se muestra con `image-rendering: pixelated`.
 

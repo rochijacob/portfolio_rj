@@ -163,13 +163,11 @@ const content = {
           { k: "Context", v: "Each submission cycle involves 100+ projects, with defense committees to coordinate within a window of a few days. Approvals arrived as system emails that someone logged by hand in a spreadsheet, and notices to students, mentors and committee members went out manually." },
           { k: "Problem", v: "That manual work was repetitive and error-prone, especially at peak times." },
           { k: "Decision", v: "· One source of truth: a central data hub. I started by parsing notification emails and realized the process needed the underlying data, not just the messages. I also chose the hub over querying the operational system directly.<br>· A separate sync process inside the university's private network, since the hub can't be reached from a spreadsheet script.<br>· n8n workflows for the process itself: confirm project groupings, collect data through a form, email committee members for availability, detect when schedules converge.<br>· Sheets and Gmail stay as the interface, because that is where the team already works." },
-          { k: "Result", v: "[COMPLETE]" },
+          { k: "Result", v: "Complete and implemented." },
           { k: "Learning", v: "Define the source of truth before the tool." }
         ], tags: ["n8n", "Python", "Google Workspace", "AWS", "API design", "Backend"] },
       { code: "WK.05", name: "Finance process automation", org: "Global consulting firm", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Led the automation initiative",
-        body: "I led a process-optimisation initiative for the CFO & Enterprise Value practice, automating manual work with Excel and Power Automate. It was the part of consulting I enjoyed most. I also worked on an Anaplan implementation for a North American airline, run in Scrum with Jira.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] },
-      { code: "WK.06", name: "Python game library", org: "Self-study", role: "Learning by building", when: "2021 – 2022", impact: "5 small games",
-        body: "Pong, Flappy Bird, Frogger, a platformer and Space Invaders, built with pygame and turtle while I was learning Python. Games taught me loops, state and collision faster than any tutorial.", tags: ["Python", "pygame", "turtle"], url: "https://github.com/rochijacob/python_games" }
+        body: "I led a process-optimisation initiative for the CFO & Enterprise Value practice, automating manual work with Excel and Power Automate. It was the part of consulting I enjoyed most. I also worked on an Anaplan implementation for a North American airline, run in Scrum with Jira.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] }
     ],
     timeline: [
       { when: "Apr 2026 – present", org: "A university", role: "Project Manager & Business Partner · BI, Automation, AI", note: "Backend owner of the final-project tracking system; automation, BI and AI projects for university operations.", tags: ["API", "BI", "AI agents"] },
@@ -319,13 +317,11 @@ const content = {
           { k: "Contexto", v: "Cada entrega suma más de 100 trabajos y hay que coordinar las mesas de defensa en pocos días. Las aprobaciones llegaban por mail y alguien las cargaba a mano en una planilla; los avisos a alumnos, mentores y jurados también salían a mano." },
           { k: "Problema", v: "Trabajo repetitivo y propenso a errores, sobre todo en los picos." },
           { k: "Decisión", v: "· Una sola fuente de verdad: un data hub central. Empecé leyendo los mails de notificación y vi que el proceso necesitaba los datos de fondo, no los mensajes. Por eso elegí el hub, y no consultar el sistema operativo directo.<br>· Una sincronización aparte dentro de la red privada de la universidad, porque al hub no se llega desde un script de planilla.<br>· Flujos en n8n: confirmar agrupamientos, recolectar datos con un formulario, pedir disponibilidad a los jurados y detectar cuándo coinciden las agendas.<br>· Sheets y Gmail siguen siendo la interfaz, porque ahí ya trabaja el equipo." },
-          { k: "Resultado", v: "[COMPLETAR]" },
+          { k: "Resultado", v: "Completo e implementado." },
           { k: "Aprendizaje", v: "Definir la fuente de verdad antes que la herramienta." }
         ], tags: ["n8n", "Python", "Google Workspace", "AWS", "Diseño de APIs", "Backend"] },
       { code: "WK.05", name: "Automatización de procesos de finanzas", org: "Consultora global", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Lideré la iniciativa de automatización",
-        body: "Lideré una iniciativa de optimización de procesos para la práctica de CFO & Enterprise Value: automaticé trabajo manual con Excel y Power Automate. Fue lo que más disfruté de la consultoría. También participé en una implementación de Anaplan para una aerolínea norteamericana.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] },
-      { code: "WK.06", name: "Biblioteca de juegos en Python", org: "Autodidacta", role: "Aprender construyendo", when: "2021 – 2022", impact: "5 juegos chicos",
-        body: "Pong, Flappy Bird, Frogger, un plataformas y Space Invaders, hechos con pygame y turtle mientras aprendía Python. Me enseñaron loops, estado y colisiones más rápido que cualquier tutorial.", tags: ["Python", "pygame", "turtle"], url: "https://github.com/rochijacob/python_games" }
+        body: "Lideré una iniciativa de optimización de procesos para la práctica de CFO & Enterprise Value: automaticé trabajo manual con Excel y Power Automate. Fue lo que más disfruté de la consultoría. También participé en una implementación de Anaplan para una aerolínea norteamericana.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] }
     ],
     timeline: [
       { when: "Abr 2026 – presente", org: "Una universidad", role: "Project Manager & Business Partner · BI, Automatización, IA", note: "Backend del sistema de seguimiento de trabajos finales; automatización, BI e IA para la universidad.", tags: ["API", "BI", "Agentes de IA"] },
@@ -488,9 +484,16 @@ const labMeta = l => (l.status ? l.status + " · " : "") + l.why;
 const labName = l => l.url ? `<a href="${l.url}" ${ext}>${l.name}</a>` : l.name;
 /* Original pixel-art mascot (a generic pink cat) and a small equalizer. Decorative only. */
 const PINK = "#e56b9a";
-const CAT = ["..........X..X", "X.........XXXX", "X.........XoXo", "X.........XXXX", ".X..XXXXXXXXX.", "..XXXXXXXXXXX.", "...XXXXXXXXXX.", "...XXXXXXXXX..", "...X..X..X.X..", "...X..X..X.X.."];
-const pixelCat = (px = 4) => `<svg width="${14 * px}" height="${10 * px}" viewBox="0 0 14 10" shape-rendering="crispEdges" aria-hidden="true">` +
-  CAT.map((r, j) => [...r].map((c, i) => c === "." ? "" : `<rect x="${i}" y="${j}" width="1" height="1" fill="${c === "o" ? "#003049" : PINK}"/>`).join("")).join("") + `</svg>`;
+/* Pick the mascot here: "cat" (the original), "walk" (panther walking) or "sit" (panther sitting). */
+const MASCOT = "cat";
+const MASCOTS = {
+  cat: ["..........X..X", "X.........XXXX", "X.........XoXo", "X.........XXXX", ".X..XXXXXXXXX.", "..XXXXXXXXXXX.", "...XXXXXXXXXX.", "...XXXXXXXXX..", "...X..X..X.X..", "...X..X..X.X.."],
+  walk: ["................X.X.", "...............XXXXX", "X..............XoXXX", "X....XXXXXXXXXXXXXX.", ".X..XXXXXXXXXXXXXX..", "..XXXXXXXXXXXXXXX...", "....XXXXXXXXXXXXX...", "....XX.XX....XX.XX..", "....X..X.....X..X...", "...XX.XX....XX.XX..."],
+  sit: ["..X...X.....", "..XXXXX.....", "..XoXoX.....", "..XXXXX.....", "...XXX......", "..XXXXX.....", "..XXXXXX....", ".XXXXXXX....", ".XXXXXXX...X", ".XXXXXXXX..X", ".XXXXXXXX..X", ".XX.XXXXX.X.", ".XX.XXXXXXX.", "XXX.XXX....."]
+};
+const CAT = MASCOTS[MASCOT];
+const pixelCat = (px = 4, grid = CAT) => `<svg width="${grid[0].length * px}" height="${grid.length * px}" viewBox="0 0 ${grid[0].length} ${grid.length}" shape-rendering="crispEdges" aria-hidden="true">` +
+  grid.map((r, j) => [...r].map((c, i) => c === "." ? "" : `<rect x="${i}" y="${j}" width="1" height="1" fill="${c === "o" ? "#003049" : PINK}"/>`).join("")).join("") + `</svg>`;
 document.head.insertAdjacentHTML("beforeend", `<style>.eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px;margin-right:8px}.eq i{width:3px;height:14px;background:${PINK};transform-origin:bottom;animation:eq .9s ease-in-out infinite alternate}.eq i:nth-child(2){animation-delay:-.3s}.eq i:nth-child(3){animation-delay:-.6s}.eq i:nth-child(4){animation-delay:-.15s}@keyframes eq{from{transform:scaleY(.2)}to{transform:scaleY(1)}}@media(prefers-reduced-motion:reduce){.eq i{animation:none;transform:scaleY(.6)}}</style>`);
 const offClock = () => `<p class="off"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><b>${T().off.t}.</b> ${T().off.p}</p>`;
 /* Books as slim spines, each styled after its cover. Hover or tap to read title and author. */
@@ -529,7 +532,7 @@ document.addEventListener("click", e => {
   if (!b || b.dataset.lang === lang) return;
   lang = b.dataset.lang; store.set("rj-lang", lang);
   const y = scrollY; apply(); scrollTo(0, y);
-  const again = $(`[data-lang="${lang}"]`); if (again) again.focus();
+  const again = $(`[data-lang="${lang}"]`) || $("[data-lang]"); if (again) again.focus();
 });
 
 

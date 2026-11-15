@@ -36,16 +36,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hd{display:flex;flex-wrap:wrap;align-items:center;gap:4px 26px;min-height:76px}
 .hd .me{font-weight:600;text-decoration:none;margin-right:auto;padding:10px 0;letter-spacing:-.01em}
 .hd .k a{text-decoration:none;padding:12px 0;margin-left:18px}
-.lang{display:inline-flex;align-items:center}
-.lang button{min-width:34px;min-height:40px;font:400 .6875rem var(--mono);letter-spacing:.09em;color:var(--soft)}
-.lang button[aria-pressed=true]{color:var(--ink);font-weight:500;text-decoration:underline;text-underline-offset:5px}
-.theme{min-width:40px;min-height:40px;border-radius:50%;display:grid;place-items:center}
-.theme svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.dock{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:30;display:flex;gap:2px;padding:5px;background:var(--ink);border-radius:999px;max-width:calc(100vw - 16px);box-shadow:0 10px 30px -12px rgba(0,48,73,.55)}
+.dock{position:fixed;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:2px;padding:5px;background:var(--ink);border-radius:999px;max-width:calc(100vw - 16px);box-shadow:0 10px 30px -12px rgba(0,48,73,.55)}
 .dock a{color:var(--bg);text-decoration:none;font-size:.875rem;padding:10px 15px;border-radius:999px;white-space:nowrap;transition:background .2s}
 .dock a:hover{color:var(--bg);background:color-mix(in srgb,var(--bg) 16%,transparent)}
 .dock a[aria-current=true]{background:var(--bg);color:var(--ink)}
 .dock .cat{position:absolute;bottom:100%;left:16px;line-height:0;will-change:transform}
+.dock i{width:1px;height:20px;background:color-mix(in srgb,var(--bg) 30%,transparent);margin:0 4px}
+.dock button{color:var(--bg);min-width:40px;height:40px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:5px;transition:background .2s}
+.dock button:hover{background:color-mix(in srgb,var(--bg) 16%,transparent)}
+.dock button:focus-visible,.dock a:focus-visible{outline-color:var(--acc)}
+.dock svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.dock .lg{padding:0 10px;font:400 .6875rem var(--mono);letter-spacing:.06em}
+.dock .lg b{font-weight:400;opacity:.5}.dock .lg b.on{opacity:1;font-weight:500;text-decoration:underline;text-underline-offset:4px}
 .hero{padding:clamp(64px,11vw,150px) 0 0}
 h1{font:500 clamp(2.2rem,5.6vw,4.7rem)/1.03 var(--txt);letter-spacing:-.045em;margin:0;max-width:16ch;text-wrap:balance}
 h1 span{color:var(--acc)}
@@ -55,8 +57,9 @@ h1 span{color:var(--acc)}
 .btn:hover{background:var(--blue);border-color:var(--blue);color:var(--bg)}
 .btn.o{background:transparent;color:var(--ink)}.btn.o:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .cta .k{margin-left:auto}
-.city{display:block;width:100%;height:auto;margin-top:clamp(36px,6vw,72px);overflow:visible}
-.city{fill:none;stroke:var(--ink);stroke-width:1.1;stroke-linecap:round}
+.cityw{margin-top:clamp(36px,6vw,72px);overflow:hidden}
+.city{display:block;width:100%;height:auto}
+.city{fill:none;stroke:var(--ink);stroke-width:1.1;stroke-linecap:square;shape-rendering:geometricPrecision}
 .city .g{stroke-width:2.2}.city .l{stroke-width:.6}.city .a{stroke:var(--acc);stroke-width:.8}.city .d{stroke-dasharray:14 4 2 4;stroke-width:.6}
 .city text{font:400 8.5px var(--mono);letter-spacing:.09em;fill:var(--soft);stroke:none}
 .hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -122,9 +125,24 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   summary{grid-template-columns:minmax(0,1fr) 20px}summary>*{grid-column:1}
   summary .x{grid-row:1;grid-column:2}
   ul.r>li{grid-template-columns:1fr}
-  .hd .lk{display:none}.cta .k{margin-left:0;flex-basis:100%}
+  .cta .k{margin-left:0;flex-basis:100%}
 }
-@media(max-width:480px){.c4{grid-template-columns:1fr}.dock a{padding:10px 11px;font-size:.8125rem}.dock .opt{display:none}dl.f{grid-template-columns:1fr}dl.f dt{border:0;padding-bottom:0}dl.f dd{padding-top:2px}}
+@media(max-width:640px){
+  body{font-size:1rem;padding-bottom:104px}
+  .hd{min-height:60px;gap:0 14px}.hd .k a{margin-left:14px}
+  .hero{padding-top:44px}
+  .today{font-size:1.0625rem}
+  .cta .btn{flex:1 1 auto;justify-content:center}
+  .city{width:860px;max-width:none;margin-left:calc(50% - 430px)}
+  .sec,.feat{padding-top:76px}
+  .feat h2{margin-bottom:20px}.feat p{font-size:1.0625rem}
+  .cols{gap:36px 24px}
+  .spines{zoom:.74;justify-content:flex-start}
+  .tags li{padding:7px 11px}
+  .end{padding:88px 0 64px}
+  footer{flex-direction:column;gap:2px}footer a{margin:0 18px 0 0}
+}
+@media(max-width:480px){.c4{grid-template-columns:1fr}.dock a{padding:11px 11px;font-size:.8125rem}.dock .opt{display:none}.hd .lk a:first-child{display:none}dl.f{grid-template-columns:1fr}dl.f dt{border:0;padding-bottom:0}dl.f dd{padding-top:2px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1}}
 </style>
 </head>
@@ -206,13 +224,11 @@ const content = {
           { k: "Context", v: "Each submission cycle involves 100+ projects, with defense committees to coordinate within a window of a few days. Approvals arrived as system emails that someone logged by hand in a spreadsheet, and notices to students, mentors and committee members went out manually." },
           { k: "Problem", v: "That manual work was repetitive and error-prone, especially at peak times." },
           { k: "Decision", v: "· One source of truth: a central data hub. I started by parsing notification emails and realized the process needed the underlying data, not just the messages. I also chose the hub over querying the operational system directly.<br>· A separate sync process inside the university's private network, since the hub can't be reached from a spreadsheet script.<br>· n8n workflows for the process itself: confirm project groupings, collect data through a form, email committee members for availability, detect when schedules converge.<br>· Sheets and Gmail stay as the interface, because that is where the team already works." },
-          { k: "Result", v: "[COMPLETE]" },
+          { k: "Result", v: "Complete and implemented." },
           { k: "Learning", v: "Define the source of truth before the tool." }
         ], tags: ["n8n", "Python", "Google Workspace", "AWS", "API design", "Backend"] },
       { code: "WK.05", name: "Finance process automation", org: "Global consulting firm", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Led the automation initiative",
-        body: "I led a process-optimisation initiative for the CFO & Enterprise Value practice, automating manual work with Excel and Power Automate. It was the part of consulting I enjoyed most. I also worked on an Anaplan implementation for a North American airline, run in Scrum with Jira.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] },
-      { code: "WK.06", name: "Python game library", org: "Self-study", role: "Learning by building", when: "2021 – 2022", impact: "5 small games",
-        body: "Pong, Flappy Bird, Frogger, a platformer and Space Invaders, built with pygame and turtle while I was learning Python. Games taught me loops, state and collision faster than any tutorial.", tags: ["Python", "pygame", "turtle"], url: "https://github.com/rochijacob/python_games" }
+        body: "I led a process-optimisation initiative for the CFO & Enterprise Value practice, automating manual work with Excel and Power Automate. It was the part of consulting I enjoyed most. I also worked on an Anaplan implementation for a North American airline, run in Scrum with Jira.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] }
     ],
     timeline: [
       { when: "Apr 2026 – present", org: "A university", role: "Project Manager & Business Partner · BI, Automation, AI", note: "Backend owner of the final-project tracking system; automation, BI and AI projects for university operations.", tags: ["API", "BI", "AI agents"] },
@@ -362,13 +378,11 @@ const content = {
           { k: "Contexto", v: "Cada entrega suma más de 100 trabajos y hay que coordinar las mesas de defensa en pocos días. Las aprobaciones llegaban por mail y alguien las cargaba a mano en una planilla; los avisos a alumnos, mentores y jurados también salían a mano." },
           { k: "Problema", v: "Trabajo repetitivo y propenso a errores, sobre todo en los picos." },
           { k: "Decisión", v: "· Una sola fuente de verdad: un data hub central. Empecé leyendo los mails de notificación y vi que el proceso necesitaba los datos de fondo, no los mensajes. Por eso elegí el hub, y no consultar el sistema operativo directo.<br>· Una sincronización aparte dentro de la red privada de la universidad, porque al hub no se llega desde un script de planilla.<br>· Flujos en n8n: confirmar agrupamientos, recolectar datos con un formulario, pedir disponibilidad a los jurados y detectar cuándo coinciden las agendas.<br>· Sheets y Gmail siguen siendo la interfaz, porque ahí ya trabaja el equipo." },
-          { k: "Resultado", v: "[COMPLETAR]" },
+          { k: "Resultado", v: "Completo e implementado." },
           { k: "Aprendizaje", v: "Definir la fuente de verdad antes que la herramienta." }
         ], tags: ["n8n", "Python", "Google Workspace", "AWS", "Diseño de APIs", "Backend"] },
       { code: "WK.05", name: "Automatización de procesos de finanzas", org: "Consultora global", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Lideré la iniciativa de automatización",
-        body: "Lideré una iniciativa de optimización de procesos para la práctica de CFO & Enterprise Value: automaticé trabajo manual con Excel y Power Automate. Fue lo que más disfruté de la consultoría. También participé en una implementación de Anaplan para una aerolínea norteamericana.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] },
-      { code: "WK.06", name: "Biblioteca de juegos en Python", org: "Autodidacta", role: "Aprender construyendo", when: "2021 – 2022", impact: "5 juegos chicos",
-        body: "Pong, Flappy Bird, Frogger, un plataformas y Space Invaders, hechos con pygame y turtle mientras aprendía Python. Me enseñaron loops, estado y colisiones más rápido que cualquier tutorial.", tags: ["Python", "pygame", "turtle"], url: "https://github.com/rochijacob/python_games" }
+        body: "Lideré una iniciativa de optimización de procesos para la práctica de CFO & Enterprise Value: automaticé trabajo manual con Excel y Power Automate. Fue lo que más disfruté de la consultoría. También participé en una implementación de Anaplan para una aerolínea norteamericana.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] }
     ],
     timeline: [
       { when: "Abr 2026 – presente", org: "Una universidad", role: "Project Manager & Business Partner · BI, Automatización, IA", note: "Backend del sistema de seguimiento de trabajos finales; automatización, BI e IA para la universidad.", tags: ["API", "BI", "Agentes de IA"] },
@@ -531,9 +545,16 @@ const labMeta = l => (l.status ? l.status + " · " : "") + l.why;
 const labName = l => l.url ? `<a href="${l.url}" ${ext}>${l.name}</a>` : l.name;
 /* Original pixel-art mascot (a generic pink cat) and a small equalizer. Decorative only. */
 const PINK = "#e56b9a";
-const CAT = ["..........X..X", "X.........XXXX", "X.........XoXo", "X.........XXXX", ".X..XXXXXXXXX.", "..XXXXXXXXXXX.", "...XXXXXXXXXX.", "...XXXXXXXXX..", "...X..X..X.X..", "...X..X..X.X.."];
-const pixelCat = (px = 4) => `<svg width="${14 * px}" height="${10 * px}" viewBox="0 0 14 10" shape-rendering="crispEdges" aria-hidden="true">` +
-  CAT.map((r, j) => [...r].map((c, i) => c === "." ? "" : `<rect x="${i}" y="${j}" width="1" height="1" fill="${c === "o" ? "#003049" : PINK}"/>`).join("")).join("") + `</svg>`;
+/* Pick the mascot here: "cat" (the original), "walk" (panther walking) or "sit" (panther sitting). */
+const MASCOT = "cat";
+const MASCOTS = {
+  cat: ["..........X..X", "X.........XXXX", "X.........XoXo", "X.........XXXX", ".X..XXXXXXXXX.", "..XXXXXXXXXXX.", "...XXXXXXXXXX.", "...XXXXXXXXX..", "...X..X..X.X..", "...X..X..X.X.."],
+  walk: ["................X.X.", "...............XXXXX", "X..............XoXXX", "X....XXXXXXXXXXXXXX.", ".X..XXXXXXXXXXXXXX..", "..XXXXXXXXXXXXXXX...", "....XXXXXXXXXXXXX...", "....XX.XX....XX.XX..", "....X..X.....X..X...", "...XX.XX....XX.XX..."],
+  sit: ["..X...X.....", "..XXXXX.....", "..XoXoX.....", "..XXXXX.....", "...XXX......", "..XXXXX.....", "..XXXXXX....", ".XXXXXXX....", ".XXXXXXX...X", ".XXXXXXXX..X", ".XXXXXXXX..X", ".XX.XXXXX.X.", ".XX.XXXXXXX.", "XXX.XXX....."]
+};
+const CAT = MASCOTS[MASCOT];
+const pixelCat = (px = 4, grid = CAT) => `<svg width="${grid[0].length * px}" height="${grid.length * px}" viewBox="0 0 ${grid[0].length} ${grid.length}" shape-rendering="crispEdges" aria-hidden="true">` +
+  grid.map((r, j) => [...r].map((c, i) => c === "." ? "" : `<rect x="${i}" y="${j}" width="1" height="1" fill="${c === "o" ? "#003049" : PINK}"/>`).join("")).join("") + `</svg>`;
 document.head.insertAdjacentHTML("beforeend", `<style>.eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px;margin-right:8px}.eq i{width:3px;height:14px;background:${PINK};transform-origin:bottom;animation:eq .9s ease-in-out infinite alternate}.eq i:nth-child(2){animation-delay:-.3s}.eq i:nth-child(3){animation-delay:-.6s}.eq i:nth-child(4){animation-delay:-.15s}@keyframes eq{from{transform:scaleY(.2)}to{transform:scaleY(1)}}@media(prefers-reduced-motion:reduce){.eq i{animation:none;transform:scaleY(.6)}}</style>`);
 const offClock = () => `<p class="off"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><b>${T().off.t}.</b> ${T().off.p}</p>`;
 /* Books as slim spines, each styled after its cover. Hover or tap to read title and author. */
@@ -572,7 +593,7 @@ document.addEventListener("click", e => {
   if (!b || b.dataset.lang === lang) return;
   lang = b.dataset.lang; store.set("rj-lang", lang);
   const y = scrollY; apply(); scrollTo(0, y);
-  const again = $(`[data-lang="${lang}"]`); if (again) again.focus();
+  const again = $(`[data-lang="${lang}"]`) || $("[data-lang]"); if (again) again.focus();
 });
 
 
@@ -588,15 +609,14 @@ const city = alt => {
   const G = 200, o = 6;
   const box = (x, w, h, yb = G) => `M${x - o} ${yb - h}H${x + w + o}M${x} ${yb - h - o}V${yb}M${x + w} ${yb - h - o}V${yb}`;
   let hatch = ""; for (let x = 30; x < 840; x += 13) hatch += `M${x} ${G + 5}l-7 9`;
-  const tree = (x, r) => `M${x} ${G}v${-r * .5}M${x - r} ${G - r * 1.5}a${r} ${r} 0 1 0 ${2 * r} 0a${r} ${r} 0 1 0 ${-2 * r} 0M${x - r * .6} ${G - r * 2.1}l${r * 1.2} ${r * 1.2}M${x + r * .6} ${G - r * 2.1}l${-r * 1.2} ${r * 1.2}`;
+  const tree = (x, r) => `M${x} ${G}v${-r * .5}M${x - r} ${G - r * 1.5}a${r} ${r} 0 1 0 ${2 * r} 0a${r} ${r} 0 1 0 ${-2 * r} 0`;
   const win = (x, y, c, r, dx, dy) => { let p = ""; for (let a = 0; a < c; a++) for (let b = 0; b < r; b++) p += `M${x + a * dx} ${y + b * dy}v4`; return p; };
   const lamp = x => `M${x} ${G}v-24q1-6 8-5m0 0v3`;
   let rail = ""; for (let x = 846; x < 1112; x += 11) rail += `M${x} ${G - 4}v-5`;
   let chain = ""; for (const x of [72, 116, 124, 164, 196, 292, 372, 528, 588, 612, 662, 696, 702, 742, 752, 782]) chain += `M${x} ${G + 15}v7M${x - 3} ${G + 21.5}l6-6`;
   const man = x => `M${x} ${G}v-9M${x - 2} ${G - 11.5}a2 2 0 1 0 4 0a2 2 0 1 0 -4 0`;
-  return `<svg class="city" viewBox="0 0 1200 252" role="img" aria-label="${esc(alt)}">
-<defs><filter id="hand" x="-2%" y="-10%" width="104%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="1" seed="5"/><feDisplacementMap in="SourceGraphic" scale="2.2"/></filter></defs>
-<g filter="url(#hand)">
+  return `<svg class="city" viewBox="0 0 1200 244" role="img" aria-label="${esc(alt)}">
+<g>
 <path class="g" d="M14 ${G}H1186"/>
 <path class="l" d="${hatch}M860 ${G + 8}h70M950 ${G + 12}h90M1060 ${G + 8}h70M900 ${G + 16}h50"/>
 <path d="${box(72, 44, 50)}${box(124, 40, 82)}"/>
@@ -618,20 +638,16 @@ const city = alt => {
 <path class="l" d="M1166 ${G}V146M1166 146l30 9M1166 146l-13 7M1166 154l18 4M1184 ${G}V166M1160 ${G}h30"/>
 </g>
 <g class="a">
-<path class="d" d="M600 16V${G + 22}M450 60V${G + 22}"/>
+<path class="d" d="M600 16V${G + 14}M450 60V${G + 14}"/>
 <path d="M634 34V${G}M628 34h12M628 ${G}h12M631 37l6-6M631 ${G + 3}l6-6"/>
-<path d="M1146 70V28M1146 28l-6 12M1146 28l6 12M1132 56a14 14 0 1 0 28 0a14 14 0 1 0 -28 0"/>
 <path class="l" d="M244 30l14-10h34M450 56l14-10h30M1060 84l-12-12h-36"/>
-<path class="l" d="M72 ${G + 18.5}H782${chain}"/>
-<path d="M593 ${G + 30}a7 7 0 1 0 14 0a7 7 0 1 0 -14 0M443 ${G + 30}a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/>
 <path class="l" d="M318 66c8-12 26-9 28 0 12-5 22 5 14 12h-46c-8-3-6-12 4-12M760 48c7-10 22-8 24 0 10-4 19 4 12 10h-40c-7-3-5-10 4-10M96 92c6-9 20-7 22 0 9-4 17 4 11 9H92c-6-3-5-9 4-9"/>
 </g>
-<text x="450" y="${G + 33}" text-anchor="middle">A</text><text x="600" y="${G + 33}" text-anchor="middle">B</text>
+
 <text x="646" y="${G - 78}" transform="rotate(-90 646 ${G - 78})">67.5 m</text>
 <text x="600" y="11" text-anchor="middle">OBELISCO</text>
 <text x="296" y="23">KAVANAGH</text><text x="498" y="49">CONGRESO</text><text x="1008" y="75" text-anchor="end">PUENTE DE LA MUJER</text>
-<text x="1146" y="20" text-anchor="middle">N</text>
-<text x="14" y="${G + 46}">BUENOS AIRES · 34°36′S 58°22′W · ALZADO</text>
+<text x="14" y="${G + 38}">BUENOS AIRES · 34°36′S 58°22′W · ALZADO</text>
 </svg>`;
 };
 function render(t) {
@@ -645,15 +661,13 @@ function render(t) {
 <header class="w"><div class="hd">
   <a class="me" href="#top">${t.name}</a>
   <span class="k lk"><a href="mailto:${L.email}">${t.footer.email}</a><a href="${L.linkedin}" ${ext}>${t.footer.linkedin}</a><a href="${L.github}" ${ext}>${t.footer.github}</a></span>
-  <button class="theme" type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}"><svg viewBox="0 0 24 24" aria-hidden="true">${theme === "dark" ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>' : '<path d="M20 14A8 8 0 0110 4a8 8 0 1010 10z"/>'}</svg></button>
-  ${langToggle()}
 </div></header>
 <main id="main" class="w">
   <div class="hero" id="top">
     <h1>${h1}</h1>
     <p class="today">${t.today}</p>
     <div class="cta"><a class="btn" href="${mailto()}">${t.cta} ↗</a><a class="btn o" href="#work">${t.seeWork}</a><span class="k">${t.remoteNote} · <span id="clock">${clock()}</span></span></div>
-    ${city(t.illo)}
+    <div class="cityw">${city(t.illo)}</div>
   </div>
   <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => `<a href="#${fid(c)}"><b>${c.name} ›</b><span class="s">${c.org} · ${c.role}</span><span class="k">${c.impact}</span></a>`).join("")}</nav>
 
@@ -690,7 +704,9 @@ function render(t) {
   </section>
   <footer class="k"><span>${t.footer.rights}</span><span>${footerLinks()}</span></footer>
 </main>
-<nav class="dock" aria-label="Sections"><span class="cat" id="cat" aria-hidden="true">${pixelCat(2)}</span>${DOCK.map(([id, k], i) => `<a href="#${id}" data-sec="${id}"${i === 3 ? ' class="opt"' : ""}>${t.nav[k]}</a>`).join("")}</nav>`;
+<nav class="dock" aria-label="Sections"><span class="cat" id="cat" aria-hidden="true">${pixelCat(2)}</span>${DOCK.map(([id, k], i) => `<a href="#${id}" data-sec="${id}"${i === 1 || i === 3 ? ' class="opt"' : ""}>${t.nav[k]}</a>`).join("")}<i aria-hidden="true"></i>
+  <button type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}"><svg viewBox="0 0 24 24" aria-hidden="true">${theme === "dark" ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>' : '<path d="M20 14A8 8 0 0110 4a8 8 0 1010 10z"/>'}</svg></button>
+  <button type="button" class="lg" data-lang="${lang === "en" ? "es" : "en"}" aria-label="${esc(t.langLabel)}: ${lang === "en" ? "Español" : "English"}"><b${lang === "en" ? ' class="on"' : ""}>EN</b><b${lang === "es" ? ' class="on"' : ""}>ES</b></button></nav>`;
   walk(); spy();
 }
 /* The one flourish: a small pixel cat walks along the top of the navigation as you scroll. */
