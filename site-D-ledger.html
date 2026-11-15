@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rocío Jacob · Product Engineer</title>
 <meta name="description" content="">
-<meta name="theme-color" content="#fdf3dc">
+<meta name="theme-color" content="#f4f6f7">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Rocío Jacob · Product Engineer">
 <meta property="og:description" content="I build products, automation and analytics so organizations decide better and do less manual work.">
@@ -15,25 +15,27 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#fdf3dc;--card:#fffaf0;--ink:#003049;--mut:#48606e;--line:#c5d4da;--grid:#ebe2c6;--up:#1f7a4d;--upbg:#e2efdc;--sky:#669bbc;
+:root{--paper:#f4f6f7;--card:#ffffff;--ink:#003049;--mut:#48606e;--line:#c5d4da;--grid:#e2e9ed;--up:#1f7a4d;--upbg:#e2efdc;--sky:#669bbc;
   --sans:"IBM Plex Sans",system-ui,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;--hand:"Caveat","Segoe Script","Bradley Hand",cursive}
+:root[data-theme=dark]{--paper:#00202f;--card:#002a3d;--ink:#f0f4f6;--mut:#a3b9c5;--line:#1b4a60;--grid:#072d40;--up:#63d19b;--upbg:#0c3a36;--sky:#669bbc}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;color:var(--ink);font:400 1.02rem/1.6 var(--sans);background:var(--paper) linear-gradient(var(--grid) 1px,transparent 1px) 0 0/28px 28px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
 a{color:inherit;text-underline-offset:3px}a:hover{color:var(--up)}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 :focus-visible{outline:2px solid var(--up);outline-offset:3px;border-radius:4px}
-.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:#fff;padding:8px 12px;z-index:99}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:var(--paper);padding:8px 12px;z-index:99}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 .mono{font:400 .76rem/1.5 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--mut)}
 header{display:flex;flex-wrap:wrap;align-items:center;gap:4px 20px;padding:16px 0;border-bottom:1.5px solid var(--ink)}
-.tk{font:500 1rem var(--mono);background:var(--ink);color:#fff;padding:9px 12px;border-radius:4px;text-decoration:none;margin-right:auto}
-.tk:hover{color:#fff;background:var(--up)}
+.tk{font:500 1rem var(--mono);background:var(--ink);color:var(--paper);padding:9px 12px;border-radius:4px;text-decoration:none;margin-right:auto}
+.tk:hover{color:var(--paper);background:var(--up)}
 header nav{display:flex;flex-wrap:wrap;gap:2px 16px}
 header nav a{font:400 .76rem var(--mono);text-transform:uppercase;text-decoration:none;padding:11px 0;letter-spacing:.04em}
 .lang{display:inline-flex;align-items:center;gap:2px;font:400 .76rem var(--mono);color:var(--mut)}
 .lang button{min-width:40px;min-height:40px;font:500 .76rem var(--mono);color:var(--mut)}
 .lang button[aria-pressed=true]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--up)}
+.theme{min-width:40px;min-height:40px;border:1px solid var(--line);border-radius:6px}
 .hero{position:relative;display:grid;gap:36px;padding:64px 0 56px;align-items:center}
 .rings{position:absolute;left:50%;top:50%;width:min(900px,150vw);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 46px,var(--sky) 46px 47px);-webkit-mask:radial-gradient(circle,#000 30%,transparent 70%);mask:radial-gradient(circle,#000 30%,transparent 70%);pointer-events:none;z-index:-1}
 .hero{overflow:hidden;isolation:isolate}
@@ -43,8 +45,8 @@ header nav a{font:400 .76rem var(--mono);text-transform:uppercase;text-decoratio
 .note .sig{font:500 1.5rem var(--hand);display:flex;justify-content:space-between;align-items:baseline}
 .intro h1{font:600 clamp(1.7rem,4vw,2.5rem)/1.15 var(--sans);letter-spacing:-.02em;margin:10px 0 14px}
 .talk{font:600 1.7rem var(--hand);margin:18px 0 10px}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;font:500 .82rem var(--mono);text-transform:uppercase;letter-spacing:.05em;padding:14px 22px;border-radius:6px;text-decoration:none;transition:background .2s,transform .2s}
-.btn:hover{background:var(--up);color:#fff;transform:translateY(-2px)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);font:500 .82rem var(--mono);text-transform:uppercase;letter-spacing:.05em;padding:14px 22px;border-radius:6px;text-decoration:none;transition:background .2s,transform .2s}
+.btn:hover{background:var(--up);color:var(--paper);transform:translateY(-2px)}
 .panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:clamp(18px,3vw,30px);margin:0 0 26px;scroll-margin-top:16px}
 h2{font:600 1.5rem/1.2 var(--sans);letter-spacing:-.015em;margin:0}
 .ph{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 16px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--line)}
@@ -55,7 +57,7 @@ p{margin:0 0 .9em}
 .chg{font:500 .95rem var(--mono);color:var(--up);background:var(--upbg);padding:3px 8px;border-radius:4px;display:inline-block;margin:6px 0 0 8px}
 .rng{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
 .rng button{min-width:52px;min-height:40px;font:500 .78rem var(--mono);border-right:1px solid var(--line)}
-.rng button:last-child{border:0}.rng button[aria-pressed=true]{background:var(--ink);color:#fff}
+.rng button:last-child{border:0}.rng button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
 svg.chart{display:block;width:100%;height:auto;margin:16px 0 6px;overflow:visible}
 .chart .ln{fill:none;stroke:var(--up);stroke-width:2.5;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.3s ease forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
@@ -72,7 +74,7 @@ svg.chart{display:block;width:100%;height:auto;margin:16px 0 6px;overflow:visibl
 .story .n{font:500 .85rem var(--mono);color:var(--up)}
 .story sup a{font:500 .72rem var(--mono);text-decoration:none;color:var(--up);padding:6px 4px}
 .pairs{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;list-style:none;padding:0}
-.pairs li{font:500 .74rem var(--mono);letter-spacing:.06em;background:#d5e4ec;border:1px solid var(--sky);border-radius:999px;padding:5px 12px}
+.pairs li{font:500 .74rem var(--mono);letter-spacing:.06em;background:color-mix(in srgb,var(--sky) 26%,transparent);border:1px solid var(--sky);border-radius:999px;padding:5px 12px}
 .th{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:22px}
 .th h3{font:600 1.75rem/1.05 var(--hand)}
 table{width:100%;border-collapse:collapse;font-size:.95rem}
@@ -131,6 +133,8 @@ const content = {
     { title: "Creativity, Inc.", author: "Ed Catmull", spine: { bg: "#c8102e", fg: "#ffffff", ac: "#111111", font: "Oswald,'Arial Narrow',sans-serif", w: 46, h: 236, up: 1, wt: 600 }, note: { en: "", es: "" }, url: "", conviction: "" },
     { title: "The Hard Thing About Hard Things", author: "Ben Horowitz", spine: { bg: "#1c1c1c", fg: "#ffffff", ac: "#2f80ed", font: "Anton,Impact,sans-serif", w: 50, h: 240, up: 1, fs: ".78rem" }, note: { en: "", es: "" }, url: "", conviction: "" },
     { title: "Brave New World", author: "Aldous Huxley", spine: { bg: "#e9dcc0", fg: "#1d3557", ac: "#d1495b", font: "'Playfair Display',Georgia,serif", w: 38, h: 214 }, note: { en: "", es: "" }, url: "", conviction: "" },
+    { title: "Range", author: "David Epstein", spine: { bg: "#fafafa", fg: "#111111", ac: "#e63946", font: "Anton,Impact,sans-serif", w: 42, h: 226, up: 1 }, note: { en: "", es: "" }, url: "", conviction: "" },
+    { title: "Outliers", author: "Malcolm Gladwell", spine: { bg: "#ffffff", fg: "#111111", ac: "#9aa3a8", font: "'Playfair Display',Georgia,serif", w: 40, h: 220 }, note: { en: "", es: "" }, url: "", conviction: "" },
     { title: "Fahrenheit 451", author: "Ray Bradbury", spine: { bg: "#d62818", fg: "#111111", ac: "#ffd23f", font: "Anton,Impact,sans-serif", w: 36, h: 208, up: 1 }, note: { en: "", es: "" }, url: "", conviction: "" }
   ],
 
@@ -175,15 +179,15 @@ const content = {
         body: "Led end-to-end development of a platform for ticketing, access control and client relationships, used by music festivals and crypto event organisers across America, Europe and Asia. I managed a six-person cross-functional team, handled 5+ client accounts directly, prioritised features from client needs and presented the roadmap to internal and external stakeholders.", tags: ["Project leadership", "Jira", "Roadmap", "React"] },
       { code: "WK.03", name: "High-volume checkout", org: "Software studio", role: "Senior Developer", when: "2021 – 2023", impact: "300+ payments / day",
         body: "Designed and launched a checkout with custom billing that processes 300+ payments a day. It was one of the first React integrations of Mercado Pago.", tags: ["React", "Mercado Pago", "Billing"] },
-      { code: "WK.04", line: "De la coordinación manual a un flujo automático.", line: "From manual coordination to an automatic flow.", name: "Final-project tracking", org: "A university", role: "Project Manager & Business Partner", when: "Apr 2026 – present", impact: "100+ final projects per cycle",
-        body: "I own the backend of the system that tracks student final projects and coordinates their defence panels. Alongside it I drive automation, BI and AI projects for university operations.",
+      { code: "WK.04", line: "From manual coordination to an automated flow.", name: "Final-project tracking", org: "A university", role: "Product & automation lead", when: "Apr 2026 – present", impact: "100+ projects per cycle",
+        body: "I own the backend of the system that tracks student capstone projects and coordinates their defense committees: the data layer, the sync and the workflows. Alongside it, I drive automation, BI and AI projects for university operations.",
         steps: [
-          { k: "Context", v: "Each final-project submission cycle at a university involved more than a hundred projects, with defence panels to coordinate in a window of a few days. [CONFIRM: how it was done before: spreadsheets by hand, emails one by one?]" },
-          { k: "Problem", v: "Recording each approved project and notifying students, mentors and jurors depended on repetitive manual tasks, with a risk of errors at peak times." },
-          { k: "Decision", v: "Take the data from a single source, a central data hub, instead of reading emails or the operational database. Run the sync as a scheduled process inside the secure network. Keep Sheets and Gmail as the interface, because that is what the team already uses. Model the circuit as numbered flows: confirm grouping, form, juror availability and convergence detection. Why not the alternatives: reading emails depends on the format of each email and breaks with any change; the operational database was not the right source; a script inside Sheets could not reach the data hub, which lives inside the university's private network, so the sync runs as a separate process; and a new tool would have asked the team to change its habits." },
-          { k: "Result", v: "[COMPLETE: e.g. from days of coordination to minutes, no exact figures]" },
-          { k: "Learning", v: "Define the source of truth before the tool. And a solution only counts if the operations team adopts it, even if it is not the most elegant." }
-        ], tags: ["API design", "Backend", "Automation", "BI", "AI"] },
+          { k: "Context", v: "Each submission cycle involves 100+ projects, with defense committees to coordinate within a window of a few days. Approvals arrived as system emails that someone logged by hand in a spreadsheet, and notices to students, mentors and committee members went out manually." },
+          { k: "Problem", v: "That manual work was repetitive and error-prone, especially at peak times." },
+          { k: "Decision", v: "· One source of truth: a central data hub. I started by parsing notification emails and realized the process needed the underlying data, not just the messages. I also chose the hub over querying the operational system directly.<br>· A separate sync process inside the university's private network, since the hub can't be reached from a spreadsheet script.<br>· n8n workflows for the process itself: confirm project groupings, collect data through a form, email committee members for availability, detect when schedules converge.<br>· Sheets and Gmail stay as the interface, because that is where the team already works." },
+          { k: "Result", v: "[COMPLETE]" },
+          { k: "Learning", v: "Define the source of truth before the tool." }
+        ], tags: ["n8n", "Python", "Google Workspace", "AWS", "API design", "Backend"] },
       { code: "WK.05", name: "Finance process automation", org: "Global consulting firm", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Led the automation initiative",
         body: "I led a process-optimisation initiative for the CFO & Enterprise Value practice, automating manual work with Excel and Power Automate. It was the part of consulting I enjoyed most. I also worked on an Anaplan implementation for a North American airline, run in Scrum with Jira.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] },
       { code: "WK.06", name: "Python game library", org: "Self-study", role: "Learning by building", when: "2021 – 2022", impact: "5 small games",
@@ -203,7 +207,7 @@ const content = {
       { code: "SK.01", name: "Build", items: ["React", "React Native", "Expo", "JavaScript / TypeScript", "HTML / CSS", "Node / Express", "Python", "SQL", "MongoDB", "Webflow"] },
       { code: "SK.02", name: "Cloud & systems", items: ["AWS", "API design", "System design", "Database design", "AI agents"] },
       { code: "SK.03", name: "Product & PM", items: ["Jira", "Scrum", "Roadmapping", "Stakeholder management", "Figma", "Notion"] },
-      { code: "SK.04", name: "Finance & automation", items: ["FP&A", "Anaplan (certified)", "Excel modelling", "Power Automate", "BI"] },
+      { code: "SK.04", name: "Finance & automation", items: ["n8n", "Power Automate", "BI", "Anaplan (certified)", "Excel modelling", "FP&A"] },
       { code: "SK.05", name: "Languages", items: ["Spanish (native)", "English (fluent, TOEFL iBT 110)"] }
     ],
     stackSentence: "I build with {React}, {React Native} and {Expo} in {TypeScript}, back it with {Node}, {Python}, {SQL} and {MongoDB} on {AWS}, and ship marketing sites in {Webflow}.",
@@ -234,7 +238,6 @@ const content = {
     fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
     gotMind: "Got something in mind?", reach: "Or write to me at",
     illo: "Line drawing of the Buenos Aires skyline with the Obelisk",
-    papers: { label: "Paper", cold: "Cold white", bone: "Bone", mist: "Mist", rust: "Ink and rust" },
     booksIntro: "I learn by reading books and then building something with what I read.",
     booksNote: "Hover or tap a spine.",
     writingIntro: "Notes on product, finance and what I am learning.",
@@ -332,15 +335,15 @@ const content = {
         body: "Lideré de punta a punta el desarrollo de una plataforma de ticketing, control de accesos y relación con clientes, usada por festivales de música y organizadores de eventos cripto en América, Europa y Asia. Coordiné un equipo multidisciplinario de seis personas, llevé de forma directa más de 5 cuentas, prioricé funcionalidades a partir de las necesidades de los clientes y presenté el roadmap a stakeholders internos y externos.", tags: ["Liderazgo de proyecto", "Jira", "Roadmap", "React"] },
       { code: "WK.03", name: "Checkout de alto volumen", org: "Estudio de software", role: "Senior Developer", when: "2021 – 2023", impact: "300+ pagos / día",
         body: "Diseñé y lancé un checkout con facturación a medida que procesa más de 300 pagos por día. Fue una de las primeras integraciones de Mercado Pago en React.", tags: ["React", "Mercado Pago", "Facturación"] },
-      { code: "WK.04", name: "Seguimiento de trabajos finales", org: "Una universidad", role: "Project Manager & Business Partner", when: "Abr 2026 – presente", impact: "Más de 100 trabajos por entrega",
-        body: "Soy responsable del backend del sistema que hace el seguimiento de los trabajos finales de grado y coordina sus mesas de defensa. En paralelo impulso proyectos de automatización, BI e IA para la operación de la universidad.",
+      { code: "WK.04", line: "De la coordinación manual a un flujo automatizado.", name: "Seguimiento de trabajos finales", org: "Una universidad", role: "Líder de producto y automatización", when: "Abr 2026 – presente", impact: "Más de 100 trabajos por entrega",
+        body: "Soy responsable del backend del sistema que hace el seguimiento de los trabajos finales de grado y coordina sus mesas de defensa: la capa de datos, la sincronización y los flujos. En paralelo impulso proyectos de automatización, BI e IA para la operación de la universidad.",
         steps: [
-          { k: "Contexto", v: "Cada entrega de trabajos finales de grado de una universidad movilizaba a más de cien trabajos, con las mesas de defensa a coordinar en una ventana de pocos días. [CONFIRMAR: cómo se hacía antes, ¿planillas a mano, mails uno por uno?]" },
-          { k: "Problema", v: "Registrar cada trabajo aprobado y avisar a alumnos, mentores y jurados dependía de tareas manuales repetitivas, con riesgo de errores en los picos." },
-          { k: "Decisión", v: "Tomar los datos de una fuente única, un data hub central, en vez de leer mails o la base operativa. Correr la sincronización como proceso programado dentro de la red segura. Dejar Sheets y Gmail como interfaz, porque es lo que el equipo ya usa. Modelar el circuito como flujos numerados: confirmar agrupamiento, formulario, disponibilidad de jurados y detección de convergencia. Por qué no las alternativas: leer los mails depende del formato de cada mail y se rompe con cualquier cambio; la base operativa no era la fuente correcta; un script dentro de Sheets no podía llegar al data hub, que está dentro de la red privada de la universidad, y por eso la sincronización corre en un proceso aparte; y una herramienta nueva le habría pedido al equipo que cambiara de hábitos." },
-          { k: "Resultado", v: "[COMPLETAR: por ejemplo, de días de coordinación a minutos, sin cifras exactas]" },
-          { k: "Aprendizaje", v: "Definir la fuente de verdad antes que la herramienta. Y una solución solo vale si el equipo operativo la adopta, aunque no sea la más elegante." }
-        ], tags: ["Diseño de APIs", "Backend", "Automatización", "BI", "IA"] },
+          { k: "Contexto", v: "Cada entrega involucra más de 100 trabajos, con mesas de defensa a coordinar en una ventana de pocos días. Las aprobaciones llegaban como mails del sistema que alguien cargaba a mano en una planilla, y los avisos a alumnos, mentores y jurados salían de forma manual." },
+          { k: "Problema", v: "Ese trabajo manual era repetitivo y propenso a errores, sobre todo en los picos." },
+          { k: "Decisión", v: "· Una sola fuente de verdad: un data hub central. Empecé leyendo los mails de notificación y me di cuenta de que el proceso necesitaba los datos de fondo, no solo los mensajes. También elegí el hub antes que consultar el sistema operativo directamente.<br>· Un proceso de sincronización aparte dentro de la red privada de la universidad, porque al hub no se llega desde un script de planilla.<br>· Flujos en n8n para el proceso en sí: confirmar el agrupamiento de trabajos, recolectar datos con un formulario, escribir a los jurados para pedir disponibilidad y detectar cuándo convergen las agendas.<br>· Sheets y Gmail quedan como interfaz, porque es donde el equipo ya trabaja." },
+          { k: "Resultado", v: "[COMPLETAR]" },
+          { k: "Aprendizaje", v: "Definir la fuente de verdad antes que la herramienta." }
+        ], tags: ["n8n", "Python", "Google Workspace", "AWS", "Diseño de APIs", "Backend"] },
       { code: "WK.05", name: "Automatización de procesos de finanzas", org: "Consultora global", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Lideré la iniciativa de automatización",
         body: "Lideré una iniciativa de optimización de procesos para la práctica de CFO & Enterprise Value, automatizando trabajo manual con Excel y Power Automate. Fue lo que más disfruté de la consultoría. También participé en una implementación de Anaplan para una aerolínea norteamericana, con Scrum y Jira.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] },
       { code: "WK.06", name: "Biblioteca de juegos en Python", org: "Autodidacta", role: "Aprender construyendo", when: "2021 – 2022", impact: "5 juegos chicos",
@@ -360,7 +363,7 @@ const content = {
       { code: "SK.01", name: "Construcción", items: ["React", "React Native", "Expo", "JavaScript / TypeScript", "HTML / CSS", "Node / Express", "Python", "SQL", "MongoDB", "Webflow"] },
       { code: "SK.02", name: "Cloud y sistemas", items: ["AWS", "Diseño de APIs", "Diseño de sistemas", "Diseño de bases de datos", "Agentes de IA"] },
       { code: "SK.03", name: "Producto y PM", items: ["Jira", "Scrum", "Roadmapping", "Gestión de stakeholders", "Figma", "Notion"] },
-      { code: "SK.04", name: "Finanzas y automatización", items: ["FP&A", "Anaplan (certificada)", "Modelado en Excel", "Power Automate", "BI"] },
+      { code: "SK.04", name: "Finanzas y automatización", items: ["n8n", "Power Automate", "BI", "Anaplan (certificada)", "Modelado en Excel", "FP&A"] },
       { code: "SK.05", name: "Idiomas", items: ["Español (nativo)", "Inglés (fluido, TOEFL iBT 110)"] }
     ],
     stackSentence: "Construyo con {React}, {React Native} y {Expo} en {TypeScript}, lo respaldo con {Node}, {Python}, {SQL} y {MongoDB} sobre {AWS}, y publico sitios de marketing en {Webflow}.",
@@ -391,7 +394,6 @@ const content = {
     fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
     gotMind: "¿Tenés algo en mente?", reach: "O escribime a",
     illo: "Dibujo lineal del perfil de Buenos Aires con el Obelisco",
-    papers: { label: "Papel", cold: "Blanco frío", bone: "Hueso", mist: "Niebla", rust: "Tinta y óxido" },
     booksIntro: "Aprendo leyendo libros y después construyendo algo con lo que leí.",
     booksNote: "Pasá o tocá un lomo.",
     writingIntro: "Notas sobre producto, finanzas y lo que voy aprendiendo.",
@@ -550,6 +552,8 @@ document.addEventListener("click", e => {
 
 /* ---------- Site D · Ledger ---------- */
 let range = "max", activeM = -1;
+let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = theme;
 const NOW = 2026.87, SPAN = { y1: 1, y3: 3, max: 99 };
 
 function chartData(t) {
@@ -589,6 +593,7 @@ function render(t) {
   <a class="tk" href="#top">${d.ticker}</a>
   <nav aria-label="Sections"><a href="#chart">${d.chartTitle.split(",")[0]}</a><a href="#thesis">${d.thesisTitle}</a><a href="#holdings">${d.holdingsTitle}</a><a href="#positions">${d.positionsTitle}</a><a href="#books">${t.nav.books}</a><a href="#contact">${t.nav.contact}</a></nav>
   ${langToggle()}
+  <button class="theme" type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}">${theme === "dark" ? "☀" : "☾"}</button>
 </header>
 <main id="main">
   <div class="hero" id="top"><div class="rings" aria-hidden="true"></div>
@@ -683,6 +688,11 @@ function setM(i) {
   $$(".pt").forEach(p => p.classList.toggle("on", +p.dataset.m === i));
 }
 document.addEventListener("click", e => {
+  if (e.target.closest("[data-theme-btn]")) {
+    theme = theme === "dark" ? "light" : "dark"; store.set("rj-theme", theme);
+    document.documentElement.dataset.theme = theme;
+    const y = scrollY; apply(); scrollTo(0, y); $("[data-theme-btn]").focus(); return;
+  }
   const r = e.target.closest("[data-range]");
   if (r) { range = r.dataset.range; activeM = -1; const y = scrollY; apply(); scrollTo(0, y); $(`[data-range="${range}"]`).focus(); return; }
   const m = e.target.closest("[data-m]"); if (m) setM(+m.dataset.m);

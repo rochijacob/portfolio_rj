@@ -60,11 +60,19 @@ Qué tomó H de D, a pedido de Rocío: la sección de tesis, la historia `[01]` 
 
 Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H-studio.html` (app de gimnasios, SaaS de eventos, seguimiento de trabajos finales). El resto va en "Más trabajo".
 
-**Color de fondo:** el crema `#fdf0d5` le resulta muy amarillo. Prefiere un blanco frío o un crema más neutro, siempre con su azul `#003049`. H tiene un selector temporal de cuatro papeles (blanco frío, hueso, niebla, tinta y óxido) para que elija. **Es una herramienta de revisión: cuando elija, fijar ese fondo, quitar el selector y llevar el mismo fondo a A, B y D.** A, B y D siguen con el crema original.
+**Color de fondo (decidido 2026-11-15):** el crema `#fdf0d5` le resultaba muy amarillo. Eligió **blanco frío `#f4f6f7`** con su azul `#003049` y el celeste como acento. Está aplicado en las cuatro direcciones; el selector de papeles de H se quitó. No volver al crema.
+
+**Modo oscuro: es "importantísimo" para Rocío.** Lo tienen las cuatro: A, D y H comparten la clave `rj-theme` (por defecto siguen la preferencia del sistema); B usa `rj-theme-b` y arranca en oscuro. Cualquier componente nuevo tiene que verse bien en ambos modos: usar las variables (`--bg`, `--ink`, `--acc`...) y no colores fijos.
+
+**Puntos del fondo:** pidió que sean más suaves para que no compitan con el texto. Están en opacidad ~0.075 (claro) y ~0.055 (oscuro). No subirlos.
+
+**Ilustración:** la primera versión le pareció "muy cuadrada"; quiere que parezca un boceto. Ahora es un dibujo lineal de Buenos Aires pasado dos veces por un filtro SVG de desplazamiento, con rayado a mano. Ojo técnico: las formas viven en `<defs>` y se dibujan con `<use>`, así que los estilos tienen que heredarse desde el `<g>` que envuelve al `<use>` (los selectores con ancestros no llegan adentro).
+
+**"Sobre mí" en H:** Rocío notó que repetía contenido. Ahora es un solo bloque: foto, una frase sobre qué le importa, la historia `[01]` a `[04]`, los tags y la línea "Fuera de horario". Se quitaron los párrafos largos y la lista de finanzas, que repetían la historia y la experiencia. A, B y D conservan el "Sobre mí" largo.
 
 **El 8 bits:** a veces siente que no se alinea con la estética sobria. El gato pixel queda solo como detalle chico (sobre el dock en H, en el estante en A). Le encanta la frase "El gato rosa en píxeles de esta página es un guiño a mi dibujo animado favorito".
 
-**Libros:** no quiere escribir por qué destaca cada uno (`note` vacío, no pedirlo de nuevo). Quiere que conserven la estética de sus tapas, idealmente con sus tipografías, como los lomos de thanhdatnguyen.com. Están hechos en CSS con colores y tipografías que evocan una edición conocida de cada título (campo `spine` de cada libro). Son aproximaciones de memoria, no escaneos: si Rocío manda fotos de los lomos reales, se reemplazan. Al pasar o tocar un lomo se muestra título y autor. Lo usan A y H; B y D mantienen sus propias listas.
+**Libros (10 títulos, con Range y Outliers agregados el 2026-11-15):** no quiere escribir por qué destaca cada uno (`note` vacío, no pedirlo de nuevo). Quiere que conserven la estética de sus tapas, idealmente con sus tipografías, como los lomos de thanhdatnguyen.com. Están hechos en CSS con colores y tipografías que evocan una edición conocida de cada título (campo `spine` de cada libro). Son aproximaciones de memoria, no escaneos: si Rocío manda fotos de los lomos reales, se reemplazan. Al pasar o tocar un lomo se muestra título y autor. Lo usan A y H; B y D mantienen sus propias listas.
 
 **Lab:** el agente de fitness se quitó a pedido de Rocío. Preguntó cómo mejorar la sección; se le pidió por cada experimento: qué hace en una línea, con qué está hecho, en qué estado está, si hay link o captura, y qué aprendió.
 
@@ -163,13 +171,7 @@ Límite orientativo: cada archivo cerca de 60 KB. D está en el borde.
 
 ## Pendientes
 
-Bloquean el caso de trabajos finales (están como marcadores visibles en el sitio):
-
-1. Cómo se hacía antes (¿planillas a mano, mails uno por uno?).
-2. Resultado anonimizado, en órdenes de magnitud (cuánto tardaba una entrega grande antes y cuánto ahora).
-3. Confirmación de la universidad de que el caso se puede mostrar.
-
-Ya cargado en el caso (2026-11-14): las alternativas descartadas y el aprendizaje (fuente de verdad primero; adopción del equipo como frase secundaria). Rocío los envió desde un borrador donde figuraban como propuestas a confirmar; en particular, la razón para descartar "leer los mails" (depende del formato y se rompe con cambios) no fue confirmada como la suya.
+Caso de trabajos finales: Rocío reescribió el texto completo (2026-11-15) y confirmó que **tiene el permiso de la universidad siempre que esté anonimizado**. Solo falta el **resultado**, que sigue como `[COMPLETAR]` visible. El rol en el caso es "Líder de producto y automatización" y el stack incluye n8n.
 
 Sin respuesta todavía:
 

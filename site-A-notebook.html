@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rocío Jacob · Product Engineer</title>
 <meta name="description" content="">
-<meta name="theme-color" content="#fdf0d5">
+<meta name="theme-color" content="#f4f6f7">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Rocío Jacob · Product Engineer">
 <meta property="og:description" content="I build products, automation and analytics so organizations decide better and do less manual work.">
@@ -15,9 +15,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fdf0d5;--ink:#003049;--mut:#48606e;--line:#e6d6b4;--acc:#1b5e85;--chip:#c9dde9;--card:#fff8e6;--shelf:#003049;--dot:rgba(0,48,73,.17);
+:root{--bg:#f4f6f7;--ink:#003049;--mut:#48606e;--line:#dae2e6;--acc:#1b5e85;--chip:#c9dde9;--card:#ffffff;--shelf:#003049;--dot:rgba(0,48,73,.075);
   --serif:"Newsreader",Georgia,"Times New Roman",serif;--mono:"DM Mono",ui-monospace,Menlo,Consolas,monospace}
-:root[data-theme=dark]{--bg:#00202f;--ink:#fdf0d5;--mut:#9fb6c3;--line:#123f55;--acc:#8fbcd6;--chip:#0f4560;--card:#00283b;--shelf:#669bbc;--dot:rgba(253,240,213,.13)}
+:root[data-theme=dark]{--bg:#00202f;--ink:#fdf0d5;--mut:#9fb6c3;--line:#123f55;--acc:#8fbcd6;--chip:#0f4560;--card:#00283b;--shelf:#669bbc;--dot:rgba(240,244,246,.055)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg) radial-gradient(var(--dot) 1px,transparent 1.4px) 0 0/22px 22px;color:var(--ink);font:400 1.125rem/1.65 var(--serif);transition:background-color .3s,color .3s}
@@ -111,6 +111,8 @@ const content = {
     { title: "Creativity, Inc.", author: "Ed Catmull", spine: { bg: "#c8102e", fg: "#ffffff", ac: "#111111", font: "Oswald,'Arial Narrow',sans-serif", w: 46, h: 236, up: 1, wt: 600 }, note: { en: "", es: "" }, url: "", conviction: "" },
     { title: "The Hard Thing About Hard Things", author: "Ben Horowitz", spine: { bg: "#1c1c1c", fg: "#ffffff", ac: "#2f80ed", font: "Anton,Impact,sans-serif", w: 50, h: 240, up: 1, fs: ".78rem" }, note: { en: "", es: "" }, url: "", conviction: "" },
     { title: "Brave New World", author: "Aldous Huxley", spine: { bg: "#e9dcc0", fg: "#1d3557", ac: "#d1495b", font: "'Playfair Display',Georgia,serif", w: 38, h: 214 }, note: { en: "", es: "" }, url: "", conviction: "" },
+    { title: "Range", author: "David Epstein", spine: { bg: "#fafafa", fg: "#111111", ac: "#e63946", font: "Anton,Impact,sans-serif", w: 42, h: 226, up: 1 }, note: { en: "", es: "" }, url: "", conviction: "" },
+    { title: "Outliers", author: "Malcolm Gladwell", spine: { bg: "#ffffff", fg: "#111111", ac: "#9aa3a8", font: "'Playfair Display',Georgia,serif", w: 40, h: 220 }, note: { en: "", es: "" }, url: "", conviction: "" },
     { title: "Fahrenheit 451", author: "Ray Bradbury", spine: { bg: "#d62818", fg: "#111111", ac: "#ffd23f", font: "Anton,Impact,sans-serif", w: 36, h: 208, up: 1 }, note: { en: "", es: "" }, url: "", conviction: "" }
   ],
 
@@ -155,15 +157,15 @@ const content = {
         body: "Led end-to-end development of a platform for ticketing, access control and client relationships, used by music festivals and crypto event organisers across America, Europe and Asia. I managed a six-person cross-functional team, handled 5+ client accounts directly, prioritised features from client needs and presented the roadmap to internal and external stakeholders.", tags: ["Project leadership", "Jira", "Roadmap", "React"] },
       { code: "WK.03", name: "High-volume checkout", org: "Software studio", role: "Senior Developer", when: "2021 – 2023", impact: "300+ payments / day",
         body: "Designed and launched a checkout with custom billing that processes 300+ payments a day. It was one of the first React integrations of Mercado Pago.", tags: ["React", "Mercado Pago", "Billing"] },
-      { code: "WK.04", line: "De la coordinación manual a un flujo automático.", line: "From manual coordination to an automatic flow.", name: "Final-project tracking", org: "A university", role: "Project Manager & Business Partner", when: "Apr 2026 – present", impact: "100+ final projects per cycle",
-        body: "I own the backend of the system that tracks student final projects and coordinates their defence panels. Alongside it I drive automation, BI and AI projects for university operations.",
+      { code: "WK.04", line: "From manual coordination to an automated flow.", name: "Final-project tracking", org: "A university", role: "Product & automation lead", when: "Apr 2026 – present", impact: "100+ projects per cycle",
+        body: "I own the backend of the system that tracks student capstone projects and coordinates their defense committees: the data layer, the sync and the workflows. Alongside it, I drive automation, BI and AI projects for university operations.",
         steps: [
-          { k: "Context", v: "Each final-project submission cycle at a university involved more than a hundred projects, with defence panels to coordinate in a window of a few days. [CONFIRM: how it was done before: spreadsheets by hand, emails one by one?]" },
-          { k: "Problem", v: "Recording each approved project and notifying students, mentors and jurors depended on repetitive manual tasks, with a risk of errors at peak times." },
-          { k: "Decision", v: "Take the data from a single source, a central data hub, instead of reading emails or the operational database. Run the sync as a scheduled process inside the secure network. Keep Sheets and Gmail as the interface, because that is what the team already uses. Model the circuit as numbered flows: confirm grouping, form, juror availability and convergence detection. Why not the alternatives: reading emails depends on the format of each email and breaks with any change; the operational database was not the right source; a script inside Sheets could not reach the data hub, which lives inside the university's private network, so the sync runs as a separate process; and a new tool would have asked the team to change its habits." },
-          { k: "Result", v: "[COMPLETE: e.g. from days of coordination to minutes, no exact figures]" },
-          { k: "Learning", v: "Define the source of truth before the tool. And a solution only counts if the operations team adopts it, even if it is not the most elegant." }
-        ], tags: ["API design", "Backend", "Automation", "BI", "AI"] },
+          { k: "Context", v: "Each submission cycle involves 100+ projects, with defense committees to coordinate within a window of a few days. Approvals arrived as system emails that someone logged by hand in a spreadsheet, and notices to students, mentors and committee members went out manually." },
+          { k: "Problem", v: "That manual work was repetitive and error-prone, especially at peak times." },
+          { k: "Decision", v: "· One source of truth: a central data hub. I started by parsing notification emails and realized the process needed the underlying data, not just the messages. I also chose the hub over querying the operational system directly.<br>· A separate sync process inside the university's private network, since the hub can't be reached from a spreadsheet script.<br>· n8n workflows for the process itself: confirm project groupings, collect data through a form, email committee members for availability, detect when schedules converge.<br>· Sheets and Gmail stay as the interface, because that is where the team already works." },
+          { k: "Result", v: "[COMPLETE]" },
+          { k: "Learning", v: "Define the source of truth before the tool." }
+        ], tags: ["n8n", "Python", "Google Workspace", "AWS", "API design", "Backend"] },
       { code: "WK.05", name: "Finance process automation", org: "Global consulting firm", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Led the automation initiative",
         body: "I led a process-optimisation initiative for the CFO & Enterprise Value practice, automating manual work with Excel and Power Automate. It was the part of consulting I enjoyed most. I also worked on an Anaplan implementation for a North American airline, run in Scrum with Jira.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] },
       { code: "WK.06", name: "Python game library", org: "Self-study", role: "Learning by building", when: "2021 – 2022", impact: "5 small games",
@@ -183,7 +185,7 @@ const content = {
       { code: "SK.01", name: "Build", items: ["React", "React Native", "Expo", "JavaScript / TypeScript", "HTML / CSS", "Node / Express", "Python", "SQL", "MongoDB", "Webflow"] },
       { code: "SK.02", name: "Cloud & systems", items: ["AWS", "API design", "System design", "Database design", "AI agents"] },
       { code: "SK.03", name: "Product & PM", items: ["Jira", "Scrum", "Roadmapping", "Stakeholder management", "Figma", "Notion"] },
-      { code: "SK.04", name: "Finance & automation", items: ["FP&A", "Anaplan (certified)", "Excel modelling", "Power Automate", "BI"] },
+      { code: "SK.04", name: "Finance & automation", items: ["n8n", "Power Automate", "BI", "Anaplan (certified)", "Excel modelling", "FP&A"] },
       { code: "SK.05", name: "Languages", items: ["Spanish (native)", "English (fluent, TOEFL iBT 110)"] }
     ],
     stackSentence: "I build with {React}, {React Native} and {Expo} in {TypeScript}, back it with {Node}, {Python}, {SQL} and {MongoDB} on {AWS}, and ship marketing sites in {Webflow}.",
@@ -214,7 +216,6 @@ const content = {
     fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
     gotMind: "Got something in mind?", reach: "Or write to me at",
     illo: "Line drawing of the Buenos Aires skyline with the Obelisk",
-    papers: { label: "Paper", cold: "Cold white", bone: "Bone", mist: "Mist", rust: "Ink and rust" },
     booksIntro: "I learn by reading books and then building something with what I read.",
     booksNote: "Hover or tap a spine.",
     writingIntro: "Notes on product, finance and what I am learning.",
@@ -312,15 +313,15 @@ const content = {
         body: "Lideré de punta a punta el desarrollo de una plataforma de ticketing, control de accesos y relación con clientes, usada por festivales de música y organizadores de eventos cripto en América, Europa y Asia. Coordiné un equipo multidisciplinario de seis personas, llevé de forma directa más de 5 cuentas, prioricé funcionalidades a partir de las necesidades de los clientes y presenté el roadmap a stakeholders internos y externos.", tags: ["Liderazgo de proyecto", "Jira", "Roadmap", "React"] },
       { code: "WK.03", name: "Checkout de alto volumen", org: "Estudio de software", role: "Senior Developer", when: "2021 – 2023", impact: "300+ pagos / día",
         body: "Diseñé y lancé un checkout con facturación a medida que procesa más de 300 pagos por día. Fue una de las primeras integraciones de Mercado Pago en React.", tags: ["React", "Mercado Pago", "Facturación"] },
-      { code: "WK.04", name: "Seguimiento de trabajos finales", org: "Una universidad", role: "Project Manager & Business Partner", when: "Abr 2026 – presente", impact: "Más de 100 trabajos por entrega",
-        body: "Soy responsable del backend del sistema que hace el seguimiento de los trabajos finales de grado y coordina sus mesas de defensa. En paralelo impulso proyectos de automatización, BI e IA para la operación de la universidad.",
+      { code: "WK.04", line: "De la coordinación manual a un flujo automatizado.", name: "Seguimiento de trabajos finales", org: "Una universidad", role: "Líder de producto y automatización", when: "Abr 2026 – presente", impact: "Más de 100 trabajos por entrega",
+        body: "Soy responsable del backend del sistema que hace el seguimiento de los trabajos finales de grado y coordina sus mesas de defensa: la capa de datos, la sincronización y los flujos. En paralelo impulso proyectos de automatización, BI e IA para la operación de la universidad.",
         steps: [
-          { k: "Contexto", v: "Cada entrega de trabajos finales de grado de una universidad movilizaba a más de cien trabajos, con las mesas de defensa a coordinar en una ventana de pocos días. [CONFIRMAR: cómo se hacía antes, ¿planillas a mano, mails uno por uno?]" },
-          { k: "Problema", v: "Registrar cada trabajo aprobado y avisar a alumnos, mentores y jurados dependía de tareas manuales repetitivas, con riesgo de errores en los picos." },
-          { k: "Decisión", v: "Tomar los datos de una fuente única, un data hub central, en vez de leer mails o la base operativa. Correr la sincronización como proceso programado dentro de la red segura. Dejar Sheets y Gmail como interfaz, porque es lo que el equipo ya usa. Modelar el circuito como flujos numerados: confirmar agrupamiento, formulario, disponibilidad de jurados y detección de convergencia. Por qué no las alternativas: leer los mails depende del formato de cada mail y se rompe con cualquier cambio; la base operativa no era la fuente correcta; un script dentro de Sheets no podía llegar al data hub, que está dentro de la red privada de la universidad, y por eso la sincronización corre en un proceso aparte; y una herramienta nueva le habría pedido al equipo que cambiara de hábitos." },
-          { k: "Resultado", v: "[COMPLETAR: por ejemplo, de días de coordinación a minutos, sin cifras exactas]" },
-          { k: "Aprendizaje", v: "Definir la fuente de verdad antes que la herramienta. Y una solución solo vale si el equipo operativo la adopta, aunque no sea la más elegante." }
-        ], tags: ["Diseño de APIs", "Backend", "Automatización", "BI", "IA"] },
+          { k: "Contexto", v: "Cada entrega involucra más de 100 trabajos, con mesas de defensa a coordinar en una ventana de pocos días. Las aprobaciones llegaban como mails del sistema que alguien cargaba a mano en una planilla, y los avisos a alumnos, mentores y jurados salían de forma manual." },
+          { k: "Problema", v: "Ese trabajo manual era repetitivo y propenso a errores, sobre todo en los picos." },
+          { k: "Decisión", v: "· Una sola fuente de verdad: un data hub central. Empecé leyendo los mails de notificación y me di cuenta de que el proceso necesitaba los datos de fondo, no solo los mensajes. También elegí el hub antes que consultar el sistema operativo directamente.<br>· Un proceso de sincronización aparte dentro de la red privada de la universidad, porque al hub no se llega desde un script de planilla.<br>· Flujos en n8n para el proceso en sí: confirmar el agrupamiento de trabajos, recolectar datos con un formulario, escribir a los jurados para pedir disponibilidad y detectar cuándo convergen las agendas.<br>· Sheets y Gmail quedan como interfaz, porque es donde el equipo ya trabaja." },
+          { k: "Resultado", v: "[COMPLETAR]" },
+          { k: "Aprendizaje", v: "Definir la fuente de verdad antes que la herramienta." }
+        ], tags: ["n8n", "Python", "Google Workspace", "AWS", "Diseño de APIs", "Backend"] },
       { code: "WK.05", name: "Automatización de procesos de finanzas", org: "Consultora global", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Lideré la iniciativa de automatización",
         body: "Lideré una iniciativa de optimización de procesos para la práctica de CFO & Enterprise Value, automatizando trabajo manual con Excel y Power Automate. Fue lo que más disfruté de la consultoría. También participé en una implementación de Anaplan para una aerolínea norteamericana, con Scrum y Jira.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] },
       { code: "WK.06", name: "Biblioteca de juegos en Python", org: "Autodidacta", role: "Aprender construyendo", when: "2021 – 2022", impact: "5 juegos chicos",
@@ -340,7 +341,7 @@ const content = {
       { code: "SK.01", name: "Construcción", items: ["React", "React Native", "Expo", "JavaScript / TypeScript", "HTML / CSS", "Node / Express", "Python", "SQL", "MongoDB", "Webflow"] },
       { code: "SK.02", name: "Cloud y sistemas", items: ["AWS", "Diseño de APIs", "Diseño de sistemas", "Diseño de bases de datos", "Agentes de IA"] },
       { code: "SK.03", name: "Producto y PM", items: ["Jira", "Scrum", "Roadmapping", "Gestión de stakeholders", "Figma", "Notion"] },
-      { code: "SK.04", name: "Finanzas y automatización", items: ["FP&A", "Anaplan (certificada)", "Modelado en Excel", "Power Automate", "BI"] },
+      { code: "SK.04", name: "Finanzas y automatización", items: ["n8n", "Power Automate", "BI", "Anaplan (certificada)", "Modelado en Excel", "FP&A"] },
       { code: "SK.05", name: "Idiomas", items: ["Español (nativo)", "Inglés (fluido, TOEFL iBT 110)"] }
     ],
     stackSentence: "Construyo con {React}, {React Native} y {Expo} en {TypeScript}, lo respaldo con {Node}, {Python}, {SQL} y {MongoDB} sobre {AWS}, y publico sitios de marketing en {Webflow}.",
@@ -371,7 +372,6 @@ const content = {
     fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
     gotMind: "¿Tenés algo en mente?", reach: "O escribime a",
     illo: "Dibujo lineal del perfil de Buenos Aires con el Obelisco",
-    papers: { label: "Papel", cold: "Blanco frío", bone: "Hueso", mist: "Niebla", rust: "Tinta y óxido" },
     booksIntro: "Aprendo leyendo libros y después construyendo algo con lo que leí.",
     booksNote: "Pasá o tocá un lomo.",
     writingIntro: "Notas sobre producto, finanzas y lo que voy aprendiendo.",
