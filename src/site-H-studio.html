@@ -23,7 +23,7 @@
 :root[data-theme=dark]{--bg:#00202f;--acc:#7fb2d2;--ink:#f0f4f6;--soft:#a3b9c5;--hair:rgba(240,244,246,.17);--dot:rgba(240,244,246,.055);--blue:#a9d0e8}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg) radial-gradient(var(--dot) 1px,transparent 1.4px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.6 var(--txt);font-feature-settings:"tnum";-webkit-font-smoothing:antialiased;padding-bottom:120px;transition:background-color .3s}
+body{margin:0;background:var(--bg) radial-gradient(var(--dot) 1px,transparent 1.4px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.7 var(--txt);font-feature-settings:"tnum";-webkit-font-smoothing:antialiased;padding-bottom:120px;transition:background-color .3s}
 ::selection{background:var(--acc);color:var(--bg)}
 a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em;text-decoration-color:var(--hair);transition:text-decoration-color .2s,color .2s}
 a:hover{text-decoration-color:currentColor;color:var(--blue)}
@@ -60,44 +60,48 @@ h1 span{color:var(--acc)}
 .city .g{stroke-width:2.2}.city .l{stroke-width:.6}.city .a{stroke:var(--acc);stroke-width:.8}.city .d{stroke-dasharray:14 4 2 4;stroke-width:.6}
 .city text{font:400 8.5px var(--mono);letter-spacing:.09em;fill:var(--soft);stroke:none}
 .hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-.hi a{display:block;padding:22px 22px 0 0;text-decoration:none}
+.hi a{display:block;padding:30px 22px 0 0;text-decoration:none}
 .hi b{display:block;font-weight:500}.hi a:hover b{color:var(--blue)}
 .hi .s{display:block;margin:2px 0 10px}
-.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(72px,10vw,136px) 0 0;scroll-margin-top:10px}
+.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(96px,13vw,184px) 0 0;scroll-margin-top:10px}
 .feat h2{grid-column:1/7;font:500 clamp(1.8rem,3.5vw,3rem)/1.06 var(--txt);letter-spacing:-.04em;margin:10px 0 28px;text-wrap:balance}
 .feat h2 span{color:var(--acc)}
-.feat>div:first-child{grid-column:1/7}.feat>div:last-child{grid-column:7/13}
-.feat p{font-size:1.125rem;line-height:1.55}
+.feat>div:first-child{grid-column:1/6}.feat>div:last-child{grid-column:7/13}
+.feat p{font-size:1.125rem;line-height:1.6;max-width:50ch}
 dl.f{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);border-top:1px solid var(--hair)}
-dl.f dt,dl.f dd{margin:0;padding:13px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
+dl.f dt,dl.f dd{margin:0;padding:16px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
 dl.f dt{font:400 .6875rem/2.2 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--soft)}
-.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(72px,10vw,136px) 0 0;scroll-margin-top:10px}
+.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(96px,13vw,184px) 0 0;scroll-margin-top:10px}
 .sec>h2{grid-column:1/4;font:400 .6875rem/1.8 var(--mono);letter-spacing:.09em;text-transform:uppercase;margin:0 0 28px;color:var(--ink);position:sticky;top:28px;align-self:start}
 .sec>h2 span{display:block;color:var(--soft)}
 .sec>div{grid-column:4/13;min-width:0}
 h3{font:500 1.3125rem/1.2 var(--txt);letter-spacing:-.025em;margin:0}
-p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
+p{margin:0 0 1.1em;max-width:56ch;text-wrap:pretty}
 .lead{font:400 clamp(1.3rem,2.2vw,1.7rem)/1.32 var(--txt);letter-spacing:-.025em;max-width:30ch;margin-bottom:1.2em}
-.cols{display:grid;gap:36px 28px}
+.cols{display:grid;gap:52px 44px}
 .c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.cols h3{margin:10px 0 12px}.cols p{font-size:.9688rem;margin:0}
+.cols h3{margin:12px 0 14px}.cols p{font-size:.9688rem;margin:0;line-height:1.65}
 .c4 h3{font-size:1.125rem}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin:40px 0 0;padding:0;list-style:none}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin:52px 0 0;padding:0;list-style:none}
 .tags li{font:400 .6875rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;border:1px solid var(--ink);border-radius:999px;padding:8px 13px;background:var(--bg)}
 ul.r{list-style:none;margin:0;padding:0}
-ul.r>li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:4px 24px;padding:16px 0;border-top:1px solid var(--hair)}
+ul.r>li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:4px 24px;padding:21px 0;border-top:1px solid var(--hair)}
 ul.r>li:first-child{border-top:0;padding-top:0}
 .th,summary{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,.9fr) minmax(0,1.1fr) 20px;gap:4px 24px;align-items:baseline}
 .th{padding-bottom:12px;border-bottom:1px solid var(--ink)}
 details{border-bottom:1px solid var(--hair)}
-summary{padding:22px 0;cursor:pointer;list-style:none}
+summary{padding:28px 0;cursor:pointer;list-style:none}
 summary::-webkit-details-marker{display:none}
 summary h3{transition:color .2s}summary:hover h3{color:var(--blue)}
 summary h3 small{display:block;font:400 .875rem/1.5 var(--txt);letter-spacing:0;color:var(--soft);margin-top:4px}
 summary .i{font-weight:500;color:var(--ink)}
 summary .x{font-size:1.25rem;line-height:1;transition:transform .25s;justify-self:end}
 details[open] .x{transform:rotate(45deg)}
-.b{padding:0 0 26px;max-width:62ch}
+.b{padding:0 0 30px;max-width:56ch}
+.more{border:0;margin-top:8px}
+.more summary{display:flex;align-items:center;gap:12px;padding:18px 0 6px;font-weight:500;font-size:.9375rem}
+.more summary .x{justify-self:auto}
+.more dl.f{margin-top:14px}
 .portrait{display:block;width:112px;height:112px;border-radius:50%;background:color-mix(in srgb,var(--acc) 28%,transparent);position:relative;overflow:hidden;margin-bottom:26px}
 .portrait span{position:absolute;inset:0;display:grid;place-items:center;font-weight:500}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -142,8 +146,12 @@ const city = alt => {
   const box = (x, w, h, yb = G) => `M${x - o} ${yb - h}H${x + w + o}M${x} ${yb - h - o}V${yb}M${x + w} ${yb - h - o}V${yb}`;
   let hatch = ""; for (let x = 30; x < 840; x += 13) hatch += `M${x} ${G + 5}l-7 9`;
   const tree = (x, r) => `M${x} ${G}v${-r * .5}M${x - r} ${G - r * 1.5}a${r} ${r} 0 1 0 ${2 * r} 0a${r} ${r} 0 1 0 ${-2 * r} 0M${x - r * .6} ${G - r * 2.1}l${r * 1.2} ${r * 1.2}M${x + r * .6} ${G - r * 2.1}l${-r * 1.2} ${r * 1.2}`;
+  const win = (x, y, c, r, dx, dy) => { let p = ""; for (let a = 0; a < c; a++) for (let b = 0; b < r; b++) p += `M${x + a * dx} ${y + b * dy}v4`; return p; };
+  const lamp = x => `M${x} ${G}v-24q1-6 8-5m0 0v3`;
+  let rail = ""; for (let x = 846; x < 1112; x += 11) rail += `M${x} ${G - 4}v-5`;
+  let chain = ""; for (const x of [72, 116, 124, 164, 196, 292, 372, 528, 588, 612, 662, 696, 702, 742, 752, 782]) chain += `M${x} ${G + 15}v7M${x - 3} ${G + 21.5}l6-6`;
   const man = x => `M${x} ${G}v-9M${x - 2} ${G - 11.5}a2 2 0 1 0 4 0a2 2 0 1 0 -4 0`;
-  return `<svg class="city" viewBox="0 0 1200 250" role="img" aria-label="${esc(alt)}">
+  return `<svg class="city" viewBox="0 0 1200 252" role="img" aria-label="${esc(alt)}">
 <defs><filter id="hand" x="-2%" y="-10%" width="104%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="1" seed="5"/><feDisplacementMap in="SourceGraphic" scale="2.2"/></filter></defs>
 <g filter="url(#hand)">
 <path class="g" d="M14 ${G}H1186"/>
@@ -158,19 +166,29 @@ const city = alt => {
 <path class="l" d="M670 ${G - 20}h18M670 ${G - 40}h18M710 ${G - 30}h24M710 ${G - 60}h24M710 ${G - 90}h24M760 ${G - 30}h14M760 ${G - 54}h14"/>
 <path d="M840 ${G - 4}H1118M954 ${G + 6}L1060 84M958 ${G - 4}a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/>
 <path class="l" d="M1052 93L878 ${G - 4}M1052 93L910 ${G - 4}M1052 93L940 ${G - 4}M1052 93L992 ${G - 4}M1052 93l-28 ${G - 97}"/>
-<path class="l" d="${tree(330, 15)}${tree(558, 11)}${tree(808, 12)}${man(524)}${man(536)}${man(642)}${man(1090)}"/>
+<path class="l" d="${tree(330, 15)}${tree(558, 11)}${tree(808, 12)}${tree(352, 9)}${man(524)}${man(536)}${man(642)}${man(1090)}${man(300)}${man(1010)}${man(1018)}"/>
+<path class="l" d="${box(22, 38, 34)}${box(162, 30, 104)}${box(300, 52, 72)}${box(798, 36, 60)}${box(1122, 40, 38)}"/>
+<path class="l" d="${win(80, 158, 4, 3, 9, 12)}${win(132, 128, 3, 6, 11, 11)}${win(204, 150, 8, 3, 11, 14)}${win(216, 118, 6, 2, 10, 12)}${win(228, 92, 4, 2, 9, 11)}${win(668, 144, 3, 4, 9, 13)}${win(709, 102, 3, 7, 11, 13)}${win(758, 132, 2, 5, 10, 13)}${win(170, 104, 2, 7, 10, 12)}${win(308, 136, 4, 4, 10, 13)}"/>
+<path class="l" d="M362 ${G - 4}h176M366 ${G - 8}h168M414 ${G - 52}h72M420 ${G - 62}h60M438 ${G - 38}c2-26 8-40 12-44M462 ${G - 38}c-2-26-8-40-12-44${box(376, 14, 50)}${box(510, 14, 50)}M383 ${G - 56}v-12M517 ${G - 56}v-12"/>
+<path class="l" d="M580 ${G}h40M584 ${G - 5}h32M598 70h4M598 62l2-22 2 22"/>
+<path class="l" d="${lamp(356)}${lamp(544)}${lamp(634 + 20)}${lamp(832)}${rail}M846 ${G - 9}H1114M950 ${G}l8 14M974 ${G}l-8 14M1052 93l6-8"/>
+<path class="l" d="M1166 ${G}V146M1166 146l30 9M1166 146l-13 7M1166 154l18 4M1184 ${G}V166M1160 ${G}h30"/>
 </g>
 <g class="a">
 <path class="d" d="M600 16V${G + 22}M450 60V${G + 22}"/>
 <path d="M634 34V${G}M628 34h12M628 ${G}h12M631 37l6-6M631 ${G + 3}l6-6"/>
 <path d="M1146 70V28M1146 28l-6 12M1146 28l6 12M1132 56a14 14 0 1 0 28 0a14 14 0 1 0 -28 0"/>
 <path class="l" d="M244 30l14-10h34M450 56l14-10h30M1060 84l-12-12h-36"/>
+<path class="l" d="M72 ${G + 18.5}H782${chain}"/>
+<path d="M593 ${G + 30}a7 7 0 1 0 14 0a7 7 0 1 0 -14 0M443 ${G + 30}a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/>
+<path class="l" d="M318 66c8-12 26-9 28 0 12-5 22 5 14 12h-46c-8-3-6-12 4-12M760 48c7-10 22-8 24 0 10-4 19 4 12 10h-40c-7-3-5-10 4-10M96 92c6-9 20-7 22 0 9-4 17 4 11 9H92c-6-3-5-9 4-9"/>
 </g>
+<text x="450" y="${G + 33}" text-anchor="middle">A</text><text x="600" y="${G + 33}" text-anchor="middle">B</text>
 <text x="646" y="${G - 78}" transform="rotate(-90 646 ${G - 78})">67.5 m</text>
 <text x="600" y="11" text-anchor="middle">OBELISCO</text>
 <text x="296" y="23">KAVANAGH</text><text x="498" y="49">CONGRESO</text><text x="1008" y="75" text-anchor="end">PUENTE DE LA MUJER</text>
 <text x="1146" y="20" text-anchor="middle">N</text>
-<text x="14" y="${G + 40}">BUENOS AIRES · 34°36′S 58°22′W</text>
+<text x="14" y="${G + 46}">BUENOS AIRES · 34°36′S 58°22′W · ALZADO</text>
 </svg>`;
 };
 function render(t) {
@@ -197,23 +215,24 @@ function render(t) {
   <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => `<a href="#${fid(c)}"><b>${c.name} ›</b><span class="s">${c.org} · ${c.role}</span><span class="k">${c.impact}</span></a>`).join("")}</nav>
 
   <div id="work">${main.map(c => `<section class="feat" id="${fid(c)}"><div class="rv"><span class="k">${c.org} · ${c.when}</span><h2 style="grid-column:auto">${c.name}. <span>${c.line}</span></h2></div>
-    <div class="rv"><p>${c.body}</p><dl class="f">${(c.steps || []).map(x => `<dt>${x.k}</dt><dd>${x.v}</dd>`).join("")}<dt>${t.fact.scale}</dt><dd>${c.impact}</dd><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl></div></section>`).join("")}</div>
+    <div class="rv"><p>${c.body}</p><dl class="f"><dt>${t.fact.scale}</dt><dd>${c.impact}</dd><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl>
+      ${c.steps ? `<details class="more"><summary><span class="x" aria-hidden="true">+</span>${t.readCase}</summary><dl class="f">${c.steps.map(x => `<dt>${x.k}</dt><dd>${x.v}</dd>`).join("")}</dl></details>` : ""}</div></section>`).join("")}</div>
 
   ${sec("more", t.moreWork, `<div class="th k" aria-hidden="true"><span>${d.cols.position}</span><span>${d.cols.entry}</span><span>${d.cols.impact}</span><span></span></div>
     ${rest.map(c => `<details><summary><h3>${c.name}<small>${c.org} · ${c.role}</small></h3><span class="s">${c.when}</span><span class="s i">${c.impact}</span><span class="x" aria-hidden="true">+</span></summary>
     <div class="b"><p>${caseBody(c)}</p><p class="s">${c.tags.join(" · ")}${c.url ? ` · <a href="${c.url}" ${ext}>${t.repo}</a>` : ""}</p></div></details>`).join("")}`)}
 
-  ${sec("offers", t.h.services, `<div class="cols c3" style="margin-bottom:44px">${t.services.map((s, i) => `<div><span class="k">0${i + 1}</span><h3>${s.name}</h3><p>${svcBody(s)}</p></div>`).join("")}</div>
+  ${sec("offers", t.h.services, `<div class="cols c3" style="margin-bottom:56px">${t.services.map((s, i) => `<div><span class="k">0${i + 1}</span><h3>${s.name}</h3><p>${svcBody(s)}</p></div>`).join("")}</div>
     <p>${t.freelance}</p><div class="cta" style="margin-top:22px"><a class="btn" href="${mailto()}">${t.ctaAlt} ↗</a></div>`)}
 
   ${sec("thesis", d.thesisTitle, `<div class="cols c3">${d.thesis.map(x => `<div><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>`, d.thesisSub)}
 
   ${sec("about", t.h.about, `${portrait()}<p class="lead">${t.about[2]}</p>
-    <div class="cols c4" style="margin-top:44px">${d.story.map((x, i) => `<div><span class="k">[0${i + 1}]</span><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>
+    <div class="cols c4" style="margin-top:60px">${d.story.map((x, i) => `<div><span class="k">[0${i + 1}]</span><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>
     <ul class="tags">${d.pairs.map(p => `<li>${p}</li>`).join("")}</ul>
-    <div style="margin-top:36px">${offClock()}</div>`)}
+    <div style="margin-top:48px">${offClock()}</div>`)}
 
-  ${sec("experience", t.h.experience, `<ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}${e.note ? ". " + e.note : ""}</span></span></li>`, "li", "k")}</ul>`)}
+  ${sec("experience", t.h.experience, `<ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}</span></span></li>`, "li", "k")}</ul>`)}
 
   ${sec("skills", t.h.skills, `<ul class="r">${t.skills.map(s => `<li><span class="k">${s.name}</span><span>${s.items.join(", ")}</span></li>`).join("")}</ul>`)}
 

@@ -68,6 +68,12 @@ Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H
 
 **Ilustración (tercera versión):** la primera le pareció "muy cuadrada" y la segunda, un boceto suelto, tampoco. Pidió algo "tipo croquis arquitectónico". Ahora es un alzado de Buenos Aires con recursos de croquis: esquinas donde las líneas se pasan, ejes de simetría en línea de trazo y punto, una cota (67,5 m del Obelisco), suelo rayado, árboles y figuras de escala, flecha de norte y rótulos chicos. Se genera en la función `city()` de `src/site-H-studio.html`. Falta que confirme si esta versión le gusta.
 
+**El croquis le encantó** ("va re por ahí"). Pidió más detalle y se agregó: ventanas, edificios de fondo, escalinata y tambor del Congreso, base del Obelisco, faroles, baranda del puente, grúas del puerto, nubes, cadena de cotas bajo el suelo y ejes A y B. Seguir en esta línea; no volver al boceto suelto.
+
+**Aire y síntesis (2026-11-15):** Rocío siente el contenido "compactado y apretado". Se hizo las dos cosas en H: menos contenido a la vista (el caso largo se abre con "Leer el caso completo", la experiencia muestra solo rol, lugar y fechas) y más espacio (interlineado, separación entre secciones y columnas, párrafos más angostos). Regla: ante la duda, sacar texto antes que achicar espacios.
+
+**Redacción en español:** pidió que sea más eficiente. Se reescribió todo el español más corto y directo (frases breves, menos subordinadas, "armo" y "hice" en vez de construcciones largas). Mantener ese registro en textos nuevos.
+
 **Foto de perfil:** su foto de siempre es un avatar en pixel art. Está en `profile.png` (recorte de cabeza y hombros, ampliado con píxeles duros) y `avatar-full.png` (cuerpo entero, sin usar todavía). Se muestra con `image-rendering: pixelated`.
 
 **Experiencia:** pidió separar lo laboral de la educación. Las entradas de educación llevan `kind: "edu"` en `content.*.timeline` y el helper `expSplit()` de `core.js` arma los dos grupos en las cuatro direcciones.

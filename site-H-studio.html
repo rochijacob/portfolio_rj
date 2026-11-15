@@ -23,7 +23,7 @@
 :root[data-theme=dark]{--bg:#00202f;--acc:#7fb2d2;--ink:#f0f4f6;--soft:#a3b9c5;--hair:rgba(240,244,246,.17);--dot:rgba(240,244,246,.055);--blue:#a9d0e8}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg) radial-gradient(var(--dot) 1px,transparent 1.4px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.6 var(--txt);font-feature-settings:"tnum";-webkit-font-smoothing:antialiased;padding-bottom:120px;transition:background-color .3s}
+body{margin:0;background:var(--bg) radial-gradient(var(--dot) 1px,transparent 1.4px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.7 var(--txt);font-feature-settings:"tnum";-webkit-font-smoothing:antialiased;padding-bottom:120px;transition:background-color .3s}
 ::selection{background:var(--acc);color:var(--bg)}
 a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em;text-decoration-color:var(--hair);transition:text-decoration-color .2s,color .2s}
 a:hover{text-decoration-color:currentColor;color:var(--blue)}
@@ -60,44 +60,48 @@ h1 span{color:var(--acc)}
 .city .g{stroke-width:2.2}.city .l{stroke-width:.6}.city .a{stroke:var(--acc);stroke-width:.8}.city .d{stroke-dasharray:14 4 2 4;stroke-width:.6}
 .city text{font:400 8.5px var(--mono);letter-spacing:.09em;fill:var(--soft);stroke:none}
 .hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-.hi a{display:block;padding:22px 22px 0 0;text-decoration:none}
+.hi a{display:block;padding:30px 22px 0 0;text-decoration:none}
 .hi b{display:block;font-weight:500}.hi a:hover b{color:var(--blue)}
 .hi .s{display:block;margin:2px 0 10px}
-.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(72px,10vw,136px) 0 0;scroll-margin-top:10px}
+.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(96px,13vw,184px) 0 0;scroll-margin-top:10px}
 .feat h2{grid-column:1/7;font:500 clamp(1.8rem,3.5vw,3rem)/1.06 var(--txt);letter-spacing:-.04em;margin:10px 0 28px;text-wrap:balance}
 .feat h2 span{color:var(--acc)}
-.feat>div:first-child{grid-column:1/7}.feat>div:last-child{grid-column:7/13}
-.feat p{font-size:1.125rem;line-height:1.55}
+.feat>div:first-child{grid-column:1/6}.feat>div:last-child{grid-column:7/13}
+.feat p{font-size:1.125rem;line-height:1.6;max-width:50ch}
 dl.f{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);border-top:1px solid var(--hair)}
-dl.f dt,dl.f dd{margin:0;padding:13px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
+dl.f dt,dl.f dd{margin:0;padding:16px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
 dl.f dt{font:400 .6875rem/2.2 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--soft)}
-.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(72px,10vw,136px) 0 0;scroll-margin-top:10px}
+.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(96px,13vw,184px) 0 0;scroll-margin-top:10px}
 .sec>h2{grid-column:1/4;font:400 .6875rem/1.8 var(--mono);letter-spacing:.09em;text-transform:uppercase;margin:0 0 28px;color:var(--ink);position:sticky;top:28px;align-self:start}
 .sec>h2 span{display:block;color:var(--soft)}
 .sec>div{grid-column:4/13;min-width:0}
 h3{font:500 1.3125rem/1.2 var(--txt);letter-spacing:-.025em;margin:0}
-p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
+p{margin:0 0 1.1em;max-width:56ch;text-wrap:pretty}
 .lead{font:400 clamp(1.3rem,2.2vw,1.7rem)/1.32 var(--txt);letter-spacing:-.025em;max-width:30ch;margin-bottom:1.2em}
-.cols{display:grid;gap:36px 28px}
+.cols{display:grid;gap:52px 44px}
 .c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.cols h3{margin:10px 0 12px}.cols p{font-size:.9688rem;margin:0}
+.cols h3{margin:12px 0 14px}.cols p{font-size:.9688rem;margin:0;line-height:1.65}
 .c4 h3{font-size:1.125rem}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin:40px 0 0;padding:0;list-style:none}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin:52px 0 0;padding:0;list-style:none}
 .tags li{font:400 .6875rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;border:1px solid var(--ink);border-radius:999px;padding:8px 13px;background:var(--bg)}
 ul.r{list-style:none;margin:0;padding:0}
-ul.r>li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:4px 24px;padding:16px 0;border-top:1px solid var(--hair)}
+ul.r>li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:4px 24px;padding:21px 0;border-top:1px solid var(--hair)}
 ul.r>li:first-child{border-top:0;padding-top:0}
 .th,summary{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,.9fr) minmax(0,1.1fr) 20px;gap:4px 24px;align-items:baseline}
 .th{padding-bottom:12px;border-bottom:1px solid var(--ink)}
 details{border-bottom:1px solid var(--hair)}
-summary{padding:22px 0;cursor:pointer;list-style:none}
+summary{padding:28px 0;cursor:pointer;list-style:none}
 summary::-webkit-details-marker{display:none}
 summary h3{transition:color .2s}summary:hover h3{color:var(--blue)}
 summary h3 small{display:block;font:400 .875rem/1.5 var(--txt);letter-spacing:0;color:var(--soft);margin-top:4px}
 summary .i{font-weight:500;color:var(--ink)}
 summary .x{font-size:1.25rem;line-height:1;transition:transform .25s;justify-self:end}
 details[open] .x{transform:rotate(45deg)}
-.b{padding:0 0 26px;max-width:62ch}
+.b{padding:0 0 30px;max-width:56ch}
+.more{border:0;margin-top:8px}
+.more summary{display:flex;align-items:center;gap:12px;padding:18px 0 6px;font-weight:500;font-size:.9375rem}
+.more summary .x{justify-self:auto}
+.more dl.f{margin-top:14px}
 .portrait{display:block;width:112px;height:112px;border-radius:50%;background:color-mix(in srgb,var(--acc) 28%,transparent);position:relative;overflow:hidden;margin-bottom:26px}
 .portrait span{position:absolute;inset:0;display:grid;place-items:center;font-weight:500}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -190,10 +194,10 @@ const content = {
       { n: "100+", l: "final projects per submission cycle on the tracking system I built" }
     ],
     cases: [
-      { code: "WK.01", line: "Más de 500K descargas y 40K personas por día.", line: "500K+ downloads and 40K people a day.", name: "Gym chain app", org: "Software studio", role: "Mobile development", when: "2021 – 2025", impact: "500K+ downloads · 40K DAU",
+      { code: "WK.01", line: "500K+ downloads and 40K people a day.", name: "Gym chain app", org: "Software studio", role: "Mobile development", when: "2021 – 2025", impact: "500K+ downloads · 40K DAU",
         body: "Built and maintained the mobile app for Argentina's largest gym chain. The work was speed, UX and polish at scale: an app that tens of thousands of people open every day has no room for rough edges.", tags: ["React Native", "Expo"] },
-      { code: "WK.02", line: "Ticketing para más de 15K usuarios en tres continentes.", line: "Ticketing for 15K+ users on three continents.", name: "Event SaaS platform", org: "Software studio", role: "Project Leader", when: "Nov 2023 – Apr 2025", impact: "15K+ users · 5+ clients",
-        body: "Led end-to-end development of a platform for ticketing, access control and client relationships, used by music festivals and crypto event organisers across America, Europe and Asia. I managed a six-person cross-functional team, handled 5+ client accounts directly, prioritised features from client needs and presented the roadmap to internal and external stakeholders.", tags: ["Project leadership", "Jira", "Roadmap", "React"] },
+      { code: "WK.02", line: "Ticketing for 15K+ users on three continents.", name: "Event SaaS platform", org: "Software studio", role: "Project Leader", when: "Nov 2023 – Apr 2025", impact: "15K+ users · 5+ clients",
+        body: "Led development of a platform for ticketing, access control and client relationships, used by music festivals and crypto events across America, Europe and Asia. I managed a team of six, handled 5+ client accounts directly, and set priorities and roadmap with clients and stakeholders.", tags: ["Project leadership", "Jira", "Roadmap", "React"] },
       { code: "WK.03", name: "High-volume checkout", org: "Software studio", role: "Senior Developer", when: "2021 – 2023", impact: "300+ payments / day",
         body: "Designed and launched a checkout with custom billing that processes 300+ payments a day. It was one of the first React integrations of Mercado Pago.", tags: ["React", "Mercado Pago", "Billing"] },
       { code: "WK.04", line: "From manual coordination to an automated flow.", name: "Final-project tracking", org: "A university", role: "Product & automation lead", when: "Apr 2026 – present", impact: "100+ projects per cycle",
@@ -241,17 +245,17 @@ const content = {
       { code: "SV.03", name: "Web & product", sub: "With monthly support", body: "Site or app, infrastructure, CMS and forms, with ongoing maintenance on a monthly plan.", deliv: "", ideal: "" }
     ],
     delivLabel: "Deliverable", idealLabel: "Ideal for",
-    freelance: "I take freelance work in three shapes: automation and BI, AI agents for internal processes, and web and product with monthly support. I run each one as its project manager too. I work remotely from Buenos Aires and hold EU work authorization (Argentina, Germany and Italy citizenship).",
+    freelance: "I take freelance work in these three shapes, and I run each one as its project manager. Remote from Buenos Aires, with EU work authorization (Argentina, Germany and Italy citizenship).",
     lab: [
       { name: "Python games", status: "Built", why: "How I learned Python: loops, state and collisions.", url: "https://github.com/rochijacob/python_games" },
       { name: "Dog-in-the-pool detector", status: "In progress", why: "Computer vision applied to a household problem." },
       { name: "Mental-health bot for an NGO", status: "Experimental", why: "AI with judgement and human supervision." }
     ],
-    labIntro: "Experiments I build out of curiosity. Each one has a reason.",
+    labIntro: "Things I build out of curiosity.",
     off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The pink pixel cat on this page is a nod to my favourite cartoon." },
     today: "Today, Project Manager & Business Partner in BI, Automation and AI at a university.",
     expWork: "Work", expEdu: "Education",
-    seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
+    readCase: "Read the full case", seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
     fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
     gotMind: "Got something in mind?", reach: "Or write to me at",
     illo: "Line drawing of the Buenos Aires skyline with the Obelisk",
@@ -297,7 +301,7 @@ const content = {
         { h: "Then I automated.", p: "At a global consulting firm, what I enjoyed most was leading a process-automation initiative. Today I build automation, BI and AI for a university, and teach Corporate Finance.", href: "#holdings" }
       ],
       pairs: ["PRODUCT + FINANCE", "CODE + DESIGN", "BUILD + LEAD", "BOOKS + SHIPPING"],
-      thesisTitle: "Thesis", thesisSub: "Why hire or back me",
+      thesisTitle: "Thesis", thesisSub: "Why work with me",
       thesis: [
         { h: "A builder who can underwrite.", p: "I write the code and I read the P&L. Few product people have worked inside a finance function; few finance people have shipped to 40K daily users." },
         { h: "Operating evidence, not adjectives.", p: "500K+ downloads, 300+ daily payments, 5+ clients on three continents, a team of six." },
@@ -323,7 +327,7 @@ const content = {
     name: "Rocío Jacob", role: "Product Engineer",
     oneLiner: "Soy Rocío. Construyo producto, automatización y analítica para que las organizaciones decidan mejor y trabajen menos a mano.",
     pitch: "Construyo producto, automatización y analítica para que las organizaciones decidan mejor y trabajen menos a mano.",
-    sub: "Project Manager & Business Partner en BI, Automatización e IA. Ex-consultora global (finanzas corporativas). Disponible para proyectos freelance.",
+    sub: "Project Manager & Business Partner en BI, Automatización e IA. Ex consultoría global en finanzas. Tomo proyectos freelance.",
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remoto a todo el mundo",
     status: "Disponible para freelance · Buenos Aires",
     cta: "Trabajemos juntos", ctaAlt: "Hablemos", mailSubject: "Proyecto para Rocío",
@@ -331,46 +335,46 @@ const content = {
     nav: { home: "Inicio", about: "Sobre mí", work: "Trabajo", experience: "Experiencia", skills: "Stack", books: "Libros", writing: "Escritos", contact: "Contacto", play: "Playground", services: "Servicios" },
     h: { services: "Qué ofrezco", about: "Sobre mí", work: "Trabajo seleccionado", experience: "Experiencia", skills: "Habilidades y stack", books: "Libros", writing: "Escritos", contact: "Trabajemos juntos", finance: "El lado financiero", lab: "Lab", numbers: "En números" },
     about: [
-      "Empecé a programar en 2021, de forma autodidacta, con HTML y JavaScript a partir de libros y de la web, y después pasé a React y React Native con Expo. Construí más de cinco apps móviles, lideré un equipo de seis personas como Project Manager y me metí en automatización, agentes de IA y diseño de sistemas.",
-      "Estudié Administración de Empresas y Negocios Digitales en la Universidad de San Andrés (top 10%, intercambio en IE University) y trabajé en una consultora global automatizando procesos de finanzas, así que hablo producto y finanzas. Hoy doy clases de Finanzas Corporativas, y en abril de 2027 empiezo la Maestría en Finanzas de UdeSA (promoción 2028).",
-      "Me importan los productos lindos, rápidos y que le hagan el día más fácil a alguien. Todo lo que publico tiene que ser estético."
+      "Aprendí a programar sola en 2021, con libros y la web: primero HTML y JavaScript, después React y React Native. Publiqué más de cinco apps, lideré un equipo de seis y hoy trabajo en automatización, agentes de IA y diseño de sistemas.",
+      "Soy Licenciada en Administración y Negocios Digitales por San Andrés (top 10%, intercambio en IE University). En una consultora global automaticé procesos de finanzas, así que hablo producto y finanzas. Doy clases de Finanzas Corporativas y en abril de 2027 empiezo la Maestría en Finanzas de UdeSA.",
+      "Me importan los productos lindos, rápidos y que le simplifican el día a alguien. Todo lo que publico tiene que verse bien."
     ],
     stats: [
-      { n: "500K+", l: "descargas de la app de la cadena de gimnasios más grande de Argentina" },
-      { n: "40K", l: "usuarios activos por día en esa app" },
-      { n: "15K+", l: "usuarios en un SaaS de ticketing, con más de 5 clientes en tres continentes" },
-      { n: "300+", l: "pagos diarios en un checkout a medida" },
+      { n: "500K+", l: "descargas de la app de la mayor cadena de gimnasios de Argentina" },
+      { n: "40K", l: "usuarios activos por día" },
+      { n: "15K+", l: "usuarios en un SaaS de ticketing, en tres continentes" },
+      { n: "300+", l: "pagos por día en un checkout a medida" },
       { n: "6", l: "personas a cargo como Project Leader" },
       { n: "5+", l: "apps construidas con React Native + Expo" },
       { n: "10+", l: "clientes con sitios en Webflow" },
-      { n: "100+", l: "trabajos finales por entrega en el sistema de seguimiento que construí" }
+      { n: "100+", l: "trabajos finales por entrega en el sistema que construí" }
     ],
     cases: [
-      { code: "WK.01", name: "App de cadena de gimnasios", org: "Estudio de software", role: "Desarrollo mobile", when: "2021 – 2025", impact: "500K+ descargas · 40K DAU",
-        body: "Construí y mantuve la app móvil de la cadena de gimnasios más grande de Argentina. El trabajo fue velocidad, UX y prolijidad a escala: una app que decenas de miles de personas abren todos los días no admite bordes ásperos.", tags: ["React Native", "Expo"] },
-      { code: "WK.02", name: "Plataforma SaaS de eventos", org: "Estudio de software", role: "Project Leader", when: "Nov 2023 – Abr 2025", impact: "15K+ usuarios · 5+ clientes",
-        body: "Lideré de punta a punta el desarrollo de una plataforma de ticketing, control de accesos y relación con clientes, usada por festivales de música y organizadores de eventos cripto en América, Europa y Asia. Coordiné un equipo multidisciplinario de seis personas, llevé de forma directa más de 5 cuentas, prioricé funcionalidades a partir de las necesidades de los clientes y presenté el roadmap a stakeholders internos y externos.", tags: ["Liderazgo de proyecto", "Jira", "Roadmap", "React"] },
+      { code: "WK.01", line: "Más de 500K descargas y 40K personas por día.", name: "App de cadena de gimnasios", org: "Estudio de software", role: "Desarrollo mobile", when: "2021 – 2025", impact: "500K+ descargas · 40K DAU",
+        body: "Construí y mantuve la app de la mayor cadena de gimnasios de Argentina. Con decenas de miles de personas abriéndola todos los días, el trabajo fue velocidad, UX y prolijidad.", tags: ["React Native", "Expo"] },
+      { code: "WK.02", line: "Ticketing para más de 15K usuarios en tres continentes.", name: "Plataforma SaaS de eventos", org: "Estudio de software", role: "Project Leader", when: "Nov 2023 – Abr 2025", impact: "15K+ usuarios · 5+ clientes",
+        body: "Lideré el desarrollo de una plataforma de ticketing, control de accesos y relación con clientes, usada por festivales de música y eventos cripto en América, Europa y Asia. Coordiné un equipo de seis, llevé más de 5 cuentas en forma directa y definí prioridades y roadmap con clientes y stakeholders.", tags: ["Liderazgo de proyecto", "Jira", "Roadmap", "React"] },
       { code: "WK.03", name: "Checkout de alto volumen", org: "Estudio de software", role: "Senior Developer", when: "2021 – 2023", impact: "300+ pagos / día",
-        body: "Diseñé y lancé un checkout con facturación a medida que procesa más de 300 pagos por día. Fue una de las primeras integraciones de Mercado Pago en React.", tags: ["React", "Mercado Pago", "Facturación"] },
+        body: "Diseñé y lancé un checkout con facturación a medida que procesa más de 300 pagos por día. Una de las primeras integraciones de Mercado Pago en React.", tags: ["React", "Mercado Pago", "Facturación"] },
       { code: "WK.04", line: "De la coordinación manual a un flujo automatizado.", name: "Seguimiento de trabajos finales", org: "Una universidad", role: "Líder de producto y automatización", when: "Abr 2026 – presente", impact: "Más de 100 trabajos por entrega",
-        body: "Soy responsable del backend del sistema que hace el seguimiento de los trabajos finales de grado y coordina sus mesas de defensa: la capa de datos, la sincronización y los flujos. En paralelo impulso proyectos de automatización, BI e IA para la operación de la universidad.",
+        body: "Soy responsable del backend del sistema que sigue los trabajos finales de grado y coordina sus mesas de defensa: datos, sincronización y flujos. En paralelo impulso proyectos de automatización, BI e IA para la universidad.",
         steps: [
-          { k: "Contexto", v: "Cada entrega involucra más de 100 trabajos, con mesas de defensa a coordinar en una ventana de pocos días. Las aprobaciones llegaban como mails del sistema que alguien cargaba a mano en una planilla, y los avisos a alumnos, mentores y jurados salían de forma manual." },
-          { k: "Problema", v: "Ese trabajo manual era repetitivo y propenso a errores, sobre todo en los picos." },
-          { k: "Decisión", v: "· Una sola fuente de verdad: un data hub central. Empecé leyendo los mails de notificación y me di cuenta de que el proceso necesitaba los datos de fondo, no solo los mensajes. También elegí el hub antes que consultar el sistema operativo directamente.<br>· Un proceso de sincronización aparte dentro de la red privada de la universidad, porque al hub no se llega desde un script de planilla.<br>· Flujos en n8n para el proceso en sí: confirmar el agrupamiento de trabajos, recolectar datos con un formulario, escribir a los jurados para pedir disponibilidad y detectar cuándo convergen las agendas.<br>· Sheets y Gmail quedan como interfaz, porque es donde el equipo ya trabaja." },
+          { k: "Contexto", v: "Cada entrega suma más de 100 trabajos y hay que coordinar las mesas de defensa en pocos días. Las aprobaciones llegaban por mail y alguien las cargaba a mano en una planilla; los avisos a alumnos, mentores y jurados también salían a mano." },
+          { k: "Problema", v: "Trabajo repetitivo y propenso a errores, sobre todo en los picos." },
+          { k: "Decisión", v: "· Una sola fuente de verdad: un data hub central. Empecé leyendo los mails de notificación y vi que el proceso necesitaba los datos de fondo, no los mensajes. Por eso elegí el hub, y no consultar el sistema operativo directo.<br>· Una sincronización aparte dentro de la red privada de la universidad, porque al hub no se llega desde un script de planilla.<br>· Flujos en n8n: confirmar agrupamientos, recolectar datos con un formulario, pedir disponibilidad a los jurados y detectar cuándo coinciden las agendas.<br>· Sheets y Gmail siguen siendo la interfaz, porque ahí ya trabaja el equipo." },
           { k: "Resultado", v: "[COMPLETAR]" },
           { k: "Aprendizaje", v: "Definir la fuente de verdad antes que la herramienta." }
         ], tags: ["n8n", "Python", "Google Workspace", "AWS", "Diseño de APIs", "Backend"] },
       { code: "WK.05", name: "Automatización de procesos de finanzas", org: "Consultora global", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Lideré la iniciativa de automatización",
-        body: "Lideré una iniciativa de optimización de procesos para la práctica de CFO & Enterprise Value, automatizando trabajo manual con Excel y Power Automate. Fue lo que más disfruté de la consultoría. También participé en una implementación de Anaplan para una aerolínea norteamericana, con Scrum y Jira.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] },
+        body: "Lideré una iniciativa de optimización de procesos para la práctica de CFO & Enterprise Value: automaticé trabajo manual con Excel y Power Automate. Fue lo que más disfruté de la consultoría. También participé en una implementación de Anaplan para una aerolínea norteamericana.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] },
       { code: "WK.06", name: "Biblioteca de juegos en Python", org: "Autodidacta", role: "Aprender construyendo", when: "2021 – 2022", impact: "5 juegos chicos",
-        body: "Pong, Flappy Bird, Frogger, un plataformas y Space Invaders, hechos con pygame y turtle mientras aprendía Python. Los juegos me enseñaron loops, estado y colisiones más rápido que cualquier tutorial.", tags: ["Python", "pygame", "turtle"], url: "https://github.com/rochijacob/python_games" }
+        body: "Pong, Flappy Bird, Frogger, un plataformas y Space Invaders, hechos con pygame y turtle mientras aprendía Python. Me enseñaron loops, estado y colisiones más rápido que cualquier tutorial.", tags: ["Python", "pygame", "turtle"], url: "https://github.com/rochijacob/python_games" }
     ],
     timeline: [
-      { when: "Abr 2026 – presente", org: "Una universidad", role: "Project Manager & Business Partner · BI, Automatización, IA", note: "Responsable del backend del sistema de seguimiento de trabajos finales; proyectos de automatización, BI e IA para la operación de la universidad.", tags: ["API", "BI", "Agentes de IA"] },
-      { when: "Jun 2026 – presente", org: "Una universidad", role: "Docente de tutoriales, Finanzas Corporativas", note: "Ayudante de cátedra part-time en Finanzas Corporativas.", tags: ["Docencia", "Finanzas"] },
+      { when: "Abr 2026 – presente", org: "Una universidad", role: "Project Manager & Business Partner · BI, Automatización, IA", note: "Backend del sistema de seguimiento de trabajos finales; automatización, BI e IA para la universidad.", tags: ["API", "BI", "Agentes de IA"] },
+      { when: "Jun 2026 – presente", org: "Una universidad", role: "Docente de tutoriales, Finanzas Corporativas", note: "Ayudante de cátedra, part-time.", tags: ["Docencia", "Finanzas"] },
       { when: "Abr 2027 – 2028", org: "Universidad de San Andrés", kind: "edu", role: "Maestría en Finanzas (MFin), ingresante", note: "Promoción 2028.", tags: ["MFin"] },
-      { when: "May 2025 – Mar 2026", org: "Consultora global", role: "Management Consultant Senior Analyst", note: "Lideré una iniciativa de automatización de procesos para la práctica de CFO & Enterprise Value; Anaplan para una aerolínea norteamericana.", tags: ["Anaplan", "Scrum", "Power Automate"] },
+      { when: "May 2025 – Mar 2026", org: "Consultora global", role: "Management Consultant Senior Analyst", note: "Lideré una iniciativa de automatización de procesos; Anaplan para una aerolínea.", tags: ["Anaplan", "Scrum", "Power Automate"] },
       { when: "Nov 2023 – Abr 2025", org: "Estudio de software", role: "Project Leader", note: "SaaS de eventos para más de 5 clientes en tres continentes; equipo de seis.", tags: ["Jira", "Roadmap", "Clientes"] },
       { when: "Mar 2021 – Oct 2023", org: "Estudio de software", role: "Senior Developer", note: "Apps móviles y un checkout que procesa más de 300 pagos diarios.", tags: ["React Native", "Expo", "React"] },
       { when: "Ene – May 2023", org: "IE University, Madrid", kind: "edu", role: "Semestre de intercambio, BBA", note: "", tags: [] },
@@ -392,35 +396,35 @@ const content = {
       { k: "Base", v: "Administración y Negocios Digitales en UdeSA, top 10%. Miembro del Finance Club." }
     ],
     services: [
-      { code: "SV.01", name: "Automatización y BI", sub: "Procesos", body: "Tomo un proceso manual (Excel dispersos, mails, planillas) y lo convierto en un flujo automático con tableros que se usan.", deliv: "Mapa del proceso, automatización funcionando y documentación.", ideal: "Áreas de finanzas, operaciones o instituciones." },
-      { code: "SV.02", name: "Agentes de IA", sub: "Procesos internos", body: "Clasificación, ingesta de datos, respuestas y seguimiento, con humanos que supervisan.", deliv: "Prototipo en uso real más criterios de evaluación.", ideal: "" },
-      { code: "SV.03", name: "Web y producto", sub: "Con soporte mensual", body: "Sitio o app, infraestructura, CMS y formularios, con mantenimiento continuo en un abono mensual.", deliv: "", ideal: "" }
+      { code: "SV.01", name: "Automatización y BI", sub: "Procesos", body: "Convierto un proceso manual (Excel sueltos, mails, planillas) en un flujo automático con tableros que se usan.", deliv: "Mapa del proceso, automatización andando y documentación.", ideal: "Finanzas, operaciones, instituciones." },
+      { code: "SV.02", name: "Agentes de IA", sub: "Procesos internos", body: "Clasificación, carga de datos, respuestas y seguimiento, con personas que supervisan.", deliv: "Prototipo en uso real y criterios de evaluación.", ideal: "" },
+      { code: "SV.03", name: "Web y producto", sub: "Con soporte mensual", body: "Sitio o app, infraestructura, CMS y formularios, con mantenimiento por abono mensual.", deliv: "", ideal: "" }
     ],
     delivLabel: "Entregable", idealLabel: "Ideal para",
-    freelance: "Tomo trabajo freelance en tres formatos: automatización y BI, agentes de IA para procesos internos, y web y producto con soporte mensual. En todos me ocupo también de la gestión del proyecto. Trabajo de forma remota desde Buenos Aires y tengo autorización para trabajar en la UE (ciudadanía argentina, alemana e italiana).",
+    freelance: "Trabajo freelance en estos tres formatos, y en todos gestiono el proyecto. Remoto desde Buenos Aires, con permiso de trabajo en la UE (ciudadanía argentina, alemana e italiana).",
     lab: [
-      { name: "Juegos en Python", status: "Hecho", why: "Cómo aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" },
+      { name: "Juegos en Python", status: "Hecho", why: "Así aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" },
       { name: "Detector de caída de perro a la pileta", status: "En progreso", why: "Visión por computadora aplicada a un problema doméstico." },
       { name: "Bot de salud mental para una ONG", status: "Experimental", why: "IA con criterio y supervisión humana." }
     ],
-    labIntro: "Experimentos que hago por curiosidad. Cada uno tiene un porqué.",
-    off: { t: "Fuera de horario", p: "Soy DJ: toco y amo la música electrónica. También me encantan el arte y la fotografía. El gato rosa en píxeles de esta página es un guiño a mi dibujo animado favorito." },
-    today: "Hoy, Project Manager & Business Partner en BI, Automatización e IA en una universidad.",
+    labIntro: "Cosas que armo por curiosidad.",
+    off: { t: "Fuera de horario", p: "Soy DJ y toco música electrónica. Me encantan el arte y la fotografía. El gato rosa en píxeles es un guiño a mi dibujo animado favorito." },
+    today: "Hoy soy Project Manager & Business Partner en BI, Automatización e IA en una universidad.",
     expWork: "Laboral", expEdu: "Educación",
-    seeWork: "Ver el trabajo", remoteNote: "Buenos Aires, trabajo remoto", moreWork: "Más trabajo",
+    readCase: "Leer el caso completo", seeWork: "Ver el trabajo", remoteNote: "Buenos Aires, trabajo remoto", moreWork: "Más trabajo",
     fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
     gotMind: "¿Tenés algo en mente?", reach: "O escribime a",
     illo: "Dibujo lineal del perfil de Buenos Aires con el Obelisco",
-    booksIntro: "Aprendo leyendo libros y después construyendo algo con lo que leí.",
+    booksIntro: "Aprendo leyendo y después construyendo con lo que leí.",
     booksNote: "Pasá o tocá un lomo.",
     writingIntro: "Notas sobre producto, finanzas y lo que voy aprendiendo.",
     soon: "pronto",
     contactTitle: "¿Tenés un producto, un proyecto o un proceso que necesita dueña?",
-    contactBody: "Contame qué estás construyendo. Respondo todos los mails.",
+    contactBody: "Contame qué estás armando. Respondo todos los mails.",
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "Ver", close: "Cerrar", open: "Abrir", repo: "Repositorio",
     a: {
-      hero: "Hola, soy Rocío. Soy <a class=\"chip\" href=\"#work\">product engineer</a> en Buenos Aires. Construyo producto, automatización y analítica para que las organizaciones decidan mejor y trabajen menos a mano. Aprendí a programar sola en 2021, con <a class=\"chip\" href=\"#books\">libros</a> y la web. Desde entonces construí una app que 40 mil personas abren todos los días, lideré un equipo de seis y trabajé en <a class=\"chip\" href=\"#finance\">finanzas</a>. Hoy doy clases de Finanzas Corporativas y en abril de 2027 empiezo una Maestría en Finanzas.",
+      hero: "Hola, soy Rocío, <a class=\"chip\" href=\"#work\">product engineer</a> en Buenos Aires. Construyo producto, automatización y analítica para que las organizaciones decidan mejor y trabajen menos a mano. Aprendí a programar sola en 2021, con <a class=\"chip\" href=\"#books\">libros</a> y la web. Desde entonces hice una app que 40 mil personas abren todos los días, lideré un equipo de seis y trabajé en <a class=\"chip\" href=\"#finance\">finanzas</a>. Hoy doy clases de Finanzas Corporativas y en abril de 2027 empiezo una Maestría en Finanzas.",
       kicker: "Un cuaderno, llevado en público", cardNow: "Ahora", cardNowBody: "Automatización, BI e IA para una universidad. Dando Finanzas Corporativas. El MFin arranca en abril de 2027.", cardReading: "Leyendo", cardReadingLink: "Libros que leí"
     },
     b: {
@@ -444,17 +448,17 @@ const content = {
       ],
       storyTitle: "La historia hasta acá",
       story: [
-        { h: "Empecé con libros.", p: "En 2021 aprendí sola HTML y JavaScript, y después React y React Native con Expo.", href: "#books" },
-        { h: "Después publiqué.", p: "Una app para la cadena de gimnasios más grande de Argentina, con más de 500K descargas y 40K usuarios diarios, y un checkout que procesa más de 300 pagos por día.", href: "#positions" },
-        { h: "Después lideré.", p: "Project Leader de un equipo de seis en un SaaS de eventos que usan más de 15K personas en tres continentes.", href: "#experience" },
-        { h: "Después automaticé.", p: "En una consultora global, lo que más disfruté fue liderar una iniciativa de automatización de procesos. Hoy construyo automatización, BI e IA para una universidad, y doy clases de Finanzas Corporativas.", href: "#holdings" }
+        { h: "Empecé con libros.", p: "En 2021 aprendí sola HTML y JavaScript; después, React y React Native.", href: "#books" },
+        { h: "Después publiqué.", p: "Una app para la mayor cadena de gimnasios de Argentina (500K+ descargas, 40K usuarios por día) y un checkout con más de 300 pagos diarios.", href: "#positions" },
+        { h: "Después lideré.", p: "Project Leader de un equipo de seis en un SaaS de eventos con más de 15K usuarios en tres continentes.", href: "#experience" },
+        { h: "Después automaticé.", p: "En una consultora global lideré una iniciativa de automatización de procesos. Hoy armo automatización, BI e IA para una universidad y doy clases de Finanzas Corporativas.", href: "#holdings" }
       ],
       pairs: ["PRODUCTO + FINANZAS", "CÓDIGO + DISEÑO", "CONSTRUIR + LIDERAR", "LIBROS + PRODUCCIÓN"],
-      thesisTitle: "Tesis", thesisSub: "Por qué contratarme o apostar por mí",
+      thesisTitle: "Tesis", thesisSub: "Por qué trabajar conmigo",
       thesis: [
-        { h: "Una constructora que sabe evaluar.", p: "Escribo el código y leo el estado de resultados. Poca gente de producto trabajó dentro de un área de finanzas; poca gente de finanzas publicó para 40K usuarios diarios." },
-        { h: "Evidencia operativa, no adjetivos.", p: "Más de 500K descargas, más de 300 pagos diarios, más de 5 clientes en tres continentes, un equipo de seis." },
-        { h: "Curiosidad que capitaliza.", p: "Aprendo de los libros, construyo con lo que leo y ahora lo enseño: Finanzas Corporativas a nivel universitario, MFin promoción 2028." }
+        { h: "Construyo y sé evaluar.", p: "Escribo el código y leo el estado de resultados. Poca gente de producto trabajó dentro de finanzas; poca gente de finanzas publicó para 40K usuarios por día." },
+        { h: "Evidencia, no adjetivos.", p: "500K+ descargas, 300+ pagos diarios, 5+ clientes en tres continentes, un equipo de seis." },
+        { h: "Curiosidad que rinde.", p: "Leo, construyo con lo que leo y ahora lo enseño: Finanzas Corporativas en la universidad, MFin 2028." }
       ],
       holdingsTitle: "Tenencias", holdingsSub: "Dónde está asignado mi tiempo",
       holdings: [
@@ -585,8 +589,12 @@ const city = alt => {
   const box = (x, w, h, yb = G) => `M${x - o} ${yb - h}H${x + w + o}M${x} ${yb - h - o}V${yb}M${x + w} ${yb - h - o}V${yb}`;
   let hatch = ""; for (let x = 30; x < 840; x += 13) hatch += `M${x} ${G + 5}l-7 9`;
   const tree = (x, r) => `M${x} ${G}v${-r * .5}M${x - r} ${G - r * 1.5}a${r} ${r} 0 1 0 ${2 * r} 0a${r} ${r} 0 1 0 ${-2 * r} 0M${x - r * .6} ${G - r * 2.1}l${r * 1.2} ${r * 1.2}M${x + r * .6} ${G - r * 2.1}l${-r * 1.2} ${r * 1.2}`;
+  const win = (x, y, c, r, dx, dy) => { let p = ""; for (let a = 0; a < c; a++) for (let b = 0; b < r; b++) p += `M${x + a * dx} ${y + b * dy}v4`; return p; };
+  const lamp = x => `M${x} ${G}v-24q1-6 8-5m0 0v3`;
+  let rail = ""; for (let x = 846; x < 1112; x += 11) rail += `M${x} ${G - 4}v-5`;
+  let chain = ""; for (const x of [72, 116, 124, 164, 196, 292, 372, 528, 588, 612, 662, 696, 702, 742, 752, 782]) chain += `M${x} ${G + 15}v7M${x - 3} ${G + 21.5}l6-6`;
   const man = x => `M${x} ${G}v-9M${x - 2} ${G - 11.5}a2 2 0 1 0 4 0a2 2 0 1 0 -4 0`;
-  return `<svg class="city" viewBox="0 0 1200 250" role="img" aria-label="${esc(alt)}">
+  return `<svg class="city" viewBox="0 0 1200 252" role="img" aria-label="${esc(alt)}">
 <defs><filter id="hand" x="-2%" y="-10%" width="104%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="1" seed="5"/><feDisplacementMap in="SourceGraphic" scale="2.2"/></filter></defs>
 <g filter="url(#hand)">
 <path class="g" d="M14 ${G}H1186"/>
@@ -601,19 +609,29 @@ const city = alt => {
 <path class="l" d="M670 ${G - 20}h18M670 ${G - 40}h18M710 ${G - 30}h24M710 ${G - 60}h24M710 ${G - 90}h24M760 ${G - 30}h14M760 ${G - 54}h14"/>
 <path d="M840 ${G - 4}H1118M954 ${G + 6}L1060 84M958 ${G - 4}a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/>
 <path class="l" d="M1052 93L878 ${G - 4}M1052 93L910 ${G - 4}M1052 93L940 ${G - 4}M1052 93L992 ${G - 4}M1052 93l-28 ${G - 97}"/>
-<path class="l" d="${tree(330, 15)}${tree(558, 11)}${tree(808, 12)}${man(524)}${man(536)}${man(642)}${man(1090)}"/>
+<path class="l" d="${tree(330, 15)}${tree(558, 11)}${tree(808, 12)}${tree(352, 9)}${man(524)}${man(536)}${man(642)}${man(1090)}${man(300)}${man(1010)}${man(1018)}"/>
+<path class="l" d="${box(22, 38, 34)}${box(162, 30, 104)}${box(300, 52, 72)}${box(798, 36, 60)}${box(1122, 40, 38)}"/>
+<path class="l" d="${win(80, 158, 4, 3, 9, 12)}${win(132, 128, 3, 6, 11, 11)}${win(204, 150, 8, 3, 11, 14)}${win(216, 118, 6, 2, 10, 12)}${win(228, 92, 4, 2, 9, 11)}${win(668, 144, 3, 4, 9, 13)}${win(709, 102, 3, 7, 11, 13)}${win(758, 132, 2, 5, 10, 13)}${win(170, 104, 2, 7, 10, 12)}${win(308, 136, 4, 4, 10, 13)}"/>
+<path class="l" d="M362 ${G - 4}h176M366 ${G - 8}h168M414 ${G - 52}h72M420 ${G - 62}h60M438 ${G - 38}c2-26 8-40 12-44M462 ${G - 38}c-2-26-8-40-12-44${box(376, 14, 50)}${box(510, 14, 50)}M383 ${G - 56}v-12M517 ${G - 56}v-12"/>
+<path class="l" d="M580 ${G}h40M584 ${G - 5}h32M598 70h4M598 62l2-22 2 22"/>
+<path class="l" d="${lamp(356)}${lamp(544)}${lamp(634 + 20)}${lamp(832)}${rail}M846 ${G - 9}H1114M950 ${G}l8 14M974 ${G}l-8 14M1052 93l6-8"/>
+<path class="l" d="M1166 ${G}V146M1166 146l30 9M1166 146l-13 7M1166 154l18 4M1184 ${G}V166M1160 ${G}h30"/>
 </g>
 <g class="a">
 <path class="d" d="M600 16V${G + 22}M450 60V${G + 22}"/>
 <path d="M634 34V${G}M628 34h12M628 ${G}h12M631 37l6-6M631 ${G + 3}l6-6"/>
 <path d="M1146 70V28M1146 28l-6 12M1146 28l6 12M1132 56a14 14 0 1 0 28 0a14 14 0 1 0 -28 0"/>
 <path class="l" d="M244 30l14-10h34M450 56l14-10h30M1060 84l-12-12h-36"/>
+<path class="l" d="M72 ${G + 18.5}H782${chain}"/>
+<path d="M593 ${G + 30}a7 7 0 1 0 14 0a7 7 0 1 0 -14 0M443 ${G + 30}a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/>
+<path class="l" d="M318 66c8-12 26-9 28 0 12-5 22 5 14 12h-46c-8-3-6-12 4-12M760 48c7-10 22-8 24 0 10-4 19 4 12 10h-40c-7-3-5-10 4-10M96 92c6-9 20-7 22 0 9-4 17 4 11 9H92c-6-3-5-9 4-9"/>
 </g>
+<text x="450" y="${G + 33}" text-anchor="middle">A</text><text x="600" y="${G + 33}" text-anchor="middle">B</text>
 <text x="646" y="${G - 78}" transform="rotate(-90 646 ${G - 78})">67.5 m</text>
 <text x="600" y="11" text-anchor="middle">OBELISCO</text>
 <text x="296" y="23">KAVANAGH</text><text x="498" y="49">CONGRESO</text><text x="1008" y="75" text-anchor="end">PUENTE DE LA MUJER</text>
 <text x="1146" y="20" text-anchor="middle">N</text>
-<text x="14" y="${G + 40}">BUENOS AIRES · 34°36′S 58°22′W</text>
+<text x="14" y="${G + 46}">BUENOS AIRES · 34°36′S 58°22′W · ALZADO</text>
 </svg>`;
 };
 function render(t) {
@@ -640,23 +658,24 @@ function render(t) {
   <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => `<a href="#${fid(c)}"><b>${c.name} ›</b><span class="s">${c.org} · ${c.role}</span><span class="k">${c.impact}</span></a>`).join("")}</nav>
 
   <div id="work">${main.map(c => `<section class="feat" id="${fid(c)}"><div class="rv"><span class="k">${c.org} · ${c.when}</span><h2 style="grid-column:auto">${c.name}. <span>${c.line}</span></h2></div>
-    <div class="rv"><p>${c.body}</p><dl class="f">${(c.steps || []).map(x => `<dt>${x.k}</dt><dd>${x.v}</dd>`).join("")}<dt>${t.fact.scale}</dt><dd>${c.impact}</dd><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl></div></section>`).join("")}</div>
+    <div class="rv"><p>${c.body}</p><dl class="f"><dt>${t.fact.scale}</dt><dd>${c.impact}</dd><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl>
+      ${c.steps ? `<details class="more"><summary><span class="x" aria-hidden="true">+</span>${t.readCase}</summary><dl class="f">${c.steps.map(x => `<dt>${x.k}</dt><dd>${x.v}</dd>`).join("")}</dl></details>` : ""}</div></section>`).join("")}</div>
 
   ${sec("more", t.moreWork, `<div class="th k" aria-hidden="true"><span>${d.cols.position}</span><span>${d.cols.entry}</span><span>${d.cols.impact}</span><span></span></div>
     ${rest.map(c => `<details><summary><h3>${c.name}<small>${c.org} · ${c.role}</small></h3><span class="s">${c.when}</span><span class="s i">${c.impact}</span><span class="x" aria-hidden="true">+</span></summary>
     <div class="b"><p>${caseBody(c)}</p><p class="s">${c.tags.join(" · ")}${c.url ? ` · <a href="${c.url}" ${ext}>${t.repo}</a>` : ""}</p></div></details>`).join("")}`)}
 
-  ${sec("offers", t.h.services, `<div class="cols c3" style="margin-bottom:44px">${t.services.map((s, i) => `<div><span class="k">0${i + 1}</span><h3>${s.name}</h3><p>${svcBody(s)}</p></div>`).join("")}</div>
+  ${sec("offers", t.h.services, `<div class="cols c3" style="margin-bottom:56px">${t.services.map((s, i) => `<div><span class="k">0${i + 1}</span><h3>${s.name}</h3><p>${svcBody(s)}</p></div>`).join("")}</div>
     <p>${t.freelance}</p><div class="cta" style="margin-top:22px"><a class="btn" href="${mailto()}">${t.ctaAlt} ↗</a></div>`)}
 
   ${sec("thesis", d.thesisTitle, `<div class="cols c3">${d.thesis.map(x => `<div><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>`, d.thesisSub)}
 
   ${sec("about", t.h.about, `${portrait()}<p class="lead">${t.about[2]}</p>
-    <div class="cols c4" style="margin-top:44px">${d.story.map((x, i) => `<div><span class="k">[0${i + 1}]</span><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>
+    <div class="cols c4" style="margin-top:60px">${d.story.map((x, i) => `<div><span class="k">[0${i + 1}]</span><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>
     <ul class="tags">${d.pairs.map(p => `<li>${p}</li>`).join("")}</ul>
-    <div style="margin-top:36px">${offClock()}</div>`)}
+    <div style="margin-top:48px">${offClock()}</div>`)}
 
-  ${sec("experience", t.h.experience, `<ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}${e.note ? ". " + e.note : ""}</span></span></li>`, "li", "k")}</ul>`)}
+  ${sec("experience", t.h.experience, `<ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}</span></span></li>`, "li", "k")}</ul>`)}
 
   ${sec("skills", t.h.skills, `<ul class="r">${t.skills.map(s => `<li><span class="k">${s.name}</span><span>${s.items.join(", ")}</span></li>`).join("")}</ul>`)}
 
