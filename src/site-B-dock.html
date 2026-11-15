@@ -150,7 +150,7 @@ function render(t) {
     <canvas id="game" width="640" height="360" tabindex="0" role="button" aria-label="${esc(t.b.playTitle)}: ${esc(t.b.playHint)}"></canvas>
     <div class="btns"><a class="btn" href="${L.games}" ${ext}>${t.b.originals} ↗</a></div>
     <h3 style="margin-top:34px">${t.h.lab}</h3><p class="mut">${t.labIntro}</p>
-    ${t.lab.map(l => `<div class="row" style="grid-template-columns:1fr"><div><b>${labName(l)}${l.url ? " ↗" : ""}</b><p style="margin-bottom:0"># ${l.why}</p></div></div>`).join("")}
+    ${t.lab.map(l => `<div class="row" style="grid-template-columns:1fr"><div><b>${labName(l)}${l.url ? " ↗" : ""}</b><p style="margin-bottom:0"># ${labMeta(l)}</p></div></div>`).join("")}
   </section>
 
   <section id="books" class="rv"><h2><small>06</small>${t.h.books}</h2>

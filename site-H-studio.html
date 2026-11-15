@@ -59,11 +59,10 @@ h1 span{color:var(--acc)}
 .city{fill:none;stroke:var(--ink);stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round}
 .city .a{stroke:var(--acc)}.city .h{stroke-width:.8;opacity:.55}
 .hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-.hi a{display:block;padding:24px 22px 28px 0;text-decoration:none;border-left:1px solid var(--hair);padding-left:22px}
-.hi a:first-child{border-left:0;padding-left:0}
+.hi a{display:block;padding:22px 22px 0 0;text-decoration:none}
 .hi b{display:block;font-weight:500}.hi a:hover b{color:var(--blue)}
 .hi .s{display:block;margin:2px 0 10px}
-.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(64px,10vw,132px) 0;border-top:1px solid var(--hair);scroll-margin-top:10px}
+.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(72px,10vw,136px) 0 0;scroll-margin-top:10px}
 .feat h2{grid-column:1/7;font:500 clamp(1.8rem,3.5vw,3rem)/1.06 var(--txt);letter-spacing:-.04em;margin:10px 0 28px;text-wrap:balance}
 .feat h2 span{color:var(--acc)}
 .feat>div:first-child{grid-column:1/7}.feat>div:last-child{grid-column:7/13}
@@ -71,7 +70,7 @@ h1 span{color:var(--acc)}
 dl.f{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);border-top:1px solid var(--hair)}
 dl.f dt,dl.f dd{margin:0;padding:13px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
 dl.f dt{font:400 .6875rem/2.2 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--soft)}
-.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(64px,9vw,120px) 0;border-top:1px solid var(--hair);scroll-margin-top:10px}
+.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(72px,10vw,136px) 0 0;scroll-margin-top:10px}
 .sec>h2{grid-column:1/4;font:400 .6875rem/1.8 var(--mono);letter-spacing:.09em;text-transform:uppercase;margin:0 0 28px;color:var(--ink);position:sticky;top:28px;align-self:start}
 .sec>h2 span{display:block;color:var(--soft)}
 .sec>div{grid-column:4/13;min-width:0}
@@ -103,16 +102,16 @@ details[open] .x{transform:rotate(45deg)}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .off{color:var(--soft)}
 .spcap{font-size:.875rem;color:var(--soft)}
-.end{padding:clamp(80px,13vw,170px) 0;border-top:1px solid var(--hair)}
+.end{padding:clamp(96px,14vw,190px) 0 clamp(72px,10vw,136px)}
 .end .big{font:500 clamp(2rem,5.4vw,4.4rem)/1.04 var(--txt);letter-spacing:-.045em;margin:0 0 .6em;max-width:16ch;text-wrap:balance}
 .end .big span{color:var(--acc)}
 .end a.m{font-weight:500;overflow-wrap:anywhere;text-decoration-color:var(--acc);text-decoration-thickness:2px}
-footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding:22px 0 20px;border-top:1px solid var(--hair)}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding:22px 0 20px}
 footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-child{margin-left:0}
 .rv{opacity:0;transition:opacity .9s ease}.rv.in{opacity:1}
 @media(max-width:860px){
   .sec,.feat{display:block}.sec>h2{position:static}
-  .hi{grid-template-columns:1fr}.hi a{border-left:0;padding-left:0;border-top:1px solid var(--hair)}.hi a:first-child{border-top:0}
+  .hi{grid-template-columns:1fr}.hi a{padding-top:18px}
   .c3{grid-template-columns:1fr}.c4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .th{display:none}details:first-of-type{border-top:1px solid var(--ink)}
   summary{grid-template-columns:minmax(0,1fr) 20px}summary>*{grid-column:1}
@@ -243,10 +242,9 @@ const content = {
     delivLabel: "Deliverable", idealLabel: "Ideal for",
     freelance: "I take freelance work in three shapes: automation and BI, AI agents for internal processes, and web and product with monthly support. I run each one as its project manager too. I work remotely from Buenos Aires and hold EU work authorization (Argentina, Germany and Italy citizenship).",
     lab: [
-      { name: "Dog-in-the-pool detector", why: "Computer vision applied to a household problem." },
-      { name: "Crypto payment terminals", why: "How money moves on-chain." },
-      { name: "Mental-health bot for an NGO", why: "AI with judgement and human supervision." },
-      { name: "Python games", why: "How I learned Python: loops, state and collisions.", url: "https://github.com/rochijacob/python_games" }
+      { name: "Python games", status: "Built", why: "How I learned Python: loops, state and collisions.", url: "https://github.com/rochijacob/python_games" },
+      { name: "Dog-in-the-pool detector", status: "In progress", why: "Computer vision applied to a household problem." },
+      { name: "Mental-health bot for an NGO", status: "Experimental", why: "AI with judgement and human supervision." }
     ],
     labIntro: "Experiments I build out of curiosity. Each one has a reason.",
     off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The pink pixel cat on this page is a nod to my favourite cartoon." },
@@ -399,10 +397,9 @@ const content = {
     delivLabel: "Entregable", idealLabel: "Ideal para",
     freelance: "Tomo trabajo freelance en tres formatos: automatización y BI, agentes de IA para procesos internos, y web y producto con soporte mensual. En todos me ocupo también de la gestión del proyecto. Trabajo de forma remota desde Buenos Aires y tengo autorización para trabajar en la UE (ciudadanía argentina, alemana e italiana).",
     lab: [
-      { name: "Detector de caída de perro a la pileta", why: "Visión por computadora aplicada a un problema doméstico." },
-      { name: "Terminales de pago cripto", why: "Cómo se mueve el dinero on-chain." },
-      { name: "Bot de salud mental para una ONG", why: "IA con criterio y supervisión humana." },
-      { name: "Juegos en Python", why: "Cómo aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" }
+      { name: "Juegos en Python", status: "Hecho", why: "Cómo aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" },
+      { name: "Detector de caída de perro a la pileta", status: "En progreso", why: "Visión por computadora aplicada a un problema doméstico." },
+      { name: "Bot de salud mental para una ONG", status: "Experimental", why: "IA con criterio y supervisión humana." }
     ],
     labIntro: "Experimentos que hago por curiosidad. Cada uno tiene un porqué.",
     off: { t: "Fuera de horario", p: "Soy DJ: toco y amo la música electrónica. También me encantan el arte y la fotografía. El gato rosa en píxeles de esta página es un guiño a mi dibujo animado favorito." },
@@ -519,6 +516,7 @@ function portrait() {
 }
 const caseBody = c => c.body + (c.steps ? "<br><br>" + c.steps.map(x => `<b>${x.k}.</b> ${x.v}`).join("<br>") : "");
 const svcBody = s => s.body + (s.deliv ? `<br><b>${T().delivLabel}:</b> ${s.deliv}` : "") + (s.ideal ? `<br><b>${T().idealLabel}:</b> ${s.ideal}` : "");
+const labMeta = l => (l.status ? l.status + " · " : "") + l.why;
 const labName = l => l.url ? `<a href="${l.url}" ${ext}>${l.name}</a>` : l.name;
 /* Original pixel-art mascot (a generic pink cat) and a small equalizer. Decorative only. */
 const PINK = "#e56b9a";
@@ -648,7 +646,7 @@ function render(t) {
 
   ${sec("skills", t.h.skills, `<ul class="r">${t.skills.map(s => `<li><span class="k">${s.name}</span><span>${s.items.join(", ")}</span></li>`).join("")}</ul>`)}
 
-  ${sec("lab", t.h.lab, `<p>${t.labIntro}</p><ul class="r" style="margin-top:28px">${t.lab.map(l => `<li><span style="font-weight:500">${labName(l)}</span><span class="s">${l.why}</span></li>`).join("")}</ul>`)}
+  ${sec("lab", t.h.lab, `<p>${t.labIntro}</p><ul class="r" style="margin-top:28px">${t.lab.map(l => `<li><span><span style="font-weight:500">${labName(l)}</span><br><span class="k">${l.status}</span></span><span class="s">${l.why}</span></li>`).join("")}</ul>`)}
 
   ${sec("books", t.h.books, `<p>${t.booksIntro}</p>${bookShelf()}`)}
 

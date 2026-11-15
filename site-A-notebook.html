@@ -204,10 +204,9 @@ const content = {
     delivLabel: "Deliverable", idealLabel: "Ideal for",
     freelance: "I take freelance work in three shapes: automation and BI, AI agents for internal processes, and web and product with monthly support. I run each one as its project manager too. I work remotely from Buenos Aires and hold EU work authorization (Argentina, Germany and Italy citizenship).",
     lab: [
-      { name: "Dog-in-the-pool detector", why: "Computer vision applied to a household problem." },
-      { name: "Crypto payment terminals", why: "How money moves on-chain." },
-      { name: "Mental-health bot for an NGO", why: "AI with judgement and human supervision." },
-      { name: "Python games", why: "How I learned Python: loops, state and collisions.", url: "https://github.com/rochijacob/python_games" }
+      { name: "Python games", status: "Built", why: "How I learned Python: loops, state and collisions.", url: "https://github.com/rochijacob/python_games" },
+      { name: "Dog-in-the-pool detector", status: "In progress", why: "Computer vision applied to a household problem." },
+      { name: "Mental-health bot for an NGO", status: "Experimental", why: "AI with judgement and human supervision." }
     ],
     labIntro: "Experiments I build out of curiosity. Each one has a reason.",
     off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The pink pixel cat on this page is a nod to my favourite cartoon." },
@@ -360,10 +359,9 @@ const content = {
     delivLabel: "Entregable", idealLabel: "Ideal para",
     freelance: "Tomo trabajo freelance en tres formatos: automatización y BI, agentes de IA para procesos internos, y web y producto con soporte mensual. En todos me ocupo también de la gestión del proyecto. Trabajo de forma remota desde Buenos Aires y tengo autorización para trabajar en la UE (ciudadanía argentina, alemana e italiana).",
     lab: [
-      { name: "Detector de caída de perro a la pileta", why: "Visión por computadora aplicada a un problema doméstico." },
-      { name: "Terminales de pago cripto", why: "Cómo se mueve el dinero on-chain." },
-      { name: "Bot de salud mental para una ONG", why: "IA con criterio y supervisión humana." },
-      { name: "Juegos en Python", why: "Cómo aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" }
+      { name: "Juegos en Python", status: "Hecho", why: "Cómo aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" },
+      { name: "Detector de caída de perro a la pileta", status: "En progreso", why: "Visión por computadora aplicada a un problema doméstico." },
+      { name: "Bot de salud mental para una ONG", status: "Experimental", why: "IA con criterio y supervisión humana." }
     ],
     labIntro: "Experimentos que hago por curiosidad. Cada uno tiene un porqué.",
     off: { t: "Fuera de horario", p: "Soy DJ: toco y amo la música electrónica. También me encantan el arte y la fotografía. El gato rosa en píxeles de esta página es un guiño a mi dibujo animado favorito." },
@@ -480,6 +478,7 @@ function portrait() {
 }
 const caseBody = c => c.body + (c.steps ? "<br><br>" + c.steps.map(x => `<b>${x.k}.</b> ${x.v}`).join("<br>") : "");
 const svcBody = s => s.body + (s.deliv ? `<br><b>${T().delivLabel}:</b> ${s.deliv}` : "") + (s.ideal ? `<br><b>${T().idealLabel}:</b> ${s.ideal}` : "");
+const labMeta = l => (l.status ? l.status + " · " : "") + l.why;
 const labName = l => l.url ? `<a href="${l.url}" ${ext}>${l.name}</a>` : l.name;
 /* Original pixel-art mascot (a generic pink cat) and a small equalizer. Decorative only. */
 const PINK = "#e56b9a";
@@ -576,7 +575,7 @@ function render(t) {
     ${t.cases.map(c => `<article class="case"><h3>${c.url ? `<a href="${c.url}" ${ext}>${c.name}</a>` : c.name}</h3>
       <div class="meta mono"><span>${c.org}</span><span>${c.role}</span><span>${c.when}</span><span class="imp">${c.impact}</span></div><p>${caseBody(c)}</p></article>`).join("")}
     <h3 id="lab" style="margin-top:34px">${t.h.lab}</h3><p>${t.labIntro}</p>
-    <ul class="list fin">${t.lab.map(l => `<li style="grid-template-columns:1fr;gap:0"><b>${labName(l)}</b><span>${l.why}</span></li>`).join("")}</ul>
+    <ul class="list fin">${t.lab.map(l => `<li style="grid-template-columns:1fr;gap:0"><b>${labName(l)}</b><span>${labMeta(l)}</span></li>`).join("")}</ul>
   </section>
 
   <section id="experience" class="rv">

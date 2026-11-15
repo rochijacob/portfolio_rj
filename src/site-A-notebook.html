@@ -138,7 +138,7 @@ function render(t) {
     ${t.cases.map(c => `<article class="case"><h3>${c.url ? `<a href="${c.url}" ${ext}>${c.name}</a>` : c.name}</h3>
       <div class="meta mono"><span>${c.org}</span><span>${c.role}</span><span>${c.when}</span><span class="imp">${c.impact}</span></div><p>${caseBody(c)}</p></article>`).join("")}
     <h3 id="lab" style="margin-top:34px">${t.h.lab}</h3><p>${t.labIntro}</p>
-    <ul class="list fin">${t.lab.map(l => `<li style="grid-template-columns:1fr;gap:0"><b>${labName(l)}</b><span>${l.why}</span></li>`).join("")}</ul>
+    <ul class="list fin">${t.lab.map(l => `<li style="grid-template-columns:1fr;gap:0"><b>${labName(l)}</b><span>${labMeta(l)}</span></li>`).join("")}</ul>
   </section>
 
   <section id="experience" class="rv">

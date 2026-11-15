@@ -229,7 +229,7 @@ function render(t) {
     </section>
     <section class="panel rv" id="lab"><div class="ph"><h2>${t.h.lab}</h2></div>
       <p>${t.labIntro}</p>
-      <ul class="kv">${t.lab.map(l => `<li style="grid-template-columns:1fr;gap:0"><b>${labName(l)}</b><span style="color:var(--mut)">${l.why}</span></li>`).join("")}</ul>
+      <ul class="kv">${t.lab.map(l => `<li style="grid-template-columns:1fr;gap:0"><b>${labName(l)}</b><span style="color:var(--mut)">${labMeta(l)}</span></li>`).join("")}</ul>
     </section>
   </div>
 

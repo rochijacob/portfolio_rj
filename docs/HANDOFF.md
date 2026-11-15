@@ -74,7 +74,17 @@ Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H
 
 **Libros (10 títulos, con Range y Outliers agregados el 2026-11-15):** no quiere escribir por qué destaca cada uno (`note` vacío, no pedirlo de nuevo). Quiere que conserven la estética de sus tapas, idealmente con sus tipografías, como los lomos de thanhdatnguyen.com. Están hechos en CSS con colores y tipografías que evocan una edición conocida de cada título (campo `spine` de cada libro). Son aproximaciones de memoria, no escaneos: si Rocío manda fotos de los lomos reales, se reemplazan. Al pasar o tocar un lomo se muestra título y autor. Lo usan A y H; B y D mantienen sus propias listas.
 
-**Lab:** el agente de fitness se quitó a pedido de Rocío. Preguntó cómo mejorar la sección; se le pidió por cada experimento: qué hace en una línea, con qué está hecho, en qué estado está, si hay link o captura, y qué aprendió.
+**Lab (definido 2026-11-15):** Rocío quiere que el Lab se muestre como artículos, con fotos y la solución, solo para los experimentos de los que hay material. Estado real de cada uno:
+
+- Juegos en Python: hecho. Es el único del que se puede armar artículo hoy. Hay un esqueleto y tres capturas en `drafts/lab-python-games/` (no enlazado desde el sitio; **no entra en el primer lanzamiento**).
+- Detector de caída de perro a la pileta: en progreso.
+- Bot de salud mental para una ONG: experimental.
+- Terminales de pago cripto: **no existe, se quitó. No volver a agregarlo.**
+- Agente de fitness: se quitó a pedido de Rocío.
+
+En el sitio el Lab es por ahora una lista corta con el estado de cada experimento (campo `status`, helper `labMeta()`).
+
+**Cortes entre secciones en H:** a Rocío le resultaban raros, sobre todo por las líneas. Se quitaron todas las líneas entre secciones: ahora se separan solo con espacio (el mismo valor en todas) y su etiqueta. Las líneas finas quedan únicamente dentro de listas y tablas. No volver a poner reglas entre secciones.
 
 **Foto de perfil:** Rocío dijo que adjuntaba su foto de siempre como referencia, pero no llegó ninguna imagen a la sesión.
 
