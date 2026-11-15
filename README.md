@@ -25,6 +25,12 @@ El contexto completo del proyecto, las decisiones y los pendientes están en `do
 
 ## Deploy en Vercel
 
-Importar el repo en Vercel con preset "Other", sin build command ni output directory. Se sirve como sitio estático.
+El sitio que se publica es `index.html`, que el build genera a partir de la dirección H (`src/site-H-studio.html`). Las otras tres direcciones (`site-A-notebook`, `site-B-dock`, `site-D-ledger`) y `compare.html` quedan accesibles por URL directa, marcadas `noindex`.
 
-Foto opcional: agregar `profile.jpg` en la raíz.
+1. En vercel.com: Add New, Project, importar `rochijacob/portfolio_rj`.
+2. Framework Preset: **Other**. Dejar vacíos Build Command y Output Directory.
+3. Deploy. Cada push a la rama vuelve a publicar.
+
+No hay paso de build en Vercel: los HTML ya están generados y versionados. Si se edita `src/`, correr `node src/build.mjs` antes de hacer commit.
+
+Foto: `profile.png` en la raíz.

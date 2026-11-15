@@ -8,4 +8,6 @@ for (const f of ["site-A-notebook", "site-B-dock", "site-D-ledger", "site-H-stud
   const out = tpl.replace("/*CORE*/", () => core);
   writeFileSync(new URL(`../${f}.html`, dir), out);
   console.log(f, (Buffer.byteLength(out) / 1024).toFixed(1) + " KB");
+  // The Studio direction is the live home page.
+  if (f === "site-H-studio") writeFileSync(new URL("../index.html", dir), out);
 }

@@ -41,11 +41,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .dock a:hover{color:var(--bg);background:color-mix(in srgb,var(--bg) 16%,transparent)}
 .dock a[aria-current=true]{background:var(--bg);color:var(--ink)}
 .dock .cat{position:absolute;bottom:100%;left:16px;line-height:0;will-change:transform}
+.dock .lks{display:flex;gap:2px}.dock .mn{display:none}
 .dock i{width:1px;height:20px;background:color-mix(in srgb,var(--bg) 30%,transparent);margin:0 4px}
 .dock button{color:var(--bg);min-width:40px;height:40px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:5px;transition:background .2s}
 .dock button:hover{background:color-mix(in srgb,var(--bg) 16%,transparent)}
 .dock button:focus-visible,.dock a:focus-visible{outline-color:var(--acc)}
-.dock svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.dock button svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .dock .lg{padding:0 10px;font:400 .6875rem var(--mono);letter-spacing:.06em}
 .dock .lg b{font-weight:400;opacity:.5}.dock .lg b.on{opacity:1;font-weight:500;text-decoration:underline;text-underline-offset:4px}
 .hero{padding:clamp(64px,11vw,150px) 0 0}
@@ -142,7 +143,16 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   .end{padding:88px 0 64px}
   footer{flex-direction:column;gap:2px}footer a{margin:0 18px 0 0}
 }
-@media(max-width:480px){.c4{grid-template-columns:1fr}.dock a{padding:11px 11px;font-size:.8125rem}.dock .opt{display:none}.hd .lk a:first-child{display:none}dl.f{grid-template-columns:1fr}dl.f dt{border:0;padding-bottom:0}dl.f dd{padding-top:2px}}
+@media(max-width:640px){
+  .dock{padding:6px;gap:4px}
+  .dock .mn{display:inline-flex;padding:0 16px;font-size:.9375rem;min-width:132px;justify-content:space-between;height:44px}
+  .dock button{height:44px;min-width:44px}
+  .dock .lks{display:none;position:absolute;left:0;right:0;bottom:calc(100% + 10px);flex-direction:column;gap:2px;padding:8px;background:var(--ink);border-radius:22px;box-shadow:0 10px 30px -12px rgba(0,48,73,.55)}
+  .dock.open .lks{display:flex}
+  .dock .lks a{padding:13px 16px;font-size:1rem;border-radius:14px}
+  .dock.open .cat{visibility:hidden}
+}
+@media(max-width:480px){.c4{grid-template-columns:1fr}.hd .lk a:first-child{display:none}dl.f{grid-template-columns:1fr}dl.f dt{border:0;padding-bottom:0}dl.f dd{padding-top:2px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1}}
 </style>
 </head>
@@ -229,14 +239,14 @@ function render(t) {
     <div class="rv"><p>${c.body}</p><dl class="f"><dt>${t.fact.scale}</dt><dd>${c.impact}</dd><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl>
       ${c.steps ? `<details class="more"><summary><span class="x" aria-hidden="true">+</span>${t.readCase}</summary><dl class="f">${c.steps.map(x => `<dt>${x.k}</dt><dd>${x.v}</dd>`).join("")}</dl></details>` : ""}</div></section>`).join("")}</div>
 
-  ${sec("more", t.moreWork, `<div class="th k" aria-hidden="true"><span>${d.cols.position}</span><span>${d.cols.entry}</span><span>${d.cols.impact}</span><span></span></div>
+  ${sec("more", t.moreWork, `<div class="th k" aria-hidden="true"><span>${t.workCols.p}</span><span>${t.workCols.w}</span><span>${t.workCols.i}</span><span></span></div>
     ${rest.map(c => `<details><summary><h3>${c.name}<small>${c.org} · ${c.role}</small></h3><span class="s">${c.when}</span><span class="s i">${c.impact}</span><span class="x" aria-hidden="true">+</span></summary>
     <div class="b"><p>${caseBody(c)}</p><p class="s">${c.tags.join(" · ")}${c.url ? ` · <a href="${c.url}" ${ext}>${t.repo}</a>` : ""}</p></div></details>`).join("")}`)}
 
   ${sec("offers", t.h.services, `<div class="cols c3" style="margin-bottom:56px">${t.services.map((s, i) => `<div><span class="k">0${i + 1}</span><h3>${s.name}</h3><p>${svcBody(s)}</p></div>`).join("")}</div>
     <p>${t.freelance}</p><div class="cta" style="margin-top:22px"><a class="btn" href="${mailto()}">${t.ctaAlt} ↗</a></div>`)}
 
-  ${sec("thesis", d.thesisTitle, `<div class="cols c3">${d.thesis.map(x => `<div><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>`, d.thesisSub)}
+  ${sec("thesis", t.why, `<div class="cols c3">${d.thesis.map(x => `<div><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>`)}
 
   ${sec("about", t.h.about, `${portrait()}<p class="lead">${t.about[2]}</p>
     <div class="cols c4" style="margin-top:60px">${d.story.map((x, i) => `<div><span class="k">[0${i + 1}]</span><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>
@@ -258,7 +268,7 @@ function render(t) {
   </section>
   <footer class="k"><span>${t.footer.rights}</span><span>${footerLinks()}</span></footer>
 </main>
-<nav class="dock" aria-label="Sections"><span class="cat" id="cat" aria-hidden="true">${pixelCat(2)}</span>${DOCK.map(([id, k], i) => `<a href="#${id}" data-sec="${id}"${i === 1 || i === 3 ? ' class="opt"' : ""}>${t.nav[k]}</a>`).join("")}<i aria-hidden="true"></i>
+<nav class="dock" aria-label="Sections"><span class="cat" id="cat" aria-hidden="true">${pixelCat(2)}</span><button type="button" class="mn" data-menu aria-expanded="false" aria-controls="dlinks"><span id="mlabel">${t.menu}</span><span aria-hidden="true">▾</span></button><span class="lks" id="dlinks">${DOCK.map(([id, k]) => `<a href="#${id}" data-sec="${id}">${t.nav[k]}</a>`).join("")}</span><i aria-hidden="true"></i>
   <button type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}"><svg viewBox="0 0 24 24" aria-hidden="true">${theme === "dark" ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>' : '<path d="M20 14A8 8 0 0110 4a8 8 0 1010 10z"/>'}</svg></button>
   <button type="button" class="lg" data-lang="${lang === "en" ? "es" : "en"}" aria-label="${esc(t.langLabel)}: ${lang === "en" ? "Español" : "English"}"><b${lang === "en" ? ' class="on"' : ""}>EN</b><b${lang === "es" ? ' class="on"' : ""}>ES</b></button></nav>`;
   walk(); spy();
@@ -274,7 +284,9 @@ function spy() {
   if (so) so.disconnect();
   if (!("IntersectionObserver" in window)) return;
   so = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) $$(".dock a").forEach(a => a.setAttribute("aria-current", a.dataset.sec === e.target.id));
+    if (!e.isIntersecting) return;
+    $$(".dock a").forEach(a => a.setAttribute("aria-current", a.dataset.sec === e.target.id));
+    const cur = $(`.dock a[data-sec="${e.target.id}"]`), ml = $("#mlabel"); if (cur && ml) ml.textContent = cur.textContent;
   }), { rootMargin: "-40% 0px -55% 0px" });
   DOCK.forEach(([id]) => so.observe($("#" + id)));
 }
@@ -284,6 +296,12 @@ document.addEventListener("click", e => {
   document.documentElement.dataset.theme = theme;
   const y = scrollY; apply(); scrollTo(0, y); $("[data-theme-btn]").focus();
 });
+document.addEventListener("click", e => {
+  const dk = $(".dock"); if (!dk) return;
+  const open = e.target.closest("[data-menu]") ? !dk.classList.contains("open") : false;
+  dk.classList.toggle("open", open); $("[data-menu]").setAttribute("aria-expanded", open);
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape" && $(".dock.open")) { $(".dock").classList.remove("open"); $("[data-menu]").setAttribute("aria-expanded", "false"); $("[data-menu]").focus(); } });
 addEventListener("scroll", () => requestAnimationFrame(walk), { passive: true });
 addEventListener("resize", walk);
 setInterval(() => { const c = $("#clock"); if (c) c.textContent = clock(); }, 30000);

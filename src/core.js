@@ -117,9 +117,10 @@ const content = {
       { name: "Mental-health bot for an NGO", status: "Experimental", why: "AI with judgement and human supervision." }
     ],
     labIntro: "Things I build out of curiosity.",
-    off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The pink pixel cat on this page is a nod to my favourite cartoon." },
+    off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The little pink pixel panther is a nod to my favourite cartoon." },
     today: "Today, Project Manager & Business Partner in BI, Automation and AI at a university.",
     expWork: "Work", expEdu: "Education",
+    why: "Why work with me", menu: "Menu", workCols: { p: "Project", w: "When", i: "Result" },
     readCase: "Read the full case", seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
     fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
     gotMind: "Got something in mind?", reach: "Or write to me at",
@@ -198,11 +199,11 @@ const content = {
     cta: "Trabajemos juntos", ctaAlt: "Hablemos", mailSubject: "Proyecto para Rocío",
     skip: "Ir al contenido", langLabel: "Idioma", themeLabel: "Cambiar modo claro / oscuro", portraitAlt: "Avatar en pixel art de Rocío Jacob",
     nav: { home: "Inicio", about: "Sobre mí", work: "Trabajo", experience: "Experiencia", skills: "Stack", books: "Libros", writing: "Escritos", contact: "Contacto", play: "Playground", services: "Servicios" },
-    h: { services: "Qué ofrezco", about: "Sobre mí", work: "Trabajo seleccionado", experience: "Experiencia", skills: "Habilidades y stack", books: "Libros", writing: "Escritos", contact: "Trabajemos juntos", finance: "El lado financiero", lab: "Lab", numbers: "En números" },
+    h: { services: "Servicios", about: "Sobre mí", work: "Proyectos destacados", experience: "Experiencia", skills: "Herramientas", books: "Libros", writing: "Escritos", contact: "Trabajemos juntos", finance: "El lado financiero", lab: "Lab", numbers: "En números" },
     about: [
       "Aprendí a programar sola en 2021, con libros y la web: primero HTML y JavaScript, después React y React Native. Publiqué más de cinco apps, lideré un equipo de seis y hoy trabajo en automatización, agentes de IA y diseño de sistemas.",
       "Soy Licenciada en Administración y Negocios Digitales por San Andrés (top 10%, intercambio en IE University). En una consultora global automaticé procesos de finanzas, así que hablo producto y finanzas. Doy clases de Finanzas Corporativas y en abril de 2027 empiezo la Maestría en Finanzas de UdeSA.",
-      "Me importan los productos lindos, rápidos y que le simplifican el día a alguien. Todo lo que publico tiene que verse bien."
+      "Me importan los productos lindos, rápidos y que le simplifiquen el día a alguien. Todo lo que hago tiene que verse bien."
     ],
     stats: [
       { n: "500K+", l: "descargas de la app de la mayor cadena de gimnasios de Argentina" },
@@ -215,18 +216,18 @@ const content = {
       { n: "100+", l: "trabajos finales por entrega en el sistema que construí" }
     ],
     cases: [
-      { code: "WK.01", line: "Más de 500K descargas y 40K personas por día.", name: "App de cadena de gimnasios", org: "Estudio de software", role: "Desarrollo mobile", when: "2021 – 2025", impact: "500K+ descargas · 40K DAU",
-        body: "Construí y mantuve la app de la mayor cadena de gimnasios de Argentina. Con decenas de miles de personas abriéndola todos los días, el trabajo fue velocidad, UX y prolijidad.", tags: ["React Native", "Expo"] },
-      { code: "WK.02", line: "Ticketing para más de 15K usuarios en tres continentes.", name: "Plataforma SaaS de eventos", org: "Estudio de software", role: "Project Leader", when: "Nov 2023 – Abr 2025", impact: "15K+ usuarios · 5+ clientes",
-        body: "Lideré el desarrollo de una plataforma de ticketing, control de accesos y relación con clientes, usada por festivales de música y eventos cripto en América, Europa y Asia. Coordiné un equipo de seis, llevé más de 5 cuentas en forma directa y definí prioridades y roadmap con clientes y stakeholders.", tags: ["Liderazgo de proyecto", "Jira", "Roadmap", "React"] },
+      { code: "WK.01", line: "Más de 500 mil descargas y 40 mil usuarios por día.", name: "App para una cadena de gimnasios", org: "Estudio de software", role: "Desarrollo mobile", when: "2021 – 2025", impact: "500K+ descargas · 40K usuarios diarios",
+        body: "Desarrollé y mantuve la app de la mayor cadena de gimnasios de Argentina. La usan decenas de miles de personas por día, así que el foco estuvo en la velocidad, la experiencia de uso y los detalles.", tags: ["React Native", "Expo"] },
+      { code: "WK.02", line: "Ticketing para más de 15 mil usuarios en tres continentes.", name: "Plataforma SaaS de eventos", org: "Estudio de software", role: "Project Leader", when: "Nov 2023 – Abr 2025", impact: "15K+ usuarios · 5+ clientes",
+        body: "Lideré el desarrollo de una plataforma de ticketing, control de accesos y relación con clientes, usada por festivales de música y eventos cripto en América, Europa y Asia. Coordiné un equipo de seis personas, manejé más de cinco cuentas de clientes y definí las prioridades y el roadmap junto a ellos.", tags: ["Liderazgo de proyecto", "Jira", "Roadmap", "React"] },
       { code: "WK.03", name: "Checkout de alto volumen", org: "Estudio de software", role: "Senior Developer", when: "2021 – 2023", impact: "300+ pagos / día",
         body: "Diseñé y lancé un checkout con facturación a medida que procesa más de 300 pagos por día. Una de las primeras integraciones de Mercado Pago en React.", tags: ["React", "Mercado Pago", "Facturación"] },
       { code: "WK.04", line: "De la coordinación manual a un flujo automatizado.", name: "Seguimiento de trabajos finales", org: "Una universidad", role: "Líder de producto y automatización", when: "Abr 2026 – presente", impact: "Más de 100 trabajos por entrega",
-        body: "Soy responsable del backend del sistema que sigue los trabajos finales de grado y coordina sus mesas de defensa: datos, sincronización y flujos. En paralelo impulso proyectos de automatización, BI e IA para la universidad.",
+        body: "Estoy a cargo del backend del sistema que hace el seguimiento de los trabajos finales de grado y coordina las mesas de defensa: datos, sincronización y flujos de trabajo. En paralelo llevo adelante proyectos de automatización, BI e IA para la universidad.",
         steps: [
           { k: "Contexto", v: "Cada entrega suma más de 100 trabajos y hay que coordinar las mesas de defensa en pocos días. Las aprobaciones llegaban por mail y alguien las cargaba a mano en una planilla; los avisos a alumnos, mentores y jurados también salían a mano." },
-          { k: "Problema", v: "Trabajo repetitivo y propenso a errores, sobre todo en los picos." },
-          { k: "Decisión", v: "· Una sola fuente de verdad: un data hub central. Empecé leyendo los mails de notificación y vi que el proceso necesitaba los datos de fondo, no los mensajes. Por eso elegí el hub, y no consultar el sistema operativo directo.<br>· Una sincronización aparte dentro de la red privada de la universidad, porque al hub no se llega desde un script de planilla.<br>· Flujos en n8n: confirmar agrupamientos, recolectar datos con un formulario, pedir disponibilidad a los jurados y detectar cuándo coinciden las agendas.<br>· Sheets y Gmail siguen siendo la interfaz, porque ahí ya trabaja el equipo." },
+          { k: "Problema", v: "Era un trabajo repetitivo y propenso a errores, sobre todo en las semanas de más entregas." },
+          { k: "Decisión", v: "· Una sola fuente de verdad: un data hub central. Empecé procesando los mails de notificación y entendí que el proceso necesitaba los datos en sí, no solo los mensajes. Por eso elegí el hub en lugar de consultar directamente el sistema de gestión.<br>· Un proceso de sincronización separado, dentro de la red privada de la universidad, porque al hub no se puede acceder desde un script de la planilla.<br>· Flujos en n8n para el proceso: confirmar los grupos de trabajos, reunir datos con un formulario, pedirles disponibilidad a los jurados y detectar cuándo coinciden las agendas.<br>· Sheets y Gmail siguen siendo la interfaz, porque es donde el equipo ya trabaja." },
           { k: "Resultado", v: "Completo e implementado." },
           { k: "Aprendizaje", v: "Definir la fuente de verdad antes que la herramienta." }
         ], tags: ["n8n", "Python", "Google Workspace", "AWS", "Diseño de APIs", "Backend"] },
@@ -235,8 +236,8 @@ const content = {
     ],
     timeline: [
       { when: "Abr 2026 – presente", org: "Una universidad", role: "Project Manager & Business Partner · BI, Automatización, IA", note: "Backend del sistema de seguimiento de trabajos finales; automatización, BI e IA para la universidad.", tags: ["API", "BI", "Agentes de IA"] },
-      { when: "Jun 2026 – presente", org: "Una universidad", role: "Docente de tutoriales, Finanzas Corporativas", note: "Ayudante de cátedra, part-time.", tags: ["Docencia", "Finanzas"] },
-      { when: "Abr 2027 – 2028", org: "Universidad de San Andrés", kind: "edu", role: "Maestría en Finanzas (MFin), ingresante", note: "Promoción 2028.", tags: ["MFin"] },
+      { when: "Jun 2026 – presente", org: "Una universidad", role: "Ayudante de cátedra, Finanzas Corporativas", note: "Clases de tutorial, part-time.", tags: ["Docencia", "Finanzas"] },
+      { when: "Abr 2027 – 2028", org: "Universidad de San Andrés", kind: "edu", role: "Maestría en Finanzas (MFin), inicio en 2027", note: "Promoción 2028.", tags: ["MFin"] },
       { when: "May 2025 – Mar 2026", org: "Consultora global", role: "Management Consultant Senior Analyst", note: "Lideré una iniciativa de automatización de procesos; Anaplan para una aerolínea.", tags: ["Anaplan", "Scrum", "Power Automate"] },
       { when: "Nov 2023 – Abr 2025", org: "Estudio de software", role: "Project Leader", note: "SaaS de eventos para más de 5 clientes en tres continentes; equipo de seis.", tags: ["Jira", "Roadmap", "Clientes"] },
       { when: "Mar 2021 – Oct 2023", org: "Estudio de software", role: "Senior Developer", note: "Apps móviles y un checkout que procesa más de 300 pagos diarios.", tags: ["React Native", "Expo", "React"] },
@@ -244,51 +245,52 @@ const content = {
       { when: "Mar 2020 – Dic 2024", org: "Universidad de San Andrés", kind: "edu", role: "Lic. en Administración de Empresas y Negocios Digitales", note: "Promedio 8,6/10, top 10%, beca al mérito. Ayudante en Arquitectura de Datos, Finance Club.", tags: [] }
     ],
     skills: [
-      { code: "SK.01", name: "Construcción", items: ["React", "React Native", "Expo", "JavaScript / TypeScript", "HTML / CSS", "Node / Express", "Python", "SQL", "MongoDB", "Webflow"] },
+      { code: "SK.01", name: "Desarrollo", items: ["React", "React Native", "Expo", "JavaScript / TypeScript", "HTML / CSS", "Node / Express", "Python", "SQL", "MongoDB", "Webflow"] },
       { code: "SK.02", name: "Cloud y sistemas", items: ["AWS", "Diseño de APIs", "Diseño de sistemas", "Diseño de bases de datos", "Agentes de IA"] },
-      { code: "SK.03", name: "Producto y PM", items: ["Jira", "Scrum", "Roadmapping", "Gestión de stakeholders", "Figma", "Notion"] },
-      { code: "SK.04", name: "Finanzas y automatización", items: ["n8n", "Power Automate", "BI", "Anaplan (certificada)", "Modelado en Excel", "FP&A"] },
+      { code: "SK.03", name: "Producto y gestión", items: ["Jira", "Scrum", "Roadmaps", "Gestión de stakeholders", "Figma", "Notion"] },
+      { code: "SK.04", name: "Finanzas y automatización", items: ["n8n", "Power Automate", "BI", "Anaplan (certificada)", "Modelos en Excel", "FP&A"] },
       { code: "SK.05", name: "Idiomas", items: ["Español (nativo)", "Inglés (fluido, TOEFL iBT 110)"] }
     ],
     stackSentence: "Construyo con {React}, {React Native} y {Expo} en {TypeScript}, lo respaldo con {Node}, {Python}, {SQL} y {MongoDB} sobre {AWS}, y publico sitios de marketing en {Webflow}.",
     finance: [
       { k: "MFin", v: "Maestría en Finanzas en la Universidad de San Andrés, desde abril de 2027, promoción 2028." },
-      { k: "Docencia", v: "Docente universitaria de tutoriales de Finanzas Corporativas desde junio de 2026." },
+      { k: "Docencia", v: "Ayudante de cátedra de Finanzas Corporativas desde junio de 2026." },
       { k: "Consultoría", v: "Automatización de procesos de finanzas en una firma global hasta marzo de 2026. Certificación Anaplan Model Builder." },
       { k: "Research", v: "Sostengo un proceso estructurado de equity research para invertir a largo plazo: negocio, estados financieros, valuación, scorecard." },
       { k: "Base", v: "Administración y Negocios Digitales en UdeSA, top 10%. Miembro del Finance Club." }
     ],
     services: [
-      { code: "SV.01", name: "Automatización y BI", sub: "Procesos", body: "Convierto un proceso manual (Excel sueltos, mails, planillas) en un flujo automático con tableros que se usan.", deliv: "Mapa del proceso, automatización andando y documentación.", ideal: "Finanzas, operaciones, instituciones." },
-      { code: "SV.02", name: "Agentes de IA", sub: "Procesos internos", body: "Clasificación, carga de datos, respuestas y seguimiento, con personas que supervisan.", deliv: "Prototipo en uso real y criterios de evaluación.", ideal: "" },
-      { code: "SV.03", name: "Web y producto", sub: "Con soporte mensual", body: "Sitio o app, infraestructura, CMS y formularios, con mantenimiento por abono mensual.", deliv: "", ideal: "" }
+      { code: "SV.01", name: "Automatización y BI", sub: "Procesos", body: "Convierto un proceso manual (planillas sueltas, mails, cargas a mano) en un flujo automático, con tableros que el equipo realmente usa.", deliv: "Mapa del proceso, automatización en funcionamiento y documentación.", ideal: "Finanzas, operaciones, instituciones." },
+      { code: "SV.02", name: "Agentes de IA", sub: "Procesos internos", body: "Agentes que clasifican, cargan datos, responden y hacen seguimiento, siempre con supervisión de personas.", deliv: "Un prototipo en uso real y criterios para evaluarlo.", ideal: "" },
+      { code: "SV.03", name: "Web y producto", sub: "Con soporte mensual", body: "Sitio o app con su infraestructura, CMS y formularios, y mantenimiento por abono mensual.", deliv: "", ideal: "" }
     ],
     delivLabel: "Entregable", idealLabel: "Ideal para",
-    freelance: "Trabajo freelance en estos tres formatos, y en todos gestiono el proyecto. Remoto desde Buenos Aires, con permiso de trabajo en la UE (ciudadanía argentina, alemana e italiana).",
+    freelance: "Tomo proyectos freelance en estos tres formatos y en todos me ocupo también de la gestión. Trabajo remoto desde Buenos Aires y tengo permiso de trabajo en la Unión Europea (ciudadanía argentina, alemana e italiana).",
     lab: [
-      { name: "Juegos en Python", status: "Hecho", why: "Así aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" },
-      { name: "Detector de caída de perro a la pileta", status: "En progreso", why: "Visión por computadora aplicada a un problema doméstico." },
+      { name: "Juegos en Python", status: "Terminado", why: "Así aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" },
+      { name: "Detector de perros en la pileta", status: "En progreso", why: "Visión por computadora aplicada a un problema doméstico." },
       { name: "Bot de salud mental para una ONG", status: "Experimental", why: "IA con criterio y supervisión humana." }
     ],
     labIntro: "Cosas que armo por curiosidad.",
-    off: { t: "Fuera de horario", p: "Soy DJ y toco música electrónica. Me encantan el arte y la fotografía. El gato rosa en píxeles es un guiño a mi dibujo animado favorito." },
+    off: { t: "Fuera del trabajo", p: "Soy DJ y toco música electrónica. Me encantan el arte y la fotografía. La panterita rosa en píxeles es un guiño a mi dibujo animado favorito." },
     today: "Hoy soy Project Manager & Business Partner en BI, Automatización e IA en una universidad.",
-    expWork: "Laboral", expEdu: "Educación",
-    readCase: "Leer el caso completo", seeWork: "Ver el trabajo", remoteNote: "Buenos Aires, trabajo remoto", moreWork: "Más trabajo",
+    expWork: "Experiencia laboral", expEdu: "Formación",
+    why: "Por qué trabajar conmigo", menu: "Menú", workCols: { p: "Proyecto", w: "Período", i: "Resultado" },
+    readCase: "Leer el caso completo", seeWork: "Ver proyectos", remoteNote: "Buenos Aires · Trabajo remoto", moreWork: "Otros proyectos",
     fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
     gotMind: "¿Tenés algo en mente?", reach: "O escribime a",
-    illo: "Dibujo lineal del perfil de Buenos Aires con el Obelisco",
-    booksIntro: "Aprendo leyendo y después construyendo con lo que leí.",
-    booksNote: "Pasá o tocá un lomo.",
+    illo: "Croquis del perfil de Buenos Aires, con el Obelisco en el centro",
+    booksIntro: "Aprendo leyendo y después pongo en práctica lo que leí.",
+    booksNote: "Pasá el cursor o tocá un lomo.",
     writingIntro: "Notas sobre producto, finanzas y lo que voy aprendiendo.",
     soon: "pronto",
     contactTitle: "¿Tenés un producto, un proyecto o un proceso que necesita dueña?",
-    contactBody: "Contame qué estás armando. Respondo todos los mails.",
+    contactBody: "Contame en qué estás trabajando. Respondo todos los mails.",
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "Ver", close: "Cerrar", open: "Abrir", repo: "Repositorio",
     a: {
       hero: "Hola, soy Rocío, <a class=\"chip\" href=\"#work\">product engineer</a> en Buenos Aires. Construyo producto, automatización y analítica para que las organizaciones decidan mejor y trabajen menos a mano. Aprendí a programar sola en 2021, con <a class=\"chip\" href=\"#books\">libros</a> y la web. Desde entonces hice una app que 40 mil personas abren todos los días, lideré un equipo de seis y trabajé en <a class=\"chip\" href=\"#finance\">finanzas</a>. Hoy doy clases de Finanzas Corporativas y en abril de 2027 empiezo una Maestría en Finanzas.",
-      kicker: "Un cuaderno, llevado en público", cardNow: "Ahora", cardNowBody: "Automatización, BI e IA para una universidad. Dando Finanzas Corporativas. El MFin arranca en abril de 2027.", cardReading: "Leyendo", cardReadingLink: "Libros que leí"
+      kicker: "Un cuaderno abierto", cardNow: "Ahora", cardNowBody: "Automatización, BI e IA para una universidad. Dando Finanzas Corporativas. El MFin arranca en abril de 2027.", cardReading: "Leyendo", cardReadingLink: "Libros que leí"
     },
     b: {
       
@@ -312,16 +314,16 @@ const content = {
       storyTitle: "La historia hasta acá",
       story: [
         { h: "Empecé con libros.", p: "En 2021 aprendí sola HTML y JavaScript; después, React y React Native.", href: "#books" },
-        { h: "Después publiqué.", p: "Una app para la mayor cadena de gimnasios de Argentina (500K+ descargas, 40K usuarios por día) y un checkout con más de 300 pagos diarios.", href: "#positions" },
-        { h: "Después lideré.", p: "Project Leader de un equipo de seis en un SaaS de eventos con más de 15K usuarios en tres continentes.", href: "#experience" },
-        { h: "Después automaticé.", p: "En una consultora global lideré una iniciativa de automatización de procesos. Hoy armo automatización, BI e IA para una universidad y doy clases de Finanzas Corporativas.", href: "#holdings" }
+        { h: "Después lancé productos.", p: "Una app para la mayor cadena de gimnasios de Argentina (500K+ descargas, 40K usuarios por día) y un checkout con más de 300 pagos diarios.", href: "#positions" },
+        { h: "Después lideré equipos.", p: "Project Leader de un equipo de seis en un SaaS de eventos con más de 15K usuarios en tres continentes.", href: "#experience" },
+        { h: "Después automaticé procesos.", p: "En una consultora global lideré una iniciativa de automatización de procesos. Hoy desarrollo automatización, BI e IA para una universidad y doy clases de Finanzas Corporativas.", href: "#holdings" }
       ],
-      pairs: ["PRODUCTO + FINANZAS", "CÓDIGO + DISEÑO", "CONSTRUIR + LIDERAR", "LIBROS + PRODUCCIÓN"],
+      pairs: ["PRODUCTO + FINANZAS", "CÓDIGO + DISEÑO", "DESARROLLO + LIDERAZGO", "LECTURA + PRÁCTICA"],
       thesisTitle: "Tesis", thesisSub: "Por qué trabajar conmigo",
       thesis: [
-        { h: "Construyo y sé evaluar.", p: "Escribo el código y leo el estado de resultados. Poca gente de producto trabajó dentro de finanzas; poca gente de finanzas publicó para 40K usuarios por día." },
-        { h: "Evidencia, no adjetivos.", p: "500K+ descargas, 300+ pagos diarios, 5+ clientes en tres continentes, un equipo de seis." },
-        { h: "Curiosidad que rinde.", p: "Leo, construyo con lo que leo y ahora lo enseño: Finanzas Corporativas en la universidad, MFin 2028." }
+        { h: "Desarrollo producto y entiendo los números.", p: "Escribo el código y leo el estado de resultados. Poca gente de producto trabajó dentro de un área de finanzas, y poca gente de finanzas lanzó un producto que usan 40 mil personas por día." },
+        { h: "Evidencia, no adjetivos.", p: "Más de 500 mil descargas, más de 300 pagos por día, clientes en tres continentes y un equipo de seis personas." },
+        { h: "Aprendo, aplico y enseño.", p: "Leo, pongo en práctica lo que leo y ahora también lo enseño: doy clases de Finanzas Corporativas y en 2027 empiezo la Maestría en Finanzas." }
       ],
       holdingsTitle: "Tenencias", holdingsSub: "Dónde está asignado mi tiempo",
       holdings: [

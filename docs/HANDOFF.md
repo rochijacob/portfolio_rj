@@ -22,7 +22,7 @@ Rocío eligió quedarse con cuatro direcciones (2026-11-14): **A, B, D y H**. La
 | `site-B-dock.html` | Azul marino, dock flotante, juego en canvas | El fondo de puntitos, "como los cuadernos donde dibujás" |
 | `site-D-ledger.html` | Perfil de inversión: ticker `ROCI`, gráfico, tenencias | Cómo espacia y muestra la información: el track record, la tesis y los tags de pares |
 
-`index.html` es una página para comparar las cuatro. No está desplegado. La rama de trabajo es `claude/bold-feynman-x0n91n`; no hay PR abierto.
+`index.html` es la dirección H, lista para publicar; `compare.html` compara las cuatro. No está desplegado todavía. La rama de trabajo es `claude/bold-feynman-x0n91n`; no hay PR abierto.
 
 ### Criterio de diseño (vale para todo lo que siga)
 
@@ -85,6 +85,14 @@ Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H
 **Navegación de H (2026-11-15):** pidió bajar el modo oscuro y el idioma a la navegación. El dock flotante ahora tiene las secciones, un separador, el botón de tema y un único botón de idioma (EN/ES, con el activo subrayado). El encabezado quedó solo con el nombre y los links de contacto. En celular el dock muestra Trabajo, Sobre mí y Contacto más tema e idioma (Servicios y Libros se ocultan con la clase `opt`).
 
 **Mobile en H:** optimizado a pedido de Rocío. A 640 px o menos: el croquis se muestra más grande y recortado, centrado en el Obelisco; los botones del hero ocupan el ancho; menos espacio entre secciones; los lomos de libros se achican para entrar sin scroll; el pie se apila. Verificado a 390 px sin scroll horizontal. Al tocar H, revisar siempre 390 px.
+
+**Lanzamiento (2026-11-15):** Rocío pidió levantar un MVP en Vercel. `index.html` ahora es la dirección H (lo escribe `src/build.mjs`); la página comparadora pasó a `compare.html`. A, B y D quedan accesibles por URL pero con `noindex`. **El deploy en sí lo tiene que hacer Rocío** importando el repo en Vercel (pasos en el README): desde la sesión no hay credenciales de Vercel. Falta confirmar la URL final para agregarla como `og:url` y decidir si se quitan A, B y D del sitio publicado.
+
+**Menú en celular:** el dock compacto con tres links no le gustó. Ahora, a 640 px o menos, el dock muestra un botón con el nombre de la sección actual que abre un menú hacia arriba con las cinco secciones, más tema e idioma. Se cierra al elegir, al tocar afuera o con Escape.
+
+**Mascota:** pidió volver a la "panterita rosa" de antes en la navegación. Se había dejado de ver por un error de estilos (la regla de íconos del dock la dejaba sin relleno); está corregido y sigue siendo la grilla `cat`. Las panteras `walk` y `sit` siguen guardadas en `MASCOTS`. En los textos ahora se la nombra "panterita rosa".
+
+**Español, segunda revisión:** no le gustaban los tags ni la traducción. Se revisó todo el español de nuevo. Decisiones a mantener: "Proyectos destacados" y "Otros proyectos" (no "Trabajo seleccionado"); "Por qué trabajar conmigo" como título en H (en español "Tesis" se confunde con una tesis académica; D conserva "Tesis" por su metáfora de inversión); columnas "Proyecto / Período / Resultado" en H (no "Posición / Entrada / Impacto"); tags "DESARROLLO + LIDERAZGO" y "LECTURA + PRÁCTICA"; "Experiencia laboral" y "Formación"; cifras escritas "500 mil" en frases. Se corrigió un error de traducción: "operational system" es "sistema de gestión", no "sistema operativo".
 
 **Foto de perfil:** su foto de siempre es un avatar en pixel art. Está en `profile.png` (recorte de cabeza y hombros, ampliado con píxeles duros) y `avatar-full.png` (cuerpo entero, sin usar todavía). Se muestra con `image-rendering: pixelated`.
 
