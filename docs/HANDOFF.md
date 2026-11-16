@@ -2,7 +2,7 @@
 
 Documento para que otro agente (o Rocío) retome el trabajo sin el historial de la conversación. Actualizalo cada vez que cambie una decisión.
 
-Última actualización: 2026-11-14.
+Última actualización: 2026-11-16.
 
 ## Objetivo
 
@@ -64,7 +64,7 @@ Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H
 
 **Modo oscuro: es "importantísimo" para Rocío.** Lo tienen las cuatro: A, D y H comparten la clave `rj-theme` (por defecto siguen la preferencia del sistema); B usa `rj-theme-b` y arranca en oscuro. Cualquier componente nuevo tiene que verse bien en ambos modos: usar las variables (`--bg`, `--ink`, `--acc`...) y no colores fijos.
 
-**Puntos del fondo:** pidió que sean más suaves para que no compitan con el texto. Están en opacidad ~0.075 (claro) y ~0.055 (oscuro). No subirlos.
+**Puntos del fondo (ajustado 2026-11-16):** primero pidió que fueran más suaves; después notó que en pantallas con mucho brillo no se veían. Ahora son de borde nítido (1,1 px) con opacidad 0,15 (claro) y 0,09 (oscuro) en A y H; B usa `#c3ced5` en claro. No volver a bajarlos al 0,075 difuso: desaparecen en monitores brillantes.
 
 **Ilustración (tercera versión):** la primera le pareció "muy cuadrada" y la segunda, un boceto suelto, tampoco. Pidió algo "tipo croquis arquitectónico". Ahora es un alzado de Buenos Aires con recursos de croquis: esquinas donde las líneas se pasan, ejes de simetría en línea de trazo y punto, una cota (67,5 m del Obelisco), suelo rayado, árboles y figuras de escala, flecha de norte y rótulos chicos. Se genera en la función `city()` de `src/site-H-studio.html`. Falta que confirme si esta versión le gusta.
 

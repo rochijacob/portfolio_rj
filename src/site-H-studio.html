@@ -18,12 +18,12 @@
 /* Design rules for this direction: one accent, hairlines instead of boxes, generous air,
    a neutral grotesk with small uppercase mono labels. The page is dotted sketch paper.
    If something needs a border to be understood, cut it. */
-:root{--bg:#f4f6f7;--acc:#5a8fb1;--ink:#003049;--soft:#4a6676;--hair:rgba(0,48,73,.16);--dot:rgba(0,48,73,.075);--blue:#1b5e85;
+:root{--bg:#f4f6f7;--acc:#5a8fb1;--ink:#003049;--soft:#4a6676;--hair:rgba(0,48,73,.16);--dot:rgba(0,48,73,.15);--blue:#1b5e85;
   --txt:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"Geist Mono",ui-monospace,Menlo,Consolas,monospace}
-:root[data-theme=dark]{--bg:#00202f;--acc:#7fb2d2;--ink:#f0f4f6;--soft:#a3b9c5;--hair:rgba(240,244,246,.17);--dot:rgba(240,244,246,.055);--blue:#a9d0e8}
+:root[data-theme=dark]{--bg:#00202f;--acc:#7fb2d2;--ink:#f0f4f6;--soft:#a3b9c5;--hair:rgba(240,244,246,.17);--dot:rgba(240,244,246,.09);--blue:#a9d0e8}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg) radial-gradient(var(--dot) 1px,transparent 1.4px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.7 var(--txt);font-feature-settings:"tnum";-webkit-font-smoothing:antialiased;padding-bottom:120px;transition:background-color .3s}
+body{margin:0;background:var(--bg) radial-gradient(circle,var(--dot) 1.1px,transparent 1.3px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.7 var(--txt);font-feature-settings:"tnum";-webkit-font-smoothing:antialiased;padding-bottom:120px;transition:background-color .3s}
 ::selection{background:var(--ink);color:var(--bg)}
 a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em;text-decoration-color:var(--hair);transition:text-decoration-color .2s,color .2s}
 a:hover{text-decoration-color:currentColor;color:var(--blue)}
