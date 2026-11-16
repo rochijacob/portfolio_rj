@@ -722,13 +722,7 @@ document.addEventListener("click", e => {
   const again = $(`[data-lang="${lang}"]`) || $("[data-lang]"); if (again) again.focus();
 });
 
-
-/* ---------- Site H · Studio ---------- */
-let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-document.documentElement.dataset.theme = theme;
-const clock = () => new Date().toLocaleTimeString(lang === "es" ? "es-AR" : "en-GB", { timeZone: "America/Argentina/Buenos_Aires", hour: "2-digit", minute: "2-digit", hour12: false });
-const DOCK = [["work", "work"], ["offers", "services"], ["about", "about"], ["contact", "contact"]];
-const MAIN = ["WK.01", "WK.02", "WK.04"];
+/* Buenos Aires sketch, shared by A, D and H. Each site styles .city with its own variables. */
 /* A composed architectural elevation, not a geographic or to-scale survey.
    Each landmark has its own clear silhouette; details stay inside its facade. */
 const city = alt => {
@@ -793,6 +787,14 @@ const city = alt => {
 </g>
 </svg>`;
 };
+
+
+/* ---------- Site H · Studio ---------- */
+let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = theme;
+const clock = () => new Date().toLocaleTimeString(lang === "es" ? "es-AR" : "en-GB", { timeZone: "America/Argentina/Buenos_Aires", hour: "2-digit", minute: "2-digit", hour12: false });
+const DOCK = [["work", "work"], ["offers", "services"], ["about", "about"], ["contact", "contact"]];
+const MAIN = ["WK.01", "WK.02", "WK.04"];
 const COPY_ICON = '<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>', CHECK_ICON = '<path d="M5 12.5l4.5 4.5L19 7.5"/>';
 const setCopy = (b, done) => { $("span", b).textContent = done ? T().copied : T().copy; $("svg", b).innerHTML = done ? CHECK_ICON : COPY_ICON; };
 const themeIcon = () => theme === "dark" ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>' : '<path d="M20 14A8 8 0 0110 4a8 8 0 1010 10z"/>';

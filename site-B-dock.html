@@ -594,6 +594,72 @@ document.addEventListener("click", e => {
   const again = $(`[data-lang="${lang}"]`) || $("[data-lang]"); if (again) again.focus();
 });
 
+/* Buenos Aires sketch, shared by A, D and H. Each site styles .city with its own variables. */
+/* A composed architectural elevation, not a geographic or to-scale survey.
+   Each landmark has its own clear silhouette; details stay inside its facade. */
+const city = alt => {
+  const repeat = (n, draw) => Array.from({ length: n }, (_, i) => draw(i)).join("");
+  // Narrow paired jambs read as windows, with equal margins on every facade.
+  const windows = (x, y, w, h, cols, rows) => repeat(cols, i => repeat(rows, j => {
+    const cx = x + w * (i + .5) / cols, cy = y + h * (j + .5) / rows;
+    return `M${cx - 1.6} ${cy - 2.5}v5h3.2v-5`;
+  }));
+  const block = (x, w, top, cols, rows) => `<path d="M${x} 222V${top}h${w}v${222 - top}M${x - 2} ${top + 5}h${w + 4}"/><path class="detail" d="${windows(x + 5, top + 11, w - 10, 202 - top, cols, rows)}"/>`;
+  const tree = x => `M${x} 222v-17m0 7l-5-5m5 2l5-6M${x - 12} 204c-6-5-3-12 2-13-1-9 12-13 17-6 9-1 13 11 6 16 0 7-8 11-13 6-4 3-9 2-12-3Z`;
+  const person = x => `<circle cx="${x}" cy="211" r="1.5"/><path d="M${x} 214v4m-2 4 2-4 2 4m-5-6 3-2 3 2"/>`;
+  const kavanaghWindows = [
+    [179, 151, 18, 61, 2, 7], [275, 151, 18, 61, 2, 7],
+    [204, 114, 18, 98, 2, 11], [250, 114, 18, 98, 2, 11],
+    [228, 57, 16, 155, 2, 17]
+  ].map(args => windows(...args)).join("");
+  return `<svg class="city" viewBox="0 0 1200 274" role="img" aria-label="${esc(alt)}">
+<g class="context">
+  ${block(40, 43, 174, 3, 3)}${block(94, 49, 134, 4, 6)}
+  ${block(691, 38, 155, 3, 4)}${block(742, 43, 117, 3, 8)}${block(797, 30, 169, 2, 3)}
+  ${block(1137, 37, 180, 3, 2)}
+</g>
+<!-- Kavanagh: recessed wings, a continuous central shaft and roof terraces. -->
+<g>
+  <path class="wash" d="M244 48h6v58h24v38h25v78h-55Z"/>
+  <path class="outline" d="M173 222V144h25v-38h24V48h7V29h14v19h7v58h24v38h25v78"/>
+  <path class="detail" d="M198 144v78m24-174v174m28-116v116m24-78v78M173 149h25m0-38h24m28 0h24m0 38h25M222 53h28M229 35h14M232 29v-5h8v5M226 217h20v5${kavanaghWindows}"/>
+</g>
+<!-- Congreso: lantern, ribbed dome, drum, pediment, paired columns, steps. -->
+<g>
+  <path class="wash" d="M450 87c20 10 29 26 30 49h-30ZM455 180h19v32h-19Z"/>
+  <path class="outline" d="M356 216V173h49v-9h12v-25h-5v-4h7c0-22 12-40 26-48v-9h10v9c14 8 26 26 26 48h7v4h-5v25h12v9h49v43"/>
+  <path d="M443 78v-7q7-9 14 0v7M450 66v-9M417 139h66M417 164h66M405 173l45-20 45 20M405 178h90M356 178h49m90 0h49M352 216h196m-200 3h204m-204 3h204"/>
+  <path class="detail" d="M450 87c-8 12-13 28-13 48m13-48c8 12 13 28 13 48m-13-48v48M419 135h62M425 143v15m8-15v15m9-15v9m16-9v9m9-9v15m8-15v15M417 171l33-14 33 14M356 211h49m90 0h49${repeat(6, i => `M${413 + i * 14} 182v30m4-30v30m-5-30h6m-6 30h6`)}${windows(362, 183, 37, 23, 3, 1)}${windows(501, 183, 37, 23, 3, 1)}"/>
+</g>
+<!-- Obelisco: two faces, a quiet dimension and a stepped plinth. -->
+<g>
+  <path class="wash" d="M600 35l5 20 9 161h-14Z"/>
+  <path class="outline" d="M586 216l9-161 5-20 5 20 9 161ZM582 222v-6h36v6"/>
+  <path class="detail" d="M600 35v181M595 55h10M596 203v9h5v-9ZM597 69v6m6-6v6M577 222h46"/>
+  <path class="guide axis" d="M600 19v10m0 198v9"/>
+  <path class="guide" d="M618 35h22m-17 187h17M635 35v187M632 38l6-6m-6 193 6-6"/>
+  <text x="649" y="130" text-anchor="middle" transform="rotate(-90 649 130)">${esc(T().cityHeight)}</text>
+</g>
+<!-- Puente de la Mujer: tapered mast and an ordered fan of stays. -->
+<g>
+  <path class="wash" d="M975 212l87-113-78 113Z"/>
+  <path class="outline" d="M854 212h264v5H854M975 212l87-113-78 113M976 217l3 12h9l3-12"/>
+  <path class="detail" d="${repeat(9, i => `M${870 + i * 12} 208L1058 104`)}M854 208h264${repeat(27, i => `M${858 + i * 10} 208v4`)}"/>
+</g>
+<g class="context">
+  <path d="${tree(319)}${tree(666)}${tree(840)}M339 222v-25h7m-7 2h7M562 222v-23h6m-6 2h6"/>
+  ${person(335)}${person(554)}${person(1102)}
+  <path d="M17 222h836m267 0h64M26 226h803M867 231h80m58 0h110M888 238h171"/>
+  <path class="detail" d="${repeat(54, i => `M${32 + i * 15} 227l-4 5`)}"/>
+</g>
+<g class="guide"><path d="M236 229v12m214-12v12m150-2v2m384-6v6"/></g>
+<g text-anchor="middle">
+  <text x="236" y="257">KAVANAGH</text><text x="450" y="257">CONGRESO</text>
+  <text x="600" y="257">OBELISCO</text><text x="984" y="257">PUENTE DE LA MUJER</text>
+</g>
+</svg>`;
+};
+
 
 /* ---------- Site B · Dock ---------- */
 let theme = store.get("rj-theme-b") || "dark";
