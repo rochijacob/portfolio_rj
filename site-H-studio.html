@@ -128,6 +128,10 @@ h3.sub{margin:40px 0 0;font:500 1rem/1.5 var(--txt);letter-spacing:0;color:var(-
 .steps li{padding:16px 0;display:grid;grid-template-columns:28px minmax(0,1.2fr) minmax(0,1fr);gap:8px 20px;align-items:baseline;border-top:1px solid var(--hair)}
 .steps b{font-weight:500;line-height:1.4}
 .btn{cursor:pointer;font-family:inherit}
+.copy{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 6px;border-radius:6px;color:var(--ink);font:500 .9375rem var(--txt);cursor:pointer;text-decoration:underline;text-decoration-color:var(--hair);text-decoration-thickness:1px;text-underline-offset:.3em;transition:color .2s,text-decoration-color .2s}
+.copy svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.copy:hover{color:var(--blue);text-decoration-color:currentColor}
+.copy:disabled{cursor:default}
 .more{border:0;margin-top:8px}
 .more summary{display:flex;align-items:center;gap:12px;padding:18px 0 6px;font-weight:500;font-size:.9375rem}
 .more summary .x{justify-self:auto}
@@ -139,7 +143,7 @@ h3.sub{margin:40px 0 0;font:500 1rem/1.5 var(--txt);letter-spacing:0;color:var(-
 .spcap{font-size:.875rem;color:var(--soft)}
 #books .spines{max-width:500px;gap:5px;overflow:visible;padding:26px 8px 8px;zoom:1}
 #books .spn{flex-shrink:1;min-width:24px}
-.copy-status{min-height:1.5em;max-width:56ch;font-size:.875rem;color:var(--soft);margin:0 0 12px}
+.copy-status{min-height:1.5em;line-height:1.5;max-width:56ch;font-size:.875rem;color:var(--soft);margin:0 0 12px}
 .end{padding:clamp(72px,10vw,136px) 0 clamp(56px,7vw,96px)}
 .end .big{font:500 clamp(1.6rem,3.4vw,2.7rem)/1.12 var(--txt);letter-spacing:-.035em;margin:0 0 .8em;max-width:24ch;text-wrap:balance}
 .end .big span{color:var(--acc)}
@@ -766,6 +770,8 @@ const city = alt => {
 </g>
 </svg>`;
 };
+const COPY_ICON = '<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>', CHECK_ICON = '<path d="M5 12.5l4.5 4.5L19 7.5"/>';
+const setCopy = (b, done) => { $("span", b).textContent = done ? T().copied : T().copy; $("svg", b).innerHTML = done ? CHECK_ICON : COPY_ICON; };
 const themeIcon = () => theme === "dark" ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>' : '<path d="M20 14A8 8 0 0110 4a8 8 0 1010 10z"/>';
 const dockMarkup = t => `<nav class="dock" aria-label="${esc(t.menu)}"><span class="cat" id="cat" aria-hidden="true">${pixelCat(2)}</span><button type="button" class="mn" data-menu aria-expanded="false" aria-controls="dlinks"><span id="mlabel">${t.menu}</span><span aria-hidden="true">▾</span></button><span class="lks" id="dlinks">${DOCK.map(([id, k]) => `<a href="#${id}" data-sec="${id}">${t.nav[k]}</a>`).join("")}</span><i aria-hidden="true"></i>
   <button type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}"><svg viewBox="0 0 24 24" aria-hidden="true">${themeIcon()}</svg></button>
@@ -811,7 +817,7 @@ function render(t) {
 
   <section class="end" id="contact">
     <p class="big">${t.gotMind}</p>
-    <div class="cta" style="margin:0 0 18px"><a class="btn" href="${mailto()}">${t.cta} ↗</a><button type="button" class="btn o" data-copy>${t.copy}</button></div>
+    <div class="cta" style="margin:0 0 18px"><a class="btn" href="${mailto()}">${t.cta} ↗</a><button type="button" class="copy" data-copy><svg viewBox="0 0 24 24" aria-hidden="true">${COPY_ICON}</svg><span>${t.copy}</span></button></div>
     <p class="copy-status" id="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
     <p class="s"><a class="m" href="${mailto()}">${L.email}</a>, ${t.orLinkedin.replace("LinkedIn", `<a href="${L.linkedin}" ${ext}>LinkedIn</a>`)}.</p>
   </section>
@@ -863,10 +869,10 @@ document.addEventListener("click", async e => {
     if (!navigator.clipboard?.writeText) throw new Error("Clipboard unavailable");
     await navigator.clipboard.writeText(L.email);
     if (!b.isConnected) return;
-    b.textContent = T().copied; status.textContent = T().copySuccess;
-    setTimeout(() => { if (b.isConnected) b.textContent = T().copy; }, 1800);
+    setCopy(b, true); status.textContent = T().copySuccess;
+    setTimeout(() => { if (b.isConnected) setCopy(b, false); }, 1800);
   } catch {
-    if (b.isConnected) { b.textContent = T().copy; status.textContent = T().copyError; }
+    if (b.isConnected) { setCopy(b, false); status.textContent = T().copyError; }
   } finally { b.disabled = false; }
 });
 addEventListener("scroll", () => {

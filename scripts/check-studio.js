@@ -53,12 +53,16 @@ const shots = process.env.SHOTS;
       assert.ok(Math.abs(await p.evaluate(() => scrollY) - y) < 2, 'Theme change moved the reading position');
       await p.locator('[data-lang]:not([aria-pressed="true"])').click();
       assert.ok(await p.locator('.more').evaluate(e => e.open), 'Language change closed the case');
+      assert.equal(await p.locator('[data-copy]').evaluate(e => getComputedStyle(e).borderTopWidth), '0px', 'Copy control must read as text, not a boxed button');
+      assert.equal(await p.locator('[data-copy] svg').count(), 1, 'Copy control must carry its icon');
       for (const mode of ['success', 'denied', 'missing']) {
         await p.evaluate(mode => Object.defineProperty(navigator, 'clipboard', { configurable: true, value: mode === 'missing' ? undefined : { writeText: () => mode === 'success' ? Promise.resolve() : Promise.reject(new Error('Test rejection')) } }), mode);
         await p.locator('[data-copy]').click();
         const status = await p.locator('#copy-status').textContent();
         assert.ok(status.length > 0, 'Copy outcome should be announced');
         assert.equal(/Could not|No se pudo/.test(status), mode !== 'success', 'Incorrect copy feedback');
+        assert.equal(/Copied|Copiado/.test(await p.locator('[data-copy] span').textContent()), mode === 'success', 'Copy label out of sync');
+        await p.waitForTimeout(1900);
       }
       await p.setViewportSize({ width: 390, height: 844 });
       await p.evaluate(() => scrollTo(0, 0)); await p.waitForTimeout(80);
