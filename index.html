@@ -194,7 +194,30 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
 }
 @media(max-width:360px){.dock .mn{width:112px;padding:0 12px}.dock .lg button{width:36px}}
 @media(max-width:480px){.c4{grid-template-columns:1fr}dl.f{grid-template-columns:1fr}dl.f dt{border:0;padding-bottom:0}dl.f dd{padding-top:2px}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1}}
+/* Motion: one quiet layer. Rules: nothing is ever hidden waiting for an animation (text stays readable
+   throughout), everything is short and uses the same curve, and it all switches off with reduced motion. */
+:root{--ease:cubic-bezier(.22,.7,.2,1)}
+@media(prefers-reduced-motion:no-preference){
+  /* first load only: the hero settles in and the croquis is drawn from left to right */
+  [data-intro] .hero h1,[data-intro] .today,[data-intro] .hero .cta{animation:settle .7s var(--ease) both}
+  [data-intro] .today{animation-delay:.08s}[data-intro] .hero .cta{animation-delay:.16s}
+  [data-intro] .city{animation:draw 1.5s .2s var(--ease) both}
+  [data-intro] .hi a{animation:settle .7s var(--ease) both}
+  [data-intro] .hi a:nth-child(1){animation-delay:.5s}[data-intro] .hi a:nth-child(2){animation-delay:.58s}[data-intro] .hi a:nth-child(3){animation-delay:.66s}
+  @keyframes settle{from{opacity:.4;transform:translateY(10px)}}
+  @keyframes draw{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+  /* on scroll: blocks below the fold rise a few pixels as they arrive; they are never fully transparent */
+  .soft{transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .soft.pre{opacity:.5;transform:translateY(12px)}
+  /* small responses to the pointer */
+  .btn{transition:background .2s,color .2s,border-color .2s,transform .2s var(--ease)}
+  .btn:hover{transform:translateY(-1px)}.btn:active{transform:translateY(0)}
+  .hi b{transition:color .2s,transform .25s var(--ease)}.hi a:hover b{transform:translateX(3px)}
+  details[open]>.b,details[open]>dl{animation:unfold .3s var(--ease)}
+  @keyframes unfold{from{opacity:.3;transform:translateY(-4px)}}
+  .dock .cat{transition:transform .25s ease-out}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -823,7 +846,17 @@ function render(t) {
   </section>
   <footer class="k"><span>${t.footer.rights}</span><span>${footerLinks()}</span></footer>
 </main>${dockMarkup(t)}`;
-  spy(); walk();
+  spy(); walk(); soften();
+}
+/* Scroll reveal that cannot hide content: only blocks that start below the fold get the "pre" state,
+   and it is removed as soon as they come into view (or immediately if observers are unavailable). */
+let softIO;
+function soften() {
+  if (softIO) softIO.disconnect();
+  const els = $$(".feat > div, .sec > div, .end");
+  if (calm.matches || !("IntersectionObserver" in window)) return;
+  softIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove("pre"); softIO.unobserve(e.target); } }), { rootMargin: "0px 0px -6% 0px" });
+  els.forEach(el => { el.classList.add("soft"); if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("pre"); softIO.observe(el); } });
 }
 /* The little panther walks along the top of the dock as you scroll: left at the top of the page, right at the bottom.
    The dock itself never moves. With reduced motion the panther stays put. */
@@ -881,7 +914,9 @@ addEventListener("scroll", () => {
 }, { passive: true });
 addEventListener("resize", () => { spy(); walk(); if (innerWidth > 640) closeMenu(); });
 setInterval(() => { const c = $("#clock"); if (c) c.textContent = clock(); }, 30000);
+document.documentElement.dataset.intro = "";
 apply();
+setTimeout(() => { delete document.documentElement.dataset.intro; }, 2400);
 $('meta[name="theme-color"]').content = theme === "dark" ? "#00202f" : "#f4f6f7";
 </script>
 </body>
