@@ -119,6 +119,19 @@ Pendiente de Rocío tras esta revisión: **imágenes de los casos** (el campo `i
 
 A, B y D comparten el contenido nuevo pero no esta reestructura.
 
+**Capa leve de animaciones (2026-11-16, lo más reciente).** Rocío pidió animaciones "elegantes y fluidas, sin zarparse". Esto convive con la regla anterior de no dejar contenido invisible: lo que se quitó fue la aparición por opacidad desde cero; lo nuevo nunca baja de 40 a 50 % de opacidad, así que el texto se lee siempre. Qué hay (todo en el bloque "Motion" del CSS de H):
+
+- Primera carga solamente: el titular, la bajada y los botones se asientan (10 px, 0,7 s) y el croquis se dibuja de izquierda a derecha (1,5 s). No se repite al cambiar idioma o tema (atributo `data-intro` que se quita a los 2,4 s).
+- Al hacer scroll: los bloques que arrancan fuera de pantalla suben 12 px al entrar (`soften()`). Los que ya están a la vista no se tocan.
+- Respuestas chicas: botones que suben 1 px, la flecha de los destacados que se corre 3 px, el contenido de los desplegables que se despliega, y la panterita que se desliza suave.
+- Una sola curva (`--ease`) y duraciones de 0,2 a 0,7 s. Con "reducir movimiento" se apaga todo.
+
+No agregar más: nada de parallax, contadores, texto que se tipea ni animaciones en bucle.
+
+**"Copiar mail" como texto (2026-11-16, lo más reciente).** Rocío prefiere ese CTA con el ícono de copiar y solo las palabras, sin borde de botón. Ahora es texto subrayado con ícono (`.copy`), con altura táctil de 44 px; al copiar, el ícono pasa a un tilde y dice "Copiado" durante unos segundos, y un aviso accesible confirma o explica el error. El CTA principal "Trabajemos juntos" sigue siendo un botón relleno: es la única acción con peso de botón.
+
+**Dock estable y selector de idioma (2026-11-16, lo más reciente).** A Rocío le resultaba raro que el dock cambiara de tamaño al cambiar el idioma (las etiquetas en español son más largas) y que el botón de idioma fuera uno solo que alterna. Ahora: cada link del dock tiene ancho fijo (96 px en escritorio; el botón de menú móvil, 132 px) y el idioma es un selector con "EN" y "ES" siempre visibles, la activa resaltada. `scripts/check-studio.js` verifica que el dock mida lo mismo en los dos idiomas en cinco anchos y que haya exactamente un idioma activo. Si se agregan o renombran secciones del dock, revisar que la etiqueta más larga entre en 96 px.
+
 **La panterita vuelve a caminar (2026-11-16, lo más reciente).** Rocío extrañaba que la mascota se moviera al hacer scroll y pidió traerla de vuelta. Esto **reemplaza** la parte de la corrección anterior que decía "la mascota permanece estática". Lo que sigue valiendo: el dock queda fijo abajo, no se esconde ni cambia de lugar; solo se mueve la mascota. Camina sobre el borde superior del dock: a la izquierda arriba de la página, a la derecha al llegar al final (`walk()` en `src/site-H-studio.html`). Con "reducir movimiento" activado en el sistema queda quieta. Con el menú móvil abierto se oculta.
 
 **Integración de la rama `codex/portfolio-ux-refinements` (2026-11-16).** Rocío trabajó una versión local con otra herramienta y pidió validarla con criterio. Se revisó (build reproducible, `check.js` y `check-studio.js` en verde, capturas en escritorio y celular) y se integró completa por avance rápido: es la versión publicada. Donde este documento se contradiga, **valen las tres entradas que siguen** por ser las más recientes.
