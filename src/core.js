@@ -34,10 +34,10 @@ const content = {
   ],
 
   en: {
-    meta: { title: "Rocío Jacob · Product Engineer", desc: "I build products and automation so organizations decide better and do less manual work. Buenos Aires, remote worldwide." },
+    meta: { title: "Rocío Jacob · Product Engineer", desc: "I turn manual operations into digital products and automated workflows. Buenos Aires, remote worldwide." },
     name: "Rocío Jacob", role: "Product Engineer",
-    oneLiner: "I'm Rocío. I build products and automation so organizations decide better and do less manual work.",
-    pitch: "I build products and automation so organizations decide better and do less manual work.",
+    oneLiner: "I'm Rocío. I turn manual operations into digital products and automated workflows.",
+    pitch: "I turn manual operations into digital products and automated workflows.",
     sub: "Project Manager & Business Partner in BI, Automation and AI. Ex-global consulting firm (corporate finance). Available for freelance projects.",
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remote worldwide",
     status: "Open to freelance · Buenos Aires",
@@ -48,7 +48,7 @@ const content = {
     about: [
       "I started coding in 2021, teaching myself HTML and JavaScript from books and the open web, then React and React Native with Expo. I have shipped five or more mobile apps, led a six-person team as a Project Manager, and moved into automation, AI agents and system design.",
       "I studied Business & Digital Business at Universidad de San Andrés (top 10%, exchange at IE University) and worked at a global consulting firm automating finance processes, so I speak both product and finance. Today I teach Corporate Finance, and in April 2027 I start a Master in Finance at UdeSA (class of 2028).",
-      "I care about products that are beautiful, fast and that make someone's day easier. Everything I ship has to be aesthetic."
+      "I care as much about how a product feels as how it works. Design does not come at the end."
     ],
     stats: [
       { n: "500K+", l: "downloads of the app for Argentina's largest gym chain" },
@@ -62,7 +62,7 @@ const content = {
     ],
     cases: [
       { code: "WK.01", line: "500K+ downloads and 40K people a day.", name: "Gym chain app", org: "Software studio", role: "Mobile development", when: "2021 – 2025", impact: "500K+ downloads · 40K DAU",
-        body: "Built and maintained the mobile app for Argentina's largest gym chain. The work was speed, UX and polish at scale: an app that tens of thousands of people open every day has no room for rough edges.", tags: ["React Native", "Expo"] },
+        body: "Built and maintained the mobile app for Argentina's largest gym chain. I worked on performance, UX and production polish for an app used by 40K people daily.", tags: ["React Native", "Expo"] },
       { code: "WK.02", line: "Ticketing for 15K+ users on three continents.", name: "Event SaaS platform", org: "Software studio", role: "Project Leader", when: "Nov 2023 – Apr 2025", impact: "15K+ users · 5+ clients",
         body: "Led development of a platform for ticketing, access control and client relationships, used by music festivals and crypto events across America, Europe and Asia. I managed a team of six, handled 5+ client accounts directly, and set priorities and roadmap with clients and stakeholders.", tags: ["Project leadership", "Jira", "Roadmap", "React"] },
       { code: "WK.03", name: "High-volume checkout", org: "Software studio", role: "Senior Developer", when: "2021 – 2023", impact: "300+ payments / day",
@@ -73,7 +73,7 @@ const content = {
           { k: "Context", v: "Each submission cycle involves 100+ projects, with defense committees to coordinate within a window of a few days. Approvals arrived as system emails that someone logged by hand in a spreadsheet, and notices to students, mentors and committee members went out manually." },
           { k: "Problem", v: "That manual work was repetitive and error-prone, especially at peak times." },
           { k: "Decision", v: "· One source of truth: a central data hub. I started by parsing notification emails and realized the process needed the underlying data, not just the messages. I also chose the hub over querying the operational system directly.<br>· A separate sync process inside the university's private network, since the hub can't be reached from a spreadsheet script.<br>· n8n workflows for the process itself: confirm project groupings, collect data through a form, email committee members for availability, detect when schedules converge.<br>· Sheets and Gmail stay as the interface, because that is where the team already works." },
-          { k: "Result", v: "Complete and implemented." },
+          { k: "Result", v: "Implemented and in use: approvals, data collection, availability requests and scheduling now run through one coordinated flow." },
           { k: "Learning", v: "Define the source of truth before the tool." }
         ], tags: ["n8n", "Python", "Google Workspace", "AWS", "API design", "Backend"] },
       { code: "WK.05", name: "Finance process automation", org: "Global consulting firm", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Led the automation initiative",
@@ -106,11 +106,11 @@ const content = {
     ],
     services: [
       { code: "SV.01", name: "Automation & BI", sub: "Processes", body: "I take a manual process (scattered Excel files, emails, spreadsheets) and turn it into an automatic flow with dashboards people actually use.", deliv: "Process map, working automation and documentation.", ideal: "Finance and operations teams, institutions." },
-      { code: "SV.02", name: "AI agents", sub: "Internal processes", body: "Classification, data intake, replies and follow-up, with humans supervising.", deliv: "A prototype in real use plus evaluation criteria.", ideal: "" },
-      { code: "SV.03", name: "Web & product", sub: "With monthly support", body: "Site or app, infrastructure, CMS and forms, with ongoing maintenance on a monthly plan.", deliv: "", ideal: "" }
+      { code: "SV.02", name: "AI agents", sub: "Internal processes", body: "Classification, data intake, replies and follow-up, with humans supervising.", deliv: "A prototype in real use plus evaluation criteria.", ideal: "Teams with repetitive sorting, intake or reply work." },
+      { code: "SV.03", name: "Web & product", sub: "With monthly support", body: "Site or app, infrastructure, CMS and forms, with ongoing maintenance on a monthly plan.", deliv: "A published site or app, with CMS and documentation.", ideal: "Businesses that need a web presence without an in-house technical team." }
     ],
     delivLabel: "Deliverable", idealLabel: "Ideal for",
-    freelance: "I take freelance work in these three shapes, and I run each one as its project manager. Remote from Buenos Aires, with EU work authorization (Argentina, Germany and Italy citizenship).",
+    freelance: "I take freelance work in these three shapes, and I run each one as its project manager. Available to work remotely in Argentina and Europe, with work authorization in the European Union.",
     lab: [
       { name: "Python games", status: "Built", why: "How I learned Python: loops, state and collisions.", url: "https://github.com/rochijacob/python_games" },
       { name: "Dog-in-the-pool detector", status: "In progress", why: "Computer vision applied to a household problem." },
@@ -118,7 +118,14 @@ const content = {
     ],
     labIntro: "Things I build out of curiosity.",
     off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The little pink pixel panther is a nod to my favourite cartoon." },
-    today: "Product engineer with a business and finance background. Open to freelance projects.",
+    today: "I combine product engineering, operations and business thinking to build tools that save time and support better decisions. Available for selected freelance projects.",
+    profile: [
+      "I am self-taught. Everything I know about technology I learned on my own, because I enjoy it: I started in 2021 with books and the open web, and I have not stopped.",
+      "I build the product and understand the business behind it. I studied Business & Digital Business, worked in consulting, and I teach Corporate Finance at a university.",
+      "I care as much about how a product feels as how it works. Design does not come at the end."
+    ],
+    approach: "How I approach a project", moreTitle: "More about me", expFold: "Experience and education",
+    copy: "Copy email", copied: "Copied", orLinkedin: "or message me on LinkedIn",
     think: { title: "How I think", intro: "The questions I ask on every project, in this order.", loop: "and back to the start",
       phases: { u: "Understand", b: "Build", l: "Learn" },
       steps: [
@@ -132,7 +139,7 @@ const content = {
     why: "Why work with me", menu: "Menu", workCols: { p: "Project", w: "When", i: "Result" },
     readCase: "Read the full case", seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
     fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
-    gotMind: "Got something in mind?", reach: "Or write to me at",
+    gotMind: "Have a manual process, a stalled automation or a product that needs to move forward?", reach: "Or write to me at",
     illo: "Line drawing of the Buenos Aires skyline with the Obelisk",
     booksIntro: "I learn by reading books and then building something with what I read.",
     booksNote: "Hover or tap a spine.",
@@ -144,7 +151,7 @@ const content = {
     view: "View", close: "Close", open: "Open", repo: "Repository",
     /* A · Notebook */
     a: {
-      hero: "Hi, I'm Rocío. I'm a <a class=\"chip\" href=\"#work\">product engineer</a> in Buenos Aires. I build products and automation so organizations decide better and do less manual work. I taught myself to code in 2021 from <a class=\"chip\" href=\"#books\">books</a> and the open web. Since then I have built an app that 40K people open every day, led a team of six, and worked in <a class=\"chip\" href=\"#finance\">finance</a>. Now I am teaching Corporate Finance and getting ready for a Master in Finance (April 2027).",
+      hero: "Hi, I'm Rocío. I'm a <a class=\"chip\" href=\"#work\">product engineer</a> in Buenos Aires. I turn manual operations into digital products and automated workflows. I taught myself to code in 2021 from <a class=\"chip\" href=\"#books\">books</a> and the open web. Since then I have built an app that 40K people open every day, led a team of six, and worked in <a class=\"chip\" href=\"#finance\">finance</a>. Now I am teaching Corporate Finance and getting ready for a Master in Finance (April 2027).",
       kicker: "A notebook, kept in public", cardNow: "Now", cardNowBody: "Building automation, BI and AI for a university. Teaching Corporate Finance. MFin starts April 2027.", cardReading: "Reading", cardReadingLink: "Books I've read"
     },
     /* B · Dock */
@@ -178,9 +185,9 @@ const content = {
       pairs: ["PRODUCT + FINANCE", "CODE + DESIGN", "BUILD + LEAD", "BOOKS + SHIPPING"],
       thesisTitle: "Thesis", thesisSub: "Why work with me",
       thesis: [
-        { h: "A builder who can underwrite.", p: "I write the code and I read the P&L. Few product people have worked inside a finance function; few finance people have shipped to 40K daily users." },
-        { h: "Operating evidence, not adjectives.", p: "500K+ downloads, 300+ daily payments, 5+ clients on three continents, a team of six." },
-        { h: "Curiosity that compounds.", p: "I learn from books, build with what I read, and now teach it: Corporate Finance at university level, MFin class of 2028." }
+        { h: "I build the product and understand the business behind it.", p: "I write the code and I read the P&L. Few product people have worked inside a finance function; few finance people have shipped to 40K daily users." },
+        { h: "Results, not claims.", p: "500K+ downloads, 300+ daily payments, 5+ clients on three continents, a team of six." },
+        { h: "I learn fast and put it to work.", p: "I learn from books, build with what I read, and now I teach it: Corporate Finance at a university, with a Master in Finance starting in 2027." }
       ],
       holdingsTitle: "Holdings", holdingsSub: "Where my time is allocated",
       holdings: [
@@ -198,10 +205,10 @@ const content = {
   },
 
   es: {
-    meta: { title: "Rocío Jacob · Product Engineer", desc: "Construyo productos y automatizaciones para que las organizaciones decidan mejor y trabajen menos a mano. Buenos Aires, remoto a todo el mundo." },
-    name: "Rocío Jacob", role: "Product Engineer",
-    oneLiner: "Soy Rocío. Construyo productos y automatizaciones para que las organizaciones decidan mejor y trabajen menos a mano.",
-    pitch: "Construyo productos y automatizaciones para que las organizaciones decidan mejor y trabajen menos a mano.",
+    meta: { title: "Rocío Jacob · Product Engineer", desc: "Transformo procesos manuales en productos digitales y flujos automatizados. Buenos Aires, remoto a todo el mundo." },
+    name: "Rocío Jacob", role: "Ingeniera de producto",
+    oneLiner: "Soy Rocío. Transformo procesos manuales en productos digitales y flujos automatizados.",
+    pitch: "Transformo procesos manuales en productos digitales y flujos automatizados.",
     sub: "Project Manager & Business Partner en BI, Automatización e IA. Ex consultoría global en finanzas. Tomo proyectos freelance.",
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remoto a todo el mundo",
     status: "Disponible para freelance · Buenos Aires",
@@ -212,12 +219,12 @@ const content = {
     about: [
       "Aprendí a programar sola en 2021, con libros y la web: primero HTML y JavaScript, después React y React Native. Publiqué más de cinco apps, lideré un equipo de seis y hoy trabajo en automatización, agentes de IA y diseño de sistemas.",
       "Soy Licenciada en Administración y Negocios Digitales por San Andrés (top 10%, intercambio en IE University). En una consultora global automaticé procesos de finanzas, así que hablo producto y finanzas. Doy clases de Finanzas Corporativas y en abril de 2027 empiezo la Maestría en Finanzas de UdeSA.",
-      "Me importan los productos lindos, rápidos y que le simplifiquen el día a alguien. Todo lo que hago tiene que verse bien."
+      "Cuido cómo funciona un producto y cómo se siente al usarlo. El diseño no llega al final."
     ],
     stats: [
       { n: "500K+", l: "descargas de la app de la mayor cadena de gimnasios de Argentina" },
       { n: "40K", l: "usuarios activos por día" },
-      { n: "15K+", l: "usuarios en un SaaS de ticketing, en tres continentes" },
+      { n: "15K+", l: "usuarios en una plataforma de venta de entradas, en tres continentes" },
       { n: "300+", l: "pagos por día en un checkout a medida" },
       { n: "6", l: "personas a cargo como Project Leader" },
       { n: "5+", l: "apps construidas con React Native + Expo" },
@@ -225,10 +232,10 @@ const content = {
       { n: "100+", l: "trabajos finales por entrega en el sistema que construí" }
     ],
     cases: [
-      { code: "WK.01", line: "Más de 500 mil descargas y 40 mil usuarios por día.", name: "App para una cadena de gimnasios", org: "Estudio de software", role: "Desarrollo mobile", when: "2021 – 2025", impact: "500K+ descargas · 40K usuarios diarios",
+      { code: "WK.01", line: "Más de 500 mil descargas y 40 mil usuarios por día.", name: "App para una cadena de gimnasios", org: "Estudio de software", role: "Desarrollo móvil", when: "2021 – 2025", impact: "500K+ descargas · 40K usuarios diarios",
         body: "Desarrollé y mantuve la app de la mayor cadena de gimnasios de Argentina. La usan decenas de miles de personas por día, así que el foco estuvo en la velocidad, la experiencia de uso y los detalles.", tags: ["React Native", "Expo"] },
-      { code: "WK.02", line: "Ticketing para más de 15 mil usuarios en tres continentes.", name: "Plataforma SaaS de eventos", org: "Estudio de software", role: "Project Leader", when: "Nov 2023 – Abr 2025", impact: "15K+ usuarios · 5+ clientes",
-        body: "Lideré el desarrollo de una plataforma de ticketing, control de accesos y relación con clientes, usada por festivales de música y eventos cripto en América, Europa y Asia. Coordiné un equipo de seis personas, manejé más de cinco cuentas de clientes y definí las prioridades y el roadmap junto a ellos.", tags: ["Liderazgo de proyecto", "Jira", "Roadmap", "React"] },
+      { code: "WK.02", line: "Venta y control de entradas para más de 15 mil usuarios en tres continentes.", name: "Plataforma SaaS de eventos", org: "Estudio de software", role: "Project Leader", when: "Nov 2023 – Abr 2025", impact: "15K+ usuarios · 5+ clientes",
+        body: "Lideré el desarrollo de una plataforma de venta de entradas, control de accesos y relación con clientes, usada por festivales de música y eventos cripto en América, Europa y Asia. Coordiné un equipo de seis personas, manejé más de cinco cuentas de clientes y definí las prioridades y la hoja de ruta junto a ellos.", tags: ["Liderazgo de proyecto", "Jira", "Hoja de ruta", "React"] },
       { code: "WK.03", name: "Checkout de alto volumen", org: "Estudio de software", role: "Senior Developer", when: "2021 – 2023", impact: "300+ pagos / día",
         body: "Diseñé y lancé un checkout con facturación a medida que procesa más de 300 pagos por día. Una de las primeras integraciones de Mercado Pago en React.", tags: ["React", "Mercado Pago", "Facturación"] },
       { code: "WK.04", line: "De la coordinación manual a un flujo automatizado.", name: "Seguimiento de trabajos finales", org: "Una universidad", role: "Líder de producto y automatización", when: "Abr 2026 – presente", impact: "Más de 100 trabajos por entrega",
@@ -236,8 +243,8 @@ const content = {
         steps: [
           { k: "Contexto", v: "Cada entrega suma más de 100 trabajos y hay que coordinar las mesas de defensa en pocos días. Las aprobaciones llegaban por mail y alguien las cargaba a mano en una planilla; los avisos a alumnos, mentores y jurados también salían a mano." },
           { k: "Problema", v: "Era un trabajo repetitivo y propenso a errores, sobre todo en las semanas de más entregas." },
-          { k: "Decisión", v: "· Una sola fuente de verdad: un data hub central. Empecé procesando los mails de notificación y entendí que el proceso necesitaba los datos en sí, no solo los mensajes. Por eso elegí el hub en lugar de consultar directamente el sistema de gestión.<br>· Un proceso de sincronización separado, dentro de la red privada de la universidad, porque al hub no se puede acceder desde un script de la planilla.<br>· Flujos en n8n para el proceso: confirmar los grupos de trabajos, reunir datos con un formulario, pedirles disponibilidad a los jurados y detectar cuándo coinciden las agendas.<br>· Sheets y Gmail siguen siendo la interfaz, porque es donde el equipo ya trabaja." },
-          { k: "Resultado", v: "Completo e implementado." },
+          { k: "Decisión", v: "· Una sola fuente de verdad: un repositorio central de datos. Empecé procesando los mails de notificación y entendí que el proceso necesitaba los datos en sí, no solo los mensajes. Por eso elegí el repositorio en lugar de consultar directamente el sistema de gestión.<br>· Un proceso de sincronización separado, dentro de la red privada de la universidad, porque al repositorio no se puede acceder desde un script de la planilla.<br>· Flujos en n8n para el proceso: confirmar los grupos de trabajos, reunir datos con un formulario, pedirles disponibilidad a los jurados y detectar cuándo coinciden las agendas.<br>· Sheets y Gmail siguen siendo la interfaz, porque es donde el equipo ya trabaja." },
+          { k: "Resultado", v: "Implementado y en uso: las aprobaciones, la recolección de datos, los pedidos de disponibilidad y el armado de mesas corren en un solo flujo coordinado." },
           { k: "Aprendizaje", v: "Definir la fuente de verdad antes que la herramienta." }
         ], tags: ["n8n", "Python", "Google Workspace", "AWS", "Diseño de APIs", "Backend"] },
       { code: "WK.05", name: "Automatización de procesos de finanzas", org: "Consultora global", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Lideré la iniciativa de automatización",
@@ -256,7 +263,7 @@ const content = {
     skills: [
       { code: "SK.01", name: "Desarrollo", items: ["React", "React Native", "Expo", "JavaScript / TypeScript", "HTML / CSS", "Node / Express", "Python", "SQL", "MongoDB", "Webflow"] },
       { code: "SK.02", name: "Cloud y sistemas", items: ["AWS", "Diseño de APIs", "Diseño de sistemas", "Diseño de bases de datos", "Agentes de IA"] },
-      { code: "SK.03", name: "Producto y gestión", items: ["Jira", "Scrum", "Roadmaps", "Gestión de stakeholders", "Figma", "Notion"] },
+      { code: "SK.03", name: "Producto y gestión", items: ["Jira", "Scrum", "Hojas de ruta", "Gestión de stakeholders", "Figma", "Notion"] },
       { code: "SK.04", name: "Finanzas y automatización", items: ["n8n", "Power Automate", "BI", "Anaplan (certificada)", "Modelos en Excel", "FP&A"] },
       { code: "SK.05", name: "Idiomas", items: ["Español (nativo)", "Inglés (fluido, TOEFL iBT 110)"] }
     ],
@@ -270,11 +277,11 @@ const content = {
     ],
     services: [
       { code: "SV.01", name: "Automatización y BI", sub: "Procesos", body: "Convierto un proceso manual (planillas sueltas, mails, cargas a mano) en un flujo automático, con tableros que el equipo realmente usa.", deliv: "Mapa del proceso, automatización en funcionamiento y documentación.", ideal: "Finanzas, operaciones, instituciones." },
-      { code: "SV.02", name: "Agentes de IA", sub: "Procesos internos", body: "Agentes que clasifican, cargan datos, responden y hacen seguimiento, siempre con supervisión de personas.", deliv: "Un prototipo en uso real y criterios para evaluarlo.", ideal: "" },
-      { code: "SV.03", name: "Web y producto", sub: "Con soporte mensual", body: "Sitio o app con su infraestructura, CMS y formularios, y mantenimiento por abono mensual.", deliv: "", ideal: "" }
+      { code: "SV.02", name: "Agentes de IA", sub: "Procesos internos", body: "Agentes que clasifican, cargan datos, responden y hacen seguimiento, siempre con supervisión de personas.", deliv: "Un prototipo en uso real y criterios para evaluarlo.", ideal: "Equipos con tareas repetitivas de clasificación, carga o respuesta." },
+      { code: "SV.03", name: "Web y producto", sub: "Con soporte mensual", body: "Sitio o app con su infraestructura, CMS y formularios, y mantenimiento por abono mensual.", deliv: "Sitio o app publicada, con CMS y documentación.", ideal: "Negocios que necesitan presencia web sin un equipo técnico propio." }
     ],
     delivLabel: "Entregable", idealLabel: "Ideal para",
-    freelance: "Tomo proyectos freelance en estos tres formatos y en todos me ocupo también de la gestión. Trabajo remoto desde Buenos Aires y tengo permiso de trabajo en la Unión Europea (ciudadanía argentina, alemana e italiana).",
+    freelance: "Tomo proyectos freelance en estos tres formatos y en todos me ocupo también de la gestión. Trabajo de forma remota para Argentina y Europa, con autorización laboral en la Unión Europea.",
     lab: [
       { name: "Juegos en Python", status: "Terminado", why: "Así aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" },
       { name: "Detector de perros en la pileta", status: "En progreso", why: "Visión por computadora aplicada a un problema doméstico." },
@@ -282,12 +289,19 @@ const content = {
     ],
     labIntro: "Cosas que armo por curiosidad.",
     off: { t: "Fuera del trabajo", p: "Soy DJ y toco música electrónica. Me encantan el arte y la fotografía. La panterita rosa en píxeles es un guiño a mi dibujo animado favorito." },
-    today: "Product engineer con formación en negocios y finanzas. Tomo proyectos freelance.",
+    today: "Combino ingeniería de producto, operaciones y negocio para construir herramientas que ahorran tiempo y mejoran decisiones. Disponible para proyectos freelance seleccionados.",
+    profile: [
+      "Soy autodidacta. Todo lo que sé de tecnología lo aprendí por mi cuenta, porque me gusta: empecé en 2021 con libros y la web, y no paré.",
+      "Construyo el producto y entiendo el negocio que hay detrás. Estudié Administración y Negocios Digitales, trabajé en consultoría y doy clases de Finanzas Corporativas en una universidad.",
+      "Cuido cómo funciona un producto y cómo se siente al usarlo. El diseño no llega al final."
+    ],
+    approach: "Cómo encaro un proyecto", moreTitle: "Más sobre mí", expFold: "Experiencia y formación",
+    copy: "Copiar mail", copied: "Copiado", orLinkedin: "o escribime por LinkedIn",
     think: { title: "Cómo pienso", intro: "Las preguntas que me hago en cada proyecto, en este orden.", loop: "y vuelta al inicio",
       phases: { u: "Entender", b: "Construir", l: "Aprender" },
       steps: [
         { ph: "u", q: "¿Qué pasa de verdad hoy?", s: "Entender la situación real.", ex: "Trabajos finales: mails y planillas a mano" },
-        { ph: "u", q: "¿De dónde sale la verdad?", s: "Una única fuente de datos.", ex: "Universidad: un data hub central" },
+        { ph: "u", q: "¿De dónde sale la verdad?", s: "Una única fuente de datos.", ex: "Universidad: un repositorio central de datos" },
         { ph: "b", q: "¿Quién lo usa y cómo?", s: "Diseñar sobre sus hábitos.", ex: "Web: el cliente edita desde un CMS" },
         { ph: "b", q: "¿Qué puede fallar y quién supervisa?", s: "Capas y control humano.", ex: "Agentes: permisos por rol" },
         { ph: "l", q: "¿Qué aprendimos?", s: "Medir y ajustar.", ex: "Cada caso cierra con un aprendizaje" }
@@ -296,7 +310,7 @@ const content = {
     why: "Por qué trabajar conmigo", menu: "Menú", workCols: { p: "Proyecto", w: "Período", i: "Resultado" },
     readCase: "Leer el caso completo", seeWork: "Ver proyectos", remoteNote: "Buenos Aires · Trabajo remoto", moreWork: "Otros proyectos",
     fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
-    gotMind: "¿Tenés algo en mente?", reach: "O escribime a",
+    gotMind: "¿Tenés un proceso manual, una automatización trabada o un producto que necesita avanzar?", reach: "O escribime a",
     illo: "Croquis del perfil de Buenos Aires, con el Obelisco en el centro",
     booksIntro: "Aprendo leyendo y después pongo en práctica lo que leí.",
     booksNote: "Pasá el cursor o tocá un lomo.",
@@ -307,7 +321,7 @@ const content = {
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "Ver", close: "Cerrar", open: "Abrir", repo: "Repositorio",
     a: {
-      hero: "Hola, soy Rocío, <a class=\"chip\" href=\"#work\">product engineer</a> en Buenos Aires. Construyo productos y automatizaciones para que las organizaciones decidan mejor y trabajen menos a mano. Aprendí a programar sola en 2021, con <a class=\"chip\" href=\"#books\">libros</a> y la web. Desde entonces hice una app que 40 mil personas abren todos los días, lideré un equipo de seis y trabajé en <a class=\"chip\" href=\"#finance\">finanzas</a>. Hoy doy clases de Finanzas Corporativas y en abril de 2027 empiezo una Maestría en Finanzas.",
+      hero: "Hola, soy Rocío, <a class=\"chip\" href=\"#work\">product engineer</a> en Buenos Aires. Transformo procesos manuales en productos digitales y flujos automatizados. Aprendí a programar sola en 2021, con <a class=\"chip\" href=\"#books\">libros</a> y la web. Desde entonces hice una app que 40 mil personas abren todos los días, lideré un equipo de seis y trabajé en <a class=\"chip\" href=\"#finance\">finanzas</a>. Hoy doy clases de Finanzas Corporativas y en abril de 2027 empiezo una Maestría en Finanzas.",
       kicker: "Un cuaderno abierto", cardNow: "Ahora", cardNowBody: "Automatización, BI e IA para una universidad. Dando Finanzas Corporativas. El MFin arranca en abril de 2027.", cardReading: "Leyendo", cardReadingLink: "Libros que leí"
     },
     b: {
@@ -339,8 +353,8 @@ const content = {
       pairs: ["PRODUCTO + FINANZAS", "CÓDIGO + DISEÑO", "DESARROLLO + LIDERAZGO", "LECTURA + PRÁCTICA"],
       thesisTitle: "Tesis", thesisSub: "Por qué trabajar conmigo",
       thesis: [
-        { h: "Desarrollo producto y entiendo los números.", p: "Escribo el código y leo el estado de resultados. Poca gente de producto trabajó dentro de un área de finanzas, y poca gente de finanzas lanzó un producto que usan 40 mil personas por día." },
-        { h: "Evidencia, no adjetivos.", p: "Más de 500 mil descargas, más de 300 pagos por día, clientes en tres continentes y un equipo de seis personas." },
+        { h: "Construyo el producto y entiendo el negocio que hay detrás.", p: "Escribo el código y leo el estado de resultados. Poca gente de producto trabajó dentro de un área de finanzas, y poca gente de finanzas lanzó un producto que usan 40 mil personas por día." },
+        { h: "Resultados, no promesas.", p: "Más de 500 mil descargas, más de 300 pagos por día, clientes en tres continentes y un equipo de seis personas." },
         { h: "Aprendo, aplico y enseño.", p: "Leo, pongo en práctica lo que leo y ahora también lo enseño: doy clases de Finanzas Corporativas y en 2027 empiezo la Maestría en Finanzas." }
       ],
       holdingsTitle: "Tenencias", holdingsSub: "Dónde está asignado mi tiempo",

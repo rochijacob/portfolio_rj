@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#f4f6f7">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Rocío Jacob · Product Engineer">
-<meta property="og:description" content="I build products and automation so organizations decide better and do less manual work.">
+<meta property="og:description" content="I turn manual operations into digital products and automated workflows.">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23003049'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fdf0d5'%3ERJ%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
   --txt:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"Geist Mono",ui-monospace,Menlo,Consolas,monospace}
 :root[data-theme=dark]{--bg:#00202f;--acc:#7fb2d2;--ink:#f0f4f6;--soft:#a3b9c5;--hair:rgba(240,244,246,.17);--dot:rgba(240,244,246,.055);--blue:#a9d0e8}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg) radial-gradient(var(--dot) 1px,transparent 1.4px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.7 var(--txt);font-feature-settings:"tnum";-webkit-font-smoothing:antialiased;padding-bottom:120px;transition:background-color .3s}
 ::selection{background:var(--acc);color:var(--bg)}
 a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em;text-decoration-color:var(--hair);transition:text-decoration-color .2s,color .2s}
@@ -36,7 +36,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hd{display:flex;flex-wrap:wrap;align-items:center;gap:4px 26px;min-height:76px}
 .hd .me{font-weight:600;text-decoration:none;margin-right:auto;padding:10px 0;letter-spacing:-.01em}
 .hd .k a{text-decoration:none;padding:12px 0;margin-left:18px}
-.dock{position:fixed;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:2px;padding:5px;background:var(--ink);border-radius:999px;max-width:calc(100vw - 16px);box-shadow:0 10px 30px -12px rgba(0,48,73,.55)}
+.dock.hide{transform:translateX(-50%) translateY(190%)}
+.dock{transition:transform .28s ease;position:fixed;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:2px;padding:5px;background:var(--ink);border-radius:999px;max-width:calc(100vw - 16px);box-shadow:0 10px 30px -12px rgba(0,48,73,.55)}
 .dock a{color:var(--bg);text-decoration:none;font-size:.875rem;padding:10px 15px;border-radius:999px;white-space:nowrap;transition:background .2s}
 .dock a:hover{color:var(--bg);background:color-mix(in srgb,var(--bg) 16%,transparent)}
 .dock a[aria-current=true]{background:var(--bg);color:var(--ink)}
@@ -49,25 +50,26 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .dock button svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .dock .lg{padding:0 10px;font:400 .6875rem var(--mono);letter-spacing:.06em}
 .dock .lg b{font-weight:400;opacity:.5}.dock .lg b.on{opacity:1;font-weight:500;text-decoration:underline;text-underline-offset:4px}
-.hero{padding:clamp(64px,11vw,150px) 0 0}
-h1{font:500 clamp(2.2rem,5.6vw,4.7rem)/1.03 var(--txt);letter-spacing:-.045em;margin:0;max-width:16ch;text-wrap:balance}
+.hero{padding:clamp(36px,6vw,84px) 0 0}
+h1{font:500 clamp(2rem,4.5vw,3.8rem)/1.05 var(--txt);letter-spacing:-.04em;margin:0;max-width:20ch;text-wrap:balance}
 h1 span{color:var(--acc)}
-.today{margin:clamp(22px,3vw,34px) 0 0;max-width:46ch;font-size:1.125rem;color:var(--soft)}
+.today{margin:clamp(18px,2.4vw,28px) 0 0;max-width:58ch;font-size:1.125rem;color:var(--soft)}
 .cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:clamp(26px,4vw,40px)}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);padding:14px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:.9375rem;border:1px solid var(--ink);transition:background .2s,color .2s}
 .btn:hover{background:var(--blue);border-color:var(--blue);color:var(--bg)}
 .btn.o{background:transparent;color:var(--ink)}.btn.o:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .cta .k{margin-left:auto}
-.cityw{margin-top:clamp(36px,6vw,72px);overflow:hidden}
+.cityw{margin-top:clamp(28px,4vw,52px);overflow:hidden}
 .city{display:block;width:100%;height:auto}
 .city{fill:none;stroke:var(--ink);stroke-width:1.1;stroke-linecap:square;shape-rendering:geometricPrecision}
 .city .g{stroke-width:2.2}.city .l{stroke-width:.6}.city .a{stroke:var(--acc);stroke-width:.8}.city .d{stroke-dasharray:14 4 2 4;stroke-width:.6}
 .city text{font:400 8.5px var(--mono);letter-spacing:.09em;fill:var(--soft);stroke:none}
 .hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
 .hi a{display:block;padding:30px 22px 0 0;text-decoration:none}
+.hi .n{display:block;font:500 clamp(1.25rem,2vw,1.6rem)/1.15 var(--txt);letter-spacing:-.03em;margin-bottom:10px}
 .hi b{display:block;font-weight:500}.hi a:hover b{color:var(--blue)}
-.hi .s{display:block;margin:2px 0 10px}
-.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(96px,13vw,184px) 0 0;scroll-margin-top:10px}
+.hi .s{display:block;margin:2px 0 0}
+.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(60px,8vw,112px) 0 0;scroll-margin-top:10px}
 .feat h2{grid-column:1/7;font:500 clamp(1.8rem,3.5vw,3rem)/1.06 var(--txt);letter-spacing:-.04em;margin:10px 0 28px;text-wrap:balance}
 .feat h2 span{color:var(--acc)}
 .feat>div:first-child{grid-column:1/6}.feat>div:last-child{grid-column:7/13}
@@ -75,7 +77,7 @@ h1 span{color:var(--acc)}
 dl.f{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);border-top:1px solid var(--hair)}
 dl.f dt,dl.f dd{margin:0;padding:16px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
 dl.f dt{font:400 .6875rem/2.2 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--soft)}
-.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(96px,13vw,184px) 0 0;scroll-margin-top:10px}
+.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(60px,8vw,112px) 0 0;scroll-margin-top:10px}
 .sec>h2{grid-column:1/4;font:400 .6875rem/1.8 var(--mono);letter-spacing:.09em;text-transform:uppercase;margin:0 0 28px;color:var(--ink);position:sticky;top:28px;align-self:start}
 .sec>h2 span{display:block;color:var(--soft)}
 .sec>div{grid-column:4/13;min-width:0}
@@ -102,17 +104,13 @@ summary .i{font-weight:500;color:var(--ink)}
 summary .x{font-size:1.25rem;line-height:1;transition:transform .25s;justify-self:end}
 details[open] .x{transform:rotate(45deg)}
 .b{padding:0 0 30px;max-width:56ch}
-/* "how I think": rows ruled like the croquis, corners overshooting, a loop line back to the start */
-.think{list-style:none;margin:36px 0 0;padding:0 34px 0 0;position:relative}
-.think li{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1.4fr) minmax(0,1fr);gap:6px 24px;align-items:center;padding:24px 0 24px 18px;position:relative;margin-bottom:34px;border-left:1px solid var(--ink)}
-.think li:last-child{margin-bottom:0}
-.think li::before{content:"";position:absolute;left:-6px;right:-6px;top:0;bottom:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);pointer-events:none}
-.think li:not(:last-child)::after{content:"↓";position:absolute;left:50%;bottom:-30px;font:400 1rem/1 var(--mono);color:var(--soft)}
-.think li.ph-b{border-left-color:var(--acc)}.think li.ph-b::before{border-color:var(--acc)}
-.think h3{font-size:1.1875rem}.think p{margin:4px 0 0;font-size:.9375rem;color:var(--soft)}
-.think .ex{font:400 .75rem/1.6 var(--mono);letter-spacing:.04em;color:var(--soft)}
-.think::after{content:"";position:absolute;right:8px;top:44px;bottom:44px;width:20px;border:1px dashed var(--soft);border-left:0}
-.think::before{content:"";position:absolute;right:24px;top:40px;width:8px;height:8px;border-left:1px solid var(--soft);border-bottom:1px solid var(--soft);transform:rotate(45deg)}
+.fold summary{grid-template-columns:minmax(0,1fr) 20px}.fold:first-of-type{border-top:1px solid var(--hair)}
+.shot{display:block;width:100%;height:auto;border:1px solid var(--hair);border-radius:8px;margin-top:6px}
+h3.sub{margin:52px 0 0;font:400 .6875rem/1.8 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--soft)}
+.steps{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--ink)}
+.steps li{padding:16px 16px 0 0;display:flex;flex-direction:column;gap:6px}
+.steps b{font-weight:500;line-height:1.3}
+.btn{cursor:pointer;font-family:inherit}
 .more{border:0;margin-top:8px}
 .more summary{display:flex;align-items:center;gap:12px;padding:18px 0 6px;font-weight:500;font-size:.9375rem}
 .more summary .x{justify-self:auto}
@@ -122,17 +120,16 @@ details[open] .x{transform:rotate(45deg)}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .off{color:var(--soft)}
 .spcap{font-size:.875rem;color:var(--soft)}
-.end{padding:clamp(96px,14vw,190px) 0 clamp(72px,10vw,136px)}
-.end .big{font:500 clamp(2rem,5.4vw,4.4rem)/1.04 var(--txt);letter-spacing:-.045em;margin:0 0 .6em;max-width:16ch;text-wrap:balance}
+.end{padding:clamp(72px,10vw,136px) 0 clamp(56px,7vw,96px)}
+.end .big{font:500 clamp(1.6rem,3.4vw,2.7rem)/1.12 var(--txt);letter-spacing:-.035em;margin:0 0 .8em;max-width:24ch;text-wrap:balance}
 .end .big span{color:var(--acc)}
 .end a.m{font-weight:500;overflow-wrap:anywhere;text-decoration-color:var(--acc);text-decoration-thickness:2px}
 footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding:22px 0 20px}
 footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-child{margin-left:0}
-.rv{opacity:0;transition:opacity .9s ease}.rv.in{opacity:1}
 @media(max-width:860px){
   .sec,.feat{display:block}.sec>h2{position:static}
-  .hi{grid-template-columns:1fr}.hi a{padding-top:18px}
-  .think li{grid-template-columns:1fr;gap:6px;padding:20px 0 20px 14px}
+  .hi{grid-template-columns:1fr}.hi a{padding-top:22px}
+  .steps{grid-template-columns:1fr;border-top:0}.steps li{padding:14px 0;border-top:1px solid var(--hair)}
   .c3{grid-template-columns:1fr}.c4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .th{display:none}details:first-of-type{border-top:1px solid var(--ink)}
   summary{grid-template-columns:minmax(0,1fr) 20px}summary>*{grid-column:1}
@@ -147,7 +144,7 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   .today{font-size:1.0625rem}
   .cta .btn{flex:1 1 auto;justify-content:center}
   .city{width:860px;max-width:none;margin-left:calc(50% - 430px)}
-  .sec,.feat{padding-top:76px}
+  .sec,.feat{padding-top:56px}
   .feat h2{margin-bottom:20px}.feat p{font-size:1.0625rem}
   .cols{gap:36px 24px}
   .spines{zoom:.74;justify-content:flex-start}
@@ -207,10 +204,10 @@ const content = {
   ],
 
   en: {
-    meta: { title: "Rocío Jacob · Product Engineer", desc: "I build products and automation so organizations decide better and do less manual work. Buenos Aires, remote worldwide." },
+    meta: { title: "Rocío Jacob · Product Engineer", desc: "I turn manual operations into digital products and automated workflows. Buenos Aires, remote worldwide." },
     name: "Rocío Jacob", role: "Product Engineer",
-    oneLiner: "I'm Rocío. I build products and automation so organizations decide better and do less manual work.",
-    pitch: "I build products and automation so organizations decide better and do less manual work.",
+    oneLiner: "I'm Rocío. I turn manual operations into digital products and automated workflows.",
+    pitch: "I turn manual operations into digital products and automated workflows.",
     sub: "Project Manager & Business Partner in BI, Automation and AI. Ex-global consulting firm (corporate finance). Available for freelance projects.",
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remote worldwide",
     status: "Open to freelance · Buenos Aires",
@@ -221,7 +218,7 @@ const content = {
     about: [
       "I started coding in 2021, teaching myself HTML and JavaScript from books and the open web, then React and React Native with Expo. I have shipped five or more mobile apps, led a six-person team as a Project Manager, and moved into automation, AI agents and system design.",
       "I studied Business & Digital Business at Universidad de San Andrés (top 10%, exchange at IE University) and worked at a global consulting firm automating finance processes, so I speak both product and finance. Today I teach Corporate Finance, and in April 2027 I start a Master in Finance at UdeSA (class of 2028).",
-      "I care about products that are beautiful, fast and that make someone's day easier. Everything I ship has to be aesthetic."
+      "I care as much about how a product feels as how it works. Design does not come at the end."
     ],
     stats: [
       { n: "500K+", l: "downloads of the app for Argentina's largest gym chain" },
@@ -235,7 +232,7 @@ const content = {
     ],
     cases: [
       { code: "WK.01", line: "500K+ downloads and 40K people a day.", name: "Gym chain app", org: "Software studio", role: "Mobile development", when: "2021 – 2025", impact: "500K+ downloads · 40K DAU",
-        body: "Built and maintained the mobile app for Argentina's largest gym chain. The work was speed, UX and polish at scale: an app that tens of thousands of people open every day has no room for rough edges.", tags: ["React Native", "Expo"] },
+        body: "Built and maintained the mobile app for Argentina's largest gym chain. I worked on performance, UX and production polish for an app used by 40K people daily.", tags: ["React Native", "Expo"] },
       { code: "WK.02", line: "Ticketing for 15K+ users on three continents.", name: "Event SaaS platform", org: "Software studio", role: "Project Leader", when: "Nov 2023 – Apr 2025", impact: "15K+ users · 5+ clients",
         body: "Led development of a platform for ticketing, access control and client relationships, used by music festivals and crypto events across America, Europe and Asia. I managed a team of six, handled 5+ client accounts directly, and set priorities and roadmap with clients and stakeholders.", tags: ["Project leadership", "Jira", "Roadmap", "React"] },
       { code: "WK.03", name: "High-volume checkout", org: "Software studio", role: "Senior Developer", when: "2021 – 2023", impact: "300+ payments / day",
@@ -246,7 +243,7 @@ const content = {
           { k: "Context", v: "Each submission cycle involves 100+ projects, with defense committees to coordinate within a window of a few days. Approvals arrived as system emails that someone logged by hand in a spreadsheet, and notices to students, mentors and committee members went out manually." },
           { k: "Problem", v: "That manual work was repetitive and error-prone, especially at peak times." },
           { k: "Decision", v: "· One source of truth: a central data hub. I started by parsing notification emails and realized the process needed the underlying data, not just the messages. I also chose the hub over querying the operational system directly.<br>· A separate sync process inside the university's private network, since the hub can't be reached from a spreadsheet script.<br>· n8n workflows for the process itself: confirm project groupings, collect data through a form, email committee members for availability, detect when schedules converge.<br>· Sheets and Gmail stay as the interface, because that is where the team already works." },
-          { k: "Result", v: "Complete and implemented." },
+          { k: "Result", v: "Implemented and in use: approvals, data collection, availability requests and scheduling now run through one coordinated flow." },
           { k: "Learning", v: "Define the source of truth before the tool." }
         ], tags: ["n8n", "Python", "Google Workspace", "AWS", "API design", "Backend"] },
       { code: "WK.05", name: "Finance process automation", org: "Global consulting firm", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Led the automation initiative",
@@ -279,11 +276,11 @@ const content = {
     ],
     services: [
       { code: "SV.01", name: "Automation & BI", sub: "Processes", body: "I take a manual process (scattered Excel files, emails, spreadsheets) and turn it into an automatic flow with dashboards people actually use.", deliv: "Process map, working automation and documentation.", ideal: "Finance and operations teams, institutions." },
-      { code: "SV.02", name: "AI agents", sub: "Internal processes", body: "Classification, data intake, replies and follow-up, with humans supervising.", deliv: "A prototype in real use plus evaluation criteria.", ideal: "" },
-      { code: "SV.03", name: "Web & product", sub: "With monthly support", body: "Site or app, infrastructure, CMS and forms, with ongoing maintenance on a monthly plan.", deliv: "", ideal: "" }
+      { code: "SV.02", name: "AI agents", sub: "Internal processes", body: "Classification, data intake, replies and follow-up, with humans supervising.", deliv: "A prototype in real use plus evaluation criteria.", ideal: "Teams with repetitive sorting, intake or reply work." },
+      { code: "SV.03", name: "Web & product", sub: "With monthly support", body: "Site or app, infrastructure, CMS and forms, with ongoing maintenance on a monthly plan.", deliv: "A published site or app, with CMS and documentation.", ideal: "Businesses that need a web presence without an in-house technical team." }
     ],
     delivLabel: "Deliverable", idealLabel: "Ideal for",
-    freelance: "I take freelance work in these three shapes, and I run each one as its project manager. Remote from Buenos Aires, with EU work authorization (Argentina, Germany and Italy citizenship).",
+    freelance: "I take freelance work in these three shapes, and I run each one as its project manager. Available to work remotely in Argentina and Europe, with work authorization in the European Union.",
     lab: [
       { name: "Python games", status: "Built", why: "How I learned Python: loops, state and collisions.", url: "https://github.com/rochijacob/python_games" },
       { name: "Dog-in-the-pool detector", status: "In progress", why: "Computer vision applied to a household problem." },
@@ -291,7 +288,14 @@ const content = {
     ],
     labIntro: "Things I build out of curiosity.",
     off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The little pink pixel panther is a nod to my favourite cartoon." },
-    today: "Product engineer with a business and finance background. Open to freelance projects.",
+    today: "I combine product engineering, operations and business thinking to build tools that save time and support better decisions. Available for selected freelance projects.",
+    profile: [
+      "I am self-taught. Everything I know about technology I learned on my own, because I enjoy it: I started in 2021 with books and the open web, and I have not stopped.",
+      "I build the product and understand the business behind it. I studied Business & Digital Business, worked in consulting, and I teach Corporate Finance at a university.",
+      "I care as much about how a product feels as how it works. Design does not come at the end."
+    ],
+    approach: "How I approach a project", moreTitle: "More about me", expFold: "Experience and education",
+    copy: "Copy email", copied: "Copied", orLinkedin: "or message me on LinkedIn",
     think: { title: "How I think", intro: "The questions I ask on every project, in this order.", loop: "and back to the start",
       phases: { u: "Understand", b: "Build", l: "Learn" },
       steps: [
@@ -305,7 +309,7 @@ const content = {
     why: "Why work with me", menu: "Menu", workCols: { p: "Project", w: "When", i: "Result" },
     readCase: "Read the full case", seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
     fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
-    gotMind: "Got something in mind?", reach: "Or write to me at",
+    gotMind: "Have a manual process, a stalled automation or a product that needs to move forward?", reach: "Or write to me at",
     illo: "Line drawing of the Buenos Aires skyline with the Obelisk",
     booksIntro: "I learn by reading books and then building something with what I read.",
     booksNote: "Hover or tap a spine.",
@@ -317,7 +321,7 @@ const content = {
     view: "View", close: "Close", open: "Open", repo: "Repository",
     /* A · Notebook */
     a: {
-      hero: "Hi, I'm Rocío. I'm a <a class=\"chip\" href=\"#work\">product engineer</a> in Buenos Aires. I build products and automation so organizations decide better and do less manual work. I taught myself to code in 2021 from <a class=\"chip\" href=\"#books\">books</a> and the open web. Since then I have built an app that 40K people open every day, led a team of six, and worked in <a class=\"chip\" href=\"#finance\">finance</a>. Now I am teaching Corporate Finance and getting ready for a Master in Finance (April 2027).",
+      hero: "Hi, I'm Rocío. I'm a <a class=\"chip\" href=\"#work\">product engineer</a> in Buenos Aires. I turn manual operations into digital products and automated workflows. I taught myself to code in 2021 from <a class=\"chip\" href=\"#books\">books</a> and the open web. Since then I have built an app that 40K people open every day, led a team of six, and worked in <a class=\"chip\" href=\"#finance\">finance</a>. Now I am teaching Corporate Finance and getting ready for a Master in Finance (April 2027).",
       kicker: "A notebook, kept in public", cardNow: "Now", cardNowBody: "Building automation, BI and AI for a university. Teaching Corporate Finance. MFin starts April 2027.", cardReading: "Reading", cardReadingLink: "Books I've read"
     },
     /* B · Dock */
@@ -351,9 +355,9 @@ const content = {
       pairs: ["PRODUCT + FINANCE", "CODE + DESIGN", "BUILD + LEAD", "BOOKS + SHIPPING"],
       thesisTitle: "Thesis", thesisSub: "Why work with me",
       thesis: [
-        { h: "A builder who can underwrite.", p: "I write the code and I read the P&L. Few product people have worked inside a finance function; few finance people have shipped to 40K daily users." },
-        { h: "Operating evidence, not adjectives.", p: "500K+ downloads, 300+ daily payments, 5+ clients on three continents, a team of six." },
-        { h: "Curiosity that compounds.", p: "I learn from books, build with what I read, and now teach it: Corporate Finance at university level, MFin class of 2028." }
+        { h: "I build the product and understand the business behind it.", p: "I write the code and I read the P&L. Few product people have worked inside a finance function; few finance people have shipped to 40K daily users." },
+        { h: "Results, not claims.", p: "500K+ downloads, 300+ daily payments, 5+ clients on three continents, a team of six." },
+        { h: "I learn fast and put it to work.", p: "I learn from books, build with what I read, and now I teach it: Corporate Finance at a university, with a Master in Finance starting in 2027." }
       ],
       holdingsTitle: "Holdings", holdingsSub: "Where my time is allocated",
       holdings: [
@@ -371,10 +375,10 @@ const content = {
   },
 
   es: {
-    meta: { title: "Rocío Jacob · Product Engineer", desc: "Construyo productos y automatizaciones para que las organizaciones decidan mejor y trabajen menos a mano. Buenos Aires, remoto a todo el mundo." },
-    name: "Rocío Jacob", role: "Product Engineer",
-    oneLiner: "Soy Rocío. Construyo productos y automatizaciones para que las organizaciones decidan mejor y trabajen menos a mano.",
-    pitch: "Construyo productos y automatizaciones para que las organizaciones decidan mejor y trabajen menos a mano.",
+    meta: { title: "Rocío Jacob · Product Engineer", desc: "Transformo procesos manuales en productos digitales y flujos automatizados. Buenos Aires, remoto a todo el mundo." },
+    name: "Rocío Jacob", role: "Ingeniera de producto",
+    oneLiner: "Soy Rocío. Transformo procesos manuales en productos digitales y flujos automatizados.",
+    pitch: "Transformo procesos manuales en productos digitales y flujos automatizados.",
     sub: "Project Manager & Business Partner en BI, Automatización e IA. Ex consultoría global en finanzas. Tomo proyectos freelance.",
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remoto a todo el mundo",
     status: "Disponible para freelance · Buenos Aires",
@@ -385,12 +389,12 @@ const content = {
     about: [
       "Aprendí a programar sola en 2021, con libros y la web: primero HTML y JavaScript, después React y React Native. Publiqué más de cinco apps, lideré un equipo de seis y hoy trabajo en automatización, agentes de IA y diseño de sistemas.",
       "Soy Licenciada en Administración y Negocios Digitales por San Andrés (top 10%, intercambio en IE University). En una consultora global automaticé procesos de finanzas, así que hablo producto y finanzas. Doy clases de Finanzas Corporativas y en abril de 2027 empiezo la Maestría en Finanzas de UdeSA.",
-      "Me importan los productos lindos, rápidos y que le simplifiquen el día a alguien. Todo lo que hago tiene que verse bien."
+      "Cuido cómo funciona un producto y cómo se siente al usarlo. El diseño no llega al final."
     ],
     stats: [
       { n: "500K+", l: "descargas de la app de la mayor cadena de gimnasios de Argentina" },
       { n: "40K", l: "usuarios activos por día" },
-      { n: "15K+", l: "usuarios en un SaaS de ticketing, en tres continentes" },
+      { n: "15K+", l: "usuarios en una plataforma de venta de entradas, en tres continentes" },
       { n: "300+", l: "pagos por día en un checkout a medida" },
       { n: "6", l: "personas a cargo como Project Leader" },
       { n: "5+", l: "apps construidas con React Native + Expo" },
@@ -398,10 +402,10 @@ const content = {
       { n: "100+", l: "trabajos finales por entrega en el sistema que construí" }
     ],
     cases: [
-      { code: "WK.01", line: "Más de 500 mil descargas y 40 mil usuarios por día.", name: "App para una cadena de gimnasios", org: "Estudio de software", role: "Desarrollo mobile", when: "2021 – 2025", impact: "500K+ descargas · 40K usuarios diarios",
+      { code: "WK.01", line: "Más de 500 mil descargas y 40 mil usuarios por día.", name: "App para una cadena de gimnasios", org: "Estudio de software", role: "Desarrollo móvil", when: "2021 – 2025", impact: "500K+ descargas · 40K usuarios diarios",
         body: "Desarrollé y mantuve la app de la mayor cadena de gimnasios de Argentina. La usan decenas de miles de personas por día, así que el foco estuvo en la velocidad, la experiencia de uso y los detalles.", tags: ["React Native", "Expo"] },
-      { code: "WK.02", line: "Ticketing para más de 15 mil usuarios en tres continentes.", name: "Plataforma SaaS de eventos", org: "Estudio de software", role: "Project Leader", when: "Nov 2023 – Abr 2025", impact: "15K+ usuarios · 5+ clientes",
-        body: "Lideré el desarrollo de una plataforma de ticketing, control de accesos y relación con clientes, usada por festivales de música y eventos cripto en América, Europa y Asia. Coordiné un equipo de seis personas, manejé más de cinco cuentas de clientes y definí las prioridades y el roadmap junto a ellos.", tags: ["Liderazgo de proyecto", "Jira", "Roadmap", "React"] },
+      { code: "WK.02", line: "Venta y control de entradas para más de 15 mil usuarios en tres continentes.", name: "Plataforma SaaS de eventos", org: "Estudio de software", role: "Project Leader", when: "Nov 2023 – Abr 2025", impact: "15K+ usuarios · 5+ clientes",
+        body: "Lideré el desarrollo de una plataforma de venta de entradas, control de accesos y relación con clientes, usada por festivales de música y eventos cripto en América, Europa y Asia. Coordiné un equipo de seis personas, manejé más de cinco cuentas de clientes y definí las prioridades y la hoja de ruta junto a ellos.", tags: ["Liderazgo de proyecto", "Jira", "Hoja de ruta", "React"] },
       { code: "WK.03", name: "Checkout de alto volumen", org: "Estudio de software", role: "Senior Developer", when: "2021 – 2023", impact: "300+ pagos / día",
         body: "Diseñé y lancé un checkout con facturación a medida que procesa más de 300 pagos por día. Una de las primeras integraciones de Mercado Pago en React.", tags: ["React", "Mercado Pago", "Facturación"] },
       { code: "WK.04", line: "De la coordinación manual a un flujo automatizado.", name: "Seguimiento de trabajos finales", org: "Una universidad", role: "Líder de producto y automatización", when: "Abr 2026 – presente", impact: "Más de 100 trabajos por entrega",
@@ -409,8 +413,8 @@ const content = {
         steps: [
           { k: "Contexto", v: "Cada entrega suma más de 100 trabajos y hay que coordinar las mesas de defensa en pocos días. Las aprobaciones llegaban por mail y alguien las cargaba a mano en una planilla; los avisos a alumnos, mentores y jurados también salían a mano." },
           { k: "Problema", v: "Era un trabajo repetitivo y propenso a errores, sobre todo en las semanas de más entregas." },
-          { k: "Decisión", v: "· Una sola fuente de verdad: un data hub central. Empecé procesando los mails de notificación y entendí que el proceso necesitaba los datos en sí, no solo los mensajes. Por eso elegí el hub en lugar de consultar directamente el sistema de gestión.<br>· Un proceso de sincronización separado, dentro de la red privada de la universidad, porque al hub no se puede acceder desde un script de la planilla.<br>· Flujos en n8n para el proceso: confirmar los grupos de trabajos, reunir datos con un formulario, pedirles disponibilidad a los jurados y detectar cuándo coinciden las agendas.<br>· Sheets y Gmail siguen siendo la interfaz, porque es donde el equipo ya trabaja." },
-          { k: "Resultado", v: "Completo e implementado." },
+          { k: "Decisión", v: "· Una sola fuente de verdad: un repositorio central de datos. Empecé procesando los mails de notificación y entendí que el proceso necesitaba los datos en sí, no solo los mensajes. Por eso elegí el repositorio en lugar de consultar directamente el sistema de gestión.<br>· Un proceso de sincronización separado, dentro de la red privada de la universidad, porque al repositorio no se puede acceder desde un script de la planilla.<br>· Flujos en n8n para el proceso: confirmar los grupos de trabajos, reunir datos con un formulario, pedirles disponibilidad a los jurados y detectar cuándo coinciden las agendas.<br>· Sheets y Gmail siguen siendo la interfaz, porque es donde el equipo ya trabaja." },
+          { k: "Resultado", v: "Implementado y en uso: las aprobaciones, la recolección de datos, los pedidos de disponibilidad y el armado de mesas corren en un solo flujo coordinado." },
           { k: "Aprendizaje", v: "Definir la fuente de verdad antes que la herramienta." }
         ], tags: ["n8n", "Python", "Google Workspace", "AWS", "Diseño de APIs", "Backend"] },
       { code: "WK.05", name: "Automatización de procesos de finanzas", org: "Consultora global", role: "Management Consultant Senior Analyst", when: "May 2025 – Mar 2026", impact: "Lideré la iniciativa de automatización",
@@ -429,7 +433,7 @@ const content = {
     skills: [
       { code: "SK.01", name: "Desarrollo", items: ["React", "React Native", "Expo", "JavaScript / TypeScript", "HTML / CSS", "Node / Express", "Python", "SQL", "MongoDB", "Webflow"] },
       { code: "SK.02", name: "Cloud y sistemas", items: ["AWS", "Diseño de APIs", "Diseño de sistemas", "Diseño de bases de datos", "Agentes de IA"] },
-      { code: "SK.03", name: "Producto y gestión", items: ["Jira", "Scrum", "Roadmaps", "Gestión de stakeholders", "Figma", "Notion"] },
+      { code: "SK.03", name: "Producto y gestión", items: ["Jira", "Scrum", "Hojas de ruta", "Gestión de stakeholders", "Figma", "Notion"] },
       { code: "SK.04", name: "Finanzas y automatización", items: ["n8n", "Power Automate", "BI", "Anaplan (certificada)", "Modelos en Excel", "FP&A"] },
       { code: "SK.05", name: "Idiomas", items: ["Español (nativo)", "Inglés (fluido, TOEFL iBT 110)"] }
     ],
@@ -443,11 +447,11 @@ const content = {
     ],
     services: [
       { code: "SV.01", name: "Automatización y BI", sub: "Procesos", body: "Convierto un proceso manual (planillas sueltas, mails, cargas a mano) en un flujo automático, con tableros que el equipo realmente usa.", deliv: "Mapa del proceso, automatización en funcionamiento y documentación.", ideal: "Finanzas, operaciones, instituciones." },
-      { code: "SV.02", name: "Agentes de IA", sub: "Procesos internos", body: "Agentes que clasifican, cargan datos, responden y hacen seguimiento, siempre con supervisión de personas.", deliv: "Un prototipo en uso real y criterios para evaluarlo.", ideal: "" },
-      { code: "SV.03", name: "Web y producto", sub: "Con soporte mensual", body: "Sitio o app con su infraestructura, CMS y formularios, y mantenimiento por abono mensual.", deliv: "", ideal: "" }
+      { code: "SV.02", name: "Agentes de IA", sub: "Procesos internos", body: "Agentes que clasifican, cargan datos, responden y hacen seguimiento, siempre con supervisión de personas.", deliv: "Un prototipo en uso real y criterios para evaluarlo.", ideal: "Equipos con tareas repetitivas de clasificación, carga o respuesta." },
+      { code: "SV.03", name: "Web y producto", sub: "Con soporte mensual", body: "Sitio o app con su infraestructura, CMS y formularios, y mantenimiento por abono mensual.", deliv: "Sitio o app publicada, con CMS y documentación.", ideal: "Negocios que necesitan presencia web sin un equipo técnico propio." }
     ],
     delivLabel: "Entregable", idealLabel: "Ideal para",
-    freelance: "Tomo proyectos freelance en estos tres formatos y en todos me ocupo también de la gestión. Trabajo remoto desde Buenos Aires y tengo permiso de trabajo en la Unión Europea (ciudadanía argentina, alemana e italiana).",
+    freelance: "Tomo proyectos freelance en estos tres formatos y en todos me ocupo también de la gestión. Trabajo de forma remota para Argentina y Europa, con autorización laboral en la Unión Europea.",
     lab: [
       { name: "Juegos en Python", status: "Terminado", why: "Así aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" },
       { name: "Detector de perros en la pileta", status: "En progreso", why: "Visión por computadora aplicada a un problema doméstico." },
@@ -455,12 +459,19 @@ const content = {
     ],
     labIntro: "Cosas que armo por curiosidad.",
     off: { t: "Fuera del trabajo", p: "Soy DJ y toco música electrónica. Me encantan el arte y la fotografía. La panterita rosa en píxeles es un guiño a mi dibujo animado favorito." },
-    today: "Product engineer con formación en negocios y finanzas. Tomo proyectos freelance.",
+    today: "Combino ingeniería de producto, operaciones y negocio para construir herramientas que ahorran tiempo y mejoran decisiones. Disponible para proyectos freelance seleccionados.",
+    profile: [
+      "Soy autodidacta. Todo lo que sé de tecnología lo aprendí por mi cuenta, porque me gusta: empecé en 2021 con libros y la web, y no paré.",
+      "Construyo el producto y entiendo el negocio que hay detrás. Estudié Administración y Negocios Digitales, trabajé en consultoría y doy clases de Finanzas Corporativas en una universidad.",
+      "Cuido cómo funciona un producto y cómo se siente al usarlo. El diseño no llega al final."
+    ],
+    approach: "Cómo encaro un proyecto", moreTitle: "Más sobre mí", expFold: "Experiencia y formación",
+    copy: "Copiar mail", copied: "Copiado", orLinkedin: "o escribime por LinkedIn",
     think: { title: "Cómo pienso", intro: "Las preguntas que me hago en cada proyecto, en este orden.", loop: "y vuelta al inicio",
       phases: { u: "Entender", b: "Construir", l: "Aprender" },
       steps: [
         { ph: "u", q: "¿Qué pasa de verdad hoy?", s: "Entender la situación real.", ex: "Trabajos finales: mails y planillas a mano" },
-        { ph: "u", q: "¿De dónde sale la verdad?", s: "Una única fuente de datos.", ex: "Universidad: un data hub central" },
+        { ph: "u", q: "¿De dónde sale la verdad?", s: "Una única fuente de datos.", ex: "Universidad: un repositorio central de datos" },
         { ph: "b", q: "¿Quién lo usa y cómo?", s: "Diseñar sobre sus hábitos.", ex: "Web: el cliente edita desde un CMS" },
         { ph: "b", q: "¿Qué puede fallar y quién supervisa?", s: "Capas y control humano.", ex: "Agentes: permisos por rol" },
         { ph: "l", q: "¿Qué aprendimos?", s: "Medir y ajustar.", ex: "Cada caso cierra con un aprendizaje" }
@@ -469,7 +480,7 @@ const content = {
     why: "Por qué trabajar conmigo", menu: "Menú", workCols: { p: "Proyecto", w: "Período", i: "Resultado" },
     readCase: "Leer el caso completo", seeWork: "Ver proyectos", remoteNote: "Buenos Aires · Trabajo remoto", moreWork: "Otros proyectos",
     fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
-    gotMind: "¿Tenés algo en mente?", reach: "O escribime a",
+    gotMind: "¿Tenés un proceso manual, una automatización trabada o un producto que necesita avanzar?", reach: "O escribime a",
     illo: "Croquis del perfil de Buenos Aires, con el Obelisco en el centro",
     booksIntro: "Aprendo leyendo y después pongo en práctica lo que leí.",
     booksNote: "Pasá el cursor o tocá un lomo.",
@@ -480,7 +491,7 @@ const content = {
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "Ver", close: "Cerrar", open: "Abrir", repo: "Repositorio",
     a: {
-      hero: "Hola, soy Rocío, <a class=\"chip\" href=\"#work\">product engineer</a> en Buenos Aires. Construyo productos y automatizaciones para que las organizaciones decidan mejor y trabajen menos a mano. Aprendí a programar sola en 2021, con <a class=\"chip\" href=\"#books\">libros</a> y la web. Desde entonces hice una app que 40 mil personas abren todos los días, lideré un equipo de seis y trabajé en <a class=\"chip\" href=\"#finance\">finanzas</a>. Hoy doy clases de Finanzas Corporativas y en abril de 2027 empiezo una Maestría en Finanzas.",
+      hero: "Hola, soy Rocío, <a class=\"chip\" href=\"#work\">product engineer</a> en Buenos Aires. Transformo procesos manuales en productos digitales y flujos automatizados. Aprendí a programar sola en 2021, con <a class=\"chip\" href=\"#books\">libros</a> y la web. Desde entonces hice una app que 40 mil personas abren todos los días, lideré un equipo de seis y trabajé en <a class=\"chip\" href=\"#finance\">finanzas</a>. Hoy doy clases de Finanzas Corporativas y en abril de 2027 empiezo una Maestría en Finanzas.",
       kicker: "Un cuaderno abierto", cardNow: "Ahora", cardNowBody: "Automatización, BI e IA para una universidad. Dando Finanzas Corporativas. El MFin arranca en abril de 2027.", cardReading: "Leyendo", cardReadingLink: "Libros que leí"
     },
     b: {
@@ -512,8 +523,8 @@ const content = {
       pairs: ["PRODUCTO + FINANZAS", "CÓDIGO + DISEÑO", "DESARROLLO + LIDERAZGO", "LECTURA + PRÁCTICA"],
       thesisTitle: "Tesis", thesisSub: "Por qué trabajar conmigo",
       thesis: [
-        { h: "Desarrollo producto y entiendo los números.", p: "Escribo el código y leo el estado de resultados. Poca gente de producto trabajó dentro de un área de finanzas, y poca gente de finanzas lanzó un producto que usan 40 mil personas por día." },
-        { h: "Evidencia, no adjetivos.", p: "Más de 500 mil descargas, más de 300 pagos por día, clientes en tres continentes y un equipo de seis personas." },
+        { h: "Construyo el producto y entiendo el negocio que hay detrás.", p: "Escribo el código y leo el estado de resultados. Poca gente de producto trabajó dentro de un área de finanzas, y poca gente de finanzas lanzó un producto que usan 40 mil personas por día." },
+        { h: "Resultados, no promesas.", p: "Más de 500 mil descargas, más de 300 pagos por día, clientes en tres continentes y un equipo de seis personas." },
         { h: "Aprendo, aplico y enseño.", p: "Leo, pongo en práctica lo que leo y ahora también lo enseño: doy clases de Finanzas Corporativas y en 2027 empiezo la Maestría en Finanzas." }
       ],
       holdingsTitle: "Tenencias", holdingsSub: "Dónde está asignado mi tiempo",
@@ -643,7 +654,7 @@ document.addEventListener("click", e => {
 let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 document.documentElement.dataset.theme = theme;
 const clock = () => new Date().toLocaleTimeString(lang === "es" ? "es-AR" : "en-GB", { timeZone: "America/Argentina/Buenos_Aires", hour: "2-digit", minute: "2-digit", hour12: false });
-const DOCK = [["work", "work"], ["about", "about"], ["offers", "services"], ["books", "books"], ["contact", "contact"]];
+const DOCK = [["work", "work"], ["offers", "services"], ["about", "about"], ["contact", "contact"]];
 const MAIN = ["WK.01", "WK.02", "WK.04"];
 /* Buenos Aires as an architect's croquis: an elevation with overshooting corners, centre lines,
    a dimension line, a hatched ground and small annotations. */
@@ -691,60 +702,47 @@ const city = alt => {
 </svg>`;
 };
 function render(t) {
-  const d = t.d, m = t.pitch.match(/^(.*?)( so | para que )(.*)$/);
+  const m = t.pitch.match(/^(.*?)( into | en )(.*)$/);
   const h1 = m ? `${m[1]}<span>${m[2]}${m[3]}</span>` : t.pitch;
-  const sec = (id, title, body, sub = "") => `<section class="sec" id="${id}"><h2>${title}${sub ? `<span>${sub}</span>` : ""}</h2><div class="rv">${body}</div></section>`;
+  const sec = (id, title, body) => `<section class="sec" id="${id}"><h2>${title}</h2><div>${body}</div></section>`;
   const main = MAIN.map(c => t.cases.find(x => x.code === c)), rest = t.cases.filter(x => !MAIN.includes(x.code));
   const fid = c => "f" + c.code.replace(".", "");
   $("#app").innerHTML = `
 <a class="skip" href="#main">${t.skip}</a>
 <header class="w"><div class="hd">
   <a class="me" href="#top">${t.name}</a>
-  <span class="k lk"><a href="mailto:${L.email}">${t.footer.email}</a><a href="${L.linkedin}" ${ext}>${t.footer.linkedin}</a><a href="${L.github}" ${ext}>${t.footer.github}</a></span>
+  <span class="k lk"><a href="${L.linkedin}" ${ext}>${t.footer.linkedin}</a><a href="${L.github}" ${ext}>${t.footer.github}</a></span>
 </div></header>
 <main id="main" class="w">
   <div class="hero" id="top">
     <h1>${h1}</h1>
     <p class="today">${t.today}</p>
-    <div class="cta"><a class="btn" href="${mailto()}">${t.cta} ↗</a><a class="btn o" href="#work">${t.seeWork}</a><span class="k">${t.remoteNote} · <span id="clock">${clock()}</span></span></div>
+    <div class="cta"><a class="btn" href="#contact">${t.cta} ↗</a><a class="btn o" href="#work">${t.seeWork}</a><span class="k">${t.remoteNote} · <span id="clock">${clock()}</span></span></div>
     <div class="cityw">${city(t.illo)}</div>
   </div>
-  <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => `<a href="#${fid(c)}"><b>${c.name} ›</b><span class="s">${c.org} · ${c.role}</span><span class="k">${c.impact}</span></a>`).join("")}</nav>
+  <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => `<a href="#${fid(c)}"><span class="n">${c.impact}</span><b>${c.name} ›</b><span class="s">${c.org} · ${c.role}</span></a>`).join("")}</nav>
 
-  ${sec("thesis", t.why, `<div class="cols c3">${d.thesis.map(x => `<div><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>`)}
-
-  <div id="work">${main.map(c => `<section class="feat" id="${fid(c)}"><div class="rv"><span class="k">${c.org} · ${c.when}</span><h2 style="grid-column:auto">${c.name}. <span>${c.line}</span></h2></div>
-    <div class="rv"><p>${c.body}</p><dl class="f"><dt>${t.fact.scale}</dt><dd>${c.impact}</dd><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl>
+  <div id="work">${main.map(c => `<section class="feat" id="${fid(c)}"><div><span class="k">${c.org} · ${c.when}</span><h2 style="grid-column:auto">${c.name}. <span>${c.line}</span></h2>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div>
+    <div><p>${c.body}</p><dl class="f"><dt>${t.fact.scale}</dt><dd>${c.impact}</dd><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl>
       ${c.steps ? `<details class="more"><summary><span class="x" aria-hidden="true">+</span>${t.readCase}</summary><dl class="f">${c.steps.map(x => `<dt>${x.k}</dt><dd>${x.v}</dd>`).join("")}</dl></details>` : ""}</div></section>`).join("")}</div>
 
-  ${sec("think", t.think.title, `<p>${t.think.intro}</p>
-    <ol class="think">${t.think.steps.map((x, i) => `<li class="ph-${x.ph}"><span class="k">0${i + 1} · ${t.think.phases[x.ph]}</span><div><h3>${x.q}</h3><p>${x.s}</p></div><span class="ex">${x.ex}</span></li>`).join("")}</ol>
-    <p class="k" style="text-align:right;margin:14px 0 0;max-width:none">↺ ${t.think.loop}</p>`)}
+  ${sec("offers", t.h.services, `<div class="cols c3" style="margin-bottom:44px">${t.services.map((s, i) => `<div><span class="k">0${i + 1}</span><h3>${s.name}</h3><p>${svcBody(s)}</p></div>`).join("")}</div>
+    <p>${t.freelance}</p><div class="cta" style="margin-top:22px"><a class="btn" href="#contact">${t.ctaAlt} ↗</a></div>`)}
 
-  ${sec("more", t.moreWork, `<div class="th k" aria-hidden="true"><span>${t.workCols.p}</span><span>${t.workCols.w}</span><span>${t.workCols.i}</span><span></span></div>
-    ${rest.map(c => `<details><summary><h3>${c.name}<small>${c.org} · ${c.role}</small></h3><span class="s">${c.when}</span><span class="s i">${c.impact}</span><span class="x" aria-hidden="true">+</span></summary>
-    <div class="b"><p>${caseBody(c)}</p><p class="s">${c.tags.join(" · ")}${c.url ? ` · <a href="${c.url}" ${ext}>${t.repo}</a>` : ""}</p></div></details>`).join("")}`)}
-
-  ${sec("about", t.h.about, `${portrait()}<p class="lead">${t.about[2]}</p>
-    <div class="cols c4" style="margin-top:60px">${d.story.map((x, i) => `<div><span class="k">[0${i + 1}]</span><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>
-    <ul class="tags">${d.pairs.map(p => `<li>${p}</li>`).join("")}</ul>
-    <div style="margin-top:48px">${offClock()}</div>`)}
-
-  ${sec("experience", t.h.experience, `<ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}</span></span></li>`, "li", "k")}</ul>`)}
-
-  ${sec("skills", t.h.skills, `<ul class="r">${t.skills.map(s => `<li><span class="k">${s.name}</span><span>${s.items.join(", ")}</span></li>`).join("")}</ul>`)}
-
-  ${sec("offers", t.h.services, `<div class="cols c3" style="margin-bottom:56px">${t.services.map((s, i) => `<div><span class="k">0${i + 1}</span><h3>${s.name}</h3><p>${svcBody(s)}</p></div>`).join("")}</div>
-    <p>${t.freelance}</p><div class="cta" style="margin-top:22px"><a class="btn" href="${mailto()}">${t.ctaAlt} ↗</a></div>`)}
-
-  ${sec("lab", t.h.lab, `<p>${t.labIntro}</p><ul class="r" style="margin-top:28px">${t.lab.map(l => `<li><span><span style="font-weight:500">${labName(l)}</span><br><span class="k">${l.status}</span></span><span class="s">${l.why}</span></li>`).join("")}</ul>`)}
+  ${sec("about", t.h.about, `${portrait()}<p class="lead">${t.profile[0]}</p>${t.profile.slice(1).map(p => `<p>${p}</p>`).join("")}
+    <h3 class="sub">${t.approach}</h3>
+    <ol class="steps">${t.think.steps.map((x, i) => `<li><span class="k">0${i + 1}</span><b>${x.q}</b><span class="s">${x.s}</span></li>`).join("")}</ol>
+    <div style="margin-top:40px">${offClock()}</div>`)}
 
   ${sec("books", t.h.books, `<p>${t.booksIntro}</p>${bookShelf()}`)}
 
+  ${sec("more", t.moreTitle, `<details class="fold"><summary><h3>${t.expFold}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b" style="max-width:none"><ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}</span></span></li>`, "li", "k")}</ul></div></details>
+    <details class="fold"><summary><h3>${t.moreWork}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b">${rest.map(c => `<h3 style="font-size:1.125rem;margin-top:22px">${c.name}</h3><p class="s" style="margin:4px 0 10px">${c.org} · ${c.role} · ${c.when}</p><p>${caseBody(c)}</p>`).join("")}</div></details>`)}
+
   <section class="end" id="contact">
-    <p class="big">${t.gotMind} <span>${t.cta}.</span></p>
-    <div class="cta" style="margin:0 0 22px"><a class="btn" href="${mailto()}">${t.cta} ↗</a></div>
-    <p class="s">${t.reach} <a class="m" href="${mailto()}">${L.email}</a></p>
+    <p class="big">${t.gotMind}</p>
+    <div class="cta" style="margin:0 0 18px"><a class="btn" href="${mailto()}">${t.cta} ↗</a><button type="button" class="btn o" data-copy>${t.copy}</button></div>
+    <p class="s"><a class="m" href="${mailto()}">${L.email}</a>, ${t.orLinkedin.replace("LinkedIn", `<a href="${L.linkedin}" ${ext}>LinkedIn</a>`)}.</p>
   </section>
   <footer class="k"><span>${t.footer.rights}</span><span>${footerLinks()}</span></footer>
 </main>
@@ -782,6 +780,18 @@ document.addEventListener("click", e => {
   dk.classList.toggle("open", open); $("[data-menu]").setAttribute("aria-expanded", open);
 });
 document.addEventListener("keydown", e => { if (e.key === "Escape" && $(".dock.open")) { $(".dock").classList.remove("open"); $("[data-menu]").setAttribute("aria-expanded", "false"); $("[data-menu]").focus(); } });
+/* The dock steps aside while you read down, and comes back when you scroll up or stop near the top. */
+let lastY = 0;
+addEventListener("scroll", () => {
+  const dk = $(".dock"), y = scrollY; if (!dk) return;
+  if (!dk.classList.contains("open")) { if (y > lastY + 6 && y > 240) dk.classList.add("hide"); else if (y < lastY - 6 || y < 240) dk.classList.remove("hide"); }
+  lastY = y;
+}, { passive: true });
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-copy]"); if (!b) return;
+  const done = () => { b.textContent = T().copied; setTimeout(() => { b.textContent = T().copy; }, 1800); };
+  if (navigator.clipboard) navigator.clipboard.writeText(L.email).then(done, done); else done();
+});
 addEventListener("scroll", () => requestAnimationFrame(walk), { passive: true });
 addEventListener("resize", walk);
 setInterval(() => { const c = $("#clock"); if (c) c.textContent = clock(); }, 30000);

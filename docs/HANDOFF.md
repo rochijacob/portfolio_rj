@@ -102,6 +102,23 @@ Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H
 
 **Titular y bajada:** Rocío preguntó qué significaba "analítica" en el titular; se simplificó a "Construyo productos y automatizaciones para que las organizaciones decidan mejor y trabajen menos a mano". La bajada "Hoy soy Project Manager & Business Partner..." no le gustaba porque no apunta a lo que busca; ahora es "Product engineer con formación en negocios y finanzas. Tomo proyectos freelance." (pendiente de que la confirme).
 
+**Revisión grande de H (2026-11-16).** Rocío trajo una crítica externa detallada (posicionamiento, largo, dock, animaciones, redacción) y tres pedidos propios. Lo aplicado, que reemplaza decisiones anteriores de este documento:
+
+- **Posicionamiento:** titular "Transformo procesos manuales en productos digitales y flujos automatizados." y bajada "Combino ingeniería de producto, operaciones y negocio... Disponible para proyectos freelance seleccionados." Una sola identidad a la vista: producto + operaciones + negocio. No volver a apilar roles (PM, docente, MFin, consultora) en el hero.
+- **Autodidacta:** Rocío quiere que quede afirmado que todo lo que sabe de tecnología lo aprendió por su cuenta y porque le gusta. Es la primera frase de "Sobre mí" (`content.*.profile`).
+- **Frase de diseño:** no le gustaba "Me importan los productos lindos... tiene que verse bien". Ahora: "Cuido cómo funciona un producto y cómo se siente al usarlo. El diseño no llega al final."
+- **"Cómo pienso":** como sección propia con diagrama le pareció forzado. Quedó como una tira de cinco preguntas dentro de "Sobre mí" ("Cómo encaro un proyecto"), sin ejemplos ni flechas.
+- **Largo:** la página bajó de unos 10.000 a unos 5.600 px en escritorio. Orden actual: hero, tres resultados, tres casos, servicios, sobre mí, libros, "Más sobre mí" (experiencia y otros proyectos, plegados), contacto. Se quitaron de H: "Por qué trabajar conmigo", Herramientas y Lab.
+- **Dock:** se esconde al bajar y vuelve al subir o cerca del inicio, para no tapar lo que se lee. Cuatro secciones.
+- **Animaciones:** se quitó la aparición por opacidad y el scroll suave en H. No volver a poner contenido invisible a la espera de una animación.
+- **Contacto:** además del `mailto:` hay un botón que copia el mail y un link a LinkedIn. Los botones del hero llevan a la sección de contacto.
+- **Redacción:** en inglés, fuera la jerga de inversión ("underwrite", "compounds"). En español, menos anglicismos: "desarrollo móvil", "hoja de ruta", "venta de entradas", "repositorio central de datos". Ciudadanías reemplazadas por "autorización laboral en la Unión Europea".
+- **Servicios:** los tres tienen ahora descripción, entregable y cliente ideal. Los entregables e ideales de "Agentes de IA" y "Web y producto" los redactó el agente: falta que Rocío los confirme.
+
+Pendiente de Rocío tras esta revisión: **imágenes de los casos** (el campo `img` de cada caso ya se muestra si existe; es el hueco más grande: la página habla de cuidar el diseño y no muestra producto), el paso a paso de los otros dos casos principales (solo el universitario tiene "Leer el caso completo"), duración orientativa de cada servicio, y decidir si quiere formulario o agenda (necesita un servicio externo con cuenta suya).
+
+A, B y D comparten el contenido nuevo pero no esta reestructura.
+
 **Foto de perfil:** su foto de siempre es un avatar en pixel art. Está en `profile.png` (recorte de cabeza y hombros, ampliado con píxeles duros) y `avatar-full.png` (cuerpo entero, sin usar todavía). Se muestra con `image-rendering: pixelated`.
 
 **Experiencia:** pidió separar lo laboral de la educación. Las entradas de educación llevan `kind: "edu"` en `content.*.timeline` y el helper `expSplit()` de `core.js` arma los dos grupos en las cuatro direcciones.
