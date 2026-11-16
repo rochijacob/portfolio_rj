@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#f4f6f7">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Rocío Jacob · Product Engineer">
-<meta property="og:description" content="I build products, automation and analytics so organizations decide better and do less manual work.">
+<meta property="og:description" content="I build products and automation so organizations decide better and do less manual work.">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23003049'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fdf0d5'%3ERJ%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -102,6 +102,17 @@ summary .i{font-weight:500;color:var(--ink)}
 summary .x{font-size:1.25rem;line-height:1;transition:transform .25s;justify-self:end}
 details[open] .x{transform:rotate(45deg)}
 .b{padding:0 0 30px;max-width:56ch}
+/* "how I think": rows ruled like the croquis, corners overshooting, a loop line back to the start */
+.think{list-style:none;margin:36px 0 0;padding:0 34px 0 0;position:relative}
+.think li{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1.4fr) minmax(0,1fr);gap:6px 24px;align-items:center;padding:24px 0 24px 18px;position:relative;margin-bottom:34px;border-left:1px solid var(--ink)}
+.think li:last-child{margin-bottom:0}
+.think li::before{content:"";position:absolute;left:-6px;right:-6px;top:0;bottom:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);pointer-events:none}
+.think li:not(:last-child)::after{content:"↓";position:absolute;left:50%;bottom:-30px;font:400 1rem/1 var(--mono);color:var(--soft)}
+.think li.ph-b{border-left-color:var(--acc)}.think li.ph-b::before{border-color:var(--acc)}
+.think h3{font-size:1.1875rem}.think p{margin:4px 0 0;font-size:.9375rem;color:var(--soft)}
+.think .ex{font:400 .75rem/1.6 var(--mono);letter-spacing:.04em;color:var(--soft)}
+.think::after{content:"";position:absolute;right:8px;top:44px;bottom:44px;width:20px;border:1px dashed var(--soft);border-left:0}
+.think::before{content:"";position:absolute;right:24px;top:40px;width:8px;height:8px;border-left:1px solid var(--soft);border-bottom:1px solid var(--soft);transform:rotate(45deg)}
 .more{border:0;margin-top:8px}
 .more summary{display:flex;align-items:center;gap:12px;padding:18px 0 6px;font-weight:500;font-size:.9375rem}
 .more summary .x{justify-self:auto}
@@ -121,6 +132,7 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
 @media(max-width:860px){
   .sec,.feat{display:block}.sec>h2{position:static}
   .hi{grid-template-columns:1fr}.hi a{padding-top:18px}
+  .think li{grid-template-columns:1fr;gap:6px;padding:20px 0 20px 14px}
   .c3{grid-template-columns:1fr}.c4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .th{display:none}details:first-of-type{border-top:1px solid var(--ink)}
   summary{grid-template-columns:minmax(0,1fr) 20px}summary>*{grid-column:1}
@@ -165,52 +177,50 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
 let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 document.documentElement.dataset.theme = theme;
 const clock = () => new Date().toLocaleTimeString(lang === "es" ? "es-AR" : "en-GB", { timeZone: "America/Argentina/Buenos_Aires", hour: "2-digit", minute: "2-digit", hour12: false });
-const DOCK = [["work", "work"], ["offers", "services"], ["about", "about"], ["books", "books"], ["contact", "contact"]];
+const DOCK = [["work", "work"], ["about", "about"], ["offers", "services"], ["books", "books"], ["contact", "contact"]];
 const MAIN = ["WK.01", "WK.02", "WK.04"];
 /* Buenos Aires as an architect's croquis: an elevation with overshooting corners, centre lines,
    a dimension line, a hatched ground and small annotations. */
 const city = alt => {
-  const G = 200, o = 6;
+  const G = 200, o = 5;
+  // a building: top edge and two sides, corners overshooting by the same amount everywhere
   const box = (x, w, h, yb = G) => `M${x - o} ${yb - h}H${x + w + o}M${x} ${yb - h - o}V${yb}M${x + w} ${yb - h - o}V${yb}`;
-  let hatch = ""; for (let x = 30; x < 840; x += 13) hatch += `M${x} ${G + 5}l-7 9`;
-  const tree = (x, r) => `M${x} ${G}v${-r * .5}M${x - r} ${G - r * 1.5}a${r} ${r} 0 1 0 ${2 * r} 0a${r} ${r} 0 1 0 ${-2 * r} 0`;
-  const win = (x, y, c, r, dx, dy) => { let p = ""; for (let a = 0; a < c; a++) for (let b = 0; b < r; b++) p += `M${x + a * dx} ${y + b * dy}v4`; return p; };
-  const lamp = x => `M${x} ${G}v-24q1-6 8-5m0 0v3`;
-  let rail = ""; for (let x = 846; x < 1112; x += 11) rail += `M${x} ${G - 4}v-5`;
-  let chain = ""; for (const x of [72, 116, 124, 164, 196, 292, 372, 528, 588, 612, 662, 696, 702, 742, 752, 782]) chain += `M${x} ${G + 15}v7M${x - 3} ${G + 21.5}l6-6`;
+  // windows: an even grid centred inside the given face
+  const win = (x, w, yt, h, c, r) => { let p = ""; for (let i = 1; i <= c; i++) for (let j = 1; j <= r; j++) p += `M${(x + w * i / (c + 1)).toFixed(1)} ${(yt + h * j / (r + 1) - 2).toFixed(1)}v4`; return p; };
+  const bld = (x, w, h, c, r) => [box(x, w, h), win(x, w, G - h, h - 10, c, r)];
+  const tree = (x, r) => `M${x} ${G}v${-r * .6}M${x - r} ${G - r * 1.6}a${r} ${r} 0 1 0 ${2 * r} 0a${r} ${r} 0 1 0 ${-2 * r} 0`;
+  const lamp = x => `M${x} ${G}v-22M${x} ${G - 22}h6v3`;
   const man = x => `M${x} ${G}v-9M${x - 2} ${G - 11.5}a2 2 0 1 0 4 0a2 2 0 1 0 -4 0`;
+  let hatch = ""; for (let x = 28; x <= 832; x += 12) hatch += `M${x} ${G + 5}l-7 9`;
+  let rail = ""; for (let i = 0; i <= 22; i++) rail += `M${(848 + i * 12).toFixed(0)} ${G - 4}v-5`;
+  let cols = ""; for (let i = 0; i < 8; i++) cols += `M${(394 + i * 16)} ${G - 38}V${G - 6}`;
+  const B = [bld(60, 48, 48, 3, 2), bld(120, 44, 88, 3, 5), bld(664, 40, 64, 3, 3), bld(712, 44, 108, 3, 6), bld(764, 36, 76, 2, 4), bld(1128, 44, 44, 3, 2)];
+  const leader = (x, y, dir) => `M${x} ${y}l${12 * dir} -12h${30 * dir}`;
   return `<svg class="city" viewBox="0 0 1200 244" role="img" aria-label="${esc(alt)}">
 <g>
 <path class="g" d="M14 ${G}H1186"/>
-<path class="l" d="${hatch}M860 ${G + 8}h70M950 ${G + 12}h90M1060 ${G + 8}h70M900 ${G + 16}h50"/>
-<path d="${box(72, 44, 50)}${box(124, 40, 82)}"/>
-<path d="${box(196, 96, 58)}${box(210, 68, 30, G - 58)}${box(223, 42, 28, G - 88)}${box(233, 22, 24, G - 116)}M244 ${G - 140}V34"/>
-<path class="l" d="M196 ${G - 20}h96M210 ${G - 70}h68M132 ${G - 30}h24M132 ${G - 50}h24M80 ${G - 24}h28"/>
-<path d="${box(372, 156, 38)}M398 ${G - 38}H502M408 ${G - 38}a42 46 0 0 1 84 0${box(443, 14, 11, G - 84)}M450 ${G - 95}V${G - 116}"/>
-<path class="l" d="M392 ${G - 38}V${G}M412 ${G - 38}V${G}M432 ${G - 38}V${G}M468 ${G - 38}V${G}M488 ${G - 38}V${G}M508 ${G - 38}V${G}M428 ${G - 38}c2-26 12-40 22-44M472 ${G - 38}c-2-26-12-40-22-44"/>
-<path d="M588 ${G + 4}L596.4 56M612 ${G + 4}L603.6 56M590 62H610M595.5 64L600.6 34M604.5 64L599.4 34"/>
-<path d="${box(662, 34, 64)}${box(702, 40, 106)}${box(752, 30, 76)}"/>
-<path class="l" d="M670 ${G - 20}h18M670 ${G - 40}h18M710 ${G - 30}h24M710 ${G - 60}h24M710 ${G - 90}h24M760 ${G - 30}h14M760 ${G - 54}h14"/>
-<path d="M840 ${G - 4}H1118M954 ${G + 6}L1060 84M958 ${G - 4}a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/>
-<path class="l" d="M1052 93L878 ${G - 4}M1052 93L910 ${G - 4}M1052 93L940 ${G - 4}M1052 93L992 ${G - 4}M1052 93l-28 ${G - 97}"/>
-<path class="l" d="${tree(330, 15)}${tree(558, 11)}${tree(808, 12)}${tree(352, 9)}${man(524)}${man(536)}${man(642)}${man(1090)}${man(300)}${man(1010)}${man(1018)}"/>
-<path class="l" d="${box(22, 38, 34)}${box(162, 30, 104)}${box(300, 52, 72)}${box(798, 36, 60)}${box(1122, 40, 38)}"/>
-<path class="l" d="${win(80, 158, 4, 3, 9, 12)}${win(132, 128, 3, 6, 11, 11)}${win(204, 150, 8, 3, 11, 14)}${win(216, 118, 6, 2, 10, 12)}${win(228, 92, 4, 2, 9, 11)}${win(668, 144, 3, 4, 9, 13)}${win(709, 102, 3, 7, 11, 13)}${win(758, 132, 2, 5, 10, 13)}${win(170, 104, 2, 7, 10, 12)}${win(308, 136, 4, 4, 10, 13)}"/>
-<path class="l" d="M362 ${G - 4}h176M366 ${G - 8}h168M414 ${G - 52}h72M420 ${G - 62}h60M438 ${G - 38}c2-26 8-40 12-44M462 ${G - 38}c-2-26-8-40-12-44${box(376, 14, 50)}${box(510, 14, 50)}M383 ${G - 56}v-12M517 ${G - 56}v-12"/>
-<path class="l" d="M580 ${G}h40M584 ${G - 5}h32M598 70h4M598 62l2-22 2 22"/>
-<path class="l" d="${lamp(356)}${lamp(544)}${lamp(634 + 20)}${lamp(832)}${rail}M846 ${G - 9}H1114M950 ${G}l8 14M974 ${G}l-8 14M1052 93l6-8"/>
-<path class="l" d="M1166 ${G}V146M1166 146l30 9M1166 146l-13 7M1166 154l18 4M1184 ${G}V166M1160 ${G}h30"/>
+<path class="l" d="${hatch}M880 ${G + 8}h200M920 ${G + 14}h120"/>
+<path d="${B.map(b => b[0]).join("")}"/>
+<path class="l" d="${B.map(b => b[1]).join("")}"/>
+<path d="${box(188, 96, 56)}${box(202, 68, 30, G - 56)}${box(216, 40, 28, G - 86)}${box(226, 20, 22, G - 114)}M236 ${G - 136 - o}V36"/>
+<path class="l" d="${win(188, 96, G - 56, 46, 7, 2)}${win(202, 68, G - 86, 30, 5, 1)}${win(216, 40, G - 114, 28, 3, 1)}"/>
+<path d="${box(372, 156, 38)}M${404 - o} ${G - 38}H${496 + o}M408 ${G - 38}a42 42 0 0 1 84 0${box(444, 12, 10, G - 80)}M450 ${G - 90 - o}V${G - 108}"/>
+<path class="l" d="${cols}M372 ${G - 6}h156M436 ${G - 38}c0-22 6-36 14-42M464 ${G - 38}c0-22-6-36-14-42M422 ${G - 38}c0-20 12-36 28-42M478 ${G - 38}c0-20-12-36-28-42"/>
+<path d="M588 ${G}L596.4 56M612 ${G}L603.6 56M${596.4 - o} 56H${603.6 + o}M596.4 56L600 36M603.6 56L600 36"/>
+<path class="l" d="M582 ${G - 4}h36"/>
+<path d="M846 ${G - 4}H1114M962 ${G - 4}L1052 92M958 ${G - 4}a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/>
+<path class="l" d="M1052 92L866 ${G - 4}M1052 92L890 ${G - 4}M1052 92L914 ${G - 4}M1052 92L938 ${G - 4}${rail}M846 ${G - 9}H1114M954 ${G}l4 10h8l4 -10"/>
+<path class="l" d="${tree(312, 13)}${tree(560, 10)}${tree(824, 12)}${lamp(344)}${lamp(538)}${lamp(650)}${man(296)}${man(330)}${man(548)}${man(1100)}"/>
 </g>
 <g class="a">
-<path class="d" d="M600 16V${G + 14}M450 60V${G + 14}"/>
-<path d="M634 34V${G}M628 34h12M628 ${G}h12M631 37l6-6M631 ${G + 3}l6-6"/>
-<path class="l" d="M244 30l14-10h34M450 56l14-10h30M1060 84l-12-12h-36"/>
-<path class="l" d="M318 66c8-12 26-9 28 0 12-5 22 5 14 12h-46c-8-3-6-12 4-12M760 48c7-10 22-8 24 0 10-4 19 4 12 10h-40c-7-3-5-10 4-10M96 92c6-9 20-7 22 0 9-4 17 4 11 9H92c-6-3-5-9 4-9"/>
+<path class="d" d="M600 22V${G + 14}M450 76V${G + 14}"/>
+<path d="M632 36V${G}M626 36h12M626 ${G}h12M629 39l6-6M629 ${G + 3}l6-6"/>
+<path class="l" d="${leader(238, 34, 1)}${leader(452, 90, 1)}${leader(1050, 90, -1)}"/>
+<path class="l" d="M132 78c7-11 24-8 26 0 11-4 20 5 13 11h-43c-7-3-5-11 4-11M318 60c7-11 24-8 26 0 11-4 20 5 13 11h-43c-7-3-5-11 4-11M756 54c7-11 24-8 26 0 11-4 20 5 13 11h-43c-7-3-5-11 4-11"/>
 </g>
-
-<text x="646" y="${G - 78}" transform="rotate(-90 646 ${G - 78})">67.5 m</text>
-<text x="600" y="11" text-anchor="middle">OBELISCO</text>
-<text x="296" y="23">KAVANAGH</text><text x="498" y="49">CONGRESO</text><text x="1008" y="75" text-anchor="end">PUENTE DE LA MUJER</text>
+<text x="644" y="${G - 82}" transform="rotate(-90 644 ${G - 82})" text-anchor="middle">67.5 m</text>
+<text x="600" y="14" text-anchor="middle">OBELISCO</text>
+<text x="284" y="25">KAVANAGH</text><text x="498" y="81">CONGRESO</text><text x="1004" y="81" text-anchor="end">PUENTE DE LA MUJER</text>
 <text x="14" y="${G + 38}">BUENOS AIRES · 34°36′S 58°22′W · ALZADO</text>
 </svg>`;
 };
@@ -235,18 +245,19 @@ function render(t) {
   </div>
   <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => `<a href="#${fid(c)}"><b>${c.name} ›</b><span class="s">${c.org} · ${c.role}</span><span class="k">${c.impact}</span></a>`).join("")}</nav>
 
+  ${sec("thesis", t.why, `<div class="cols c3">${d.thesis.map(x => `<div><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>`)}
+
   <div id="work">${main.map(c => `<section class="feat" id="${fid(c)}"><div class="rv"><span class="k">${c.org} · ${c.when}</span><h2 style="grid-column:auto">${c.name}. <span>${c.line}</span></h2></div>
     <div class="rv"><p>${c.body}</p><dl class="f"><dt>${t.fact.scale}</dt><dd>${c.impact}</dd><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl>
       ${c.steps ? `<details class="more"><summary><span class="x" aria-hidden="true">+</span>${t.readCase}</summary><dl class="f">${c.steps.map(x => `<dt>${x.k}</dt><dd>${x.v}</dd>`).join("")}</dl></details>` : ""}</div></section>`).join("")}</div>
 
+  ${sec("think", t.think.title, `<p>${t.think.intro}</p>
+    <ol class="think">${t.think.steps.map((x, i) => `<li class="ph-${x.ph}"><span class="k">0${i + 1} · ${t.think.phases[x.ph]}</span><div><h3>${x.q}</h3><p>${x.s}</p></div><span class="ex">${x.ex}</span></li>`).join("")}</ol>
+    <p class="k" style="text-align:right;margin:14px 0 0;max-width:none">↺ ${t.think.loop}</p>`)}
+
   ${sec("more", t.moreWork, `<div class="th k" aria-hidden="true"><span>${t.workCols.p}</span><span>${t.workCols.w}</span><span>${t.workCols.i}</span><span></span></div>
     ${rest.map(c => `<details><summary><h3>${c.name}<small>${c.org} · ${c.role}</small></h3><span class="s">${c.when}</span><span class="s i">${c.impact}</span><span class="x" aria-hidden="true">+</span></summary>
     <div class="b"><p>${caseBody(c)}</p><p class="s">${c.tags.join(" · ")}${c.url ? ` · <a href="${c.url}" ${ext}>${t.repo}</a>` : ""}</p></div></details>`).join("")}`)}
-
-  ${sec("offers", t.h.services, `<div class="cols c3" style="margin-bottom:56px">${t.services.map((s, i) => `<div><span class="k">0${i + 1}</span><h3>${s.name}</h3><p>${svcBody(s)}</p></div>`).join("")}</div>
-    <p>${t.freelance}</p><div class="cta" style="margin-top:22px"><a class="btn" href="${mailto()}">${t.ctaAlt} ↗</a></div>`)}
-
-  ${sec("thesis", t.why, `<div class="cols c3">${d.thesis.map(x => `<div><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>`)}
 
   ${sec("about", t.h.about, `${portrait()}<p class="lead">${t.about[2]}</p>
     <div class="cols c4" style="margin-top:60px">${d.story.map((x, i) => `<div><span class="k">[0${i + 1}]</span><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>
@@ -256,6 +267,9 @@ function render(t) {
   ${sec("experience", t.h.experience, `<ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}</span></span></li>`, "li", "k")}</ul>`)}
 
   ${sec("skills", t.h.skills, `<ul class="r">${t.skills.map(s => `<li><span class="k">${s.name}</span><span>${s.items.join(", ")}</span></li>`).join("")}</ul>`)}
+
+  ${sec("offers", t.h.services, `<div class="cols c3" style="margin-bottom:56px">${t.services.map((s, i) => `<div><span class="k">0${i + 1}</span><h3>${s.name}</h3><p>${svcBody(s)}</p></div>`).join("")}</div>
+    <p>${t.freelance}</p><div class="cta" style="margin-top:22px"><a class="btn" href="${mailto()}">${t.ctaAlt} ↗</a></div>`)}
 
   ${sec("lab", t.h.lab, `<p>${t.labIntro}</p><ul class="r" style="margin-top:28px">${t.lab.map(l => `<li><span><span style="font-weight:500">${labName(l)}</span><br><span class="k">${l.status}</span></span><span class="s">${l.why}</span></li>`).join("")}</ul>`)}
 
