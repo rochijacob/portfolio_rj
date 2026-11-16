@@ -11,6 +11,7 @@ const shots = process.env.SHOTS;
   const browser = await chromium.launch(process.env.BROWSER_CHANNEL ? { channel: process.env.BROWSER_CHANNEL } : {});
   try {
     if (shots) fs.mkdirSync(shots, { recursive: true });
+    const dockSize = {};
     for (const width of [320, 390, 768, 1024, 1440]) for (const theme of ['light', 'dark']) for (const lang of ['en', 'es']) {
       const ctx = await browser.newContext({ viewport: { width, height: 900 }, locale: lang, colorScheme: theme, reducedMotion: 'reduce' });
       const page = await ctx.newPage(), errors = [];
@@ -20,7 +21,7 @@ const shots = process.env.SHOTS;
       const layout = await page.evaluate(() => {
         const dock = document.querySelector('.dock').getBoundingClientRect();
         const shelf = document.querySelector('.spines');
-        return { overflow: document.documentElement.scrollWidth - innerWidth, dockBottomGap: innerHeight - dock.bottom,
+        return { dockW: Math.round(dock.width), dockH: Math.round(dock.height), overflow: document.documentElement.scrollWidth - innerWidth, dockBottomGap: innerHeight - dock.bottom,
           shelfOverflow: shelf.scrollWidth - shelf.clientWidth, shelfVertical: shelf.scrollHeight - shelf.clientHeight,
           social: [...document.querySelectorAll('header .lk a')].every(e => getComputedStyle(e).display !== 'none') };
       });
@@ -30,9 +31,12 @@ const shots = process.env.SHOTS;
       assert.ok(layout.shelfOverflow <= 1 && layout.shelfVertical <= 1, 'Books overflow internally');
       assert.ok(layout.social, 'A header contact link is hidden');
       assert.deepEqual(errors, []);
+      (dockSize[`${width}/${theme}`] ||= []).push(`${layout.dockW}x${layout.dockH}`);
+      assert.equal(await page.locator('[data-lang][aria-pressed="true"]').count(), 1, 'Exactly one language must be active');
       if (shots && lang === 'es' && [390, 1440].includes(width)) await page.screenshot({ path: path.join(shots, `studio-${width}-${theme}.png`), fullPage: true });
       await ctx.close();
     }
+    for (const [k, v] of Object.entries(dockSize)) assert.equal(new Set(v).size, 1, `Dock changes size with the language at ${k}: ${v.join(' vs ')}`);
     console.log('PASS: 20 viewport / theme / language combinations; no overflow or JS errors; bottom dock; no mid-page contact CTA.');
     for (const lang of ['en', 'es']) {
       const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, locale: lang, reducedMotion: 'reduce' });
@@ -47,7 +51,7 @@ const shots = process.env.SHOTS;
       await p.keyboard.press('Enter');
       assert.ok(await p.locator('.more').evaluate(e => e.open), 'Theme change closed the case');
       assert.ok(Math.abs(await p.evaluate(() => scrollY) - y) < 2, 'Theme change moved the reading position');
-      await p.locator('[data-lang]').click();
+      await p.locator('[data-lang]:not([aria-pressed="true"])').click();
       assert.ok(await p.locator('.more').evaluate(e => e.open), 'Language change closed the case');
       for (const mode of ['success', 'denied', 'missing']) {
         await p.evaluate(mode => Object.defineProperty(navigator, 'clipboard', { configurable: true, value: mode === 'missing' ? undefined : { writeText: () => mode === 'success' ? Promise.resolve() : Promise.reject(new Error('Test rejection')) } }), mode);

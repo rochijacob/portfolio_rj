@@ -37,7 +37,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hd .me{font-weight:600;text-decoration:none;padding:10px 0;letter-spacing:-.01em}
 .hd .k a{text-decoration:none;padding:12px 0;margin-left:18px}
 .dock{position:fixed;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:2px;padding:5px;background:var(--ink);border-radius:999px;max-width:calc(100vw - 16px);box-shadow:0 10px 30px -12px rgba(0,48,73,.55)}
-.dock a{color:var(--bg);text-decoration:none;font-size:.875rem;padding:10px 15px;border-radius:999px;white-space:nowrap;transition:background .2s}
+.dock a{color:var(--bg);text-decoration:none;font-size:.875rem;width:96px;padding:10px 0;text-align:center;border-radius:999px;white-space:nowrap;transition:background .2s}
 .dock a:hover{color:var(--bg);background:color-mix(in srgb,var(--bg) 16%,transparent)}
 .dock a[aria-current=location]{background:var(--bg);color:var(--ink)}
 .dock .cat{position:absolute;bottom:100%;left:16px;line-height:0;will-change:transform}
@@ -47,8 +47,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .dock button:hover{background:color-mix(in srgb,var(--bg) 16%,transparent)}
 .dock button:focus-visible,.dock a:focus-visible{outline-color:var(--acc)}
 .dock button svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.dock .lg{padding:0 10px;font:400 .75rem var(--mono);letter-spacing:.06em}
-.dock .lg b{font-weight:400;opacity:.5}.dock .lg b.on{opacity:1;font-weight:500;text-decoration:underline;text-underline-offset:4px}
+.dock .lg{display:inline-flex;align-items:center;gap:2px;padding:3px;border-radius:999px;background:color-mix(in srgb,var(--bg) 14%,transparent)}
+.dock .lg button{width:38px;min-width:0;height:34px;font:500 .75rem var(--mono);letter-spacing:.06em;opacity:.78;transition:background .2s,color .2s,opacity .2s}
+.dock .lg button:hover{opacity:1}
+.dock .lg button[aria-pressed=true]{background:var(--bg);color:var(--ink);opacity:1}
 .hero{padding:clamp(28px,3.5vw,48px) 0 0}
 h1{font:500 clamp(2rem,4.5vw,3.8rem)/1.08 var(--txt);letter-spacing:-.04em;margin:0;max-width:26ch;text-wrap:balance}
 h1 span{color:var(--acc)}
@@ -178,13 +180,15 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
 }
 @media(max-width:640px){
   .dock{padding:6px;gap:4px}
-  .dock .mn{display:inline-flex;padding:0 16px;font-size:.9375rem;min-width:132px;justify-content:space-between;height:44px}
+  .dock .mn{display:inline-flex;padding:0 16px;font-size:.9375rem;width:132px;min-width:0;justify-content:space-between;height:44px}
   .dock button{height:44px;min-width:44px}
+  .dock .lg button{width:40px;min-width:0;height:38px}
   .dock .lks{display:none;position:absolute;left:0;right:0;bottom:calc(100% + 10px);flex-direction:column;gap:2px;padding:8px;background:var(--ink);border-radius:22px;box-shadow:0 10px 30px -12px rgba(0,48,73,.55)}
   .dock.open .lks{display:flex}
-  .dock .lks a{padding:13px 16px;font-size:1rem;border-radius:14px}
+  .dock .lks a{width:auto;padding:13px 16px;font-size:1rem;text-align:left;border-radius:14px}
   .dock.open .cat{visibility:hidden}
 }
+@media(max-width:360px){.dock .mn{width:112px;padding:0 12px}.dock .lg button{width:36px}}
 @media(max-width:480px){.c4{grid-template-columns:1fr}dl.f{grid-template-columns:1fr}dl.f dt{border:0;padding-bottom:0}dl.f dd{padding-top:2px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1}}
 </style>
@@ -267,7 +271,7 @@ const city = alt => {
 const themeIcon = () => theme === "dark" ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>' : '<path d="M20 14A8 8 0 0110 4a8 8 0 1010 10z"/>';
 const dockMarkup = t => `<nav class="dock" aria-label="${esc(t.menu)}"><span class="cat" id="cat" aria-hidden="true">${pixelCat(2)}</span><button type="button" class="mn" data-menu aria-expanded="false" aria-controls="dlinks"><span id="mlabel">${t.menu}</span><span aria-hidden="true">▾</span></button><span class="lks" id="dlinks">${DOCK.map(([id, k]) => `<a href="#${id}" data-sec="${id}">${t.nav[k]}</a>`).join("")}</span><i aria-hidden="true"></i>
   <button type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}"><svg viewBox="0 0 24 24" aria-hidden="true">${themeIcon()}</svg></button>
-  <button type="button" class="lg" data-lang="${lang === "en" ? "es" : "en"}" aria-label="${esc(t.langLabel)}: ${lang === "en" ? "Español" : "English"}"><b${lang === "en" ? ' class="on"' : ""}>EN</b><b${lang === "es" ? ' class="on"' : ""}>ES</b></button></nav>`;
+  <span class="lg" role="group" aria-label="${esc(t.langLabel)}"><button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="${lang === "en"}">EN</button><button type="button" data-lang="es" lang="es" aria-label="Español" aria-pressed="${lang === "es"}">ES</button></span></nav>`;
 function render(t) {
   const m = t.pitch.match(/^(.*?)( into | en )(.*)$/);
   const h1 = m ? `${m[1]} <span>${m[2].trim()}&nbsp;${m[3]}</span>` : t.pitch;
