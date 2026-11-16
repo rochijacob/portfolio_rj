@@ -109,7 +109,7 @@ Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H
 - **Frase de diseño:** no le gustaba "Me importan los productos lindos... tiene que verse bien". Ahora: "Cuido cómo funciona un producto y cómo se siente al usarlo. El diseño no llega al final."
 - **"Cómo pienso":** como sección propia con diagrama le pareció forzado. Quedó como una tira de cinco preguntas dentro de "Sobre mí" ("Cómo encaro un proyecto"), sin ejemplos ni flechas.
 - **Largo:** la página bajó de unos 10.000 a unos 5.600 px en escritorio. Orden actual: hero, tres resultados, tres casos, servicios, sobre mí, libros, "Más sobre mí" (experiencia y otros proyectos, plegados), contacto. Se quitaron de H: "Por qué trabajar conmigo", Herramientas y Lab.
-- **Dock:** se esconde al bajar y vuelve al subir o cerca del inicio, para no tapar lo que se lee. Cuatro secciones.
+- **Dock:** cuatro secciones. Se probó que se escondiera al bajar; Rocío lo rechazó (ver "Corrección explícita" más abajo). Queda fijo abajo, sin movimiento.
 - **Animaciones:** se quitó la aparición por opacidad y el scroll suave en H. No volver a poner contenido invisible a la espera de una animación.
 - **Contacto:** además del `mailto:` hay un botón que copia el mail y un link a LinkedIn. Los botones del hero llevan a la sección de contacto.
 - **Redacción:** en inglés, fuera la jerga de inversión ("underwrite", "compounds"). En español, menos anglicismos: "desarrollo móvil", "hoja de ruta", "venta de entradas", "repositorio central de datos". Ciudadanías reemplazadas por "autorización laboral en la Unión Europea".
@@ -118,6 +118,16 @@ Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H
 Pendiente de Rocío tras esta revisión: **imágenes de los casos** (el campo `img` de cada caso ya se muestra si existe; es el hueco más grande: la página habla de cuidar el diseño y no muestra producto), el paso a paso de los otros dos casos principales (solo el universitario tiene "Leer el caso completo"), duración orientativa de cada servicio, y decidir si quiere formulario o agenda (necesita un servicio externo con cuenta suya).
 
 A, B y D comparten el contenido nuevo pero no esta reestructura.
+
+**Integración de la rama `codex/portfolio-ux-refinements` (2026-11-16).** Rocío trabajó una versión local con otra herramienta y pidió validarla con criterio. Se revisó (build reproducible, `check.js` y `check-studio.js` en verde, capturas en escritorio y celular) y se integró completa por avance rápido: es la versión publicada. Donde este documento se contradiga, **valen las tres entradas que siguen** por ser las más recientes.
+
+Costos conocidos de esa versión, aceptados a sabiendas:
+
+- El dock fijo tapa una franja de contenido mientras se lee (más notorio en celular). Es decisión explícita de Rocío; no reabrir.
+- H pesa unos 80 KB sin comprimir, por encima de la guía de 60 KB.
+- Los casos siguen sin imágenes; es el pendiente más importante del sitio.
+
+Ajuste hecho al integrar: en celular los rótulos del croquis se veían a menos de 6 px; ahora usan 11 px.
 
 **Mejoras UX y diseño aplicadas (2026-11-16):** Rocío aprobó implementar la segunda auditoría completa. En H, el hero es más ancho y compacto; la disponibilidad se separa de la bajada. Los tres destacados muestran cifra, contexto y nombre breve. Los casos separan título (hasta 36 px), descripción y resultado; la escala ya no se repite en la tabla. Servicios usa el ancho completo con descripción, entregable y destinatario separados. Los títulos de sección son más visibles y los metadatos suben a 12 px. Las cinco preguntas del método se leen en filas. Otros proyectos queda junto a los casos; experiencia/formación, dentro de Sobre mí. Se conserva la paleta; los resultados pequeños usan el azul de mayor contraste. La biblioteca ajusta sus lomos al ancho disponible sin zoom ni scroll interno y el encabezado móvil conserva LinkedIn y GitHub.
 
