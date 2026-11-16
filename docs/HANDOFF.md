@@ -119,6 +119,8 @@ Pendiente de Rocío tras esta revisión: **imágenes de los casos** (el campo `i
 
 A, B y D comparten el contenido nuevo pero no esta reestructura.
 
+**La panterita vuelve a caminar (2026-11-16, lo más reciente).** Rocío extrañaba que la mascota se moviera al hacer scroll y pidió traerla de vuelta. Esto **reemplaza** la parte de la corrección anterior que decía "la mascota permanece estática". Lo que sigue valiendo: el dock queda fijo abajo, no se esconde ni cambia de lugar; solo se mueve la mascota. Camina sobre el borde superior del dock: a la izquierda arriba de la página, a la derecha al llegar al final (`walk()` en `src/site-H-studio.html`). Con "reducir movimiento" activado en el sistema queda quieta. Con el menú móvil abierto se oculta.
+
 **Integración de la rama `codex/portfolio-ux-refinements` (2026-11-16).** Rocío trabajó una versión local con otra herramienta y pidió validarla con criterio. Se revisó (build reproducible, `check.js` y `check-studio.js` en verde, capturas en escritorio y celular) y se integró completa por avance rápido: es la versión publicada. Donde este documento se contradiga, **valen las tres entradas que siguen** por ser las más recientes.
 
 Costos conocidos de esa versión, aceptados a sabiendas:

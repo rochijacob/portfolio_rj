@@ -40,7 +40,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .dock a{color:var(--bg);text-decoration:none;font-size:.875rem;padding:10px 15px;border-radius:999px;white-space:nowrap;transition:background .2s}
 .dock a:hover{color:var(--bg);background:color-mix(in srgb,var(--bg) 16%,transparent)}
 .dock a[aria-current=location]{background:var(--bg);color:var(--ink)}
-.dock .cat{position:absolute;bottom:100%;left:16px;line-height:0}
+.dock .cat{position:absolute;bottom:100%;left:16px;line-height:0;will-change:transform}
 .dock .lks{display:flex;gap:2px}.dock .mn{display:none}
 .dock i{width:1px;height:20px;background:color-mix(in srgb,var(--bg) 30%,transparent);margin:0 4px}
 .dock button{color:var(--bg);min-width:40px;height:40px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:5px;transition:background .2s}
@@ -315,7 +315,16 @@ function render(t) {
   </section>
   <footer class="k"><span>${t.footer.rights}</span><span>${footerLinks()}</span></footer>
 </main>${dockMarkup(t)}`;
-  spy();
+  spy(); walk();
+}
+/* The little panther walks along the top of the dock as you scroll: left at the top of the page, right at the bottom.
+   The dock itself never moves. With reduced motion the panther stays put. */
+const calm = matchMedia("(prefers-reduced-motion: reduce)");
+function walk() {
+  const c = $("#cat"); if (!c) return;
+  if (calm.matches) { c.style.transform = ""; return; }
+  const max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+  c.style.transform = `translateX(${(p * Math.max(0, c.parentNode.clientWidth - c.offsetWidth - 32)).toFixed(1)}px)`;
 }
 function spy() {
   const readingLine = innerHeight * .35;
@@ -360,9 +369,9 @@ document.addEventListener("click", async e => {
 });
 addEventListener("scroll", () => {
   if (scrollFrame) return;
-  scrollFrame = requestAnimationFrame(() => { scrollFrame = 0; spy(); });
+  scrollFrame = requestAnimationFrame(() => { scrollFrame = 0; spy(); walk(); });
 }, { passive: true });
-addEventListener("resize", () => { spy(); if (innerWidth > 640) closeMenu(); });
+addEventListener("resize", () => { spy(); walk(); if (innerWidth > 640) closeMenu(); });
 setInterval(() => { const c = $("#clock"); if (c) c.textContent = clock(); }, 30000);
 apply();
 $('meta[name="theme-color"]').content = theme === "dark" ? "#00202f" : "#f4f6f7";
