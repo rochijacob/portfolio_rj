@@ -23,14 +23,20 @@ Eso regenera los HTML. Para verificar: `node scripts/check.js`.
 
 El contexto completo del proyecto, las decisiones y los pendientes están en `docs/HANDOFF.md`. Los ítems marcados `// REPLACE` y los `[CORCHETES]` son datos pendientes.
 
-## Deploy en Vercel
+## Publicación (GitHub Pages)
 
-El sitio que se publica es `index.html`, que el build genera a partir de la dirección H (`src/site-H-studio.html`). Las otras tres direcciones (`site-A-notebook`, `site-B-dock`, `site-D-ledger`) y `compare.html` quedan accesibles por URL directa, marcadas `noindex`.
+URL: https://rochijacob.github.io/portfolio_rj/
 
-1. En vercel.com: Add New, Project, importar `rochijacob/portfolio_rj`.
-2. Framework Preset: **Other**. Dejar vacíos Build Command y Output Directory.
-3. Deploy. Cada push a la rama vuelve a publicar.
+Se publica desde la rama **`main`**, carpeta raíz (Settings, Pages, Source: Deploy from a branch). El sitio principal es `index.html`, que el build genera a partir de la dirección H (`src/site-H-studio.html`). Las otras direcciones (`site-A-notebook`, `site-B-dock`, `site-D-ledger`) y `compare.html` quedan accesibles por URL directa y marcadas `noindex`.
 
-No hay paso de build en Vercel: los HTML ya están generados y versionados. Si se edita `src/`, correr `node src/build.mjs` antes de hacer commit.
+No hay paso de build en el servidor: los HTML están generados y versionados. Si se edita `src/`, correr `node src/build.mjs` antes de hacer commit.
+
+`vercel.json` queda por si algún día se prefiere Vercel (preset Other, sin build).
+
+## Ramas
+
+- `main`: lo publicado. No se trabaja directamente sobre ella.
+- `claude/...`: ramas de trabajo de cada sesión de Claude. Se integran a `main` para actualizar la web.
+- No dejar el sitio publicado desde una rama de sesión: cada sesión nueva crea una rama con otro nombre y el sitio dejaría de actualizarse.
 
 Foto: `profile.png` en la raíz.

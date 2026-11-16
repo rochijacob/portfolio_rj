@@ -271,9 +271,23 @@ Los carga Rocío más adelante:
 - `profile.jpg`.
 - Revisar su GitHub público antes de publicar: el footer enlaza al perfil y los repos pueden mostrar nombres de empresas.
 
-## Deploy
+## Deploy y ramas
 
-Vercel, importando el repo con preset "Other", sin build command ni output directory. Los HTML de la raíz ya están generados y versionados. Antes de publicar: quitar `noindex` solo si `index.html` pasa a ser el sitio elegido, y agregar una imagen `og:image` si se quiere vista previa al compartir.
+El sitio está en **GitHub Pages**: https://rochijacob.github.io/portfolio_rj/ (el repo es público; Pages es gratis). Vercel no se usó. El plan era publicar ahí, pero Rocío habilitó Pages y quedó funcionando, y `vercel.json` sigue en el repo por si cambia de idea.
+
+**Ramas (2026-11-16).** Hasta hoy Pages servía una rama de sesión (`claude/bold-feynman-x0n91n`), que además era la rama por defecto del repo. Eso es frágil: cada sesión nueva crea una rama con otro nombre. Se creó `main` con el mismo contenido. El esquema que queda:
+
+- `main` es lo publicado. Se actualiza con avance rápido desde la rama de trabajo cuando Rocío pide "actualicemos la web"; el agente necesita ese permiso explícito para empujar a `main`.
+- La rama de la sesión (`claude/...`) es donde se trabaja.
+- La rama `codex/portfolio-ux-refinements` está totalmente contenida en la de trabajo y se puede borrar.
+
+**Pasos que solo Rocío puede hacer en GitHub** (el agente no tiene acceso a esos ajustes), en este orden:
+
+1. Settings, Pages, Source: rama `main`, carpeta `/ (root)`, Save. Esperar a que figure como publicado.
+2. Settings, Branches, Default branch: cambiar a `main`.
+3. Recién entonces borrar `codex/portfolio-ux-refinements`. La rama `claude/...` conviene borrarla al terminar la sesión, no antes.
+
+Si se borra la rama desde la que Pages publica antes del paso 1, el sitio da 404.
 
 ## Qué no se verificó
 
