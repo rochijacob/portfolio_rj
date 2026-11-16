@@ -157,6 +157,19 @@ const content = {
     contactBody: "Tell me what you are building. I answer every email.",
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "View", close: "Close", open: "Open", repo: "Repository",
+    /* A · Article (lab draft, design skeleton). [COMPLETAR] marks what Rocío still has to write. */
+    article: {
+      back: "Back to the notebook", kicker: "Lab · draft", title: "Python games", dek: "How I learned Python: loops, state and collisions.",
+      why: { h: "Why I made it", p: "[COMPLETAR] One or two sentences: what I wanted to learn, and why games instead of a course." },
+      built: { h: "What I built", items: ["Pong (turtle)", "Flappy Bird (pygame)", "Frogger (turtle)", "A platformer (pygame, with a sprite sheet)", "Space Invaders (pygame)"], p: "[COMPLETAR] Which came first, which was hardest, how long it took." },
+      problem: { h: "The interesting problem: collisions", p: "Every one of these games has to answer the same question many times a second: are these two things touching? The simplest answer treats each sprite as a rectangle.", own: "[COMPLETAR] How I solved it in my games, in my words." },
+      demo: { label: "Drag the light square", hint: "Two rectangles overlap when they overlap on both axes.", hit: "Touching", miss: "Not touching", reset: "Reset" },
+      codeNote: "Illustrative example, not copied from the repository.",
+      learned: { h: "What I learned", p: "How I learned Python: loops, state and collisions." },
+      redo: { h: "What I would do differently today", p: "[COMPLETAR]" },
+      repo: "See the code on GitHub",
+      box: "This article is a design skeleton. The game screenshots are left out on purpose: some sprites come from tutorials, not from me."
+    },
     /* A · Notebook */
     a: {
       hero: "Hi, I'm Rocío. I'm a <a class=\"chip\" href=\"#work\">product engineer</a> in Buenos Aires. I turn manual operations into digital products and automated workflows. I taught myself to code in 2021 from <a class=\"chip\" href=\"#books\">books</a> and the open web. Since then I have built an app that 40K people open every day, led a team of six, and worked in <a class=\"chip\" href=\"#finance\">finance</a>. Now I am teaching Corporate Finance and getting ready for a Master in Finance (April 2027).",
@@ -339,6 +352,18 @@ const content = {
     contactBody: "Contame en qué estás trabajando. Respondo todos los mails.",
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "Ver", close: "Cerrar", open: "Abrir", repo: "Repositorio",
+    article: {
+      back: "Volver al cuaderno", kicker: "Lab · borrador", title: "Juegos en Python", dek: "Así aprendí Python: loops, estado y colisiones.",
+      why: { h: "Por qué lo hice", p: "[COMPLETAR] Una o dos frases: qué quería aprender y por qué con juegos y no con un curso." },
+      built: { h: "Qué construí", items: ["Pong (turtle)", "Flappy Bird (pygame)", "Frogger (turtle)", "Un plataformas (pygame, con hoja de sprites)", "Space Invaders (pygame)"], p: "[COMPLETAR] Cuál fue el primero, cuál el más difícil, cuánto tiempo llevó." },
+      problem: { h: "El problema interesante: colisiones", p: "Todos estos juegos tienen que responder la misma pregunta muchas veces por segundo: ¿estas dos cosas se tocan? La respuesta más simple trata a cada sprite como un rectángulo.", own: "[COMPLETAR] Cómo lo resolví en mis juegos, con mis palabras." },
+      demo: { label: "Arrastrá el cuadrado claro", hint: "Dos rectángulos se tocan cuando se superponen en los dos ejes.", hit: "Se tocan", miss: "No se tocan", reset: "Reiniciar" },
+      codeNote: "Ejemplo ilustrativo, no copiado del repositorio.",
+      learned: { h: "Qué aprendí", p: "Así aprendí Python: loops, estado y colisiones." },
+      redo: { h: "Qué haría distinto hoy", p: "[COMPLETAR]" },
+      repo: "Ver el código en GitHub",
+      box: "Este artículo es un esqueleto de diseño. Las capturas de los juegos quedan afuera a propósito: algunos sprites vienen de tutoriales, no son míos."
+    },
     a: {
       hero: "Hola, soy Rocío, <a class=\"chip\" href=\"#work\">product engineer</a> en Buenos Aires. Transformo procesos manuales en productos digitales y flujos automatizados. Aprendí a programar sola en 2021, con <a class=\"chip\" href=\"#books\">libros</a> y la web. Desde entonces hice una app que 40 mil personas abren todos los días, lideré un equipo de seis y trabajé en <a class=\"chip\" href=\"#finance\">finanzas</a>. Hoy doy clases de Finanzas Corporativas y en abril de 2027 empiezo una Maestría en Finanzas.",
       kicker: "Un cuaderno abierto", cardNow: "Ahora", cardNowBody: "Automatización, BI e IA para una universidad. Dando Finanzas Corporativas. El MFin arranca en abril de 2027.", cardReading: "Leyendo", cardReadingLink: "Libros que leí",

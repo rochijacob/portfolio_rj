@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rocío Jacob · Lab</title>
+<meta name="description" content="">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23003049'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fdf0d5'%3ERJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&family=Geist:wght@400;500&family=Instrument+Serif:ital@0;1&family=Shantell+Sans:wght@400&display=swap" rel="stylesheet">
+<style>
+/* A · Article. Long-form skeleton: big centred serif title, a narrow reading column,
+   dashed note boxes, code, and one small interactive figure. Same type as A. */
+:root{--bg:#f4f6f7;--ink:#003049;--soft:#4a6676;--acc:#3d7aa3;--hand:#3f86b5;--line:rgba(0,48,73,.18);--dot:rgba(0,48,73,.15);--paper:#ffffff;--hit:#e56b9a;
+  --serif:"Instrument Serif",Georgia,serif;--txt:"Geist",system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,monospace;--hand-f:"Shantell Sans",cursive}
+:root[data-theme=dark]{--bg:#00202f;--ink:#f0f4f6;--soft:#a3b9c5;--acc:#8fbcd6;--hand:#8cc3e6;--line:rgba(240,244,246,.18);--dot:rgba(240,244,246,.09);--paper:#002a3d}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg) radial-gradient(circle,var(--dot) 1.1px,transparent 1.3px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.75 var(--txt);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-color:var(--acc);text-underline-offset:4px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:3px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.lbl{font:400 .75rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+header{max-width:1120px;margin:0 auto;padding:22px 28px;display:flex;align-items:center;gap:12px 22px;flex-wrap:wrap}
+header a.back{margin-right:auto;font:italic 400 1.35rem var(--serif);text-decoration:none;padding:8px 0}
+.lang{display:inline-flex;align-items:center;font:400 .75rem var(--mono);color:var(--soft)}
+.lang button,.theme{min-width:40px;min-height:40px;font:400 .75rem var(--mono)}
+.lang button[aria-pressed=true]{color:var(--ink);text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:4px}
+.theme{border:1px solid var(--line);border-radius:50%;font-size:1rem}
+.top{text-align:center;padding:64px 24px 24px}
+h1{font:400 clamp(3.2rem,1.8rem + 6vw,6.6rem)/.95 var(--serif);letter-spacing:-.02em;margin:14px 0 18px}
+.dek{color:var(--soft);font-size:1.15rem;margin:0}
+article{max-width:660px;margin:0 auto;padding:40px 24px 96px}
+h2{font:400 2.2rem/1.1 var(--serif);margin:64px 0 16px}
+p{margin:0 0 1.1em}
+.todo{color:var(--acc);font-family:var(--mono);font-size:.92rem;background:rgba(61,122,163,.08);padding:2px 6px;border-radius:4px}
+.box{border:1px dashed var(--line);border-radius:12px;padding:18px 22px;margin:28px 0;font-size:.98rem;color:var(--soft)}
+ol{padding-left:1.3em}
+pre{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 22px;overflow-x:auto;font:400 .9rem/1.65 var(--mono);margin:24px 0 6px}
+pre .k{color:var(--acc)}pre .c{color:var(--soft)}
+.cap{font:400 .8rem var(--mono);color:var(--soft)}
+figure{margin:32px -40px;border:1px solid var(--line);border-radius:16px;background:var(--paper);padding:18px}
+figure svg{display:block;width:100%;height:auto;touch-action:none;user-select:none}
+figure .row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;margin-top:10px}
+#state{font:500 .85rem var(--mono);letter-spacing:.06em;text-transform:uppercase}
+#state.on{color:var(--hit)}
+.reset{min-height:40px;padding:0 16px;border:1px solid var(--line);border-radius:999px;font:400 .8rem var(--mono)}
+.fix{fill:var(--acc);fill-opacity:.18;stroke:var(--acc);stroke-width:1.5}
+.mov{fill:var(--bg);stroke:var(--ink);stroke-width:1.5;cursor:grab}
+.on .mov{stroke:var(--hit)}.on .fix{stroke:var(--hit)}
+.axis{stroke:var(--soft);stroke-dasharray:3 4;stroke-width:1}
+.hand{font-family:var(--hand-f);color:var(--hand);font-size:1.05rem}
+.end{display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:760px){figure{margin:28px 0}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/*CORE*/
+
+/* ---------- Site A · Article ---------- */
+let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = theme;
+const todo = s => s.replace(/\[COMPLETAR\]/g, '<span class="todo">[COMPLETAR]</span>');
+/* Collision demo state: the moving square, in SVG units (viewBox 600 x 260). */
+const START = { x: 70, y: 70 }, FIX = { x: 330, y: 80, w: 150, h: 110 }, SIZE = 100;
+let pos = { ...START };
+const overlap = (a, b) => a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
+
+function render(t) {
+  const A = t.article;
+  $("#app").innerHTML = `
+<header><a class="back" href="site-A-notebook.html">← ${A.back}</a>${langToggle()}<button class="theme" type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}">${theme === "dark" ? "☀" : "☾"}</button></header>
+<div class="top"><div class="lbl">${A.kicker}</div><h1>${A.title}</h1><p class="dek">${A.dek}</p></div>
+<article>
+  <div class="box">${A.box}</div>
+  <h2>${A.why.h}</h2><p>${todo(A.why.p)}</p>
+  <h2>${A.built.h}</h2><ol>${A.built.items.map(i => `<li>${i}</li>`).join("")}</ol><p>${todo(A.built.p)}</p>
+  <h2>${A.problem.h}</h2><p>${A.problem.p}</p>
+  <figure id="demo">
+    <svg viewBox="0 0 600 260" role="img" aria-label="${esc(A.demo.label)}">
+      <path class="axis" d="M0 ${FIX.y}H600M0 ${FIX.y + FIX.h}H600M${FIX.x} 0V260M${FIX.x + FIX.w} 0V260"/>
+      <rect class="fix" x="${FIX.x}" y="${FIX.y}" width="${FIX.w}" height="${FIX.h}" rx="4"/>
+      <rect class="mov" id="mov" width="${SIZE}" height="${SIZE}" rx="4"/>
+    </svg>
+    <div class="row"><span class="hand">${A.demo.label} ↑</span><span id="state" aria-live="polite"></span><button type="button" class="reset" data-reset>${A.demo.reset}</button></div>
+    <p class="cap" style="margin:8px 0 0">${A.demo.hint}</p>
+  </figure>
+  <pre><code><span class="k">def</span> touching(a, b):
+    <span class="c"># a, b: rectangles with x, y, w, h</span>
+    <span class="k">return</span> (a.x &lt; b.x + b.w <span class="k">and</span> a.x + a.w &gt; b.x <span class="k">and</span>
+            a.y &lt; b.y + b.h <span class="k">and</span> a.y + a.h &gt; b.y)</code></pre>
+  <p class="cap">${A.codeNote}</p>
+  <p>${todo(A.problem.own)}</p>
+  <h2>${A.learned.h}</h2><p>${A.learned.p}</p>
+  <h2>${A.redo.h}</h2><p>${todo(A.redo.p)}</p>
+  <p style="margin-top:48px"><a class="end" href="${L.games}" ${ext}>${A.repo} ↗</a></p>
+</article>`;
+  draw();
+}
+function draw() {
+  const m = $("#mov"); if (!m) return;
+  m.setAttribute("x", pos.x); m.setAttribute("y", pos.y);
+  const hit = overlap({ ...pos, w: SIZE, h: SIZE }, FIX);
+  $("#demo").classList.toggle("on", hit);
+  $("#state").textContent = hit ? T().article.demo.hit : T().article.demo.miss;
+  $("#state").classList.toggle("on", hit);
+}
+/* Pointer drag in SVG units. touch-action:none on the svg keeps the page from scrolling. */
+let drag = null;
+document.addEventListener("pointerdown", e => {
+  if (!e.target.closest("#mov")) return;
+  const svg = e.target.ownerSVGElement, r = svg.getBoundingClientRect(), k = 600 / r.width;
+  drag = { svg, k, dx: (e.clientX - r.left) * k - pos.x, dy: (e.clientY - r.top) * k - pos.y };
+  e.target.setPointerCapture(e.pointerId); e.preventDefault();
+});
+document.addEventListener("pointermove", e => {
+  if (!drag) return;
+  const r = drag.svg.getBoundingClientRect();
+  pos.x = Math.max(0, Math.min(600 - SIZE, (e.clientX - r.left) * drag.k - drag.dx));
+  pos.y = Math.max(0, Math.min(260 - SIZE, (e.clientY - r.top) * drag.k - drag.dy));
+  draw();
+});
+document.addEventListener("pointerup", () => { drag = null; });
+document.addEventListener("click", e => {
+  if (e.target.closest("[data-reset]")) { pos = { ...START }; draw(); }
+  if (e.target.closest("[data-theme-btn]")) {
+    theme = theme === "dark" ? "light" : "dark"; store.set("rj-theme", theme);
+    document.documentElement.dataset.theme = theme; apply(); $("[data-theme-btn]").focus();
+  }
+});
+apply();
+</script>
+</body>
+</html>
