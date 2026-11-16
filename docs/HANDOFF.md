@@ -13,22 +13,28 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 
 ## Estado
 
-Rocío eligió quedarse con cuatro direcciones (2026-11-14): **A, B, D y H**. Las que más le gustan son **A y H**. C, E, F y G se eliminaron del repo (siguen en el historial de git).
+**Laboratorio tipográfico (2026-11-16, lo más reciente).** A Rocío H le parece prolija pero "le falta creatividad" y sospecha de la tipografía: H usa Geist en todo, como muchos portfolios de desarrolladores. Pidió retomar A, B y D como **laboratorio para ir combinando** (no candidatas a reemplazar H) y sumar opciones con referencias nuevas: falakgala.dev, lokiii.me, 10xshivam.dev (wording), d0xxed.com (bichitos de fondo) y nan.fyi/database (esqueleto de artículo). Diseño en `docs/superpowers/specs/2026-11-16-laboratorio-tipografico-design.md`; plan en `docs/superpowers/plans/`.
 
-| Archivo | Dirección | Qué le gusta a Rocío |
-|---|---|---|
-| `site-H-studio.html` | Sobria: papel punteado, líneas finas, tipografía, dock flotante | La principal. Es donde se van combinando las ideas de las otras |
-| `site-A-notebook.html` | Editorial, columna de lectura, tarjeta lateral, modo claro/oscuro | El estilo en general y el estante de libros con el gato |
-| `site-B-dock.html` | Azul marino, dock flotante, juego en canvas | El fondo de puntitos, "como los cuadernos donde dibujás" |
-| `site-D-ledger.html` | Perfil de inversión: ticker `ROCI`, gráfico, tenencias | Cómo espacia y muestra la información: el track record, la tesis y los tags de pares |
+**La web publicada (H, `index.html`, rama `main`) no se toca:** Rocío dijo "la web posta dejémosla así". Ve las variantes por capturas y decide qué pasa a H. No empujar a `main` sin que lo pida.
 
-`index.html` es la dirección H, lista para publicar; `compare.html` compara las cuatro. No está desplegado todavía. La rama de trabajo es `claude/bold-feynman-x0n91n`; no hay PR abierto.
+| Archivo | Dirección | Tipografía | Qué prueba |
+|---|---|---|---|
+| `index.html` / `site-H-studio.html` | H · Studio, la publicada | Geist + Geist Mono | Ver "Reglas de H" abajo |
+| `site-A-notebook.html` | A · Cuaderno | Instrument Serif + Geist + Shantell Sans | Titular serif grande con itálica en celeste; notas manuscritas al margen con flechas y un círculo a mano; croquis en el hero; estante con la panterita |
+| `site-A-article.html` | A · Artículo | Igual que A | Esqueleto de blog estilo nan.fyi: título centrado, columna angosta, recuadro de nota, código y una demo de colisiones que se arrastra (mouse y dedo). Contenido del borrador de juegos en Python con `[COMPLETAR]` visibles; sin capturas de los juegos (sprites ajenos). A lo enlaza desde su Lab |
+| `site-B-dock.html` | B · Terminal (`rocio(1)`) | IBM Plex Mono + Mrs Saint Delafield (firma) | Página de manual: NOMBRE, SINOPSIS, OPCIONES (servicios como flags), EJEMPLOS (casos como comandos), ARCHIVOS (libros), HISTORIA, VER TAMBIÉN. Cotorra, paloma y hornero en su nido dibujados con caracteres flotando detrás del texto (capa fija sin clics; quietos con reducir movimiento). Conserva el juego en canvas y el arranque en oscuro |
+| `site-D-ledger.html` | D · Ledger | Barlow Condensed + Barlow + IBM Plex Mono | Hero solo tipográfico enorme; cinta de cifras; historia `[01]`–`[04]` con tags de pares; tesis; track record que se abre; el croquis baja al pie como panorama de cierre (la respuesta a "¿qué hacemos en el hero si la ilustración va al footer?"). Se quitaron el gráfico y las tenencias |
+| `site-I-talk.html` | I · Charla (nueva) | Instrument Serif + Hanken Grotesk | Wording conversacional estilo 10xshivam: links como chips de borde punteado dentro de las frases, títulos de sección con voz. Textos en `content.*.talk` |
+
+`compare.html` es la portada del laboratorio. Los textos nuevos de I (`content.*.talk`), las notas a mano de A (`content.*.a.notes`) y los rótulos del manual de B (`content.*.b.man`) los redactó el agente con hechos que ya estaban en el sitio: **falta el visto bueno de Rocío**.
+
+El croquis (`city()`) se movió de la plantilla de H a `core.js` para que lo usen A y D. `scripts/check-same.js` verifica que H renderice idéntica (guardar referencia con `--save` antes de tocar algo compartido). `scripts/check-lab.js` prueba el tema al cambiar idioma, la demo del artículo (mouse y táctil sin scroll) y que los bichitos de B no tapen controles.
 
 ### Criterio de diseño (vale para todo lo que siga)
 
 Rocío dijo que las primeras versiones se veían "hechas por una IA sin criterio de diseño". Quiere algo **sobrio, creativo, fresco y limpio**. Le gustan los fondos tipo hoja de dibujo o cuadriculada.
 
-Reglas de H, la referencia:
+Reglas de H, la publicada (el laboratorio puede romperlas a propósito):
 
 - Un solo acento de color (celeste) sobre crema y azul. El rosa aparece solo en el gato y en una caja de libro.
 - Líneas finas en vez de cajas. Sin tarjetas, sombras ni bordes gruesos.
@@ -186,9 +192,14 @@ HTML + CSS + JS plano, sin frameworks. Cada sitio publicado es un solo archivo a
 src/core.js              contenido (objeto `content`, EN y ES) + helpers compartidos
 src/site-*.html          plantilla de cada dirección (CSS + función render) con el marcador /*CORE*/
 src/build.mjs            inserta core.js en cada plantilla y escribe los site-*.html de la raíz
-scripts/check.js         verificación automática con Playwright
+scripts/check.js         verificación automática con Playwright (todas las páginas)
+scripts/check-lab.js     comportamiento del laboratorio (tema, demo del artículo, bichitos de B)
+scripts/check-same.js    H idéntica antes y después de tocar algo compartido
+site-A-article.html      artículo de A (generado)
+site-I-talk.html         dirección I (generado)
 site-*.html (raíz)       SALIDA GENERADA. No editar a mano.
-index.html               página comparadora (a mano, no generada)
+index.html               H, la publicada (generada desde site-H-studio)
+compare.html             portada del laboratorio (a mano)
 vercel.json              cleanUrls
 ```
 
@@ -275,7 +286,7 @@ Sin respuesta todavía:
 
 - Si los "porqué" del Lab la representan (vinieron de un borrador, como propuesta).
 - Si la línea de equity research ("Sostengo un proceso estructurado de equity research...") puede ser pública.
-- Qué dirección elige, o qué mezcla.
+- Qué ideas del laboratorio (A, artículo, B, D, I) quiere llevar a H, y si aprueba los textos nuevos de I, las notas de A y los rótulos de B.
 
 Los carga Rocío más adelante:
 

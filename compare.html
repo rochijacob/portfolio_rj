@@ -3,31 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rocío Jacob · Portfolio: 4 direcciones</title>
+<title>Laboratorio de portfolio</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23003049'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fdf0d5'%3ERJ%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Geist:wght@400;500&family=Hanken+Grotesk:wght@500&family=IBM+Plex+Mono:wght@500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font:400 1rem/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;background:#f4f6f7;color:#003049}
-main{max-width:960px;margin:0 auto;padding:48px 20px}
-h1{font-size:clamp(1.8rem,5vw,2.8rem);letter-spacing:-.03em;margin:0 0 8px;text-wrap:balance}
-p{margin:0 0 28px;color:#48606e;max-width:60ch}
-ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:16px}
-a{display:block;padding:24px;border-radius:16px;text-decoration:none;color:inherit;border:2px solid #003049;transition:transform .15s}
-a:hover{transform:translateY(-3px)}a:focus-visible{outline:3px solid #2a55d4;outline-offset:3px}
-b{display:block;font-size:1.4rem;letter-spacing:-.02em}small{font-size:.95rem}
-.a{background:#ffffff;font-family:Georgia,serif}.b{background:#001824;color:#fdf0d5;font-family:ui-monospace,Menlo,monospace}
-.c{background:#669bbc;font-weight:700}.d{background:#ffffff;border-style:dashed}.h{background:#f4f6f7;border-width:1px}
+:root{--bg:#f4f6f7;--ink:#003049;--soft:#4a6676;--line:rgba(0,48,73,.16);--dot:rgba(0,48,73,.15)}
+@media(prefers-color-scheme:dark){:root{--bg:#00202f;--ink:#f0f4f6;--soft:#a3b9c5;--line:rgba(240,244,246,.17);--dot:rgba(240,244,246,.09)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg) radial-gradient(circle,var(--dot) 1.1px,transparent 1.3px) 0 0/22px 22px;color:var(--ink);font:400 1rem/1.6 "Geist",system-ui,sans-serif}
+main{max-width:960px;margin:0 auto;padding:56px 20px 80px}
+h1{font:400 clamp(2.6rem,6vw,4rem)/1 "Instrument Serif",Georgia,serif;margin:0 0 10px}
+.lead{color:var(--soft);max-width:60ch;margin:0 0 40px}
+ul{list-style:none;margin:0;padding:0}
+li a{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:8px 32px;align-items:baseline;padding:26px 0;border-top:1px solid var(--line);text-decoration:none;color:inherit}
+li a:hover .s{text-decoration:underline;text-underline-offset:6px}
+.s{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.05}
+.d{color:var(--soft)}.d b{display:block;color:var(--ink);font-weight:500;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+.h .s{font:500 1em "Geist",sans-serif;letter-spacing:-.02em}
+.a .s{font-family:"Instrument Serif",serif}.a .s em{font-style:italic}
+.b .s{font:500 .8em "IBM Plex Mono",monospace}
+.d2 .s{font:700 1em "Barlow Condensed",sans-serif;text-transform:uppercase}
+.i .s{font-family:"Instrument Serif",serif;font-style:italic}
+@media(max-width:640px){li a{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <main>
-<h1>Rocío Jacob · direcciones de portfolio</h1>
-<p>Mismo contenido, cuatro diseños. Elegí una y la dejamos como página principal. Cada sitio es bilingüe (EN | ES).</p>
+<h1>Laboratorio</h1>
+<p class="lead">H es la web publicada. Las otras son experimentos: cada una lleva una idea al extremo, con su propia pareja tipográfica, para elegir qué combinar en H. Todas son bilingües y tienen modo oscuro.</p>
 <ul>
-<li style="grid-column:1/-1"><a class="h" href="index.html"><b>H · The Studio</b><small>Sobria, papel punteado, tesis y track record, libros en cajas. La principal.</small></a></li>
-<li><a class="a" href="site-A-notebook.html"><b>A · The Notebook</b><small>Editorial, texto primero, estante con gato.</small></a></li>
-<li><a class="b" href="site-B-dock.html"><b>B · The Dock</b><small>Azul marino, dock flotante, juego jugable.</small></a></li>
-<li><a class="d" href="site-D-ledger.html"><b>D · The Ledger</b><small>Perfil de inversión: ticker ROCI, gráfico, tenencias.</small></a></li>
+<li class="h"><a href="index.html"><span class="s">H · Studio</span><span class="d"><b>La publicada · Geist</b>Sobria, croquis en el hero, dock abajo.</span></a></li>
+<li class="a"><a href="site-A-notebook.html"><span class="s">A · <em>Cuaderno</em></span><span class="d"><b>Instrument Serif + notas a mano</b>Títulos en serif grande y notas manuscritas al margen, como en una hoja de dibujo.</span></a></li>
+<li class="a"><a href="site-A-article.html"><span class="s">A · <em>Artículo</em></span><span class="d"><b>Esqueleto de blog</b>Título centrado, columna de lectura y una demo interactiva de colisiones.</span></a></li>
+<li class="b"><a href="site-B-dock.html"><span class="s">B · rocio(1)</span><span class="d"><b>Todo en IBM Plex Mono</b>Un manual de terminal, con cotorra, paloma y hornero hechos con caracteres de fondo.</span></a></li>
+<li class="d2"><a href="site-D-ledger.html"><span class="s">D · Ledger</span><span class="d"><b>Barlow Condensed</b>Hero solo de tipografía; el croquis cierra la página como panorama en el pie.</span></a></li>
+<li class="i"><a href="site-I-talk.html"><span class="s">I · Charla</span><span class="d"><b>Instrument Serif + Hanken Grotesk</b>Textos conversacionales, con los links metidos en las frases.</span></a></li>
 </ul>
 </main>
 </body>
