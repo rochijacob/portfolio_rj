@@ -24,63 +24,75 @@
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg) radial-gradient(var(--dot) 1px,transparent 1.4px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.7 var(--txt);font-feature-settings:"tnum";-webkit-font-smoothing:antialiased;padding-bottom:120px;transition:background-color .3s}
-::selection{background:var(--acc);color:var(--bg)}
+::selection{background:var(--ink);color:var(--bg)}
 a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em;text-decoration-color:var(--hair);transition:text-decoration-color .2s,color .2s}
 a:hover{text-decoration-color:currentColor;color:var(--blue)}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 :focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:2px}
 .skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:99}
 .w{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
-.k{font:400 .6875rem/1.6 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--soft)}
+.k{font:400 .75rem/1.6 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft)}
 .s{font-size:.875rem;color:var(--soft)}
-.hd{display:flex;flex-wrap:wrap;align-items:center;gap:4px 26px;min-height:76px}
-.hd .me{font-weight:600;text-decoration:none;margin-right:auto;padding:10px 0;letter-spacing:-.01em}
+.hd{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 20px;min-height:76px}
+.hd .me{font-weight:600;text-decoration:none;padding:10px 0;letter-spacing:-.01em}
 .hd .k a{text-decoration:none;padding:12px 0;margin-left:18px}
-.dock.hide{transform:translateX(-50%) translateY(190%)}
-.dock{transition:transform .28s ease;position:fixed;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:2px;padding:5px;background:var(--ink);border-radius:999px;max-width:calc(100vw - 16px);box-shadow:0 10px 30px -12px rgba(0,48,73,.55)}
+.dock{position:fixed;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:2px;padding:5px;background:var(--ink);border-radius:999px;max-width:calc(100vw - 16px);box-shadow:0 10px 30px -12px rgba(0,48,73,.55)}
 .dock a{color:var(--bg);text-decoration:none;font-size:.875rem;padding:10px 15px;border-radius:999px;white-space:nowrap;transition:background .2s}
 .dock a:hover{color:var(--bg);background:color-mix(in srgb,var(--bg) 16%,transparent)}
-.dock a[aria-current=true]{background:var(--bg);color:var(--ink)}
-.dock .cat{position:absolute;bottom:100%;left:16px;line-height:0;will-change:transform}
+.dock a[aria-current=location]{background:var(--bg);color:var(--ink)}
+.dock .cat{position:absolute;bottom:100%;left:16px;line-height:0}
 .dock .lks{display:flex;gap:2px}.dock .mn{display:none}
 .dock i{width:1px;height:20px;background:color-mix(in srgb,var(--bg) 30%,transparent);margin:0 4px}
 .dock button{color:var(--bg);min-width:40px;height:40px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:5px;transition:background .2s}
 .dock button:hover{background:color-mix(in srgb,var(--bg) 16%,transparent)}
 .dock button:focus-visible,.dock a:focus-visible{outline-color:var(--acc)}
 .dock button svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.dock .lg{padding:0 10px;font:400 .6875rem var(--mono);letter-spacing:.06em}
+.dock .lg{padding:0 10px;font:400 .75rem var(--mono);letter-spacing:.06em}
 .dock .lg b{font-weight:400;opacity:.5}.dock .lg b.on{opacity:1;font-weight:500;text-decoration:underline;text-underline-offset:4px}
-.hero{padding:clamp(36px,6vw,84px) 0 0}
-h1{font:500 clamp(2rem,4.5vw,3.8rem)/1.05 var(--txt);letter-spacing:-.04em;margin:0;max-width:20ch;text-wrap:balance}
+.hero{padding:clamp(28px,3.5vw,48px) 0 0}
+h1{font:500 clamp(2rem,4.5vw,3.8rem)/1.08 var(--txt);letter-spacing:-.04em;margin:0;max-width:26ch;text-wrap:balance}
 h1 span{color:var(--acc)}
-.today{margin:clamp(18px,2.4vw,28px) 0 0;max-width:58ch;font-size:1.125rem;color:var(--soft)}
-.cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:clamp(26px,4vw,40px)}
+.today{margin:24px 0 0;max-width:64ch;font-size:1.125rem;color:var(--soft)}
+.availability{margin:12px 0 0;font-size:.875rem;color:var(--soft)}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:28px}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);padding:14px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:.9375rem;border:1px solid var(--ink);transition:background .2s,color .2s}
 .btn:hover{background:var(--blue);border-color:var(--blue);color:var(--bg)}
 .btn.o{background:transparent;color:var(--ink)}.btn.o:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .cta .k{margin-left:auto}
-.cityw{margin-top:clamp(28px,4vw,52px);overflow:hidden}
+.cityw{margin-top:28px;overflow:hidden}
 .city{display:block;width:100%;height:auto}
-.city{fill:none;stroke:var(--ink);stroke-width:1.1;stroke-linecap:square;shape-rendering:geometricPrecision}
-.city .g{stroke-width:2.2}.city .l{stroke-width:.6}.city .a{stroke:var(--acc);stroke-width:.8}.city .d{stroke-dasharray:14 4 2 4;stroke-width:.6}
-.city text{font:400 8.5px var(--mono);letter-spacing:.09em;fill:var(--soft);stroke:none}
-.hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-.hi a{display:block;padding:30px 22px 0 0;text-decoration:none}
-.hi .n{display:block;font:500 clamp(1.25rem,2vw,1.6rem)/1.15 var(--txt);letter-spacing:-.03em;margin-bottom:10px}
+.city{fill:none;stroke:var(--ink);stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round;shape-rendering:geometricPrecision}
+.city .outline{stroke-width:1.55}.city .detail{stroke-width:.65}.city .context{stroke:var(--soft);stroke-width:.75;opacity:.65}
+.city .guide{stroke:var(--acc);stroke-width:.65;opacity:.85}.city .axis{stroke-dasharray:8 5 1 5;stroke-width:.5;opacity:.5}
+.city .wash{fill:var(--acc);fill-opacity:.07;stroke:none}
+.city text{font:400 8px var(--mono);letter-spacing:.12em;fill:var(--soft);stroke:none}
+.hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:28px}
+.hi a{display:block;text-decoration:none}
+.hi .n{display:block;font:500 clamp(1.7rem,2.5vw,2rem)/1.15 var(--txt);letter-spacing:-.03em;margin-bottom:6px}
+.hi .metric-label{display:block;font-size:.875rem;color:var(--soft);margin-bottom:14px}
 .hi b{display:block;font-weight:500}.hi a:hover b{color:var(--blue)}
 .hi .s{display:block;margin:2px 0 0}
-.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(60px,8vw,112px) 0 0;scroll-margin-top:10px}
-.feat h2{grid-column:1/7;font:500 clamp(1.8rem,3.5vw,3rem)/1.06 var(--txt);letter-spacing:-.04em;margin:10px 0 28px;text-wrap:balance}
-.feat h2 span{color:var(--acc)}
+.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(64px,7vw,96px) 0 0;scroll-margin-top:24px}
+.feat h2{font:500 clamp(1.65rem,2.7vw,2.25rem)/1.14 var(--txt);letter-spacing:-.035em;margin:14px 0 16px;text-wrap:balance}
+.feat .case-summary{font-size:1.125rem;color:var(--soft);line-height:1.55;margin-bottom:20px;max-width:36ch}
+.feat .case-result{font-size:1.125rem;font-weight:500;color:var(--blue);line-height:1.5;margin-bottom:0}
 .feat>div:first-child{grid-column:1/6}.feat>div:last-child{grid-column:7/13}
 .feat p{font-size:1.125rem;line-height:1.6;max-width:50ch}
 dl.f{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);border-top:1px solid var(--hair)}
 dl.f dt,dl.f dd{margin:0;padding:16px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
-dl.f dt{font:400 .6875rem/2.2 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--soft)}
-.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(60px,8vw,112px) 0 0;scroll-margin-top:10px}
-.sec>h2{grid-column:1/4;font:400 .6875rem/1.8 var(--mono);letter-spacing:.09em;text-transform:uppercase;margin:0 0 28px;color:var(--ink);position:sticky;top:28px;align-self:start}
+dl.f dt{font:400 .75rem/2 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft)}
+.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(64px,7vw,96px) 0 0;scroll-margin-top:24px}
+.sec>h2{grid-column:1/4;font:500 1.125rem/1.4 var(--txt);letter-spacing:-.02em;margin:0 0 28px;color:var(--ink);position:sticky;top:28px;align-self:start}
 .sec>h2 span{display:block;color:var(--soft)}
 .sec>div{grid-column:4/13;min-width:0}
+#offers{display:block}
+#offers>h2{position:static;font-size:1.75rem;margin-bottom:36px}
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-bottom:40px}
+.service h3{margin:12px 0 18px}
+.service p{font-size:1rem;line-height:1.65;margin-bottom:24px}
+.service dl{margin:0;font-size:.9375rem;line-height:1.65}
+.service dt{font-weight:600;margin:20px 0 4px}
+.service dd{margin:0;color:var(--soft)}
 h3{font:500 1.3125rem/1.2 var(--txt);letter-spacing:-.025em;margin:0}
 p{margin:0 0 1.1em;max-width:56ch;text-wrap:pretty}
 .lead{font:400 clamp(1.3rem,2.2vw,1.7rem)/1.32 var(--txt);letter-spacing:-.025em;max-width:30ch;margin-bottom:1.2em}
@@ -105,11 +117,14 @@ summary .x{font-size:1.25rem;line-height:1;transition:transform .25s;justify-sel
 details[open] .x{transform:rotate(45deg)}
 .b{padding:0 0 30px;max-width:56ch}
 .fold summary{grid-template-columns:minmax(0,1fr) 20px}.fold:first-of-type{border-top:1px solid var(--hair)}
+.related{margin-top:40px}
+.related h3{font-size:1.125rem}
+.related .b h4{font-size:1.125rem;font-weight:500;margin:24px 0 8px}
 .shot{display:block;width:100%;height:auto;border:1px solid var(--hair);border-radius:8px;margin-top:6px}
-h3.sub{margin:52px 0 0;font:400 .6875rem/1.8 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--soft)}
-.steps{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--ink)}
-.steps li{padding:16px 16px 0 0;display:flex;flex-direction:column;gap:6px}
-.steps b{font-weight:500;line-height:1.3}
+h3.sub{margin:40px 0 0;font:500 1rem/1.5 var(--txt);letter-spacing:0;color:var(--ink)}
+.steps{list-style:none;margin:16px 0 0;padding:0}
+.steps li{padding:16px 0;display:grid;grid-template-columns:28px minmax(0,1.2fr) minmax(0,1fr);gap:8px 20px;align-items:baseline;border-top:1px solid var(--hair)}
+.steps b{font-weight:500;line-height:1.4}
 .btn{cursor:pointer;font-family:inherit}
 .more{border:0;margin-top:8px}
 .more summary{display:flex;align-items:center;gap:12px;padding:18px 0 6px;font-weight:500;font-size:.9375rem}
@@ -120,6 +135,9 @@ h3.sub{margin:52px 0 0;font:400 .6875rem/1.8 var(--mono);letter-spacing:.09em;te
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .off{color:var(--soft)}
 .spcap{font-size:.875rem;color:var(--soft)}
+#books .spines{max-width:500px;gap:5px;overflow:visible;padding:26px 8px 8px;zoom:1}
+#books .spn{flex-shrink:1;min-width:24px}
+.copy-status{min-height:1.5em;max-width:56ch;font-size:.875rem;color:var(--soft);margin:0 0 12px}
 .end{padding:clamp(72px,10vw,136px) 0 clamp(56px,7vw,96px)}
 .end .big{font:500 clamp(1.6rem,3.4vw,2.7rem)/1.12 var(--txt);letter-spacing:-.035em;margin:0 0 .8em;max-width:24ch;text-wrap:balance}
 .end .big span{color:var(--acc)}
@@ -128,8 +146,9 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;pa
 footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-child{margin-left:0}
 @media(max-width:860px){
   .sec,.feat{display:block}.sec>h2{position:static}
-  .hi{grid-template-columns:1fr}.hi a{padding-top:22px}
-  .steps{grid-template-columns:1fr;border-top:0}.steps li{padding:14px 0;border-top:1px solid var(--hair)}
+  .hi{gap:24px}
+  .services{grid-template-columns:1fr;gap:36px}
+  .service{max-width:60ch}
   .c3{grid-template-columns:1fr}.c4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .th{display:none}details:first-of-type{border-top:1px solid var(--ink)}
   summary{grid-template-columns:minmax(0,1fr) 20px}summary>*{grid-column:1}
@@ -140,14 +159,19 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
 @media(max-width:640px){
   body{font-size:1rem;padding-bottom:104px}
   .hd{min-height:60px;gap:0 14px}.hd .k a{margin-left:14px}
-  .hero{padding-top:44px}
+  .hero{padding-top:28px}
   .today{font-size:1.0625rem}
   .cta .btn{flex:1 1 auto;justify-content:center}
   .city{width:860px;max-width:none;margin-left:calc(50% - 430px)}
   .sec,.feat{padding-top:56px}
-  .feat h2{margin-bottom:20px}.feat p{font-size:1.0625rem}
+  .feat h2{margin-bottom:16px}.feat>div+div{margin-top:28px}.feat p{font-size:1.0625rem}
+  .hi{grid-template-columns:1fr;gap:24px}
+  .hi a{display:grid;grid-template-columns:90px minmax(0,1fr);column-gap:14px;align-items:baseline}
+  .hi .n{grid-row:1/3}.hi .metric-label{margin:0 0 4px}.hi b{grid-column:2}
+  .steps li{grid-template-columns:24px minmax(0,1fr);gap:4px 12px}.steps li>.k{grid-row:1/3}.steps li>.s{grid-column:2}
   .cols{gap:36px 24px}
-  .spines{zoom:.74;justify-content:flex-start}
+  #books .spines{gap:2px}
+  #books .spn{height:calc(var(--book-height) * .8)!important;font-size:calc(var(--book-font) * .8)!important;padding:10px 0}
   .tags li{padding:7px 11px}
   .end{padding:88px 0 64px}
   footer{flex-direction:column;gap:2px}footer a{margin:0 18px 0 0}
@@ -161,7 +185,7 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   .dock .lks a{padding:13px 16px;font-size:1rem;border-radius:14px}
   .dock.open .cat{visibility:hidden}
 }
-@media(max-width:480px){.c4{grid-template-columns:1fr}.hd .lk a:first-child{display:none}dl.f{grid-template-columns:1fr}dl.f dt{border:0;padding-bottom:0}dl.f dd{padding-top:2px}}
+@media(max-width:480px){.c4{grid-template-columns:1fr}dl.f{grid-template-columns:1fr}dl.f dt{border:0;padding-bottom:0}dl.f dd{padding-top:2px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1}}
 </style>
 </head>
@@ -289,13 +313,20 @@ const content = {
     labIntro: "Things I build out of curiosity.",
     off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The little pink pixel panther is a nod to my favourite cartoon." },
     today: "I combine product engineering, operations and business thinking to build tools that save time and support better decisions. Available for selected freelance projects.",
+    heroIntro: "I combine product engineering, operations and business thinking to build tools that save time and support better decisions.",
+    availability: "Available for selected freelance projects.",
+    featured: {
+      "WK.01": { title: "Gym chain app", summary: "Performance and UX for an app used every day.", number: "500K+", label: "downloads · 40K daily users" },
+      "WK.02": { title: "Event platform", summary: "Ticket sales and access control across three continents.", number: "15K+", label: "users · 5+ clients" },
+      "WK.04": { title: "Final-project tracking", summary: "From manual coordination to an automated workflow.", number: "100+", label: "projects per cycle" }
+    },
     profile: [
       "I am self-taught. Everything I know about technology I learned on my own, because I enjoy it: I started in 2021 with books and the open web, and I have not stopped.",
       "I build the product and understand the business behind it. I studied Business & Digital Business, worked in consulting, and I teach Corporate Finance at a university.",
       "I care as much about how a product feels as how it works. Design does not come at the end."
     ],
     approach: "How I approach a project", moreTitle: "More about me", expFold: "Experience and education",
-    copy: "Copy email", copied: "Copied", orLinkedin: "or message me on LinkedIn",
+    copy: "Copy email", copied: "Copied", copySuccess: "Email copied to clipboard.", copyError: "Could not copy. Select the email address below to copy it manually.", orLinkedin: "or message me on LinkedIn",
     think: { title: "How I think", intro: "The questions I ask on every project, in this order.", loop: "and back to the start",
       phases: { u: "Understand", b: "Build", l: "Learn" },
       steps: [
@@ -310,7 +341,8 @@ const content = {
     readCase: "Read the full case", seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
     fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
     gotMind: "Have a manual process, a stalled automation or a product that needs to move forward?", reach: "Or write to me at",
-    illo: "Line drawing of the Buenos Aires skyline with the Obelisk",
+    illo: "Architectural drawing of Buenos Aires: Kavanagh, Congress, the Obelisk, and Puente de la Mujer",
+    cityHeight: "67.5 m",
     booksIntro: "I learn by reading books and then building something with what I read.",
     booksNote: "Hover or tap a spine.",
     writingIntro: "Notes on product, finance and what I am learning.",
@@ -460,13 +492,20 @@ const content = {
     labIntro: "Cosas que armo por curiosidad.",
     off: { t: "Fuera del trabajo", p: "Soy DJ y toco música electrónica. Me encantan el arte y la fotografía. La panterita rosa en píxeles es un guiño a mi dibujo animado favorito." },
     today: "Combino ingeniería de producto, operaciones y negocio para construir herramientas que ahorran tiempo y mejoran decisiones. Disponible para proyectos freelance seleccionados.",
+    heroIntro: "Combino ingeniería de producto, operaciones y negocio para construir herramientas que ahorran tiempo y mejoran decisiones.",
+    availability: "Disponible para proyectos freelance seleccionados.",
+    featured: {
+      "WK.01": { title: "App de gimnasios", summary: "Rendimiento y experiencia de uso para una app de todos los días.", number: "500K+", label: "descargas · 40K usuarios diarios" },
+      "WK.02": { title: "Plataforma de eventos", summary: "Venta y control de entradas en tres continentes.", number: "15K+", label: "usuarios · 5+ clientes" },
+      "WK.04": { title: "Seguimiento de trabajos finales", summary: "De la coordinación manual a un flujo automatizado.", number: "100+", label: "trabajos por entrega" }
+    },
     profile: [
       "Soy autodidacta. Todo lo que sé de tecnología lo aprendí por mi cuenta, porque me gusta: empecé en 2021 con libros y la web, y no paré.",
       "Construyo el producto y entiendo el negocio que hay detrás. Estudié Administración y Negocios Digitales, trabajé en consultoría y doy clases de Finanzas Corporativas en una universidad.",
       "Cuido cómo funciona un producto y cómo se siente al usarlo. El diseño no llega al final."
     ],
     approach: "Cómo encaro un proyecto", moreTitle: "Más sobre mí", expFold: "Experiencia y formación",
-    copy: "Copiar mail", copied: "Copiado", orLinkedin: "o escribime por LinkedIn",
+    copy: "Copiar mail", copied: "Copiado", copySuccess: "Mail copiado al portapapeles.", copyError: "No se pudo copiar. Seleccioná el mail de abajo para copiarlo manualmente.", orLinkedin: "o escribime por LinkedIn",
     think: { title: "Cómo pienso", intro: "Las preguntas que me hago en cada proyecto, en este orden.", loop: "y vuelta al inicio",
       phases: { u: "Entender", b: "Construir", l: "Aprender" },
       steps: [
@@ -481,7 +520,8 @@ const content = {
     readCase: "Leer el caso completo", seeWork: "Ver proyectos", remoteNote: "Buenos Aires · Trabajo remoto", moreWork: "Otros proyectos",
     fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
     gotMind: "¿Tenés un proceso manual, una automatización trabada o un producto que necesita avanzar?", reach: "O escribime a",
-    illo: "Croquis del perfil de Buenos Aires, con el Obelisco en el centro",
+    illo: "Croquis arquitectónico de Buenos Aires: Kavanagh, Congreso, Obelisco y Puente de la Mujer",
+    cityHeight: "67,5 m",
     booksIntro: "Aprendo leyendo y después pongo en práctica lo que leí.",
     booksNote: "Pasá el cursor o tocá un lomo.",
     writingIntro: "Notas sobre producto, finanzas y lo que voy aprendiendo.",
@@ -626,7 +666,7 @@ document.head.insertAdjacentHTML("beforeend", `<link rel="stylesheet" href="http
 </style>`);
 let openBook = -1;
 const spineCap = () => openBook < 0 ? T().booksNote : `${esc(content.books[openBook].title)} · ${esc(content.books[openBook].author)}`;
-const bookShelf = (shelf = false) => `<div class="spines${shelf ? " shelf" : ""}">${content.books.map((b, i) => { const p = b.spine; return `<button type="button" class="spn" data-spine="${i}" aria-pressed="${i === openBook}" aria-label="${esc(b.title)}, ${esc(b.author)}" style="width:${p.w}px;height:${p.h}px;background:${p.bg};color:${p.fg};--ac:${p.ac};font-family:${p.font};font-weight:${p.wt || 400};font-size:${p.fs || ".95rem"};letter-spacing:${p.ls || ".02em"}${p.up ? ";text-transform:uppercase" : ""}"><i></i><span><b>${esc(b.title)}</b><em>${esc(b.author.split(" ").pop())}</em></span><i></i></button>`; }).join("")}${shelf ? `<span class="cat">${pixelCat(5)}</span>` : ""}</div><p class="spcap" id="spcap" aria-live="polite">${spineCap()}</p>`;
+const bookShelf = (shelf = false) => `<div class="spines${shelf ? " shelf" : ""}">${content.books.map((b, i) => { const p = b.spine; return `<button type="button" class="spn" data-spine="${i}" aria-pressed="${i === openBook}" aria-label="${esc(b.title)}, ${esc(b.author)}" style="width:${p.w}px;height:${p.h}px;--book-height:${p.h}px;--book-font:${p.fs || ".95rem"};background:${p.bg};color:${p.fg};--ac:${p.ac};font-family:${p.font};font-weight:${p.wt || 400};font-size:${p.fs || ".95rem"};letter-spacing:${p.ls || ".02em"}${p.up ? ";text-transform:uppercase" : ""}"><i></i><span><b>${esc(b.title)}</b><em>${esc(b.author.split(" ").pop())}</em></span><i></i></button>`; }).join("")}${shelf ? `<span class="cat">${pixelCat(5)}</span>` : ""}</div><p class="spcap" id="spcap" aria-live="polite">${spineCap()}</p>`;
 function pickSpine(i) {
   openBook = i; $$("[data-spine]").forEach(x => x.setAttribute("aria-pressed", +x.dataset.spine === i));
   const c = $("#spcap"); if (c) c.textContent = spineCap().replace(/&amp;/g, "&");
@@ -635,10 +675,12 @@ document.addEventListener("click", e => { const d = e.target.closest("[data-spin
 document.addEventListener("mouseover", e => { const d = e.target.closest("[data-spine]"); if (d && +d.dataset.spine !== openBook) pickSpine(+d.dataset.spine); });
 document.addEventListener("focusin", e => { const d = e.target.closest("[data-spine]"); if (d && +d.dataset.spine !== openBook) pickSpine(+d.dataset.spine); });
 function apply() {
+  const expanded = $$("details[id][open]").map(e => e.id);
   document.documentElement.lang = lang;
   document.title = T().meta.title;
   const m = $('meta[name="description"]'); if (m) m.content = T().meta.desc;
   render(T(), lang);
+  expanded.forEach(id => { const e = document.getElementById(id); if (e?.tagName === "DETAILS") e.open = true; });
   reveal();
 }
 document.addEventListener("click", e => {
@@ -656,54 +698,77 @@ document.documentElement.dataset.theme = theme;
 const clock = () => new Date().toLocaleTimeString(lang === "es" ? "es-AR" : "en-GB", { timeZone: "America/Argentina/Buenos_Aires", hour: "2-digit", minute: "2-digit", hour12: false });
 const DOCK = [["work", "work"], ["offers", "services"], ["about", "about"], ["contact", "contact"]];
 const MAIN = ["WK.01", "WK.02", "WK.04"];
-/* Buenos Aires as an architect's croquis: an elevation with overshooting corners, centre lines,
-   a dimension line, a hatched ground and small annotations. */
+/* A composed architectural elevation, not a geographic or to-scale survey.
+   Each landmark has its own clear silhouette; details stay inside its facade. */
 const city = alt => {
-  const G = 200, o = 5;
-  // a building: top edge and two sides, corners overshooting by the same amount everywhere
-  const box = (x, w, h, yb = G) => `M${x - o} ${yb - h}H${x + w + o}M${x} ${yb - h - o}V${yb}M${x + w} ${yb - h - o}V${yb}`;
-  // windows: an even grid centred inside the given face
-  const win = (x, w, yt, h, c, r) => { let p = ""; for (let i = 1; i <= c; i++) for (let j = 1; j <= r; j++) p += `M${(x + w * i / (c + 1)).toFixed(1)} ${(yt + h * j / (r + 1) - 2).toFixed(1)}v4`; return p; };
-  const bld = (x, w, h, c, r) => [box(x, w, h), win(x, w, G - h, h - 10, c, r)];
-  const tree = (x, r) => `M${x} ${G}v${-r * .6}M${x - r} ${G - r * 1.6}a${r} ${r} 0 1 0 ${2 * r} 0a${r} ${r} 0 1 0 ${-2 * r} 0`;
-  const lamp = x => `M${x} ${G}v-22M${x} ${G - 22}h6v3`;
-  const man = x => `M${x} ${G}v-9M${x - 2} ${G - 11.5}a2 2 0 1 0 4 0a2 2 0 1 0 -4 0`;
-  let hatch = ""; for (let x = 28; x <= 832; x += 12) hatch += `M${x} ${G + 5}l-7 9`;
-  let rail = ""; for (let i = 0; i <= 22; i++) rail += `M${(848 + i * 12).toFixed(0)} ${G - 4}v-5`;
-  let cols = ""; for (let i = 0; i < 8; i++) cols += `M${(394 + i * 16)} ${G - 38}V${G - 6}`;
-  const B = [bld(60, 48, 48, 3, 2), bld(120, 44, 88, 3, 5), bld(664, 40, 64, 3, 3), bld(712, 44, 108, 3, 6), bld(764, 36, 76, 2, 4), bld(1128, 44, 44, 3, 2)];
-  const leader = (x, y, dir) => `M${x} ${y}l${12 * dir} -12h${30 * dir}`;
-  return `<svg class="city" viewBox="0 0 1200 244" role="img" aria-label="${esc(alt)}">
+  const repeat = (n, draw) => Array.from({ length: n }, (_, i) => draw(i)).join("");
+  // Narrow paired jambs read as windows, with equal margins on every facade.
+  const windows = (x, y, w, h, cols, rows) => repeat(cols, i => repeat(rows, j => {
+    const cx = x + w * (i + .5) / cols, cy = y + h * (j + .5) / rows;
+    return `M${cx - 1.6} ${cy - 2.5}v5h3.2v-5`;
+  }));
+  const block = (x, w, top, cols, rows) => `<path d="M${x} 222V${top}h${w}v${222 - top}M${x - 2} ${top + 5}h${w + 4}"/><path class="detail" d="${windows(x + 5, top + 11, w - 10, 202 - top, cols, rows)}"/>`;
+  const tree = x => `M${x} 222v-17m0 7l-5-5m5 2l5-6M${x - 12} 204c-6-5-3-12 2-13-1-9 12-13 17-6 9-1 13 11 6 16 0 7-8 11-13 6-4 3-9 2-12-3Z`;
+  const person = x => `<circle cx="${x}" cy="211" r="1.5"/><path d="M${x} 214v4m-2 4 2-4 2 4m-5-6 3-2 3 2"/>`;
+  const kavanaghWindows = [
+    [179, 151, 18, 61, 2, 7], [275, 151, 18, 61, 2, 7],
+    [204, 114, 18, 98, 2, 11], [250, 114, 18, 98, 2, 11],
+    [228, 57, 16, 155, 2, 17]
+  ].map(args => windows(...args)).join("");
+  return `<svg class="city" viewBox="0 0 1200 274" role="img" aria-label="${esc(alt)}">
+<g class="context">
+  ${block(40, 43, 174, 3, 3)}${block(94, 49, 134, 4, 6)}
+  ${block(691, 38, 155, 3, 4)}${block(742, 43, 117, 3, 8)}${block(797, 30, 169, 2, 3)}
+  ${block(1137, 37, 180, 3, 2)}
+</g>
+<!-- Kavanagh: recessed wings, a continuous central shaft and roof terraces. -->
 <g>
-<path class="g" d="M14 ${G}H1186"/>
-<path class="l" d="${hatch}M880 ${G + 8}h200M920 ${G + 14}h120"/>
-<path d="${B.map(b => b[0]).join("")}"/>
-<path class="l" d="${B.map(b => b[1]).join("")}"/>
-<path d="${box(188, 96, 56)}${box(202, 68, 30, G - 56)}${box(216, 40, 28, G - 86)}${box(226, 20, 22, G - 114)}M236 ${G - 136 - o}V36"/>
-<path class="l" d="${win(188, 96, G - 56, 46, 7, 2)}${win(202, 68, G - 86, 30, 5, 1)}${win(216, 40, G - 114, 28, 3, 1)}"/>
-<path d="${box(372, 156, 38)}M${404 - o} ${G - 38}H${496 + o}M408 ${G - 38}a42 42 0 0 1 84 0${box(444, 12, 10, G - 80)}M450 ${G - 90 - o}V${G - 108}"/>
-<path class="l" d="${cols}M372 ${G - 6}h156M436 ${G - 38}c0-22 6-36 14-42M464 ${G - 38}c0-22-6-36-14-42M422 ${G - 38}c0-20 12-36 28-42M478 ${G - 38}c0-20-12-36-28-42"/>
-<path d="M588 ${G}L596.4 56M612 ${G}L603.6 56M${596.4 - o} 56H${603.6 + o}M596.4 56L600 36M603.6 56L600 36"/>
-<path class="l" d="M582 ${G - 4}h36"/>
-<path d="M846 ${G - 4}H1114M962 ${G - 4}L1052 92M958 ${G - 4}a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/>
-<path class="l" d="M1052 92L866 ${G - 4}M1052 92L890 ${G - 4}M1052 92L914 ${G - 4}M1052 92L938 ${G - 4}${rail}M846 ${G - 9}H1114M954 ${G}l4 10h8l4 -10"/>
-<path class="l" d="${tree(312, 13)}${tree(560, 10)}${tree(824, 12)}${lamp(344)}${lamp(538)}${lamp(650)}${man(296)}${man(330)}${man(548)}${man(1100)}"/>
+  <path class="wash" d="M244 48h6v58h24v38h25v78h-55Z"/>
+  <path class="outline" d="M173 222V144h25v-38h24V48h7V29h14v19h7v58h24v38h25v78"/>
+  <path class="detail" d="M198 144v78m24-174v174m28-116v116m24-78v78M173 149h25m0-38h24m28 0h24m0 38h25M222 53h28M229 35h14M232 29v-5h8v5M226 217h20v5${kavanaghWindows}"/>
 </g>
-<g class="a">
-<path class="d" d="M600 22V${G + 14}M450 76V${G + 14}"/>
-<path d="M632 36V${G}M626 36h12M626 ${G}h12M629 39l6-6M629 ${G + 3}l6-6"/>
-<path class="l" d="${leader(238, 34, 1)}${leader(452, 90, 1)}${leader(1050, 90, -1)}"/>
-<path class="l" d="M132 78c7-11 24-8 26 0 11-4 20 5 13 11h-43c-7-3-5-11 4-11M318 60c7-11 24-8 26 0 11-4 20 5 13 11h-43c-7-3-5-11 4-11M756 54c7-11 24-8 26 0 11-4 20 5 13 11h-43c-7-3-5-11 4-11"/>
+<!-- Congreso: lantern, ribbed dome, drum, pediment, paired columns, steps. -->
+<g>
+  <path class="wash" d="M450 87c20 10 29 26 30 49h-30ZM455 180h19v32h-19Z"/>
+  <path class="outline" d="M356 216V173h49v-9h12v-25h-5v-4h7c0-22 12-40 26-48v-9h10v9c14 8 26 26 26 48h7v4h-5v25h12v9h49v43"/>
+  <path d="M443 78v-7q7-9 14 0v7M450 66v-9M417 139h66M417 164h66M405 173l45-20 45 20M405 178h90M356 178h49m90 0h49M352 216h196m-200 3h204m-204 3h204"/>
+  <path class="detail" d="M450 87c-8 12-13 28-13 48m13-48c8 12 13 28 13 48m-13-48v48M419 135h62M425 143v15m8-15v15m9-15v9m16-9v9m9-9v15m8-15v15M417 171l33-14 33 14M356 211h49m90 0h49${repeat(6, i => `M${413 + i * 14} 182v30m4-30v30m-5-30h6m-6 30h6`)}${windows(362, 183, 37, 23, 3, 1)}${windows(501, 183, 37, 23, 3, 1)}"/>
 </g>
-<text x="644" y="${G - 82}" transform="rotate(-90 644 ${G - 82})" text-anchor="middle">67.5 m</text>
-<text x="600" y="14" text-anchor="middle">OBELISCO</text>
-<text x="284" y="25">KAVANAGH</text><text x="498" y="81">CONGRESO</text><text x="1004" y="81" text-anchor="end">PUENTE DE LA MUJER</text>
-<text x="14" y="${G + 38}">BUENOS AIRES · 34°36′S 58°22′W · ALZADO</text>
+<!-- Obelisco: two faces, a quiet dimension and a stepped plinth. -->
+<g>
+  <path class="wash" d="M600 35l5 20 9 161h-14Z"/>
+  <path class="outline" d="M586 216l9-161 5-20 5 20 9 161ZM582 222v-6h36v6"/>
+  <path class="detail" d="M600 35v181M595 55h10M596 203v9h5v-9ZM597 69v6m6-6v6M577 222h46"/>
+  <path class="guide axis" d="M600 19v10m0 198v9"/>
+  <path class="guide" d="M618 35h22m-17 187h17M635 35v187M632 38l6-6m-6 193 6-6"/>
+  <text x="649" y="130" text-anchor="middle" transform="rotate(-90 649 130)">${esc(T().cityHeight)}</text>
+</g>
+<!-- Puente de la Mujer: tapered mast and an ordered fan of stays. -->
+<g>
+  <path class="wash" d="M975 212l87-113-78 113Z"/>
+  <path class="outline" d="M854 212h264v5H854M975 212l87-113-78 113M976 217l3 12h9l3-12"/>
+  <path class="detail" d="${repeat(9, i => `M${870 + i * 12} 208L1058 104`)}M854 208h264${repeat(27, i => `M${858 + i * 10} 208v4`)}"/>
+</g>
+<g class="context">
+  <path d="${tree(319)}${tree(666)}${tree(840)}M339 222v-25h7m-7 2h7M562 222v-23h6m-6 2h6"/>
+  ${person(335)}${person(554)}${person(1102)}
+  <path d="M17 222h836m267 0h64M26 226h803M867 231h80m58 0h110M888 238h171"/>
+  <path class="detail" d="${repeat(54, i => `M${32 + i * 15} 227l-4 5`)}"/>
+</g>
+<g class="guide"><path d="M236 229v12m214-12v12m150-2v2m384-6v6"/></g>
+<g text-anchor="middle">
+  <text x="236" y="257">KAVANAGH</text><text x="450" y="257">CONGRESO</text>
+  <text x="600" y="257">OBELISCO</text><text x="984" y="257">PUENTE DE LA MUJER</text>
+</g>
 </svg>`;
 };
+const themeIcon = () => theme === "dark" ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>' : '<path d="M20 14A8 8 0 0110 4a8 8 0 1010 10z"/>';
+const dockMarkup = t => `<nav class="dock" aria-label="${esc(t.menu)}"><span class="cat" id="cat" aria-hidden="true">${pixelCat(2)}</span><button type="button" class="mn" data-menu aria-expanded="false" aria-controls="dlinks"><span id="mlabel">${t.menu}</span><span aria-hidden="true">▾</span></button><span class="lks" id="dlinks">${DOCK.map(([id, k]) => `<a href="#${id}" data-sec="${id}">${t.nav[k]}</a>`).join("")}</span><i aria-hidden="true"></i>
+  <button type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}"><svg viewBox="0 0 24 24" aria-hidden="true">${themeIcon()}</svg></button>
+  <button type="button" class="lg" data-lang="${lang === "en" ? "es" : "en"}" aria-label="${esc(t.langLabel)}: ${lang === "en" ? "Español" : "English"}"><b${lang === "en" ? ' class="on"' : ""}>EN</b><b${lang === "es" ? ' class="on"' : ""}>ES</b></button></nav>`;
 function render(t) {
   const m = t.pitch.match(/^(.*?)( into | en )(.*)$/);
-  const h1 = m ? `${m[1]}<span>${m[2]}${m[3]}</span>` : t.pitch;
+  const h1 = m ? `${m[1]} <span>${m[2].trim()}&nbsp;${m[3]}</span>` : t.pitch;
   const sec = (id, title, body) => `<section class="sec" id="${id}"><h2>${title}</h2><div>${body}</div></section>`;
   const main = MAIN.map(c => t.cases.find(x => x.code === c)), rest = t.cases.filter(x => !MAIN.includes(x.code));
   const fid = c => "f" + c.code.replace(".", "");
@@ -716,86 +781,89 @@ function render(t) {
 <main id="main" class="w">
   <div class="hero" id="top">
     <h1>${h1}</h1>
-    <p class="today">${t.today}</p>
+    <p class="today">${t.heroIntro}</p>
+    <p class="availability">${t.availability}</p>
     <div class="cta"><a class="btn" href="#contact">${t.cta} ↗</a><a class="btn o" href="#work">${t.seeWork}</a><span class="k">${t.remoteNote} · <span id="clock">${clock()}</span></span></div>
     <div class="cityw">${city(t.illo)}</div>
   </div>
-  <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => `<a href="#${fid(c)}"><span class="n">${c.impact}</span><b>${c.name} ›</b><span class="s">${c.org} · ${c.role}</span></a>`).join("")}</nav>
+  <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => { const f = t.featured[c.code]; return `<a href="#${fid(c)}"><span class="n">${f.number}</span><span class="metric-label">${f.label}</span><b>${f.title} ›</b></a>`; }).join("")}</nav>
 
-  <div id="work">${main.map(c => `<section class="feat" id="${fid(c)}"><div><span class="k">${c.org} · ${c.when}</span><h2 style="grid-column:auto">${c.name}. <span>${c.line}</span></h2>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div>
-    <div><p>${c.body}</p><dl class="f"><dt>${t.fact.scale}</dt><dd>${c.impact}</dd><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl>
-      ${c.steps ? `<details class="more"><summary><span class="x" aria-hidden="true">+</span>${t.readCase}</summary><dl class="f">${c.steps.map(x => `<dt>${x.k}</dt><dd>${x.v}</dd>`).join("")}</dl></details>` : ""}</div></section>`).join("")}</div>
+  <div id="work">${main.map(c => { const f = t.featured[c.code]; return `<section class="feat" id="${fid(c)}"><div><span class="k">${c.org} · ${c.when}</span><h2>${f.title}</h2><p class="case-summary">${f.summary}</p><p class="case-result">${c.impact}</p>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div>
+    <div><p>${c.body}</p><dl class="f"><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl>
+      ${c.steps ? `<details class="more" id="case-${c.code}"><summary><span class="x" aria-hidden="true">+</span>${t.readCase}</summary><dl class="f">${c.steps.map(x => `<dt>${x.k}</dt><dd>${x.v}</dd>`).join("")}</dl></details>` : ""}</div></section>`; }).join("")}
+    <details class="fold related" id="more-work"><summary><h3>${t.moreWork}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b">${rest.map(c => `<h4>${c.name}</h4><p class="s">${c.org} · ${c.role} · ${c.when}</p><p>${caseBody(c)}</p>`).join("")}</div></details>
+  </div>
 
-  ${sec("offers", t.h.services, `<div class="cols c3" style="margin-bottom:44px">${t.services.map((s, i) => `<div><span class="k">0${i + 1}</span><h3>${s.name}</h3><p>${svcBody(s)}</p></div>`).join("")}</div>
-    <p>${t.freelance}</p><div class="cta" style="margin-top:22px"><a class="btn" href="#contact">${t.ctaAlt} ↗</a></div>`)}
+  ${sec("offers", t.h.services, `<div class="services">${t.services.map((s, i) => `<article class="service"><span class="k">0${i + 1}</span><h3>${s.name}</h3><p>${s.body}</p><dl><dt>${t.delivLabel}</dt><dd>${s.deliv}</dd><dt>${t.idealLabel}</dt><dd>${s.ideal}</dd></dl></article>`).join("")}</div>
+    <p>${t.freelance}</p>`)}
 
   ${sec("about", t.h.about, `${portrait()}<p class="lead">${t.profile[0]}</p>${t.profile.slice(1).map(p => `<p>${p}</p>`).join("")}
     <h3 class="sub">${t.approach}</h3>
     <ol class="steps">${t.think.steps.map((x, i) => `<li><span class="k">0${i + 1}</span><b>${x.q}</b><span class="s">${x.s}</span></li>`).join("")}</ol>
-    <div style="margin-top:40px">${offClock()}</div>`)}
+    <div style="margin-top:32px">${offClock()}</div>
+    <details class="fold related" id="experience"><summary><h3>${t.expFold}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b" style="max-width:none"><ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}</span></span></li>`, "li", "k")}</ul></div></details>`)}
 
   ${sec("books", t.h.books, `<p>${t.booksIntro}</p>${bookShelf()}`)}
-
-  ${sec("more", t.moreTitle, `<details class="fold"><summary><h3>${t.expFold}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b" style="max-width:none"><ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}</span></span></li>`, "li", "k")}</ul></div></details>
-    <details class="fold"><summary><h3>${t.moreWork}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b">${rest.map(c => `<h3 style="font-size:1.125rem;margin-top:22px">${c.name}</h3><p class="s" style="margin:4px 0 10px">${c.org} · ${c.role} · ${c.when}</p><p>${caseBody(c)}</p>`).join("")}</div></details>`)}
 
   <section class="end" id="contact">
     <p class="big">${t.gotMind}</p>
     <div class="cta" style="margin:0 0 18px"><a class="btn" href="${mailto()}">${t.cta} ↗</a><button type="button" class="btn o" data-copy>${t.copy}</button></div>
+    <p class="copy-status" id="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
     <p class="s"><a class="m" href="${mailto()}">${L.email}</a>, ${t.orLinkedin.replace("LinkedIn", `<a href="${L.linkedin}" ${ext}>LinkedIn</a>`)}.</p>
   </section>
   <footer class="k"><span>${t.footer.rights}</span><span>${footerLinks()}</span></footer>
-</main>
-<nav class="dock" aria-label="Sections"><span class="cat" id="cat" aria-hidden="true">${pixelCat(2)}</span><button type="button" class="mn" data-menu aria-expanded="false" aria-controls="dlinks"><span id="mlabel">${t.menu}</span><span aria-hidden="true">▾</span></button><span class="lks" id="dlinks">${DOCK.map(([id, k]) => `<a href="#${id}" data-sec="${id}">${t.nav[k]}</a>`).join("")}</span><i aria-hidden="true"></i>
-  <button type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}"><svg viewBox="0 0 24 24" aria-hidden="true">${theme === "dark" ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>' : '<path d="M20 14A8 8 0 0110 4a8 8 0 1010 10z"/>'}</svg></button>
-  <button type="button" class="lg" data-lang="${lang === "en" ? "es" : "en"}" aria-label="${esc(t.langLabel)}: ${lang === "en" ? "Español" : "English"}"><b${lang === "en" ? ' class="on"' : ""}>EN</b><b${lang === "es" ? ' class="on"' : ""}>ES</b></button></nav>`;
-  walk(); spy();
+</main>${dockMarkup(t)}`;
+  spy();
 }
-/* The one flourish: a small pixel cat walks along the top of the navigation as you scroll. */
-function walk() {
-  const c = $("#cat"); if (!c) return;
-  const max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? Math.min(1, scrollY / max) : 0;
-  c.style.transform = `translateX(${(p * (c.parentNode.offsetWidth - 60)).toFixed(1)}px)`;
-}
-let so;
 function spy() {
-  if (so) so.disconnect();
-  if (!("IntersectionObserver" in window)) return;
-  so = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    $$(".dock a").forEach(a => a.setAttribute("aria-current", a.dataset.sec === e.target.id));
-    const cur = $(`.dock a[data-sec="${e.target.id}"]`), ml = $("#mlabel"); if (cur && ml) ml.textContent = cur.textContent;
-  }), { rootMargin: "-40% 0px -55% 0px" });
-  DOCK.forEach(([id]) => so.observe($("#" + id)));
+  const readingLine = innerHeight * .35;
+  const current = DOCK.find(([id]) => { const r = $("#" + id).getBoundingClientRect(); return r.top <= readingLine && r.bottom > readingLine; });
+  $$(".dock a").forEach(a => { if (a.dataset.sec === current?.[0]) a.setAttribute("aria-current", "location"); else a.removeAttribute("aria-current"); });
 }
 document.addEventListener("click", e => {
-  if (!e.target.closest("[data-theme-btn]")) return;
+  const b = e.target.closest("[data-theme-btn]"); if (!b) return;
   theme = theme === "dark" ? "light" : "dark"; store.set("rj-theme", theme);
   document.documentElement.dataset.theme = theme;
-  const y = scrollY; apply(); scrollTo(0, y); $("[data-theme-btn]").focus();
+  b.setAttribute("aria-pressed", theme === "dark");
+  $("svg", b).innerHTML = themeIcon();
+  $('meta[name="theme-color"]').content = theme === "dark" ? "#00202f" : "#f4f6f7";
 });
+function closeMenu() {
+  $(".dock")?.classList.remove("open");
+  $("[data-menu]")?.setAttribute("aria-expanded", "false");
+}
 document.addEventListener("click", e => {
   const dk = $(".dock"); if (!dk) return;
-  const open = e.target.closest("[data-menu]") ? !dk.classList.contains("open") : false;
-  dk.classList.toggle("open", open); $("[data-menu]").setAttribute("aria-expanded", open);
+  if (e.target.closest("[data-menu]")) {
+    const open = !dk.classList.contains("open");
+    dk.classList.toggle("open", open);
+    $("[data-menu]").setAttribute("aria-expanded", open);
+  } else if (!e.target.closest(".dock") || e.target.closest(".dock a")) closeMenu();
 });
-document.addEventListener("keydown", e => { if (e.key === "Escape" && $(".dock.open")) { $(".dock").classList.remove("open"); $("[data-menu]").setAttribute("aria-expanded", "false"); $("[data-menu]").focus(); } });
-/* The dock steps aside while you read down, and comes back when you scroll up or stop near the top. */
-let lastY = 0;
-addEventListener("scroll", () => {
-  const dk = $(".dock"), y = scrollY; if (!dk) return;
-  if (!dk.classList.contains("open")) { if (y > lastY + 6 && y > 240) dk.classList.add("hide"); else if (y < lastY - 6 || y < 240) dk.classList.remove("hide"); }
-  lastY = y;
-}, { passive: true });
-document.addEventListener("click", e => {
+document.addEventListener("keydown", e => { if (e.key === "Escape" && $(".dock.open")) { closeMenu(); $("[data-menu]").focus({ preventScroll: true }); } });
+document.addEventListener("focusin", e => { if (!e.target.closest(".dock")) closeMenu(); });
+let scrollFrame = 0;
+document.addEventListener("click", async e => {
   const b = e.target.closest("[data-copy]"); if (!b) return;
-  const done = () => { b.textContent = T().copied; setTimeout(() => { b.textContent = T().copy; }, 1800); };
-  if (navigator.clipboard) navigator.clipboard.writeText(L.email).then(done, done); else done();
+  const status = $("#copy-status"); status.textContent = ""; b.disabled = true;
+  try {
+    if (!navigator.clipboard?.writeText) throw new Error("Clipboard unavailable");
+    await navigator.clipboard.writeText(L.email);
+    if (!b.isConnected) return;
+    b.textContent = T().copied; status.textContent = T().copySuccess;
+    setTimeout(() => { if (b.isConnected) b.textContent = T().copy; }, 1800);
+  } catch {
+    if (b.isConnected) { b.textContent = T().copy; status.textContent = T().copyError; }
+  } finally { b.disabled = false; }
 });
-addEventListener("scroll", () => requestAnimationFrame(walk), { passive: true });
-addEventListener("resize", walk);
+addEventListener("scroll", () => {
+  if (scrollFrame) return;
+  scrollFrame = requestAnimationFrame(() => { scrollFrame = 0; spy(); });
+}, { passive: true });
+addEventListener("resize", () => { spy(); if (innerWidth > 640) closeMenu(); });
 setInterval(() => { const c = $("#clock"); if (c) c.textContent = clock(); }, 30000);
 apply();
+$('meta[name="theme-color"]').content = theme === "dark" ? "#00202f" : "#f4f6f7";
 </script>
 </body>
 </html>

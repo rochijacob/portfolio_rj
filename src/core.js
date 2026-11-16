@@ -119,13 +119,20 @@ const content = {
     labIntro: "Things I build out of curiosity.",
     off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The little pink pixel panther is a nod to my favourite cartoon." },
     today: "I combine product engineering, operations and business thinking to build tools that save time and support better decisions. Available for selected freelance projects.",
+    heroIntro: "I combine product engineering, operations and business thinking to build tools that save time and support better decisions.",
+    availability: "Available for selected freelance projects.",
+    featured: {
+      "WK.01": { title: "Gym chain app", summary: "Performance and UX for an app used every day.", number: "500K+", label: "downloads · 40K daily users" },
+      "WK.02": { title: "Event platform", summary: "Ticket sales and access control across three continents.", number: "15K+", label: "users · 5+ clients" },
+      "WK.04": { title: "Final-project tracking", summary: "From manual coordination to an automated workflow.", number: "100+", label: "projects per cycle" }
+    },
     profile: [
       "I am self-taught. Everything I know about technology I learned on my own, because I enjoy it: I started in 2021 with books and the open web, and I have not stopped.",
       "I build the product and understand the business behind it. I studied Business & Digital Business, worked in consulting, and I teach Corporate Finance at a university.",
       "I care as much about how a product feels as how it works. Design does not come at the end."
     ],
     approach: "How I approach a project", moreTitle: "More about me", expFold: "Experience and education",
-    copy: "Copy email", copied: "Copied", orLinkedin: "or message me on LinkedIn",
+    copy: "Copy email", copied: "Copied", copySuccess: "Email copied to clipboard.", copyError: "Could not copy. Select the email address below to copy it manually.", orLinkedin: "or message me on LinkedIn",
     think: { title: "How I think", intro: "The questions I ask on every project, in this order.", loop: "and back to the start",
       phases: { u: "Understand", b: "Build", l: "Learn" },
       steps: [
@@ -140,7 +147,8 @@ const content = {
     readCase: "Read the full case", seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
     fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
     gotMind: "Have a manual process, a stalled automation or a product that needs to move forward?", reach: "Or write to me at",
-    illo: "Line drawing of the Buenos Aires skyline with the Obelisk",
+    illo: "Architectural drawing of Buenos Aires: Kavanagh, Congress, the Obelisk, and Puente de la Mujer",
+    cityHeight: "67.5 m",
     booksIntro: "I learn by reading books and then building something with what I read.",
     booksNote: "Hover or tap a spine.",
     writingIntro: "Notes on product, finance and what I am learning.",
@@ -290,13 +298,20 @@ const content = {
     labIntro: "Cosas que armo por curiosidad.",
     off: { t: "Fuera del trabajo", p: "Soy DJ y toco música electrónica. Me encantan el arte y la fotografía. La panterita rosa en píxeles es un guiño a mi dibujo animado favorito." },
     today: "Combino ingeniería de producto, operaciones y negocio para construir herramientas que ahorran tiempo y mejoran decisiones. Disponible para proyectos freelance seleccionados.",
+    heroIntro: "Combino ingeniería de producto, operaciones y negocio para construir herramientas que ahorran tiempo y mejoran decisiones.",
+    availability: "Disponible para proyectos freelance seleccionados.",
+    featured: {
+      "WK.01": { title: "App de gimnasios", summary: "Rendimiento y experiencia de uso para una app de todos los días.", number: "500K+", label: "descargas · 40K usuarios diarios" },
+      "WK.02": { title: "Plataforma de eventos", summary: "Venta y control de entradas en tres continentes.", number: "15K+", label: "usuarios · 5+ clientes" },
+      "WK.04": { title: "Seguimiento de trabajos finales", summary: "De la coordinación manual a un flujo automatizado.", number: "100+", label: "trabajos por entrega" }
+    },
     profile: [
       "Soy autodidacta. Todo lo que sé de tecnología lo aprendí por mi cuenta, porque me gusta: empecé en 2021 con libros y la web, y no paré.",
       "Construyo el producto y entiendo el negocio que hay detrás. Estudié Administración y Negocios Digitales, trabajé en consultoría y doy clases de Finanzas Corporativas en una universidad.",
       "Cuido cómo funciona un producto y cómo se siente al usarlo. El diseño no llega al final."
     ],
     approach: "Cómo encaro un proyecto", moreTitle: "Más sobre mí", expFold: "Experiencia y formación",
-    copy: "Copiar mail", copied: "Copiado", orLinkedin: "o escribime por LinkedIn",
+    copy: "Copiar mail", copied: "Copiado", copySuccess: "Mail copiado al portapapeles.", copyError: "No se pudo copiar. Seleccioná el mail de abajo para copiarlo manualmente.", orLinkedin: "o escribime por LinkedIn",
     think: { title: "Cómo pienso", intro: "Las preguntas que me hago en cada proyecto, en este orden.", loop: "y vuelta al inicio",
       phases: { u: "Entender", b: "Construir", l: "Aprender" },
       steps: [
@@ -311,7 +326,8 @@ const content = {
     readCase: "Leer el caso completo", seeWork: "Ver proyectos", remoteNote: "Buenos Aires · Trabajo remoto", moreWork: "Otros proyectos",
     fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
     gotMind: "¿Tenés un proceso manual, una automatización trabada o un producto que necesita avanzar?", reach: "O escribime a",
-    illo: "Croquis del perfil de Buenos Aires, con el Obelisco en el centro",
+    illo: "Croquis arquitectónico de Buenos Aires: Kavanagh, Congreso, Obelisco y Puente de la Mujer",
+    cityHeight: "67,5 m",
     booksIntro: "Aprendo leyendo y después pongo en práctica lo que leí.",
     booksNote: "Pasá el cursor o tocá un lomo.",
     writingIntro: "Notas sobre producto, finanzas y lo que voy aprendiendo.",
@@ -456,7 +472,7 @@ document.head.insertAdjacentHTML("beforeend", `<link rel="stylesheet" href="http
 </style>`);
 let openBook = -1;
 const spineCap = () => openBook < 0 ? T().booksNote : `${esc(content.books[openBook].title)} · ${esc(content.books[openBook].author)}`;
-const bookShelf = (shelf = false) => `<div class="spines${shelf ? " shelf" : ""}">${content.books.map((b, i) => { const p = b.spine; return `<button type="button" class="spn" data-spine="${i}" aria-pressed="${i === openBook}" aria-label="${esc(b.title)}, ${esc(b.author)}" style="width:${p.w}px;height:${p.h}px;background:${p.bg};color:${p.fg};--ac:${p.ac};font-family:${p.font};font-weight:${p.wt || 400};font-size:${p.fs || ".95rem"};letter-spacing:${p.ls || ".02em"}${p.up ? ";text-transform:uppercase" : ""}"><i></i><span><b>${esc(b.title)}</b><em>${esc(b.author.split(" ").pop())}</em></span><i></i></button>`; }).join("")}${shelf ? `<span class="cat">${pixelCat(5)}</span>` : ""}</div><p class="spcap" id="spcap" aria-live="polite">${spineCap()}</p>`;
+const bookShelf = (shelf = false) => `<div class="spines${shelf ? " shelf" : ""}">${content.books.map((b, i) => { const p = b.spine; return `<button type="button" class="spn" data-spine="${i}" aria-pressed="${i === openBook}" aria-label="${esc(b.title)}, ${esc(b.author)}" style="width:${p.w}px;height:${p.h}px;--book-height:${p.h}px;--book-font:${p.fs || ".95rem"};background:${p.bg};color:${p.fg};--ac:${p.ac};font-family:${p.font};font-weight:${p.wt || 400};font-size:${p.fs || ".95rem"};letter-spacing:${p.ls || ".02em"}${p.up ? ";text-transform:uppercase" : ""}"><i></i><span><b>${esc(b.title)}</b><em>${esc(b.author.split(" ").pop())}</em></span><i></i></button>`; }).join("")}${shelf ? `<span class="cat">${pixelCat(5)}</span>` : ""}</div><p class="spcap" id="spcap" aria-live="polite">${spineCap()}</p>`;
 function pickSpine(i) {
   openBook = i; $$("[data-spine]").forEach(x => x.setAttribute("aria-pressed", +x.dataset.spine === i));
   const c = $("#spcap"); if (c) c.textContent = spineCap().replace(/&amp;/g, "&");
@@ -465,10 +481,12 @@ document.addEventListener("click", e => { const d = e.target.closest("[data-spin
 document.addEventListener("mouseover", e => { const d = e.target.closest("[data-spine]"); if (d && +d.dataset.spine !== openBook) pickSpine(+d.dataset.spine); });
 document.addEventListener("focusin", e => { const d = e.target.closest("[data-spine]"); if (d && +d.dataset.spine !== openBook) pickSpine(+d.dataset.spine); });
 function apply() {
+  const expanded = $$("details[id][open]").map(e => e.id);
   document.documentElement.lang = lang;
   document.title = T().meta.title;
   const m = $('meta[name="description"]'); if (m) m.content = T().meta.desc;
   render(T(), lang);
+  expanded.forEach(id => { const e = document.getElementById(id); if (e?.tagName === "DETAILS") e.open = true; });
   reveal();
 }
 document.addEventListener("click", e => {
