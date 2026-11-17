@@ -45,6 +45,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 :focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:2px}
 .skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:99}
 .w{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+/* Fade the sketch-paper dots behind reading areas without adding cards or changing the palette. */
+.reading{background:color-mix(in srgb,var(--bg) 86%,transparent);box-shadow:0 0 32px 24px color-mix(in srgb,var(--bg) 86%,transparent)}
 .k{font:400 .75rem/1.6 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft)}
 .s{font-size:.875rem;color:var(--soft)}
 .hd{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 20px;min-height:76px}
@@ -94,17 +96,17 @@ h1 span{color:var(--acc);font-style:italic}
 .city .guide{stroke:var(--acc);stroke-width:.65;opacity:.85}.city .axis{stroke-dasharray:8 5 1 5;stroke-width:.5;opacity:.5}
 .city .wash{fill:var(--acc);fill-opacity:.07;stroke:none}
 .city text{font:400 8px var(--mono);letter-spacing:.12em;fill:var(--soft);stroke:none}
-.hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:clamp(48px,6vw,80px)}
+.hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:clamp(32px,4vw,56px)}
 .hi a{display:block;text-decoration:none}
 .hi .n{display:block;font:500 clamp(1.7rem,2.5vw,2rem)/1.15 var(--txt);letter-spacing:-.03em;margin-bottom:6px}
 .hi .metric-label{display:block;font-size:.875rem;color:var(--soft);margin-bottom:14px}
 .hi b{display:block;font-weight:500}.hi a:hover b{color:var(--blue)}
 .hi .s{display:block;margin:2px 0 0}
-.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(96px,11vw,160px) 0 0;scroll-margin-top:24px}
+.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:40px;padding:clamp(72px,8vw,112px) 0 0;scroll-margin-top:24px}
 .feat h2{font:500 clamp(1.65rem,2.7vw,2.25rem)/1.14 var(--txt);letter-spacing:-.035em;margin:14px 0 16px;text-wrap:balance}
 .feat .case-summary{font-size:1.125rem;color:var(--soft);line-height:1.55;margin-bottom:20px;max-width:36ch}
 .feat .case-result{font-size:1.125rem;font-weight:500;color:var(--blue);line-height:1.5;margin-bottom:0}
-.feat>div:first-child{grid-column:1/6}.feat>div:last-child{grid-column:7/13}
+.feat>div:first-child{grid-column:1/7}.feat>div:last-child{grid-column:7/13}
 .feat p{font-size:1.125rem;line-height:1.6;max-width:50ch}
 dl.f{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);border-top:1px solid var(--hair)}
 dl.f dt,dl.f dd{margin:0;padding:16px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
@@ -114,17 +116,18 @@ dl.f dt{font:400 .75rem/2 var(--mono);letter-spacing:.07em;text-transform:upperc
 .sec>h2 span{display:block;color:var(--soft)}
 .sec>div{grid-column:4/13;min-width:0}
 #offers{display:block}
-#offers>h2{position:static;font:italic 400 clamp(2rem,1.5rem + 2vw,2.8rem)/1.05 var(--serif);letter-spacing:0;margin-bottom:40px}
-.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-bottom:40px}
+#offers>h2{position:static;font:italic 400 clamp(2rem,1.5rem + 2vw,2.8rem)/1.05 var(--serif);letter-spacing:0;margin-bottom:28px}
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-bottom:24px}
 .service h3{margin:0 0 10px}
 .service p{font-size:1rem;line-height:1.65;margin-bottom:8px;color:var(--soft)}
+.service .deliverable{color:var(--ink)}
 .service details{border:0}.service summary{display:flex;align-items:center;gap:10px;padding:10px 0;font-size:.875rem;font-weight:500}.service summary .x{justify-self:auto;font-size:1.1rem}
 .service dl{margin:0;font-size:.9375rem;line-height:1.65}
 .service dt{font-weight:600;margin:20px 0 4px}
 .service dd{margin:0;color:var(--soft)}
 h3{font:500 1.3125rem/1.2 var(--txt);letter-spacing:-.025em;margin:0}
 p{margin:0 0 1.1em;max-width:56ch;text-wrap:pretty}
-.lead{font:400 clamp(1.3rem,2.2vw,1.7rem)/1.32 var(--txt);letter-spacing:-.025em;max-width:30ch;margin-bottom:1.2em}
+.lead{font:400 clamp(1.3rem,2.2vw,1.7rem)/1.32 var(--txt);letter-spacing:-.025em;max-width:42ch;margin-bottom:1em}
 .cols{display:grid;gap:52px 44px}
 .c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .cols h3{margin:12px 0 14px}.cols p{font-size:.9688rem;margin:0;line-height:1.65}
@@ -146,14 +149,27 @@ summary .x{font-size:1.25rem;line-height:1;transition:transform .25s;justify-sel
 details[open] .x{transform:rotate(45deg)}
 .b{padding:0 0 30px;max-width:56ch}
 .fold summary{grid-template-columns:minmax(0,1fr) 20px}.fold:first-of-type{border-top:1px solid var(--hair)}
-.related{margin-top:64px}
+.related{margin-top:40px}
 .related h3{font-size:1.125rem}
 .related .b h4{font-size:1.125rem;font-weight:500;margin:24px 0 8px}
 .shot{display:block;width:100%;height:auto;border:1px solid var(--hair);border-radius:8px;margin-top:6px}
 h3.sub{margin:40px 0 0;font:500 1rem/1.5 var(--txt);letter-spacing:0;color:var(--ink)}
 .steps{list-style:none;margin:16px 0 0;padding:0}
-.steps li{padding:16px 0;display:grid;grid-template-columns:28px minmax(0,1.2fr) minmax(0,1fr);gap:8px 20px;align-items:baseline;border-top:1px solid var(--hair)}
+.steps li{padding:16px 0;display:grid;grid-template-columns:28px minmax(0,1fr);gap:4px 20px;align-items:baseline;border-top:1px solid var(--hair)}
+.steps li>.k{grid-row:1/3}.steps li>.s{grid-column:2}
 .steps b{font-weight:500;line-height:1.4}
+.experience{margin-top:40px}
+.experience h3{margin-bottom:20px}
+.experience-overview{margin:0;max-width:56ch}
+.experience-overview dt{font-weight:500;margin:16px 0 4px}
+.experience-overview dd{margin:0;color:var(--soft)}
+.experience .fold{margin-top:20px}
+.experience summary{padding:18px 0;font-weight:500}
+.book-list{margin-top:8px;max-width:56ch}
+.book-list summary{padding:16px 0;font-weight:500}
+.book-list ul{list-style:none;padding:0;margin:0 0 16px}
+.book-list li{padding:12px 0;border-top:1px solid var(--hair)}
+.book-list li span{display:block;color:var(--soft)}
 .btn{cursor:pointer;font-family:inherit}
 .copy{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 6px;border-radius:6px;color:var(--ink);font:500 .9375rem var(--txt);cursor:pointer;text-decoration:underline;text-decoration-color:var(--hair);text-decoration-thickness:1px;text-underline-offset:.3em;transition:color .2s,text-decoration-color .2s}
 .copy svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
@@ -188,7 +204,8 @@ h3.sub{margin:40px 0 0;font:500 1rem/1.5 var(--txt);letter-spacing:0;color:var(-
 footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding:22px 0 20px}
 footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-child{margin-left:0}
 @media(max-width:860px){
-  .hero{grid-template-columns:1fr}.fig{justify-self:start;max-width:340px;margin-top:8px}
+  .hero{grid-template-columns:minmax(0,1fr)}.hero h1{hyphens:auto;overflow-wrap:anywhere}.fig{justify-self:center;max-width:340px;margin-top:0;display:flex;align-items:center;gap:16px}
+  .fig .sk{width:50%;height:190px;flex:none}.note{position:static;width:auto;min-width:0;flex:1}.note svg{display:none}
   .sec,.feat{display:block}.sec>h2{position:static}
   .hi{gap:24px}
   .services{grid-template-columns:1fr;gap:36px}
@@ -207,8 +224,8 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   .today{font-size:1.0625rem}
   .cta .btn{flex:1 1 auto;justify-content:center}
   .city{width:860px;max-width:none;margin-left:calc(50% - 430px)}.city text{font-size:11px;letter-spacing:.08em}
-  .sec,.feat{padding-top:88px}
-  .feat h2{margin-bottom:16px}.feat>div+div{margin-top:28px}.feat p{font-size:1.0625rem}
+  .sec{padding-top:88px}.feat{padding-top:64px}
+  .feat h2{margin-bottom:16px}.feat>div+div{margin-top:20px}.feat p{font-size:1.0625rem}
   .hi{grid-template-columns:1fr;gap:24px}
   .hi a{display:grid;grid-template-columns:90px minmax(0,1fr);column-gap:14px;align-items:baseline}
   .hi .n{grid-row:1/3}.hi .metric-label{margin:0 0 4px}.hi b{grid-column:2}
@@ -270,7 +287,6 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
 /* ---------- Site H · Studio ---------- */
 let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 document.documentElement.dataset.theme = theme;
-const clock = () => new Date().toLocaleTimeString(lang === "es" ? "es-AR" : "en-GB", { timeZone: "America/Argentina/Buenos_Aires", hour: "2-digit", minute: "2-digit", hour12: false });
 const DOCK = [["work", "work"], ["offers", "services"], ["about", "about"], ["contact", "contact"]];
 const MAIN = ["WK.01", "WK.02", "WK.04"];
 const trackedViews = new Set();
@@ -293,9 +309,8 @@ function languageControl(t) {
   }).join('')}</span>`;
 }
 function render(t) {
-  const m = t.pitch.match(/^(.*?)( into | en )(.*)$/);
-  const h1 = m ? `${m[1]} <span>${m[2].trim()}&nbsp;${m[3]}</span>` : t.pitch;
-  const sec = (id, title, body) => `<section class="sec" id="${id}" data-track-view="section_view" data-track-id="${id}"><h2>${title}</h2><div>${body}</div></section>`;
+  const h1 = `${esc(t.heroPitch.slice(0, -t.heroAccent.length))}<span>${esc(t.heroAccent)}</span>`;
+  const sec = (id, title, body) => `<section class="sec" id="${id}" data-track-view="section_view" data-track-id="${id}"><h2>${title}</h2><div class="reading">${body}</div></section>`;
   const main = MAIN.map(c => t.cases.find(x => x.code === c)), rest = t.cases.filter(x => !MAIN.includes(x.code));
   const fid = c => "f" + c.code.replace(".", "");
   $("#app").innerHTML = `
@@ -309,31 +324,33 @@ function render(t) {
     <div>
       <h1>${h1}</h1>
       <p class="today">${t.heroIntro}</p>
-      <div class="cta"><a class="btn" href="#contact">${t.cta} ↗</a><a class="btn o" href="#work">${t.seeWork}</a><span class="k">${t.remoteNote} · <span id="clock">${clock()}</span></span></div>
+      <div class="cta"><a class="btn" href="#contact">${t.cta} ↗</a><a class="btn o" href="#work">${t.seeWork}</a><span class="k">${t.remoteNote}</span></div>
     </div>
     <figure class="fig">${obelisk(t.j.opts[0].alt)}<p class="note"><svg viewBox="0 0 74 40" aria-hidden="true"><path d="M70 6C52 4 30 10 14 30"/><path d="M12 18l1 13 13-3"/></svg>${t.a.notes.here}</p></figure>
   </div>
   <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => { const f = t.featured[c.code]; return `<a href="#${fid(c)}" data-track-event="select_content" data-track-content-type="project" data-track-content-id="${c.code}"><span class="n">${f.number}</span><span class="metric-label">${f.label}</span><b>${f.title} ›</b></a>`; }).join("")}</nav>
 
-  <div id="work">${main.map(c => { const f = t.featured[c.code]; return `<section class="feat" id="${fid(c)}" data-track-view="project_view" data-track-id="${c.code}"><div><span class="k">${c.org} · ${c.when}</span><h2>${f.title}</h2><p class="case-summary">${f.summary}</p><p class="case-result">${c.impact}</p>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div>
-    <div><p>${c.body}</p><dl class="f"><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl></div></section>`; }).join("")}
-    <details class="fold related" id="more-work"><summary><h3>${t.moreWork}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b">${rest.map(c => `<h4>${c.name}</h4><p class="s">${c.org} · ${c.role} · ${c.when}</p><p>${caseBody(c)}</p>`).join("")}</div></details>
+  <div id="work">${main.map(c => { const f = t.featured[c.code]; return `<section class="feat" id="${fid(c)}" data-track-view="project_view" data-track-id="${c.code}"><div class="reading"><span class="k">${c.org} · ${c.when}</span><h2>${f.title}</h2><p class="case-summary">${f.summary}</p><p class="case-result">${c.impact}</p>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div>
+    <div class="reading"><p>${c.body}</p><dl class="f"><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl></div></section>`; }).join("")}
+    <details class="fold related reading" id="more-work"><summary><h3>${t.moreWork}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b">${rest.map(c => `<h4>${c.name}</h4><p class="s">${c.org} · ${c.role} · ${c.when}</p><p>${caseBody(c)}</p>`).join("")}</div></details>
   </div>
 
-  ${sec("offers", t.talk.services, `<div class="services">${t.services.map((s, i) => `<article class="service"><h3>${s.name}</h3><p>${s.body}</p></article>`).join("")}</div>
+  ${sec("offers", t.talk.services, `<div class="services">${t.services.map(s => `<article class="service"><h3>${s.name}</h3><p>${s.body}</p><p class="deliverable">${s.deliv}</p></article>`).join("")}</div>
     <p>${t.freelance}</p>`)}
 
   ${sec("about", t.h.about, `${portrait()}<p class="lead">${t.profile[0]}</p>${t.profile.slice(1).map(p => `<p>${p}</p>`).join("")}
     <h3 class="sub">${t.approach}</h3>
     <ol class="steps">${t.think.steps.map((x, i) => `<li><span class="k">0${i + 1}</span><b>${x.q}</b><span class="s">${x.s}</span></li>`).join("")}</ol>
     <div style="margin-top:32px">${offClock()}</div>
-    <details class="fold related" id="experience"><summary><h3>${t.expFold}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b" style="max-width:none"><ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}</span></span></li>`, "li", "k")}</ul></div></details>`)}
+    <div class="experience" id="experience"><h3>${t.expFold}</h3><dl class="experience-overview"><dt>${t.expWork}</dt><dd>${[...new Set(t.timeline.filter(e => e.kind !== "edu").map(e => e.org))].map(esc).join(" · ")}</dd><dt>${t.expEdu}</dt><dd>${t.educationSummary}</dd></dl>
+    <details class="fold"><summary><span>${t.expDetails}</span><span class="x" aria-hidden="true">+</span></summary><div class="b" style="max-width:none"><ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}</span></span></li>`, "li", "k")}</ul></div></details></div>`)}
 
-  ${sec("books", t.h.books, `<p>${t.booksIntro}</p>${bookShelf()}`)}
+  ${sec("books", t.h.books, `<p>${t.booksIntro}</p>${bookShelf()}<details class="fold book-list"><summary><span>${t.booksList}</span><span class="x" aria-hidden="true">+</span></summary><ul>${content.books.map(b => `<li><b>${esc(b.title)}</b><span>${esc(b.author)}</span></li>`).join("")}</ul></details>`)}
 
   <section class="end" id="contact" data-track-view="section_view" data-track-id="contact">
-    <p class="big">${t.gotMind}</p>
-    <div class="cta" style="margin:0 0 18px"><a class="btn" href="${mailto()}" data-track-event="contact_click" data-track-method="email" data-track-location="contact">${t.cta} ↗</a><button type="button" class="copy" data-copy><svg viewBox="0 0 24 24" aria-hidden="true">${COPY_ICON}</svg><span>${t.copy}</span></button></div>
+    <h2 class="big">${t.gotMind}</h2>
+    <p>${t.contactIntro}</p>
+    <div class="cta" style="margin:0 0 18px"><a class="btn" href="${mailto()}" data-track-event="contact_click" data-track-method="email" data-track-location="contact">${t.contactCta} ↗</a><button type="button" class="copy" data-copy><svg viewBox="0 0 24 24" aria-hidden="true">${COPY_ICON}</svg><span>${t.copy}</span></button></div>
     <p class="copy-status" id="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
     <p class="s"><a class="m" href="${mailto()}" data-track-event="contact_click" data-track-method="email" data-track-location="contact_text">${L.email}</a>, ${t.orLinkedin.replace("LinkedIn", `<a href="${L.linkedin}" data-track-event="contact_click" data-track-method="linkedin" data-track-location="contact" ${ext}>LinkedIn</a>`)}.</p>
   </section>
@@ -445,10 +462,9 @@ addEventListener("scroll", () => {
   scrollFrame = requestAnimationFrame(() => { scrollFrame = 0; spy(); walk(); });
 }, { passive: true });
 addEventListener("resize", () => { spy(); walk(); if (innerWidth > 640) closeMenu(); });
-setInterval(() => { const c = $("#clock"); if (c) c.textContent = clock(); }, 30000);
 /* Loader: shown until the web fonts are in (at least 450 ms so it never flashes, at most 1.8 s so a
    slow font never blocks the page). The page is already rendered underneath; the hero intro starts as it lifts. */
-if (!document.documentElement.dataset.pageLanguage) document.body.insertAdjacentHTML("beforeend", `<div id="loader" aria-hidden="true"><span>${pixelCat(3)}${pixelCat(3, CAT_STEP)}</span></div>`);
+document.body.insertAdjacentHTML("beforeend", `<div id="loader" aria-hidden="true"><span>${pixelCat(3)}${pixelCat(3, CAT_STEP)}</span></div>`);
 apply();
 const t0 = performance.now();
 function lift() {

@@ -45,6 +45,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 :focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:2px}
 .skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:99}
 .w{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+/* Fade the sketch-paper dots behind reading areas without adding cards or changing the palette. */
+.reading{background:color-mix(in srgb,var(--bg) 86%,transparent);box-shadow:0 0 32px 24px color-mix(in srgb,var(--bg) 86%,transparent)}
 .k{font:400 .75rem/1.6 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft)}
 .s{font-size:.875rem;color:var(--soft)}
 .hd{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 20px;min-height:76px}
@@ -94,17 +96,17 @@ h1 span{color:var(--acc);font-style:italic}
 .city .guide{stroke:var(--acc);stroke-width:.65;opacity:.85}.city .axis{stroke-dasharray:8 5 1 5;stroke-width:.5;opacity:.5}
 .city .wash{fill:var(--acc);fill-opacity:.07;stroke:none}
 .city text{font:400 8px var(--mono);letter-spacing:.12em;fill:var(--soft);stroke:none}
-.hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:clamp(48px,6vw,80px)}
+.hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:clamp(32px,4vw,56px)}
 .hi a{display:block;text-decoration:none}
 .hi .n{display:block;font:500 clamp(1.7rem,2.5vw,2rem)/1.15 var(--txt);letter-spacing:-.03em;margin-bottom:6px}
 .hi .metric-label{display:block;font-size:.875rem;color:var(--soft);margin-bottom:14px}
 .hi b{display:block;font-weight:500}.hi a:hover b{color:var(--blue)}
 .hi .s{display:block;margin:2px 0 0}
-.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(96px,11vw,160px) 0 0;scroll-margin-top:24px}
+.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:40px;padding:clamp(72px,8vw,112px) 0 0;scroll-margin-top:24px}
 .feat h2{font:500 clamp(1.65rem,2.7vw,2.25rem)/1.14 var(--txt);letter-spacing:-.035em;margin:14px 0 16px;text-wrap:balance}
 .feat .case-summary{font-size:1.125rem;color:var(--soft);line-height:1.55;margin-bottom:20px;max-width:36ch}
 .feat .case-result{font-size:1.125rem;font-weight:500;color:var(--blue);line-height:1.5;margin-bottom:0}
-.feat>div:first-child{grid-column:1/6}.feat>div:last-child{grid-column:7/13}
+.feat>div:first-child{grid-column:1/7}.feat>div:last-child{grid-column:7/13}
 .feat p{font-size:1.125rem;line-height:1.6;max-width:50ch}
 dl.f{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);border-top:1px solid var(--hair)}
 dl.f dt,dl.f dd{margin:0;padding:16px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
@@ -114,17 +116,18 @@ dl.f dt{font:400 .75rem/2 var(--mono);letter-spacing:.07em;text-transform:upperc
 .sec>h2 span{display:block;color:var(--soft)}
 .sec>div{grid-column:4/13;min-width:0}
 #offers{display:block}
-#offers>h2{position:static;font:italic 400 clamp(2rem,1.5rem + 2vw,2.8rem)/1.05 var(--serif);letter-spacing:0;margin-bottom:40px}
-.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-bottom:40px}
+#offers>h2{position:static;font:italic 400 clamp(2rem,1.5rem + 2vw,2.8rem)/1.05 var(--serif);letter-spacing:0;margin-bottom:28px}
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-bottom:24px}
 .service h3{margin:0 0 10px}
 .service p{font-size:1rem;line-height:1.65;margin-bottom:8px;color:var(--soft)}
+.service .deliverable{color:var(--ink)}
 .service details{border:0}.service summary{display:flex;align-items:center;gap:10px;padding:10px 0;font-size:.875rem;font-weight:500}.service summary .x{justify-self:auto;font-size:1.1rem}
 .service dl{margin:0;font-size:.9375rem;line-height:1.65}
 .service dt{font-weight:600;margin:20px 0 4px}
 .service dd{margin:0;color:var(--soft)}
 h3{font:500 1.3125rem/1.2 var(--txt);letter-spacing:-.025em;margin:0}
 p{margin:0 0 1.1em;max-width:56ch;text-wrap:pretty}
-.lead{font:400 clamp(1.3rem,2.2vw,1.7rem)/1.32 var(--txt);letter-spacing:-.025em;max-width:30ch;margin-bottom:1.2em}
+.lead{font:400 clamp(1.3rem,2.2vw,1.7rem)/1.32 var(--txt);letter-spacing:-.025em;max-width:42ch;margin-bottom:1em}
 .cols{display:grid;gap:52px 44px}
 .c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .cols h3{margin:12px 0 14px}.cols p{font-size:.9688rem;margin:0;line-height:1.65}
@@ -146,14 +149,27 @@ summary .x{font-size:1.25rem;line-height:1;transition:transform .25s;justify-sel
 details[open] .x{transform:rotate(45deg)}
 .b{padding:0 0 30px;max-width:56ch}
 .fold summary{grid-template-columns:minmax(0,1fr) 20px}.fold:first-of-type{border-top:1px solid var(--hair)}
-.related{margin-top:64px}
+.related{margin-top:40px}
 .related h3{font-size:1.125rem}
 .related .b h4{font-size:1.125rem;font-weight:500;margin:24px 0 8px}
 .shot{display:block;width:100%;height:auto;border:1px solid var(--hair);border-radius:8px;margin-top:6px}
 h3.sub{margin:40px 0 0;font:500 1rem/1.5 var(--txt);letter-spacing:0;color:var(--ink)}
 .steps{list-style:none;margin:16px 0 0;padding:0}
-.steps li{padding:16px 0;display:grid;grid-template-columns:28px minmax(0,1.2fr) minmax(0,1fr);gap:8px 20px;align-items:baseline;border-top:1px solid var(--hair)}
+.steps li{padding:16px 0;display:grid;grid-template-columns:28px minmax(0,1fr);gap:4px 20px;align-items:baseline;border-top:1px solid var(--hair)}
+.steps li>.k{grid-row:1/3}.steps li>.s{grid-column:2}
 .steps b{font-weight:500;line-height:1.4}
+.experience{margin-top:40px}
+.experience h3{margin-bottom:20px}
+.experience-overview{margin:0;max-width:56ch}
+.experience-overview dt{font-weight:500;margin:16px 0 4px}
+.experience-overview dd{margin:0;color:var(--soft)}
+.experience .fold{margin-top:20px}
+.experience summary{padding:18px 0;font-weight:500}
+.book-list{margin-top:8px;max-width:56ch}
+.book-list summary{padding:16px 0;font-weight:500}
+.book-list ul{list-style:none;padding:0;margin:0 0 16px}
+.book-list li{padding:12px 0;border-top:1px solid var(--hair)}
+.book-list li span{display:block;color:var(--soft)}
 .btn{cursor:pointer;font-family:inherit}
 .copy{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 6px;border-radius:6px;color:var(--ink);font:500 .9375rem var(--txt);cursor:pointer;text-decoration:underline;text-decoration-color:var(--hair);text-decoration-thickness:1px;text-underline-offset:.3em;transition:color .2s,text-decoration-color .2s}
 .copy svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
@@ -188,7 +204,8 @@ h3.sub{margin:40px 0 0;font:500 1rem/1.5 var(--txt);letter-spacing:0;color:var(-
 footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding:22px 0 20px}
 footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-child{margin-left:0}
 @media(max-width:860px){
-  .hero{grid-template-columns:1fr}.fig{justify-self:start;max-width:340px;margin-top:8px}
+  .hero{grid-template-columns:minmax(0,1fr)}.hero h1{hyphens:auto;overflow-wrap:anywhere}.fig{justify-self:center;max-width:340px;margin-top:0;display:flex;align-items:center;gap:16px}
+  .fig .sk{width:50%;height:190px;flex:none}.note{position:static;width:auto;min-width:0;flex:1}.note svg{display:none}
   .sec,.feat{display:block}.sec>h2{position:static}
   .hi{gap:24px}
   .services{grid-template-columns:1fr;gap:36px}
@@ -207,8 +224,8 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   .today{font-size:1.0625rem}
   .cta .btn{flex:1 1 auto;justify-content:center}
   .city{width:860px;max-width:none;margin-left:calc(50% - 430px)}.city text{font-size:11px;letter-spacing:.08em}
-  .sec,.feat{padding-top:88px}
-  .feat h2{margin-bottom:16px}.feat>div+div{margin-top:28px}.feat p{font-size:1.0625rem}
+  .sec{padding-top:88px}.feat{padding-top:64px}
+  .feat h2{margin-bottom:16px}.feat>div+div{margin-top:20px}.feat p{font-size:1.0625rem}
   .hi{grid-template-columns:1fr;gap:24px}
   .hi a{display:grid;grid-template-columns:90px minmax(0,1fr);column-gap:14px;align-items:baseline}
   .hi .n{grid-row:1/3}.hi .metric-label{margin:0 0 4px}.hi b{grid-column:2}
@@ -305,10 +322,12 @@ const content = {
     name: "Rocío Jacob", role: "Product Engineer",
     oneLiner: "I'm Rocío. I turn manual operations into digital products and automated workflows.",
     pitch: "I turn manual operations into digital products and automated workflows.",
+    heroPitch: "I build web products and automations that reduce manual work.",
+    heroAccent: "that reduce manual work.",
     sub: "Project Manager & Business Partner in BI, Automation and AI. Ex-global consulting firm (corporate finance). Available for freelance projects.",
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remote worldwide",
     status: "Open to freelance · Buenos Aires",
-    cta: "Work with me", ctaAlt: "Let's talk", mailSubject: "Project for Rocío",
+    cta: "Tell me about your project", contactCta: "Email me", ctaAlt: "Let's talk", mailSubject: "Project for Rocío",
     skip: "Skip to content", langLabel: "Language", themeLabel: "Toggle light / dark", portraitAlt: "Photo of Rocío Jacob",
     nav: { home: "Home", about: "About", work: "Work", experience: "Experience", skills: "Stack", books: "Books", writing: "Writing", contact: "Contact", play: "Playground", services: "Services" },
     h: { services: "What I offer", about: "About", work: "Selected work", experience: "Experience", skills: "Skills & stack", books: "Books", writing: "Writing", contact: "Work with me", finance: "The finance side", lab: "Lab", numbers: "In numbers" },
@@ -372,12 +391,12 @@ const content = {
       { k: "Roots", v: "Business & Digital Business at UdeSA, top 10%. Finance Club member." }
     ],
     services: [
-      { code: "SV.01", name: "Automation & BI", sub: "Processes", body: "I take a manual process (scattered Excel files, emails, spreadsheets) and turn it into an automatic flow with dashboards people actually use.", deliv: "Process map, working automation and documentation.", ideal: "Finance and operations teams, institutions." },
-      { code: "SV.02", name: "AI agents", sub: "Internal processes", body: "Classification, data intake, replies and follow-up, with humans supervising.", deliv: "A prototype in real use plus evaluation criteria.", ideal: "Teams with repetitive sorting, intake or reply work." },
-      { code: "SV.03", name: "Web & product", sub: "With monthly support", body: "Site or app, infrastructure, CMS and forms, with ongoing maintenance on a monthly plan.", deliv: "A published site or app, with CMS and documentation.", ideal: "Businesses that need a web presence without an in-house technical team." }
+      { code: "SV.01", name: "Automation & BI", sub: "Processes", body: "Your team repeats tasks across spreadsheets, email and disconnected systems.", deliv: "I deliver a working automation, a dashboard and documentation.", ideal: "Finance and operations teams, institutions." },
+      { code: "SV.02", name: "AI agents", sub: "Internal processes", body: "Classification, data intake and follow-up take up your team's time.", deliv: "I build an AI prototype with human review and criteria to evaluate it.", ideal: "Teams with repetitive sorting, intake or reply work." },
+      { code: "SV.03", name: "Web & product", sub: "With monthly support", body: "You need a website or app without managing the technical side.", deliv: "I build and launch it, with monthly maintenance after launch.", ideal: "Businesses that need a web presence without an in-house technical team." }
     ],
     delivLabel: "Deliverable", idealLabel: "Ideal for",
-    freelance: "I take freelance work in these three shapes, and I run each one as its project manager. Available to work remotely in Argentina and Europe, with work authorization in the European Union.",
+    freelance: "I also manage each project. I work remotely with Argentina and Europe, with work authorization in the European Union.",
     lab: [
       { name: "Python games", status: "Built", why: "How I learned Python: loops, state and collisions.", url: "https://github.com/rochijacob/python_games" },
       { name: "Dog-in-the-pool detector", status: "In progress", why: "Computer vision applied to a household problem." },
@@ -386,24 +405,26 @@ const content = {
     labIntro: "Things I build out of curiosity.",
     off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The little pink pixel panther is a nod to my favourite cartoon." },
     today: "I combine product engineering, operations and business thinking to build tools that save time and support better decisions.",
-    heroIntro: "I combine product engineering, operations and business thinking to build tools that save time and support better decisions.",
+    heroIntro: "I combine development and project management to turn a fragmented process into a tool your team can use.",
     featured: {
       "WK.01": { title: "Gym chain app", summary: "Performance and UX for an app used every day.", number: "500K+", label: "downloads · 40K daily users" },
       "WK.02": { title: "Event platform", summary: "Ticket sales and access control across three continents.", number: "15K+", label: "users · 5+ clients" },
       "WK.04": { title: "Final-project tracking", summary: "From manual coordination to an automated workflow.", number: "100+", label: "projects per cycle" }
     },
     profile: [
-      "I am self-taught. Everything I know about technology I learned on my own, because I enjoy it: I started in 2021 with books and the open web, and I have not stopped.",
+      "I taught myself to code in 2021. Since then, I have built products, led projects and kept learning with each release.",
       "I build the product and understand the business behind it. I studied Business & Digital Business, worked in consulting, and I teach Corporate Finance at a university.",
       "I care as much about how a product feels as how it works. Design does not come at the end."
     ],
     approach: "How I approach a project", moreTitle: "More about me", expFold: "Experience and education",
+    expDetails: "View roles and dates",
+    educationSummary: "Business Administration & Digital Business at Universidad de San Andrés; exchange at IE University. Master in Finance at San Andrés starting April 2027.",
     copy: "Copy email", copied: "Copied", copySuccess: "Email copied to clipboard.", copyError: "Could not copy. Select the email address below to copy it manually.", orLinkedin: "or message me on LinkedIn",
     think: { title: "How I think", intro: "The questions I ask on every project, in this order.", loop: "and back to the start",
       phases: { u: "Understand", b: "Build", l: "Learn" },
       steps: [
         { ph: "u", q: "What is really happening today?", s: "Understand the real situation.", ex: "Final projects: emails and spreadsheets by hand" },
-        { ph: "u", q: "Where does the truth come from?", s: "A single source of data.", ex: "University: one central data hub" },
+        { ph: "u", q: "Which data can we rely on?", s: "A single source of data.", ex: "University: one central data hub" },
         { ph: "b", q: "Who uses it, and how?", s: "Design around their habits.", ex: "Web: the client edits through a CMS" },
         { ph: "b", q: "What can fail, and who supervises?", s: "Layers and human control.", ex: "Agents: permissions by role" },
         { ph: "l", q: "What did we learn?", s: "Measure and adjust.", ex: "Every case closes with a learning" }
@@ -412,11 +433,12 @@ const content = {
     why: "Why work with me", menu: "Menu", workCols: { p: "Project", w: "When", i: "Result" },
     readCase: "Read the full case", svcMore: "Deliverable and who it is for", seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
     fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
-    gotMind: "Have a manual process, a stalled automation or a product that needs to move forward?", reach: "Or write to me at",
+    gotMind: "What needs to work better in your operation?", contactIntro: "Tell me about the problem and what you have tried.", reach: "Or write to me at",
     illo: "Architectural drawing of Buenos Aires: Kavanagh, Congress, the Obelisk, and Puente de la Mujer",
     cityHeight: "67.5 m",
     booksIntro: "I learn by reading books and then building something with what I read.",
     booksNote: "Hover or tap a spine.",
+    booksList: "View list",
     writingIntro: "Notes on product, finance and what I am learning.",
     soon: "soon",
     contactTitle: "Have a product, a project or a process that needs an owner?",
@@ -516,10 +538,12 @@ const content = {
     name: "Rocío Jacob", role: "Ingeniera de producto",
     oneLiner: "Soy Rocío. Transformo procesos manuales en productos digitales y flujos automatizados.",
     pitch: "Transformo procesos manuales en productos digitales y flujos automatizados.",
+    heroPitch: "Desarrollo productos web y automati\u00adzaciones para reducir el trabajo manual.",
+    heroAccent: "para reducir el trabajo manual.",
     sub: "Project Manager & Business Partner en BI, Automatización e IA. Ex consultoría global en finanzas. Tomo proyectos freelance.",
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remoto a todo el mundo",
     status: "Disponible para freelance · Buenos Aires",
-    cta: "Trabajemos juntos", ctaAlt: "Hablemos", mailSubject: "Proyecto para Rocío",
+    cta: "Contame tu proyecto", contactCta: "Escribime por mail", ctaAlt: "Hablemos", mailSubject: "Proyecto para Rocío",
     skip: "Ir al contenido", langLabel: "Idioma", themeLabel: "Cambiar modo claro / oscuro", portraitAlt: "Foto de Rocío Jacob",
     nav: { home: "Inicio", about: "Sobre mí", work: "Trabajo", experience: "Experiencia", skills: "Stack", books: "Libros", writing: "Escritos", contact: "Contacto", play: "Playground", services: "Servicios" },
     h: { services: "Servicios", about: "Sobre mí", work: "Proyectos destacados", experience: "Experiencia", skills: "Herramientas", books: "Libros", writing: "Escritos", contact: "Trabajemos juntos", finance: "El lado financiero", lab: "Lab", numbers: "En números" },
@@ -583,12 +607,12 @@ const content = {
       { k: "Base", v: "Administración y Negocios Digitales en UdeSA, top 10%. Miembro del Finance Club." }
     ],
     services: [
-      { code: "SV.01", name: "Automatización y BI", sub: "Procesos", body: "Convierto un proceso manual (planillas sueltas, mails, cargas a mano) en un flujo automático, con tableros que el equipo realmente usa.", deliv: "Mapa del proceso, automatización en funcionamiento y documentación.", ideal: "Finanzas, operaciones, instituciones." },
-      { code: "SV.02", name: "Agentes de IA", sub: "Procesos internos", body: "Agentes que clasifican, cargan datos, responden y hacen seguimiento, siempre con supervisión de personas.", deliv: "Un prototipo en uso real y criterios para evaluarlo.", ideal: "Equipos con tareas repetitivas de clasificación, carga o respuesta." },
-      { code: "SV.03", name: "Web y producto", sub: "Con soporte mensual", body: "Sitio o app con su infraestructura, CMS y formularios, y mantenimiento por abono mensual.", deliv: "Sitio o app publicada, con CMS y documentación.", ideal: "Negocios que necesitan presencia web sin un equipo técnico propio." }
+      { code: "SV.01", name: "Automatización y BI", sub: "Procesos", body: "Tu equipo repite tareas entre planillas, mails y sistemas desconectados.", deliv: "Entrego una automatización en funcionamiento, un tablero y documentación.", ideal: "Finanzas, operaciones, instituciones." },
+      { code: "SV.02", name: "Agentes de IA", sub: "Procesos internos", body: "Clasificar, cargar datos y hacer seguimiento consume tiempo de tu equipo.", deliv: "Desarrollo un prototipo con IA, revisión humana y criterios para evaluarlo.", ideal: "Equipos con tareas repetitivas de clasificación, carga o respuesta." },
+      { code: "SV.03", name: "Web y producto", sub: "Con soporte mensual", body: "Necesitás un sitio o una app sin ocuparte de la parte técnica.", deliv: "Lo desarrollo y publico, con mantenimiento mensual después del lanzamiento.", ideal: "Negocios que necesitan presencia web sin un equipo técnico propio." }
     ],
     delivLabel: "Entregable", idealLabel: "Ideal para",
-    freelance: "Tomo proyectos freelance en estos tres formatos y en todos me ocupo también de la gestión. Trabajo de forma remota para Argentina y Europa, con autorización laboral en la Unión Europea.",
+    freelance: "También me ocupo de la gestión de cada proyecto. Trabajo de forma remota para Argentina y Europa, con autorización laboral en la Unión Europea.",
     lab: [
       { name: "Juegos en Python", status: "Terminado", why: "Así aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" },
       { name: "Detector de perros en la pileta", status: "En progreso", why: "Visión por computadora aplicada a un problema doméstico." },
@@ -597,24 +621,26 @@ const content = {
     labIntro: "Cosas que armo por curiosidad.",
     off: { t: "Fuera del trabajo", p: "Soy DJ y toco música electrónica. Me encantan el arte y la fotografía. La panterita rosa en píxeles es un guiño a mi dibujo animado favorito." },
     today: "Combino ingeniería de producto, operaciones y negocio para construir herramientas que ahorran tiempo y mejoran decisiones.",
-    heroIntro: "Combino ingeniería de producto, operaciones y negocio para construir herramientas que ahorran tiempo y mejoran decisiones.",
+    heroIntro: "Combino desarrollo y gestión de proyectos para convertir un proceso disperso en una herramienta que tu equipo pueda usar.",
     featured: {
       "WK.01": { title: "App de gimnasios", summary: "Rendimiento y experiencia de uso para una app de todos los días.", number: "500K+", label: "descargas · 40K usuarios diarios" },
       "WK.02": { title: "Plataforma de eventos", summary: "Venta y control de entradas en tres continentes.", number: "15K+", label: "usuarios · 5+ clientes" },
       "WK.04": { title: "Seguimiento de trabajos finales", summary: "De la coordinación manual a un flujo automatizado.", number: "100+", label: "trabajos por entrega" }
     },
     profile: [
-      "Soy autodidacta. Todo lo que sé de tecnología lo aprendí por mi cuenta, porque me gusta: empecé en 2021 con libros y la web, y no paré.",
+      "Aprendí a programar por mi cuenta en 2021. Desde entonces desarrollo productos, lidero proyectos y sigo aprendiendo con cada entrega.",
       "Construyo el producto y entiendo el negocio que hay detrás. Estudié Administración y Negocios Digitales, trabajé en consultoría y doy clases de Finanzas Corporativas en una universidad.",
       "Cuido cómo funciona un producto y cómo se siente al usarlo. El diseño no llega al final."
     ],
     approach: "Cómo encaro un proyecto", moreTitle: "Más sobre mí", expFold: "Experiencia y formación",
+    expDetails: "Ver roles y fechas",
+    educationSummary: "Administración y Negocios Digitales en la Universidad de San Andrés; intercambio en IE University. Maestría en Finanzas en San Andrés desde abril de 2027.",
     copy: "Copiar mail", copied: "Copiado", copySuccess: "Mail copiado al portapapeles.", copyError: "No se pudo copiar. Seleccioná el mail de abajo para copiarlo manualmente.", orLinkedin: "o escribime por LinkedIn",
     think: { title: "Cómo pienso", intro: "Las preguntas que me hago en cada proyecto, en este orden.", loop: "y vuelta al inicio",
       phases: { u: "Entender", b: "Construir", l: "Aprender" },
       steps: [
         { ph: "u", q: "¿Qué pasa de verdad hoy?", s: "Entender la situación real.", ex: "Trabajos finales: mails y planillas a mano" },
-        { ph: "u", q: "¿De dónde sale la verdad?", s: "Una única fuente de datos.", ex: "Universidad: un repositorio central de datos" },
+        { ph: "u", q: "¿Qué datos podemos tomar como referencia?", s: "Una única fuente de datos.", ex: "Universidad: un repositorio central de datos" },
         { ph: "b", q: "¿Quién lo usa y cómo?", s: "Diseñar sobre sus hábitos.", ex: "Web: el cliente edita desde un CMS" },
         { ph: "b", q: "¿Qué puede fallar y quién supervisa?", s: "Capas y control humano.", ex: "Agentes: permisos por rol" },
         { ph: "l", q: "¿Qué aprendimos?", s: "Medir y ajustar.", ex: "Cada caso cierra con un aprendizaje" }
@@ -623,11 +649,12 @@ const content = {
     why: "Por qué trabajar conmigo", menu: "Menú", workCols: { p: "Proyecto", w: "Período", i: "Resultado" },
     readCase: "Leer el caso completo", svcMore: "Entregable y para quién", seeWork: "Ver proyectos", remoteNote: "Buenos Aires · Trabajo remoto", moreWork: "Otros proyectos",
     fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
-    gotMind: "¿Tenés un proceso manual, una automatización trabada o un producto que necesita avanzar?", reach: "O escribime a",
+    gotMind: "¿Qué necesitás mejorar en tu operación?", contactIntro: "Contame el problema y lo que ya probaste.", reach: "O escribime a",
     illo: "Croquis arquitectónico de Buenos Aires: Kavanagh, Congreso, Obelisco y Puente de la Mujer",
     cityHeight: "67,5 m",
     booksIntro: "Aprendo leyendo y después pongo en práctica lo que leí.",
     booksNote: "Pasá el cursor o tocá un lomo.",
+    booksList: "Ver lista",
     writingIntro: "Notas sobre producto, finanzas y lo que voy aprendiendo.",
     soon: "pronto",
     contactTitle: "¿Tenés un producto, un proyecto o un proceso que necesita dueña?",
@@ -946,7 +973,6 @@ const obelisk = alt => {
 /* ---------- Site H · Studio ---------- */
 let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 document.documentElement.dataset.theme = theme;
-const clock = () => new Date().toLocaleTimeString(lang === "es" ? "es-AR" : "en-GB", { timeZone: "America/Argentina/Buenos_Aires", hour: "2-digit", minute: "2-digit", hour12: false });
 const DOCK = [["work", "work"], ["offers", "services"], ["about", "about"], ["contact", "contact"]];
 const MAIN = ["WK.01", "WK.02", "WK.04"];
 const trackedViews = new Set();
@@ -969,9 +995,8 @@ function languageControl(t) {
   }).join('')}</span>`;
 }
 function render(t) {
-  const m = t.pitch.match(/^(.*?)( into | en )(.*)$/);
-  const h1 = m ? `${m[1]} <span>${m[2].trim()}&nbsp;${m[3]}</span>` : t.pitch;
-  const sec = (id, title, body) => `<section class="sec" id="${id}" data-track-view="section_view" data-track-id="${id}"><h2>${title}</h2><div>${body}</div></section>`;
+  const h1 = `${esc(t.heroPitch.slice(0, -t.heroAccent.length))}<span>${esc(t.heroAccent)}</span>`;
+  const sec = (id, title, body) => `<section class="sec" id="${id}" data-track-view="section_view" data-track-id="${id}"><h2>${title}</h2><div class="reading">${body}</div></section>`;
   const main = MAIN.map(c => t.cases.find(x => x.code === c)), rest = t.cases.filter(x => !MAIN.includes(x.code));
   const fid = c => "f" + c.code.replace(".", "");
   $("#app").innerHTML = `
@@ -985,31 +1010,33 @@ function render(t) {
     <div>
       <h1>${h1}</h1>
       <p class="today">${t.heroIntro}</p>
-      <div class="cta"><a class="btn" href="#contact">${t.cta} ↗</a><a class="btn o" href="#work">${t.seeWork}</a><span class="k">${t.remoteNote} · <span id="clock">${clock()}</span></span></div>
+      <div class="cta"><a class="btn" href="#contact">${t.cta} ↗</a><a class="btn o" href="#work">${t.seeWork}</a><span class="k">${t.remoteNote}</span></div>
     </div>
     <figure class="fig">${obelisk(t.j.opts[0].alt)}<p class="note"><svg viewBox="0 0 74 40" aria-hidden="true"><path d="M70 6C52 4 30 10 14 30"/><path d="M12 18l1 13 13-3"/></svg>${t.a.notes.here}</p></figure>
   </div>
   <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => { const f = t.featured[c.code]; return `<a href="#${fid(c)}" data-track-event="select_content" data-track-content-type="project" data-track-content-id="${c.code}"><span class="n">${f.number}</span><span class="metric-label">${f.label}</span><b>${f.title} ›</b></a>`; }).join("")}</nav>
 
-  <div id="work">${main.map(c => { const f = t.featured[c.code]; return `<section class="feat" id="${fid(c)}" data-track-view="project_view" data-track-id="${c.code}"><div><span class="k">${c.org} · ${c.when}</span><h2>${f.title}</h2><p class="case-summary">${f.summary}</p><p class="case-result">${c.impact}</p>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div>
-    <div><p>${c.body}</p><dl class="f"><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl></div></section>`; }).join("")}
-    <details class="fold related" id="more-work"><summary><h3>${t.moreWork}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b">${rest.map(c => `<h4>${c.name}</h4><p class="s">${c.org} · ${c.role} · ${c.when}</p><p>${caseBody(c)}</p>`).join("")}</div></details>
+  <div id="work">${main.map(c => { const f = t.featured[c.code]; return `<section class="feat" id="${fid(c)}" data-track-view="project_view" data-track-id="${c.code}"><div class="reading"><span class="k">${c.org} · ${c.when}</span><h2>${f.title}</h2><p class="case-summary">${f.summary}</p><p class="case-result">${c.impact}</p>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div>
+    <div class="reading"><p>${c.body}</p><dl class="f"><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl></div></section>`; }).join("")}
+    <details class="fold related reading" id="more-work"><summary><h3>${t.moreWork}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b">${rest.map(c => `<h4>${c.name}</h4><p class="s">${c.org} · ${c.role} · ${c.when}</p><p>${caseBody(c)}</p>`).join("")}</div></details>
   </div>
 
-  ${sec("offers", t.talk.services, `<div class="services">${t.services.map((s, i) => `<article class="service"><h3>${s.name}</h3><p>${s.body}</p></article>`).join("")}</div>
+  ${sec("offers", t.talk.services, `<div class="services">${t.services.map(s => `<article class="service"><h3>${s.name}</h3><p>${s.body}</p><p class="deliverable">${s.deliv}</p></article>`).join("")}</div>
     <p>${t.freelance}</p>`)}
 
   ${sec("about", t.h.about, `${portrait()}<p class="lead">${t.profile[0]}</p>${t.profile.slice(1).map(p => `<p>${p}</p>`).join("")}
     <h3 class="sub">${t.approach}</h3>
     <ol class="steps">${t.think.steps.map((x, i) => `<li><span class="k">0${i + 1}</span><b>${x.q}</b><span class="s">${x.s}</span></li>`).join("")}</ol>
     <div style="margin-top:32px">${offClock()}</div>
-    <details class="fold related" id="experience"><summary><h3>${t.expFold}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b" style="max-width:none"><ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}</span></span></li>`, "li", "k")}</ul></div></details>`)}
+    <div class="experience" id="experience"><h3>${t.expFold}</h3><dl class="experience-overview"><dt>${t.expWork}</dt><dd>${[...new Set(t.timeline.filter(e => e.kind !== "edu").map(e => e.org))].map(esc).join(" · ")}</dd><dt>${t.expEdu}</dt><dd>${t.educationSummary}</dd></dl>
+    <details class="fold"><summary><span>${t.expDetails}</span><span class="x" aria-hidden="true">+</span></summary><div class="b" style="max-width:none"><ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}</span></span></li>`, "li", "k")}</ul></div></details></div>`)}
 
-  ${sec("books", t.h.books, `<p>${t.booksIntro}</p>${bookShelf()}`)}
+  ${sec("books", t.h.books, `<p>${t.booksIntro}</p>${bookShelf()}<details class="fold book-list"><summary><span>${t.booksList}</span><span class="x" aria-hidden="true">+</span></summary><ul>${content.books.map(b => `<li><b>${esc(b.title)}</b><span>${esc(b.author)}</span></li>`).join("")}</ul></details>`)}
 
   <section class="end" id="contact" data-track-view="section_view" data-track-id="contact">
-    <p class="big">${t.gotMind}</p>
-    <div class="cta" style="margin:0 0 18px"><a class="btn" href="${mailto()}" data-track-event="contact_click" data-track-method="email" data-track-location="contact">${t.cta} ↗</a><button type="button" class="copy" data-copy><svg viewBox="0 0 24 24" aria-hidden="true">${COPY_ICON}</svg><span>${t.copy}</span></button></div>
+    <h2 class="big">${t.gotMind}</h2>
+    <p>${t.contactIntro}</p>
+    <div class="cta" style="margin:0 0 18px"><a class="btn" href="${mailto()}" data-track-event="contact_click" data-track-method="email" data-track-location="contact">${t.contactCta} ↗</a><button type="button" class="copy" data-copy><svg viewBox="0 0 24 24" aria-hidden="true">${COPY_ICON}</svg><span>${t.copy}</span></button></div>
     <p class="copy-status" id="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
     <p class="s"><a class="m" href="${mailto()}" data-track-event="contact_click" data-track-method="email" data-track-location="contact_text">${L.email}</a>, ${t.orLinkedin.replace("LinkedIn", `<a href="${L.linkedin}" data-track-event="contact_click" data-track-method="linkedin" data-track-location="contact" ${ext}>LinkedIn</a>`)}.</p>
   </section>
@@ -1121,10 +1148,9 @@ addEventListener("scroll", () => {
   scrollFrame = requestAnimationFrame(() => { scrollFrame = 0; spy(); walk(); });
 }, { passive: true });
 addEventListener("resize", () => { spy(); walk(); if (innerWidth > 640) closeMenu(); });
-setInterval(() => { const c = $("#clock"); if (c) c.textContent = clock(); }, 30000);
 /* Loader: shown until the web fonts are in (at least 450 ms so it never flashes, at most 1.8 s so a
    slow font never blocks the page). The page is already rendered underneath; the hero intro starts as it lifts. */
-if (!document.documentElement.dataset.pageLanguage) document.body.insertAdjacentHTML("beforeend", `<div id="loader" aria-hidden="true"><span>${pixelCat(3)}${pixelCat(3, CAT_STEP)}</span></div>`);
+document.body.insertAdjacentHTML("beforeend", `<div id="loader" aria-hidden="true"><span>${pixelCat(3)}${pixelCat(3, CAT_STEP)}</span></div>`);
 apply();
 const t0 = performance.now();
 function lift() {

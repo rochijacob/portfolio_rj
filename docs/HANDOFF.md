@@ -13,6 +13,19 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 
 ## Estado
 
+**Ajustes editoriales aprobados (2026-11-16, decisión vigente sobre las notas históricas de abajo).** Rocío pidió aplicar el wording y las mejoras de lectura en H. Implementados en `codex/editorial-reading-refinements`, pendientes de publicación:
+
+- Hero EN/ES orientado a productos web y reducción de trabajo manual; CTA «Contame tu proyecto» / «Tell me about your project». Contacto: pregunta breve, frase de apoyo y «Escribime por mail» / «Email me», con copia de mail al lado.
+- Tres servicios, cada uno con una frase de problema y una de entrega. Sin tarjetas ni nuevos CTA intermedios.
+- Fondo punteado atenuado detrás de casos, servicios, perfil y libros. Misma paleta y tamaños de letra. Columnas de casos equilibradas, perfil más ancho y preguntas del método con explicación debajo.
+- Menos separación dentro de grupos relacionados; se conserva el aire entre secciones principales. Croquis del hero móvil dentro de un bloque de 190 px de alto; skyline completo al cierre. Reloj eliminado.
+- Empleadores e instituciones visibles sin desplegar; roles y fechas dentro de un desplegable. La maestría sigue indicada como futura, desde abril de 2027.
+- Libros: se conservan los lomos y se agrega «Ver lista» / «View list» con los diez títulos y autores, accesible por teclado y sin enlaces de compra.
+- Se mantiene la mascota, el menú y las animaciones. Por pedido explícito se restaura el loader también en las páginas prerenderizadas; el HTML sigue disponible sin JS. Las capturas de productos quedan para una etapa futura.
+- Verificado: build, matriz de Studio de 20 combinaciones (320–1440 px, EN/ES, claro/oscuro), controles y clipboard, SEO y navegación sin JS, UTMs, capturas con fuentes cargadas y desplegables por teclado. `check.js` también se ejecutó sobre el laboratorio: D tiene un desborde móvil en ES ya presente en HEAD; no es una regresión de H.
+
+Esta aprobación habilita los cambios en H y reemplaza la restricción histórica «la web publicada no se toca» para este alcance. La rama aún no se empujó ni se integró a main.
+
 **Laboratorio tipográfico (2026-11-16, lo más reciente).** A Rocío H le parece prolija pero "le falta creatividad" y sospecha de la tipografía: H usa Geist en todo, como muchos portfolios de desarrolladores. Pidió retomar A, B y D como **laboratorio para ir combinando** (no candidatas a reemplazar H) y sumar opciones con referencias nuevas: falakgala.dev, lokiii.me, 10xshivam.dev (wording), d0xxed.com (bichitos de fondo) y nan.fyi/database (esqueleto de artículo). Diseño en `docs/superpowers/specs/2026-11-16-laboratorio-tipografico-design.md`; plan en `docs/superpowers/plans/`.
 
 **La web publicada (H, `index.html`, rama `main`) no se toca:** Rocío dijo "la web posta dejémosla así". Ve las variantes por capturas y decide qué pasa a H. No empujar a `main` sin que lo pida.
