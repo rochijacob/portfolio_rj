@@ -41,6 +41,8 @@ Esta aprobación habilita los cambios en H y reemplaza la restricción históric
 
 **Publicado (2026-11-17).** La mezcla está en `main` (GitHub Pages). El empuje con `--force` está bloqueado en estas sesiones: para publicar, integrar `origin/main` en la rama con un merge normal y empujar `HEAD:main`.
 
+**Estado al 2026-11-17 (verificado en la web):** Rocío publicó por su cuenta (otra herramienta) los nombres reales en experiencia y formación (Universidad de San Andrés, Accenture, Muvinai; los casos siguen anonimizados), quitó "Disponible para proyectos freelance seleccionados", cambió el titular a "Desarrollo productos web y automatizaciones para reducir el trabajo manual" y sumó `es.html` prerenderizado, SEO, GA4 y links cortos (`docs/ANALYTICS.md`, `docs/AUDIT-2026-11-16.md`). La rama de trabajo se puso al día con un merge de `main`. Ojo: construida desde esta rama, `index.html` incluye en su código los textos del artículo escondido (`content.*.caseArt`); por eso los arreglos de la web se siguen haciendo sobre `origin/main`.
+
 **Artículo escondido (decisión de Rocío, 2026-11-17):** le pareció perfecto, pero por ahora no va a la web. `site-K-case.html` vive solo en la rama de trabajo, **no en `main`**. Mientras siga así, no empujar la rama entera a `main`: los arreglos de la web se hacen sobre `origin/main` (checkout suelto, cambio, build, `git push origin HEAD:main`) y después se integran a la rama con un merge.
 
 **Loader, ajuste:** la panterita le quedaba gigante y sobre un fondo liso. Ahora mide la mitad (3 px por píxel) y el fondo del loader es el mismo papel punteado.
