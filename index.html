@@ -154,7 +154,7 @@ h3.sub{margin:40px 0 0;font:500 1rem/1.5 var(--txt);letter-spacing:0;color:var(-
 @keyframes shim{to{background-position:-150% 0}}
 .portrait img{opacity:0;transition:opacity .4s}.portrait.ok img{opacity:1}
 /* Loader: the pixel panther walks in place while fonts arrive, then the page fades in already settled. */
-#loader{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:var(--bg);pointer-events:none;transition:opacity .35s}
+#loader{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:var(--bg) radial-gradient(circle,var(--dot) 1.1px,transparent 1.3px) 0 0/22px 22px;pointer-events:none;transition:opacity .35s}
 #loader.out{opacity:0}
 #loader span{line-height:0;position:relative}
 #loader svg+svg{position:absolute;inset:0;opacity:0}
@@ -1056,7 +1056,7 @@ addEventListener("resize", () => { spy(); walk(); if (innerWidth > 640) closeMen
 setInterval(() => { const c = $("#clock"); if (c) c.textContent = clock(); }, 30000);
 /* Loader: shown until the web fonts are in (at least 450 ms so it never flashes, at most 1.8 s so a
    slow font never blocks the page). The page is already rendered underneath; the hero intro starts as it lifts. */
-document.body.insertAdjacentHTML("beforeend", `<div id="loader" aria-hidden="true"><span>${pixelCat(6)}${pixelCat(6, CAT_STEP)}</span></div>`);
+document.body.insertAdjacentHTML("beforeend", `<div id="loader" aria-hidden="true"><span>${pixelCat(3)}${pixelCat(3, CAT_STEP)}</span></div>`);
 apply();
 const t0 = performance.now();
 function lift() {
