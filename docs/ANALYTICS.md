@@ -47,10 +47,12 @@ case_open está preparado para futuros casos completos: la versión actual de ma
 
 ## Cómo confirmar que funciona
 
-1. En GA4, abrir Informes → Tiempo real. En otra ventana privada abrir la home con `?utm_source=x&utm_medium=social&utm_campaign=portfolio&utm_content=test` y navegar entre proyectos. Comprobar que aparece una visita y eventos `project_view` o `select_content`. Los reportes de adquisición pueden demorar más que Tiempo real.
-2. Abrir el enlace corto `/in/` en otra sesión privada y revisar en Tiempo real la fuente `linkedin` y el evento `contact_click` al pulsar el mail. El click no confirma que se haya enviado un mensaje.
+1. En GA4, abrir Informes → Tiempo real para confirmar visitas y eventos. La tarjeta «Usuarios activos por Primera fuente del usuario» muestra cómo llegó esa persona **por primera vez**; no sirve para probar el origen de una visita posterior. Puede tardar en procesar usuarios nuevos.
+2. Abrir `/x/` y `/in/` en sesiones privadas separadas. Confirmar que la URL final contiene respectivamente `utm_source=x` o `utm_source=linkedin`. Para comparar fuentes, ir a Informes → Adquisición → Adquisición de tráfico y elegir «Fuente/medio de la sesión» o «Fuente/medio manual de la sesión» como dimensión de la tabla. Buscar `x / social` y `linkedin / social`. El procesamiento de informes puede demorar entre 24 y 48 horas.
 3. Para DebugView, habilitar modo debug con Tag Assistant o con `gtag('set','debug_mode',true)` temporalmente en la consola antes de interactuar. Confirmar nombre y parámetros. No dejar debug_mode activado para todos los visitantes.
 4. Revisar una sola vista de página por carga. Si aparecen dos, verificar que no haya otra etiqueta G-FFMYCXQZFJ publicada en GTM o instalada por otro medio.
+
+Diagnóstico del 16/11/2026: el navegador llega a la home con los UTMs intactos y los `page_view` de `G-FFMYCXQZFJ` incluyen la URL completa. También sale un `page_view` hacia `G-DV2NR6RG18`, aunque la página solo solicita los scripts `gtag/js?id=G-FFMYCXQZFJ` y `gtm.js?id=GTM-TW2MSTRV`. Es compatible con una segunda destinación vinculada a la etiqueta de Google, pero debe revisarse en Admin → Administrar etiqueta de Google → Destinos de la cuenta. Las dos solicitudes son a IDs distintos; esto por sí solo no demuestra doble conteo dentro de la misma propiedad.
 
 GTM-TW2MSTRV permanece instalado, pero hoy está vacío. Si más adelante se decide administrar GA4 desde GTM, primero preparar en el contenedor la Google tag y las etiquetas de eventos, después retirar la instalación directa de la web en el mismo despliegue y comprobar el conteo. No publicar ambas configuraciones simultáneamente.
 
