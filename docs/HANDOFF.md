@@ -13,6 +13,12 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 
 ## Estado
 
+Servicios usa titulares en serif recta, cuerpo de 16 px y datos prácticos sin borde. Dos notas manuscritas bilingües señalan la revisión humana en IA y la progresión de roles en Muvinai.
+
+Se retiró la sección de método en ambos idiomas. Servicios pasa directamente a Sobre mí. Se mantienen los croquis animados de proyectos y «Fuera del trabajo» junto a libros.
+
+Revisión posterior a la auditoría: H abre con el caso universitario; los tres casos tienen enlaces directos, croquis propios y relatos que separan alcance y aporte. Se simplificaron la portada móvil, servicios y contacto en ambos idiomas. Se mantienen el loader, la mascota, el dock y los croquis de Buenos Aires. Se verificó la navegación táctil a 320, 390 y 430 px y el margen centrado hasta 2560 px. Publicada en main a pedido de Rocío.
+
 **Devolución del 2026-11-17 (lo más reciente; manda sobre lo anterior; publicada en `main` a pedido de Rocío).** Referencias nuevas: anzalabidi.dev (le encantó el wording y el enfoque, en especial "I build things, then find out what breaks" y lo de la IA), latip.me (selected work en fila horizontal) y qetrun.com (services / industries como listas simples). Cambios en H:
 
 - **Destacados como cajas horizontales con croquis.** Las tres cifras sueltas bajo el hero no se entendían. Ahora hay un título ("Cosas que hice y que la gente usa de verdad") y tres cajas con croquis, organización y fechas, nombre, una frase, la cifra con su contexto y "Ver caso". Esto reemplaza la regla "sin tarjetas" solo para estas cajas (pedido explícito). Los croquis (`SKETCH` en `src/site-H-studio.html`) son **provisorios** hasta tener capturas reales. Primera versión: le pareció "rarísima". Segunda (íconos redondeados): "no sigue la línea de croquis". Tercera, la vigente: alzados con el lenguaje del Obelisco y el skyline (suelo rayado, una cara con relleno tenue, cota con la cifra del caso, figuras humanas de escala): celular parado como un edificio con un gráfico en pantalla y una mancuerna (gimnasios, cota 500K+); escenario de festival con truss, parlantes y público (eventos, cota 15K+); fachada universitaria con frontón, columnas y escalinata junto a una pila de trabajos (cota 100+).
