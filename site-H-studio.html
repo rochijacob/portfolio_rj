@@ -1050,26 +1050,30 @@ const fig = x => `<g class="context"><circle cx="${x}" cy="${G - 11}" r="1.6"/><
 const dimV = (x0, x, y1, y2, label) => `<path class="guide" d="M${x0} ${y1}H${x + 4}M${x0} ${y2}H${x + 4}M${x} ${y1}V${y2}M${x - 3} ${y1 + 3}l6-6M${x - 3} ${y2 + 3}l6-6"/><text x="${x + 11}" y="${(y1 + y2) / 2}" text-anchor="middle" transform="rotate(-90 ${x + 11} ${(y1 + y2) / 2})">${label}</text>`;
 const skSvg = body => `<svg class="sk" viewBox="0 0 240 150" aria-hidden="true">${body}${ground()}</svg>`;
 const SKETCH = {
-  /* Gym chain app: the phone standing like a building, its screen a chart of daily users; a dumbbell on the floor. */
-  "WK.01": () => skSvg(`<path class="wash" d="M100 26h8v100h-8Z"/><path class="outline" d="M60 126V32q0-6 6-6h36q6 0 6 6v94"/>` +
-    `<path class="detail" d="M60 32l-5 4v90h5M55 36l5-4M100 26v100M65 34h30v80H65ZM74 30h12M70 104h20"/>` +
-    `<path class="detail" d="${rp(5, i => { const h = [10, 18, 14, 26, 34][i]; return `M${69 + i * 5} 96v-${h}h3v${h}`; })}M67 96h26M68 55l7-1 3-7 4 13 3-7h7"/>` +
-    `<path class="guide" stroke-dasharray="2 3" d="M90 52l30-19h12"/><circle class="outline" cx="150" cy="34" r="18"/><path class="detail pulse-line" pathLength="1" d="M135 35h7l4-9 5 17 4-10h9"/>` + dimV(56, 44, 26, 126, "500K+") +
-    `<path class="outline" d="M140 ${G}v-22h8v22M149 ${G - 5}v-12h5v12M154 ${G - 11}h34M188 ${G - 5}v-12h5v12M194 ${G}v-22h8v22"/>` + `<path class="wash" d="M140 ${G - 22}h8v22h-8ZM194 ${G - 22}h8v22h-8Z"/>` +
-    fig(124) + fig(216)),
-  /* Event platform: a festival stage in elevation, truss and speakers, a crowd for scale; the span measures the reach. */
-  "WK.02": () => skSvg(`<path class="wash" d="M56 100h128v8H56Z"/>` +
-    `<path class="outline" d="M40 30l15-10h138l7 10M55 20l2 10m121-10 9 10M40 ${G}V30h160v${G - 30}M48 ${G}V40h144v${G - 40}M40 40h8m144 0h8M56 100h128v8H56Z"/>` +
-    `<path class="detail" d="${rp(16, i => `M${48 + i * 9} 30l4.5 10 4.5-10`)}${rp(9, i => `M40 ${40 + i * 9.5}l8 4.75-8 4.75`)}${rp(9, i => `M192 ${40 + i * 9.5}l8 4.75-8 4.75`)}M60 100V74h16v26M164 100V74h16v26M64 80h8M64 88h8M168 80h8M168 88h8M56 108v18m128-18v18"/>` +
-    `<path class="guide" stroke-dasharray="2 3" d="M84 40l-8 40 27-40M148 40l16 40-34-40"/>` +
-    `<path class="guide" d="M40 24V14m160 10V14M40 18h160M43 21l-6-6m166 6-6-6"/><text x="120" y="12" text-anchor="middle">15K+</text>` +
-    `<g transform="translate(97 62) rotate(-8)"><path class="wash" d="M0 0h43v21H0Z"/><path class="outline" d="M0 0h43v6q-7 4 0 8v7H0v-7q7-4 0-8Z"/><path class="ticket-scan guide" d="M28 2v17"/><path class="detail" d="M8 7h14M8 12h9M30 3v15m3-14v13m3-13v13"/></g>` + fig(84) + fig(98) + fig(118) + fig(136) + fig(152)),
-  /* Final-project tracking: the university facade (pediment, columns, steps) beside a measured stack of projects. */
-  "WK.04": () => skSvg(`<path class="wash" d="M40 50l60-22 60 22Z"/>` +
-    `<path class="outline" d="M36 50l64-24 64 24ZM40 50v8h120v-8M36 112h128M30 119h140M24 ${G}h152"/>` +
-    `<path class="detail" d="M160 58l9-6v-8l-5 6m5-6-62-24-7 6M48 50l52-19 52 19M40 54h120${rp(6, i => `M${46 + i * 21} 58v54m6-54v54m-7-54h8m-8 54h8`)}M96 112V84h8v28"/>` +
-    `<path class="outline" d="M186 ${G}V74h28v${G - 74}"/><path class="detail" d="${rp(16, i => `M186 ${77 + i * 3}h28`)}M190 70h28v4M182 60h26l7 7h-33ZM208 60v7h7M180 52h28l7 6h-35Z"/>` +
-    dimV(216, 228, 74, G, "100+") + `<g transform="translate(15 12)"><path class="wash" d="M0 0h27v18H0Z"/><path class="outline" d="M0 0h27v18H0ZM0 0l13.5 10L27 0"/><path class="guide" stroke-dasharray="2 3" d="M30 8h136q8 0 8 8v17"/><circle class="dispatch" cx="30" cy="8" r="2"/><path class="guide" d="m170 29 4 5 4-5"/></g>` + fig(176)),
+  "WK.01": () => skSvg(`
+    <path class="context" d="M8 126v-24h19v24m169 0V87h25v39M202 94h12m-12 7h12"/>
+    <path class="wash" d="M42 68l34-22v22l34-22v22l34-22v22l34-22v22Z M178 46l12 6v74h-12Z"/>
+    <path class="outline" d="M42 126V68l34-22v22l34-22v22l34-22v22l34-22v80M178 46l12 6v74M42 73h136M42 120h136"/>
+    <path class="detail" d="${rp(4,i=>`M${47+i*34} 66l25-16v16ZM${74+i*34} 74v46`)}M45 80h131M181 57v61m4-59v61"/>
+    <path class="outline" d="M51 111h23l-3 4H49Zm16 0 5-17h-5m17 17h23l-3 4H82Zm16 0 5-17h-5M123 115V90h4v25m22 0V90h4v25M119 96h38m-34-4v8m30-8v8M133 109h13m-12 0-2 7m12-7 3 7"/>
+    <path class="guide pulse-line" pathLength="1" d="M44 70l31-20m4 20 30-20m4 20 30-20m4 20 30-20"/>
+    ${dimV(41,24,46,126,"500K+")}${fig(163)}${fig(199)}`),
+  "WK.02": () => skSvg(`
+    <path class="context" d="M9 126v-23q9-9 18 0v23m179 0v-19l10-7 14 7v19"/>
+    <path class="wash" d="M42 94Q49 43 113 34Q169 30 193 81L164 67Q103 34 42 94Z"/>
+    <path class="outline" d="M38 98Q48 45 110 33Q166 23 196 82L165 69Q107 39 38 98ZM38 98l8 3q56-56 119-32M43 99v19m145-39v39M36 118h162v8H36Z"/>
+    <path class="detail" d="M41 91q49-62 117-32M47 80q53-54 119-23M57 64q57-41 112-14M75 48q47-22 89-7M111 33q28 8 54 36M144 34q24 13 40 43M53 117V99h11v18m-9-14h6m-6 5h6M164 117V94h12v23m-9-17h5m-5 6h5M89 117v-9h24v9m-17-9v-4m10 4v-3M120 117v-17l6-4"/>
+    <path class="guide" d="M38 28V18m158 10V18M38 22h158m-161 3 6-6m152 6 6-6"/><text x="116" y="16" text-anchor="middle">15K+</text>
+    <path class="guide ticket-scan" d="M132 65l-14 43"/>
+    ${[25,68,78,135,145,154,209].map(fig).join("")}`),
+  "WK.04": () => skSvg(`
+    <path class="context" d="M7 126V87h24v39m-20-33h15m-15 6h15M199 126V96h31v30m-26-24h17"/>
+    <path class="wash" d="M46 57l14-10h128l-14 10ZM174 57l14-10v70l-14 9Z"/>
+    <path class="outline" d="M42 126V57h133v69M39 57l18-12h136l-18 12ZM175 126l15-10V49M41 63h134M40 120h135M36 126v-3h142"/>
+    <path class="detail" d="${rp(3,i=>{const x=49+i*42;return `M${x} 116V89a16 16 0 0 1 32 0v27M${x+3} 116V89a13 13 0 0 1 26 0v27M${x+3} 89h26m-13-13v13M${x-3} 117h39`;})}M44 66h128M180 62l6-4v53l-6 4Z"/>
+    <path class="detail" d="M55 105h20m-18 1v9m16-9v9m-13-13h8l4 2M97 105h20m-18 1v9m16-9v9m-15-13h11m-10-2h9M139 105h21m-19 1v9m17-9v9m-15-13h9l4 2"/>
+    <path class="guide" stroke-dasharray="2 3" d="M32 39h144q4 0 4 4v5"/><circle class="dispatch" cx="32" cy="39" r="1.6"/>
+    ${dimV(194,205,45,126,"100+")}${fig(29)}${fig(87)}${fig(193)}`),
 };
 function workHistory(t) {
   const jobs = t.timeline.filter(job => job.kind !== "edu");

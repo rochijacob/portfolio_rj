@@ -13,6 +13,8 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 
 ## Estado
 
+Borrador local de los croquis de proyectos: gimnasio en corte con cubierta en dientes de sierra, escenario con cubierta curva y sala de lectura con tres arcos. Son escenas ilustrativas, no retratos de las sedes reales.
+
 Servicios usa titulares en serif recta, cuerpo de 16 px y datos prácticos sin borde. Dos notas manuscritas bilingües señalan la revisión humana en IA y la progresión de roles en Muvinai.
 
 Se retiró la sección de método en ambos idiomas. Servicios pasa directamente a Sobre mí. Se mantienen los croquis animados de proyectos y «Fuera del trabajo» junto a libros.
