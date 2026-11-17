@@ -26,6 +26,14 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 | `site-D-ledger.html` | D · Ledger | Barlow Condensed + Barlow + IBM Plex Mono | Hero solo tipográfico enorme; cinta de cifras; historia `[01]`–`[04]` con tags de pares; tesis; track record que se abre; el croquis baja al pie como panorama de cierre (la respuesta a "¿qué hacemos en el hero si la ilustración va al footer?"). Se quitaron el gráfico y las tenencias |
 | `site-I-talk.html` | I · Charla (nueva) | Instrument Serif + Hanken Grotesk | Wording conversacional estilo 10xshivam: links como chips de borde punteado dentro de las frases, títulos de sección con voz. Textos en `content.*.talk` |
 
+**Ajustes finales y publicación de la mezcla (2026-11-17, lo más reciente).** Rocío aprobó la mezcla con estos cambios y pidió publicarla:
+
+- **Servicios:** no le gusta "entregable y para quién" dentro de "Cómo podemos trabajar juntos". Se quitó de H: queda nombre y una frase por servicio. (Los campos `deliv` e `ideal` siguen en `content` y los usan otras direcciones.)
+- **Más aire entre secciones:** el espacio entre secciones subió a `clamp(96px, 11vw, 160px)` (88 px en celular). No volver a apretar.
+- **Caso de trabajos finales:** el paso a paso ("Leer el caso completo") se sacó de H para guardarlo como **artículo** con diagramas. Los `steps` siguen en `content.*.cases` (WK.04).
+- **Loader:** pidió la panterita en 8 bits como loader. Camina en el lugar mientras cargan las fuentes: mínimo 450 ms (para que no parpadee), máximo 1,8 s (para que una fuente lenta no bloquee). La página ya está renderizada debajo; al levantarse arranca la entrada del hero. Esto reemplaza, por pedido explícito, la regla vieja de no tapar contenido.
+- **Skeleton:** el único contenido que llega tarde es la foto; su círculo hace un brillo de carga hasta que la imagen aparece.
+
 **La mezcla en H (2026-11-17, lo más reciente; manda sobre lo anterior).** Rocío eligió qué combinar y se aplicó en H, en la rama de trabajo, **sin publicar** (`main` sigue con la H anterior hasta que lo pida):
 
 - **Hero:** titular en serif a la izquierda y el **Obelisco de cerca** a la derecha (`obelisk()` en `core.js`), con la nota a mano "mi base. Trabajo remoto desde acá". En celular el dibujo va debajo del texto.

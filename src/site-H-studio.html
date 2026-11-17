@@ -78,13 +78,13 @@ h1 span{color:var(--acc);font-style:italic}
 .city .guide{stroke:var(--acc);stroke-width:.65;opacity:.85}.city .axis{stroke-dasharray:8 5 1 5;stroke-width:.5;opacity:.5}
 .city .wash{fill:var(--acc);fill-opacity:.07;stroke:none}
 .city text{font:400 8px var(--mono);letter-spacing:.12em;fill:var(--soft);stroke:none}
-.hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:28px}
+.hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:clamp(48px,6vw,80px)}
 .hi a{display:block;text-decoration:none}
 .hi .n{display:block;font:500 clamp(1.7rem,2.5vw,2rem)/1.15 var(--txt);letter-spacing:-.03em;margin-bottom:6px}
 .hi .metric-label{display:block;font-size:.875rem;color:var(--soft);margin-bottom:14px}
 .hi b{display:block;font-weight:500}.hi a:hover b{color:var(--blue)}
 .hi .s{display:block;margin:2px 0 0}
-.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(64px,7vw,96px) 0 0;scroll-margin-top:24px}
+.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(96px,11vw,160px) 0 0;scroll-margin-top:24px}
 .feat h2{font:500 clamp(1.65rem,2.7vw,2.25rem)/1.14 var(--txt);letter-spacing:-.035em;margin:14px 0 16px;text-wrap:balance}
 .feat .case-summary{font-size:1.125rem;color:var(--soft);line-height:1.55;margin-bottom:20px;max-width:36ch}
 .feat .case-result{font-size:1.125rem;font-weight:500;color:var(--blue);line-height:1.5;margin-bottom:0}
@@ -93,7 +93,7 @@ h1 span{color:var(--acc);font-style:italic}
 dl.f{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);border-top:1px solid var(--hair)}
 dl.f dt,dl.f dd{margin:0;padding:16px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
 dl.f dt{font:400 .75rem/2 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft)}
-.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(64px,7vw,96px) 0 0;scroll-margin-top:24px}
+.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(96px,11vw,160px) 0 0;scroll-margin-top:24px}
 .sec>h2{grid-column:1/4;font:500 1.125rem/1.4 var(--txt);letter-spacing:-.02em;margin:0 0 28px;color:var(--ink);position:sticky;top:28px;align-self:start}
 .sec>h2 span{display:block;color:var(--soft)}
 .sec>div{grid-column:4/13;min-width:0}
@@ -130,7 +130,7 @@ summary .x{font-size:1.25rem;line-height:1;transition:transform .25s;justify-sel
 details[open] .x{transform:rotate(45deg)}
 .b{padding:0 0 30px;max-width:56ch}
 .fold summary{grid-template-columns:minmax(0,1fr) 20px}.fold:first-of-type{border-top:1px solid var(--hair)}
-.related{margin-top:40px}
+.related{margin-top:64px}
 .related h3{font-size:1.125rem}
 .related .b h4{font-size:1.125rem;font-weight:500;margin:24px 0 8px}
 .shot{display:block;width:100%;height:auto;border:1px solid var(--hair);border-radius:8px;margin-top:6px}
@@ -148,7 +148,17 @@ h3.sub{margin:40px 0 0;font:500 1rem/1.5 var(--txt);letter-spacing:0;color:var(-
 .more summary .x{justify-self:auto}
 .more dl.f{margin-top:14px}
 .portrait{display:block;width:112px;height:112px;border-radius:50%;background:color-mix(in srgb,var(--acc) 28%,transparent);position:relative;overflow:hidden;margin-bottom:26px}
-.portrait span{position:absolute;inset:0;display:grid;place-items:center;font-weight:500}
+.portrait span{position:absolute;inset:0;display:grid;place-items:center;font-weight:500;visibility:hidden}.portrait.err span{visibility:visible}
+/* Skeleton: the photo's circle shimmers until the image has loaded. */
+.portrait:not(.ok):not(.err){background:linear-gradient(100deg,var(--hair) 30%,color-mix(in srgb,var(--acc) 30%,transparent) 50%,var(--hair) 70%) 0 0/300% 100%;animation:shim 1.3s linear infinite}
+@keyframes shim{to{background-position:-150% 0}}
+.portrait img{opacity:0;transition:opacity .4s}.portrait.ok img{opacity:1}
+/* Loader: the pixel panther walks in place while fonts arrive, then the page fades in already settled. */
+#loader{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:var(--bg);pointer-events:none;transition:opacity .35s}
+#loader.out{opacity:0}
+#loader span{line-height:0;position:relative}
+#loader svg+svg{position:absolute;inset:0;opacity:0}
+@keyframes stepa{50%{opacity:0}}@keyframes stepb{50%{opacity:1}}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .off{color:var(--soft)}
 .spcap{font-size:.875rem;color:var(--soft)}
@@ -181,7 +191,7 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   .today{font-size:1.0625rem}
   .cta .btn{flex:1 1 auto;justify-content:center}
   .city{width:860px;max-width:none;margin-left:calc(50% - 430px)}.city text{font-size:11px;letter-spacing:.08em}
-  .sec,.feat{padding-top:56px}
+  .sec,.feat{padding-top:88px}
   .feat h2{margin-bottom:16px}.feat>div+div{margin-top:28px}.feat p{font-size:1.0625rem}
   .hi{grid-template-columns:1fr;gap:24px}
   .hi a{display:grid;grid-template-columns:90px minmax(0,1fr);column-gap:14px;align-items:baseline}
@@ -229,6 +239,7 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   details[open]>.b,details[open]>dl{animation:unfold .3s var(--ease)}
   @keyframes unfold{from{opacity:.3;transform:translateY(-4px)}}
   .dock .cat{transition:transform .25s ease-out}
+  #loader svg:first-child{animation:stepa .5s steps(1) infinite}#loader svg+svg{animation:stepb .5s steps(1) infinite}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
@@ -275,12 +286,11 @@ function render(t) {
   <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => { const f = t.featured[c.code]; return `<a href="#${fid(c)}"><span class="n">${f.number}</span><span class="metric-label">${f.label}</span><b>${f.title} ›</b></a>`; }).join("")}</nav>
 
   <div id="work">${main.map(c => { const f = t.featured[c.code]; return `<section class="feat" id="${fid(c)}"><div><span class="k">${c.org} · ${c.when}</span><h2>${f.title}</h2><p class="case-summary">${f.summary}</p><p class="case-result">${c.impact}</p>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div>
-    <div><p>${c.body}</p><dl class="f"><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl>
-      ${c.steps ? `<details class="more" id="case-${c.code}"><summary><span class="x" aria-hidden="true">+</span>${t.readCase}</summary><dl class="f">${c.steps.map(x => `<dt>${x.k}</dt><dd>${x.v}</dd>`).join("")}</dl></details>` : ""}</div></section>`; }).join("")}
+    <div><p>${c.body}</p><dl class="f"><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl></div></section>`; }).join("")}
     <details class="fold related" id="more-work"><summary><h3>${t.moreWork}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b">${rest.map(c => `<h4>${c.name}</h4><p class="s">${c.org} · ${c.role} · ${c.when}</p><p>${caseBody(c)}</p>`).join("")}</div></details>
   </div>
 
-  ${sec("offers", t.talk.services, `<div class="services">${t.services.map((s, i) => `<article class="service"><h3>${s.name}</h3><p>${s.body}</p><details id="svc-${i}"><summary><span class="x" aria-hidden="true">+</span>${t.svcMore}</summary><dl><dt>${t.delivLabel}</dt><dd>${s.deliv}</dd><dt>${t.idealLabel}</dt><dd>${s.ideal}</dd></dl></details></article>`).join("")}</div>
+  ${sec("offers", t.talk.services, `<div class="services">${t.services.map((s, i) => `<article class="service"><h3>${s.name}</h3><p>${s.body}</p></article>`).join("")}</div>
     <p>${t.freelance}</p>`)}
 
   ${sec("about", t.h.about, `${portrait()}<p class="lead">${t.profile[0]}</p>${t.profile.slice(1).map(p => `<p>${p}</p>`).join("")}
@@ -373,9 +383,19 @@ addEventListener("scroll", () => {
 }, { passive: true });
 addEventListener("resize", () => { spy(); walk(); if (innerWidth > 640) closeMenu(); });
 setInterval(() => { const c = $("#clock"); if (c) c.textContent = clock(); }, 30000);
-document.documentElement.dataset.intro = "";
+/* Loader: shown until the web fonts are in (at least 450 ms so it never flashes, at most 1.8 s so a
+   slow font never blocks the page). The page is already rendered underneath; the hero intro starts as it lifts. */
+document.body.insertAdjacentHTML("beforeend", `<div id="loader" aria-hidden="true"><span>${pixelCat(6)}${pixelCat(6, CAT_STEP)}</span></div>`);
 apply();
-setTimeout(() => { delete document.documentElement.dataset.intro; }, 2400);
+const t0 = performance.now();
+function lift() {
+  const l = $("#loader"); if (!l || l.classList.contains("out")) return;
+  document.documentElement.dataset.intro = ""; l.classList.add("out");
+  setTimeout(() => l.remove(), 400);
+  setTimeout(() => { delete document.documentElement.dataset.intro; }, 2400);
+}
+(document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => setTimeout(lift, Math.max(0, 450 - (performance.now() - t0))));
+setTimeout(lift, 1800);
 $('meta[name="theme-color"]').content = theme === "dark" ? "#00202f" : "#f4f6f7";
 </script>
 </body>

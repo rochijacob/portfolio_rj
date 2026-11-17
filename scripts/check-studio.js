@@ -45,14 +45,14 @@ const shots = process.env.SHOTS;
       assert.ok(await p.locator('.dock').evaluate(e => { const r=e.getBoundingClientRect();return r.top>=0 && innerHeight-r.bottom>=10 && innerHeight-r.bottom<=24; }), 'Dock must remain visible at the bottom during scroll');
       await p.locator('.dock a').first().focus();
       assert.ok(await p.locator('.dock').evaluate(e => { const r=e.getBoundingClientRect();return r.top>=0 && r.bottom<=innerHeight; }), 'Keyboard focus must reveal the dock');
-      await p.locator('.more summary').click();
+      await p.locator('#more-work summary').click();
       await p.locator('[data-theme-btn]').focus();
       const y = await p.evaluate(() => scrollY);
       await p.keyboard.press('Enter');
-      assert.ok(await p.locator('.more').evaluate(e => e.open), 'Theme change closed the case');
+      assert.ok(await p.locator('#more-work').evaluate(e => e.open), 'Theme change closed the case');
       assert.ok(Math.abs(await p.evaluate(() => scrollY) - y) < 2, 'Theme change moved the reading position');
       await p.locator('[data-lang]:not([aria-pressed="true"])').click();
-      assert.ok(await p.locator('.more').evaluate(e => e.open), 'Language change closed the case');
+      assert.ok(await p.locator('#more-work').evaluate(e => e.open), 'Language change closed the case');
       assert.equal(await p.locator('[data-copy]').evaluate(e => getComputedStyle(e).borderTopWidth), '0px', 'Copy control must read as text, not a boxed button');
       assert.equal(await p.locator('[data-copy] svg').count(), 1, 'Copy control must carry its icon');
       for (const mode of ['success', 'denied', 'missing']) {
