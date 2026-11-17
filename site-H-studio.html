@@ -108,11 +108,16 @@ h1 span{color:var(--acc);font-style:italic}
 .pick .met{margin-top:auto;padding-top:14px;font-size:.875rem;line-height:1.4;color:var(--soft)}
 .pick .met .n{display:block;font:500 1.6rem/1.1 var(--txt);letter-spacing:-.03em;color:var(--ink);margin-bottom:2px}
 .pick .go{font-size:.875rem;font-weight:500;color:var(--blue);margin-top:10px}
-.pick{order:var(--o)}.pick[aria-expanded=true]{border-color:var(--ink)}
-.pick .go i{display:inline-block;font-style:normal;transition:transform .25s}.pick[aria-expanded=true] .go i{transform:rotate(90deg)}
-.case{order:4;grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px 48px;padding:28px 0 8px;scroll-margin-top:24px}
-.case p{font-size:1.0625rem;line-height:1.65;max-width:60ch;margin:0}.case dl.f{margin:0}
-.js .case:not(.on){display:none}
+dialog.case{width:min(640px,calc(100vw - 32px));max-height:calc(100dvh - 48px);overflow:auto;padding:36px 36px 32px;border:1px solid var(--hair);border-radius:12px;background:var(--bg);color:var(--ink);box-shadow:0 24px 60px -24px rgba(0,32,47,.5)}
+dialog.case::backdrop{background:rgba(0,32,47,.42);backdrop-filter:blur(2px)}
+.case h3{font:500 clamp(1.5rem,1.2rem + 1vw,1.9rem)/1.15 var(--txt);letter-spacing:-.03em;margin:10px 0 8px}
+.case .case-result{color:var(--blue);font-weight:500;margin:0 0 20px}
+.case p{font-size:1.0625rem;line-height:1.65;margin:0}.case dl.f{margin:24px 0 0}
+.case>.k{display:block;padding-right:44px}
+.case .x-close{position:absolute;top:12px;right:12px;width:44px;height:44px;display:grid;place-items:center;border-radius:10px;font-size:1.5rem;line-height:1;color:var(--ink);cursor:pointer}
+.case .x-close:hover{background:var(--hair)}
+html:has(dialog.case[open]){overflow:hidden}
+html:not(.js) dialog.case:target{display:block;position:static;margin:24px 0}
 dl.f{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);border-top:1px solid var(--hair)}
 dl.f dt,dl.f dd{margin:0;padding:16px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
 dl.f dt{font:400 .75rem/2 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft)}
@@ -216,7 +221,7 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   .hero{grid-template-columns:minmax(0,1fr)}.hero h1{hyphens:auto;overflow-wrap:anywhere}.fig{justify-self:center;max-width:340px;margin-top:0;display:flex;align-items:center;gap:16px}
   .fig .sk{width:50%;height:190px;flex:none}.note{position:static;width:auto;min-width:0;flex:1}.note svg{display:none}
   .sec{display:block}.sec>h2{position:static}
-  .case{grid-template-columns:1fr;order:var(--o)}
+  dialog.case{padding:28px 20px 24px}
   .pk{grid-template-columns:1fr;max-width:520px;gap:16px}
   .services{grid-template-columns:1fr;gap:36px}
   .service{max-width:60ch}
@@ -277,7 +282,9 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   .btn:hover{transform:translateY(-1px)}.btn:active{transform:translateY(0)}
   .pick{transition:border-color .2s,transform .25s var(--ease)}.pick:hover{transform:translateY(-2px)}
   .pick .go{transition:transform .25s var(--ease)}.pick:hover .go{transform:translateX(3px)}
-  details[open]>.b,details[open]>dl,.case.on{animation:unfold .3s var(--ease)}
+  details[open]>.b,details[open]>dl{animation:unfold .3s var(--ease)}
+  dialog.case[open]{animation:pop .28s var(--ease)}dialog.case[open]::backdrop{animation:fade .28s}
+  @keyframes pop{from{opacity:0;transform:translateY(10px) scale(.985)}}@keyframes fade{from{opacity:0}}
   @keyframes unfold{from{opacity:.3;transform:translateY(-4px)}}
   .dock .cat{transition:transform .25s ease-out}
   #loader svg:first-child{animation:stepa .5s steps(1) infinite}#loader svg+svg{animation:stepb .5s steps(1) infinite}
@@ -1014,28 +1021,28 @@ function languageControl(t) {
     return `<${tag} ${attrs} data-lang="${next}" lang="${next}" aria-label="${next === 'es' ? 'Español' : 'English'}">${next.toUpperCase()}</${tag}>`;
   }).join('')}</span>`;
 }
-/* Temporary project sketches, in the same line as the croquis (placeholders until there are real screenshots). */
-const bx = (x, y, w, h, c = "outline", o = 3) => `<path class="${c}" d="M${x - o} ${y}H${x + w + o}M${x - o} ${y + h}H${x + w + o}M${x} ${y - o}V${y + h + o}M${x + w} ${y - o}V${y + h + o}"/>`;
-const wash = (x, y, w, h) => `<rect class="wash" x="${x}" y="${y}" width="${w}" height="${h}"/>`;
-const ground = y => `<path class="context" d="M8 ${y}H232"/>` + Array.from({ length: 22 }, (_, i) => `<path class="detail" d="M${14 + i * 10} ${y}l-6 6"/>`).join("");
-const skSvg = body => `<svg class="sk" viewBox="0 0 240 150" aria-hidden="true">${body}</svg>`;
+/* Temporary project illustrations (placeholders until there are real screenshots): clean rounded line
+   drawings with a light wash, in the same ink as the croquis. */
+const rr = (x, y, w, h, r, c = "outline", fill = true) => (fill ? `<rect class="wash" x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}"/>` : "") + `<rect class="${c}" x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}"/>`;
+const ln = (d, c = "detail") => `<path class="${c}" d="${d}"/>`;
+const skSvg = body => `<svg class="sk" viewBox="0 0 240 150" aria-hidden="true">${body}${ln("M36 138H204", "context")}</svg>`;
 const SKETCH = {
-  /* Gym chain app: a phone with a check-in screen, a dumbbell, and daily users climbing. */
-  "WK.01": () => skSvg(ground(134) + wash(40, 18, 62, 112) + bx(40, 18, 62, 112) + bx(46, 30, 50, 86, "detail", 2) + `<path class="detail" d="M64 24H78M52 42H90"/>` +
-    [56, 68, 80].map(y => bx(52, y, 6, 6, "detail", 1) + `<path class="detail" d="M63 ${y + 3}H${y === 68 ? 80 : 88}"/>`).join("") + wash(52, 100, 38, 10) + bx(52, 100, 38, 10, "detail", 2) +
-    `<path class="context" d="M140 92H212"/>` + [10, 16, 22, 30, 40].map((h, i) => bx(148 + i * 12, 92 - h, 6, h, "guide", 0)).join("") +
-    bx(148, 110, 8, 24) + bx(186, 110, 8, 24) + bx(156, 115, 4, 14, "detail", 1) + bx(182, 115, 4, 14, "detail", 1) + `<path class="outline" d="M140 122H202"/>`),
-  /* Event platform: a ticket with its stub, scanned at the door by a phone. */
-  "WK.02": () => skSvg(ground(134) + wash(22, 42, 112, 62) + bx(22, 42, 112, 62) + `<path class="guide" stroke-dasharray="3 3" d="M100 38V108"/>` +
-    `<path class="detail" d="M32 58H84M32 68H74M32 86H60"/>` + bx(108, 60, 18, 18, "detail", 1) + wash(110, 62, 6, 6) + wash(118, 70, 6, 6) + wash(110, 70, 4, 4) +
-    wash(162, 28, 44, 82) + bx(162, 28, 44, 82) + bx(167, 38, 34, 58, "detail", 2) + `<path class="detail" d="M178 33H190"/>` + bx(176, 52, 16, 16, "detail", 1) +
-    `<path class="guide" stroke-dasharray="2 3" d="M162 56L128 64M162 80L128 76"/>` + `<path class="detail" d="M174 84H194"/>`),
-  /* Final-project tracking: a pile of submissions, an automated flow, and a board that ticks itself off. */
-  "WK.04": () => skSvg(ground(134) + bx(18, 34, 40, 52, "context", 2) + bx(24, 40, 40, 52, "context", 2) + wash(30, 46, 40, 52) + bx(30, 46, 40, 52) +
-    `<path class="detail" d="M36 58H62M36 66H62M36 74H54M36 84H58"/>` + `<path class="guide" d="M78 72H96M91 67l5 5-5 5"/>` +
-    [40, 64, 88].map(y => wash(104, y, 32, 16) + bx(104, y, 32, 16, "outline", 2) + `<path class="detail" d="M110 ${y + 8}H128"/>`).join("") + `<path class="detail" d="M120 56V64M120 80V88"/>` +
-    `<path class="guide" d="M144 72H162M157 67l5 5-5 5"/>` + bx(170, 30, 54, 84) + `<path class="detail" d="M176 42H204"/>` +
-    [56, 72, 88].map(y => `<path class="guide" d="M177 ${y}l3 3 6-6"/><path class="detail" d="M192 ${y}H216"/>`).join("") + `<path class="detail" d="M177 104H216"/>`)
+  /* Gym chain app: the app on a phone (weekly visits and a check-in button) next to a dumbbell. */
+  "WK.01": () => skSvg(rr(56, 14, 60, 118, 10) + ln("M79 22H93") + ln("M66 36H96") +
+    [12, 20, 16, 28, 34].map((h, i) => rr(66 + i * 8, 88 - h, 5, h, 1, "guide")).join("") + ln("M64 88H106") +
+    rr(66, 102, 40, 14, 7, "detail") + ln("M78 109H94", "guide") +
+    ln("M134 80H210", "outline") + rr(142, 60, 9, 40, 2) + rr(152, 67, 6, 26, 2) + rr(193, 60, 9, 40, 2) + rr(186, 67, 6, 26, 2)),
+  /* Event platform: a ticket with a perforated stub, and a phone confirming the scan. */
+  "WK.02": () => skSvg(`<path class="wash" d="M30 40H110a6 6 0 0 0 12 0H144a6 6 0 0 1 6 6V104a6 6 0 0 1-6 6H122a6 6 0 0 0-12 0H30a6 6 0 0 1-6-6V46a6 6 0 0 1 6-6Z"/>` +
+    ln("M30 40H110a6 6 0 0 0 12 0H144a6 6 0 0 1 6 6V104a6 6 0 0 1-6 6H122a6 6 0 0 0-12 0H30a6 6 0 0 1-6-6V46a6 6 0 0 1 6-6Z", "outline") +
+    `<path class="guide" stroke-dasharray="3 4" d="M116 52V98"/>` + ln("M36 58H96M36 68H82") + ln("M36 90H62", "outline") +
+    rr(125, 64, 19, 19, 2, "detail", false) + rr(128, 67, 5, 5, 1, "guide") + rr(136, 75, 5, 5, 1, "guide") + rr(136, 67, 5, 5, 1, "guide") +
+    rr(170, 30, 46, 88, 8) + ln("M186 37H200") + `<circle class="guide" cx="193" cy="70" r="12"/>` + ln("M187 70l4 4 8-8", "guide") + ln("M183 96H203")),
+  /* Final-project tracking: a three-column board where projects move along and get ticked off. */
+  "WK.04": () => skSvg(rr(30, 20, 180, 112, 8, "outline", false) + ln("M30 38H210M90 38V132M150 38V132") + ln("M40 29H62M100 29H122M160 29H182") +
+    [48, 70, 92].map(y => rr(38, y, 44, 16, 3, "detail")).join("") + [48, 70].map(y => rr(98, y, 44, 16, 3, "detail")).join("") +
+    [48, 70, 92].map(y => rr(158, y, 44, 16, 3, "detail") + ln(`M164 ${y + 8}l3 3 6-6`, "guide") + ln(`M178 ${y + 8}H196`)).join("") +
+    `<path class="guide" stroke-dasharray="3 4" d="M120 92C124 108 140 112 156 104"/>` + ln("M150 101l6 3-3 6", "guide"))
 };
 function render(t) {
   const h1 = `${esc(t.heroPitch.slice(0, -t.heroAccent.length))}<span>${esc(t.heroAccent)}</span>`;
@@ -1058,8 +1065,9 @@ function render(t) {
     <figure class="fig">${obelisk(t.j.opts[0].alt)}<p class="note"><svg viewBox="0 0 74 40" aria-hidden="true"><path d="M70 6C52 4 30 10 14 30"/><path d="M12 18l1 13 13-3"/></svg>${t.a.notes.here}</p></figure>
   </div>
 
-  <div id="work"><section class="picks" data-track-view="section_view" data-track-id="work"><h2>${t.talk.work}</h2><div class="pk">${main.map((c, i) => { const f = t.featured[c.code]; return `<a class="pick" href="#${fid(c)}" style="--o:${i * 2}" aria-controls="${fid(c)}" aria-expanded="${openCase === c.code}" data-case="${c.code}" data-track-event="select_content" data-track-content-type="project" data-track-content-id="${c.code}"><span class="pic">${SKETCH[c.code]()}</span><span class="tx"><span class="k">${c.org} · ${c.when}</span><b>${f.title}</b><span class="sum">${f.summary}</span><span class="met"><span class="n">${f.number}</span>${f.label}</span><span class="go">${t.viewCase} <i aria-hidden="true">›</i></span></span></a>`; }).join("")}
-    ${main.map((c, i) => `<div class="case${openCase === c.code ? " on" : ""}" id="${fid(c)}" style="--o:${i * 2 + 1}" data-track-view="project_view" data-track-id="${c.code}"><div><p>${c.body}</p>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div><dl class="f"><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl></div>`).join("")}</div></section>
+  <div id="work"><section class="picks" data-track-view="section_view" data-track-id="work"><h2>${t.talk.work}</h2><div class="pk">${main.map((c, i) => { const f = t.featured[c.code]; return `<a class="pick" href="#${fid(c)}" aria-haspopup="dialog" aria-controls="${fid(c)}" data-case="${c.code}" data-track-event="select_content" data-track-content-type="project" data-track-content-id="${c.code}"><span class="pic">${SKETCH[c.code]()}</span><span class="tx"><span class="k">${c.org} · ${c.when}</span><b>${f.title}</b><span class="sum">${f.summary}</span><span class="met"><span class="n">${f.number}</span>${f.label}</span><span class="go">${t.viewCase} ›</span></span></a>`; }).join("")}
+    </div></section>
+    ${main.map(c => { const f = t.featured[c.code]; return `<dialog class="case" id="${fid(c)}" aria-labelledby="${fid(c)}-t" data-track-view="project_view" data-track-id="${c.code}"><button type="button" class="x-close" data-close aria-label="${esc(t.close)}">×</button><span class="k">${c.org} · ${c.when}</span><h3 id="${fid(c)}-t">${f.title}</h3><p class="case-result">${c.impact}</p><p>${c.body}</p>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}<dl class="f"><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl></dialog>`; }).join("")}
     <details class="fold related reading" id="more-work"><summary><h3>${t.moreWork}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b">${rest.map(c => `<h4>${c.name}</h4><p class="s">${c.org} · ${c.role} · ${c.when}</p><p>${caseBody(c)}</p>`).join("")}</div></details>
   </div>
 
@@ -1085,6 +1093,7 @@ function render(t) {
   <footer class="k"><span>${t.footer.rights}</span><span>${footerLinks()}</span></footer>
 </main>${dockMarkup(t)}`;
   spy(); walk(); soften();
+  if (openCase) showCase(openCase);
   observeAnalytics();
 }
 function observeAnalytics() {
@@ -1151,15 +1160,16 @@ document.addEventListener("click", e => {
   }
   track(target.dataset.trackEvent, parameters);
 });
-/* A project box opens its case right below the row (below the box itself on a phone). One at a time. */
+/* A project box opens its case in a dialog. Escape, the close button or a click outside closes it.
+   The open case survives a language change (render reopens it). */
+const showCase = code => { const d = document.getElementById("f" + code.replace(".", "")); if (d?.showModal && !d.open) { d.showModal(); d.querySelector("[data-close]").focus({ preventScroll: true }); } };
 document.addEventListener("click", e => {
-  const a = e.target.closest("[data-case]"); if (!a) return;
-  e.preventDefault();
-  openCase = openCase === a.dataset.case ? null : a.dataset.case;
-  $$("[data-case]").forEach(x => x.setAttribute("aria-expanded", x.dataset.case === openCase));
-  $$(".case").forEach(x => x.classList.toggle("on", x.id === "f" + (openCase || "").replace(".", "")));
-  if (openCase) track("case_open", { project_code: openCase });
+  const a = e.target.closest("[data-case]");
+  if (a) { if (!$("#f" + a.dataset.case.replace(".", ""))?.showModal) return; e.preventDefault(); openCase = a.dataset.case; showCase(openCase); track("case_open", { project_code: openCase }); return; }
+  const d = e.target.closest("dialog.case");
+  if (d && (e.target === d || e.target.closest("[data-close]"))) d.close();
 });
+document.addEventListener("close", e => { if (e.target.matches?.("dialog.case")) { const c = e.target.id; openCase = null; $(`[data-case][aria-controls="${c}"]`)?.focus({ preventScroll: true }); } }, true);
 document.addEventListener("toggle", e => {
   if (e.target.matches("details.more") && e.target.open) track("case_open", { project_code: e.target.id.replace("case-", "") });
 }, true);
