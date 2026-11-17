@@ -218,6 +218,13 @@ const content = {
     contactBody: "Tell me what you are building. I answer every email.",
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "View", close: "Close", open: "Open", repo: "Repository",
+    /* Case article (lab draft): the final-project tracking case as long-form, with diagrams. Text comes from cases WK.04. */
+    caseArt: { back: "Back to the site", kicker: "Case · A university · 2026", dek: "How more than a hundred final projects per cycle stopped depending on emails logged by hand.",
+      before: { cap: "Before: every approval went through a person and a spreadsheet.", nodes: ["System email", "Someone logs it by hand", "Spreadsheet", "Manual notices"], end: "Students, mentors and committee members" },
+      after: { cap: "After: one source of truth, and the tools the team already used as the interface.", nodes: [["Central data hub", "source of truth"], ["Sync process", "inside the private network"], ["n8n workflows", "the process itself"], ["Sheets and Gmail", "where the team already works"]], check: "[REVISAR] Rocío: is this the right order between the pieces?" },
+      flow: { cap: "What the workflow does, in order.", nodes: ["Confirm project groupings", "Collect data through a form", "Ask committee members for availability", "Detect when schedules converge"] },
+      chart: "[COMPLETAR] A chart with real numbers would go here, for example time per cycle before and after. I did not draw one because the case has no measured figures yet.",
+      note: "Anonymised case: no names of people, areas or internal systems." },
     /* J · Hero sketches (lab spike): options for the hero illustration if the skyline moves to the footer. */
     j: { title: "Hero sketches", lead: "If the Buenos Aires skyline closes the page, the hero needs its own drawing. Three options in the same line style.",
       opts: [
@@ -430,6 +437,12 @@ const content = {
     contactBody: "Contame en qué estás trabajando. Respondo todos los mails.",
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "Ver", close: "Cerrar", open: "Abrir", repo: "Repositorio",
+    caseArt: { back: "Volver al sitio", kicker: "Caso · Una universidad · 2026", dek: "Cómo más de cien trabajos finales por entrega dejaron de depender de mails cargados a mano.",
+      before: { cap: "Antes: cada aprobación pasaba por una persona y una planilla.", nodes: ["Mail del sistema", "Alguien lo carga a mano", "Planilla", "Avisos manuales"], end: "Estudiantes, mentores y jurados" },
+      after: { cap: "Después: una sola fuente de verdad, y como interfaz las herramientas que el equipo ya usaba.", nodes: [["Repositorio central de datos", "fuente de verdad"], ["Proceso de sincronización", "dentro de la red privada"], ["Flujos en n8n", "el proceso en sí"], ["Sheets y Gmail", "donde el equipo ya trabaja"]], check: "[REVISAR] Rocío: ¿este es el orden correcto entre las piezas?" },
+      flow: { cap: "Qué hace el flujo, en orden.", nodes: ["Confirmar la agrupación de trabajos", "Reunir datos con un formulario", "Pedir disponibilidad a los jurados", "Detectar cuándo coinciden los horarios"] },
+      chart: "[COMPLETAR] Acá iría un gráfico con números reales, por ejemplo tiempo por entrega antes y después. No dibujé ninguno porque el caso todavía no tiene cifras medidas.",
+      note: "Caso anonimizado: sin nombres de personas, áreas ni sistemas internos." },
     j: { title: "Bocetos de hero", lead: "Si el skyline de Buenos Aires cierra la página, el hero necesita su propio dibujo. Tres opciones con la misma línea.",
       opts: [
         { k: "Opción 1", name: "El Obelisco, de cerca", why: "Un solo hito en vez de cuatro. Buenos Aires sigue en el hero sin repetir el pie.", note: "mi base. Trabajo remoto desde acá", alt: "Croquis arquitectónico del Obelisco de Buenos Aires con árboles, personas y una cota de altura" },

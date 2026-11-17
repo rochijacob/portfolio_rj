@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rocío Jacob · Case</title>
+<meta name="description" content="">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23003049'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fdf0d5'%3ERJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&family=Geist:wght@400;500&family=Instrument+Serif:ital@0;1&family=Shantell+Sans:wght@400&display=swap" rel="stylesheet">
+<style>
+/* K · Case article. The final-project tracking case as long-form, on the article skeleton:
+   centred serif title, narrow reading column, and three diagrams drawn with boxes and arrows. */
+:root{--bg:#f4f6f7;--ink:#003049;--soft:#4a6676;--acc:#3d7aa3;--hand:#3f86b5;--line:rgba(0,48,73,.18);--dot:rgba(0,48,73,.15);--paper:#ffffff;
+  --serif:"Instrument Serif",Georgia,serif;--txt:"Geist",system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,monospace;--hand-f:"Shantell Sans",cursive}
+:root[data-theme=dark]{--bg:#00202f;--ink:#f0f4f6;--soft:#a3b9c5;--acc:#8fbcd6;--hand:#8cc3e6;--line:rgba(240,244,246,.18);--dot:rgba(240,244,246,.09);--paper:#002a3d}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg) radial-gradient(circle,var(--dot) 1.1px,transparent 1.3px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.75 var(--txt);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-color:var(--acc);text-underline-offset:4px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:3px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.lbl{font:400 .75rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+header{max-width:1120px;margin:0 auto;padding:22px 28px;display:flex;align-items:center;gap:12px 22px;flex-wrap:wrap}
+header a.back{margin-right:auto;font:italic 400 1.35rem var(--serif);text-decoration:none;padding:8px 0}
+.lang{display:inline-flex;align-items:center;font:400 .75rem var(--mono);color:var(--soft)}
+.lang button,.theme{min-width:40px;min-height:40px;font:400 .75rem var(--mono)}
+.lang button[aria-pressed=true]{color:var(--ink);text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:4px}
+.theme{border:1px solid var(--line);border-radius:10px;font-size:1rem}
+.top{text-align:center;padding:64px 24px 24px;max-width:1000px;margin:0 auto}
+h1{font:400 clamp(2.8rem,1.6rem + 5vw,5.6rem)/.98 var(--serif);letter-spacing:-.02em;margin:14px 0 22px;text-wrap:balance}
+.dek{color:var(--soft);font-size:1.15rem;margin:0 auto;max-width:44ch}
+.facts{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 28px;margin-top:28px}
+article{max-width:660px;margin:0 auto;padding:40px 24px 96px}
+h2{font:400 2.2rem/1.1 var(--serif);margin:72px 0 16px}
+p{margin:0 0 1.1em}
+ul.dec{padding-left:1.2em;margin:0}ul.dec li{margin-bottom:.8em}
+.todo{color:var(--acc);font-family:var(--mono);font-size:.92rem;background:rgba(61,122,163,.1);padding:2px 6px;border-radius:4px}
+.box{border:1px dashed var(--line);border-radius:12px;padding:18px 22px;margin:28px 0;font-size:.98rem;color:var(--soft)}
+/* Diagrams: a row of boxes joined by arrows; it turns into a column on small screens. */
+figure{margin:36px -70px;border:1px solid var(--line);border-radius:16px;background:var(--paper);padding:26px 22px 18px}
+.flow{display:flex;align-items:stretch;gap:0;list-style:none;margin:0;padding:0}
+.flow li{flex:1 1 0;display:flex;align-items:center;min-width:0}
+.flow .n{flex:1;border:1.5px solid var(--ink);border-radius:8px;padding:14px 12px;text-align:center;font-weight:500;font-size:.95rem;line-height:1.3;min-height:76px;display:grid;place-content:center}
+.flow .n small{display:block;font:400 .72rem/1.4 var(--mono);letter-spacing:.04em;color:var(--soft);margin-top:4px}
+.flow .n.hand{border-style:dashed;border-color:var(--soft);color:var(--soft)}
+.flow .n.key{background:color-mix(in srgb,var(--acc) 14%,transparent);border-color:var(--acc)}
+.flow li+li::before{content:"";flex:none;width:30px;height:1.5px;background:var(--ink);position:relative;margin:0 6px 0 4px;box-shadow:none}
+.flow li+li .n{position:relative}
+.flow li+li .n::before{content:"";position:absolute;left:-13px;top:50%;width:7px;height:7px;border-top:1.5px solid var(--ink);border-right:1.5px solid var(--ink);transform:translateY(-50%) rotate(45deg)}
+.flow .num{display:block;font:400 .72rem var(--mono);color:var(--acc);margin-bottom:4px}
+figcaption{font:400 .8rem/1.5 var(--mono);color:var(--soft);margin-top:16px}
+.endnote{font:400 1.02rem/1.3 var(--hand-f);color:var(--hand);margin:10px 0 0;text-align:right}
+.quote{font:italic 400 clamp(2rem,1.4rem + 2.4vw,3rem)/1.1 var(--serif);margin:16px 0 0;color:var(--acc)}
+.end{display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:860px){figure{margin:32px 0}.flow{flex-direction:column}.flow li{flex-direction:column;align-items:stretch}
+  .flow li+li::before{width:1.5px;height:26px;margin:4px auto 6px}
+  .flow li+li .n::before{left:50%;top:-13px;transform:translateX(-50%) rotate(135deg)}.flow .n{min-height:0}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/*CORE*/
+
+/* ---------- Site K · Case article ---------- */
+let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = theme;
+const todo = s => s.replace(/\[(COMPLETAR|REVISAR)\]/g, '<span class="todo">[$1]</span>');
+
+function render(t) {
+  const K = t.caseArt, c = t.cases.find(x => x.code === "WK.04"), st = c.steps;
+  const dec = st[2].v.split("<br>").map(x => x.replace(/^·\s*/, ""));
+  $("#app").innerHTML = `
+<header><a class="back" href="index.html">← ${K.back}</a>${langToggle()}<button class="theme" type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}">${theme === "dark" ? "☀" : "☾"}</button></header>
+<div class="top"><div class="lbl">${K.kicker}</div><h1>${c.line}</h1><p class="dek">${K.dek}</p>
+  <div class="facts lbl"><span>${c.role}</span><span>${c.when}</span><span>${c.tags.slice(0, 4).join(" · ")}</span></div></div>
+<article>
+  <p>${c.body}</p>
+  <h2>${st[0].k}</h2><p>${st[0].v}</p>
+  <figure><ol class="flow">${K.before.nodes.map((n, i) => `<li><span class="n${i === 1 || i === 3 ? " hand" : ""}">${n}</span></li>`).join("")}</ol>
+    <p class="endnote">→ ${K.before.end}</p><figcaption>${K.before.cap}</figcaption></figure>
+  <h2>${st[1].k}</h2><p>${st[1].v}</p>
+  <h2>${st[2].k}</h2><ul class="dec">${dec.map(d => `<li>${d}</li>`).join("")}</ul>
+  <figure><ol class="flow">${K.after.nodes.map(([n, s], i) => `<li><span class="n${i === 0 ? " key" : ""}">${n}<small>${s}</small></span></li>`).join("")}</ol>
+    <figcaption>${K.after.cap}<br>${todo(K.after.check)}</figcaption></figure>
+  <figure><ol class="flow">${K.flow.nodes.map((n, i) => `<li><span class="n"><span class="num">0${i + 1}</span>${n}</span></li>`).join("")}</ol>
+    <figcaption>${K.flow.cap}</figcaption></figure>
+  <h2>${st[3].k}</h2><p>${st[3].v}</p>
+  <div class="box">${todo(K.chart)}</div>
+  <h2>${st[4].k}</h2><p class="quote">${st[4].v}</p>
+  <p class="lbl" style="margin-top:64px">${K.note}</p>
+</article>`;
+}
+document.addEventListener("click", e => {
+  if (e.target.closest("[data-theme-btn]")) {
+    theme = theme === "dark" ? "light" : "dark"; store.set("rj-theme", theme);
+    document.documentElement.dataset.theme = theme; apply(); $("[data-theme-btn]").focus();
+  }
+});
+apply();
+</script>
+</body>
+</html>

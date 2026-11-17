@@ -26,6 +26,10 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 | `site-D-ledger.html` | D · Ledger | Barlow Condensed + Barlow + IBM Plex Mono | Hero solo tipográfico enorme; cinta de cifras; historia `[01]`–`[04]` con tags de pares; tesis; track record que se abre; el croquis baja al pie como panorama de cierre (la respuesta a "¿qué hacemos en el hero si la ilustración va al footer?"). Se quitaron el gráfico y las tenencias |
 | `site-I-talk.html` | I · Charla (nueva) | Instrument Serif + Hanken Grotesk | Wording conversacional estilo 10xshivam: links como chips de borde punteado dentro de las frases, títulos de sección con voz. Textos en `content.*.talk` |
 
+**Publicado (2026-11-17).** La mezcla está en `main` (GitHub Pages). El empuje con `--force` está bloqueado en estas sesiones: para publicar, integrar `origin/main` en la rama con un merge normal y empujar `HEAD:main`.
+
+**Artículo del caso (borrador, sin enlazar desde H):** `site-K-case.html` convierte el caso de trabajos finales en artículo sobre el esqueleto del artículo de A. Usa el texto de `cases` WK.04 tal cual y tres diagramas de cajas y flechas (antes, después, pasos del flujo), con rótulos en `content.*.caseArt`. Pendiente de Rocío: confirmar el orden de las piezas en el diagrama "después" (marcado `[REVISAR]`), y pasar cifras reales si quiere un gráfico (marcado `[COMPLETAR]`; no se dibujó ninguno para no inventar datos). Cuando lo apruebe, enlazarlo desde el caso en H.
+
 **Ajustes finales y publicación de la mezcla (2026-11-17, lo más reciente).** Rocío aprobó la mezcla con estos cambios y pidió publicarla:
 
 - **Servicios:** no le gusta "entregable y para quién" dentro de "Cómo podemos trabajar juntos". Se quitó de H: queda nombre y una frase por servicio. (Los campos `deliv` e `ideal` siguen en `content` y los usan otras direcciones.)

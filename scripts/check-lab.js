@@ -2,7 +2,7 @@
 const { chromium, devices } = require('playwright');
 const path = require('path'), fs = require('fs');
 const root = path.join(__dirname, '..'), url = s => 'file://' + root + '/' + s + '.html';
-const lab = ['site-A-notebook', 'site-A-article', 'site-B-dock', 'site-D-ledger', 'site-I-talk', 'site-J-hero'].filter(s => fs.existsSync(path.join(root, s + '.html')));
+const lab = ['site-A-notebook', 'site-A-article', 'site-B-dock', 'site-D-ledger', 'site-I-talk', 'site-J-hero', 'site-K-case'].filter(s => fs.existsSync(path.join(root, s + '.html')));
 let fails = 0; const ok = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + m); if (!c) fails++; };
 (async () => {
   const br = await chromium.launch();
