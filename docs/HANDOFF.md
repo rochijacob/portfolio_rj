@@ -2,7 +2,7 @@
 
 Documento para que otro agente (o Rocío) retome el trabajo sin el historial de la conversación. Actualizalo cada vez que cambie una decisión.
 
-Última actualización: 2026-11-16.
+Última actualización: 2026-11-17.
 
 ## Objetivo
 
@@ -12,6 +12,15 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 - **Después:** que también funcione como landing hacia venture capital (criterio de producto, finanzas, curiosidad).
 
 ## Estado
+
+**Devolución del 2026-11-17 (lo más reciente; manda sobre lo anterior).** Referencias nuevas: anzalabidi.dev (le encantó el wording y el enfoque, en especial "I build things, then find out what breaks" y lo de la IA), latip.me (selected work en fila horizontal) y qetrun.com (services / industries como listas simples). Cambios en H:
+
+- **Destacados como cajas horizontales con croquis.** Las tres cifras sueltas bajo el hero no se entendían. Ahora hay un título ("Cosas que hice y que la gente usa de verdad") y tres cajas con dibujo, organización y fechas, nombre, una frase, la cifra con su contexto y "Ver caso". Esto reemplaza la regla "sin tarjetas" solo para estas cajas (pedido explícito). Los dibujos (`SKETCH` en `src/site-H-studio.html`) son **provisorios**, en la línea del croquis, hasta tener capturas reales: celular con check-in, mancuerna y barras de usuarios (gimnasios); entrada con talón escaneada por un celular (eventos); pila de entregas, flujo de tres nodos y tablero con tildes (trabajos finales). Falta que Rocío los apruebe.
+- **Servicios:** la frase de gestión y autorización en la UE quedaba colgada al final y es lo que más quiere enfatizar. Ahora abre la sección en grande ("Una sola persona lo desarrolla y gestiona el proyecto...") con tres etiquetas: gestión incluida, remoto Argentina y Europa, autorización laboral en la UE. Al pie, "Rubros en los que trabajé" (fitness, eventos, educación universitaria, finanzas corporativas, aerolíneas), todos salidos de su experiencia real. Claves `svcLead`, `svcFacts`, `industriesTitle`, `industries`.
+- **Experiencia y formación sin desplegable:** era raro que una parte se desplegara y la otra no. Ahora las dos son listas iguales con rol, organización y fechas a la vista.
+- **Libros:** se quitó "Ver lista". Quedan solo los lomos.
+- **Cambio de idioma sin recargar:** las páginas prerenderizadas usan links reales (SEO y sin JS); con JS se cambia en el lugar y solo se actualiza la dirección con `history.replaceState`.
+- **Bajada del hero reescrita en el tono de anzalabidi** (redacción del agente, falta el visto bueno): "Aprendí a programar construyendo y sigo trabajando así: lo lanzo, miro cómo se usa y arreglo lo que molesta. Hoy eso significa llevar la IA y las automatizaciones de “esto nos ahorraría horas” a algo que tu equipo usa todos los días."
 
 **Ajustes editoriales aprobados (2026-11-16, decisión vigente sobre las notas históricas de abajo).** Rocío pidió aplicar el wording y las mejoras de lectura en H. Implementados en `codex/editorial-reading-refinements`, pendientes de publicación:
 

@@ -217,6 +217,10 @@ const content = {
     ],
     delivLabel: "Deliverable", idealLabel: "Ideal for",
     freelance: "I also manage each project. I work remotely with Argentina and Europe, with work authorization in the European Union.",
+    svcLead: "One person builds it and runs the project. You don't have to manage a developer.",
+    svcFacts: ["Project management included", "Remote · Argentina and Europe", "EU work authorization"],
+    viewCase: "View case",
+    industriesTitle: "Industries I've worked in", industries: ["Fitness", "Events & ticketing", "Higher education", "Corporate finance", "Airlines"],
     lab: [
       { name: "Python games", status: "Built", why: "How I learned Python: loops, state and collisions.", url: "https://github.com/rochijacob/python_games" },
       { name: "Dog-in-the-pool detector", status: "In progress", why: "Computer vision applied to a household problem." },
@@ -225,7 +229,7 @@ const content = {
     labIntro: "Things I build out of curiosity.",
     off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The little pink pixel panther is a nod to my favourite cartoon." },
     today: "I combine product engineering, operations and business thinking to build tools that save time and support better decisions.",
-    heroIntro: "I combine development and project management to turn a fragmented process into a tool your team can use.",
+    heroIntro: "I learned to code by building, and I still work that way: ship it, watch how people use it, fix what gets in the way. Lately that means taking AI and automation from “this could save us hours” to something your team runs every day.",
     featured: {
       "WK.01": { title: "Gym chain app", summary: "Performance and UX for an app used every day.", number: "500K+", label: "downloads · 40K daily users" },
       "WK.02": { title: "Event platform", summary: "Ticket sales and access control across three continents.", number: "15K+", label: "users · 5+ clients" },
@@ -433,6 +437,10 @@ const content = {
     ],
     delivLabel: "Entregable", idealLabel: "Ideal para",
     freelance: "También me ocupo de la gestión de cada proyecto. Trabajo de forma remota para Argentina y Europa, con autorización laboral en la Unión Europea.",
+    svcLead: "Una sola persona lo desarrolla y gestiona el proyecto. No tenés que coordinar a un programador.",
+    svcFacts: ["Gestión del proyecto incluida", "Remoto · Argentina y Europa", "Autorización laboral en la UE"],
+    viewCase: "Ver caso",
+    industriesTitle: "Rubros en los que trabajé", industries: ["Fitness", "Eventos y entradas", "Educación universitaria", "Finanzas corporativas", "Aerolíneas"],
     lab: [
       { name: "Juegos en Python", status: "Terminado", why: "Así aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" },
       { name: "Detector de perros en la pileta", status: "En progreso", why: "Visión por computadora aplicada a un problema doméstico." },
@@ -441,7 +449,7 @@ const content = {
     labIntro: "Cosas que armo por curiosidad.",
     off: { t: "Fuera del trabajo", p: "Soy DJ y toco música electrónica. Me encantan el arte y la fotografía. La panterita rosa en píxeles es un guiño a mi dibujo animado favorito." },
     today: "Combino ingeniería de producto, operaciones y negocio para construir herramientas que ahorran tiempo y mejoran decisiones.",
-    heroIntro: "Combino desarrollo y gestión de proyectos para convertir un proceso disperso en una herramienta que tu equipo pueda usar.",
+    heroIntro: "Aprendí a programar construyendo y sigo trabajando así: lo lanzo, miro cómo se usa y arreglo lo que molesta. Hoy eso significa llevar la IA y las automatizaciones de “esto nos ahorraría horas” a algo que tu equipo usa todos los días.",
     featured: {
       "WK.01": { title: "App de gimnasios", summary: "Rendimiento y experiencia de uso para una app de todos los días.", number: "500K+", label: "descargas · 40K usuarios diarios" },
       "WK.02": { title: "Plataforma de eventos", summary: "Venta y control de entradas en tres continentes.", number: "15K+", label: "usuarios · 5+ clientes" },
@@ -671,12 +679,14 @@ function apply() {
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-lang]");
   if (!b || b.dataset.lang === lang) return;
+  lang = b.dataset.lang; store.set("rj-lang", lang);
+  /* Prerendered pages use real links (for crawlers and no-JS). With JS, switch in place and only
+     update the address, so the page never reloads. */
   if (b.matches("a[href]")) {
     e.preventDefault();
-    location.href = b.getAttribute("href") + location.search + location.hash;
-    return;
+    document.documentElement.dataset.pageLanguage = lang;
+    try { history.replaceState(null, "", b.getAttribute("href") + location.search + location.hash); } catch (err) {}
   }
-  lang = b.dataset.lang; store.set("rj-lang", lang);
   swap(() => {
     const y = scrollY; apply(); scrollTo(0, y);
     const again = $(`[data-lang="${lang}"]`) || $("[data-lang]"); if (again) again.focus();
