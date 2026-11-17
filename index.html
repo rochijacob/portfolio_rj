@@ -2,12 +2,20 @@
 <html lang="en" data-page-language="en">
 <head>
 <meta charset="utf-8">
-<!-- GA4 is configured in this published Google Tag Manager container. -->
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TW2MSTRV');</script>
+<!-- Google Analytics 4: the published GTM container currently has no tags. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFMYCXQZFJ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FFMYCXQZFJ');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rocío Jacob | Automation & Web Development</title>
 <meta name="description" content="Product engineer in Buenos Aires. Process automation, BI, AI agents and web development. Explore my projects and freelance services. Remote work.">
@@ -292,7 +300,7 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
     <div>
       <h1>I turn manual operations <span>into&nbsp;digital products and automated workflows.</span></h1>
       <p class="today">I combine product engineering, operations and business thinking to build tools that save time and support better decisions.</p>
-      <div class="cta"><a class="btn" href="#contact">Work with me ↗</a><a class="btn o" href="#work">See the work</a><span class="k">Buenos Aires, remote work · <span id="clock">23:28</span></span></div>
+      <div class="cta"><a class="btn" href="#contact">Work with me ↗</a><a class="btn o" href="#work">See the work</a><span class="k">Buenos Aires, remote work · <span id="clock">23:34</span></span></div>
     </div>
     <figure class="fig"><svg class="sk" viewBox="0 0 420 450" role="img" aria-label="Architectural drawing of the Obelisk of Buenos Aires with trees, people and a height dimension">
 <g class="context">
@@ -1075,9 +1083,7 @@ const trackedViews = new Set();
 let analyticsObserver;
 const track = (event, parameters = {}) => {
   if (!["project_view", "select_content", "case_open", "contact_click", "email_copy"].includes(event)) return;
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: "portfolio_event", _clear: true, portfolio_event_name: event,
-    portfolio_parameters: { language: lang, ...parameters } });
+  gtag("event", event, { language: lang, ...parameters });
 };
 const COPY_ICON = '<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>', CHECK_ICON = '<path d="M5 12.5l4.5 4.5L19 7.5"/>';
 const setCopy = (b, done) => { $("span", b).textContent = done ? T().copied : T().copy; $("svg", b).innerHTML = done ? CHECK_ICON : COPY_ICON; };

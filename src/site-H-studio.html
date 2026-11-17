@@ -2,12 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- GA4 is configured in this published Google Tag Manager container. -->
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TW2MSTRV');</script>
+<!-- Google Analytics 4: the published GTM container currently has no tags. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFMYCXQZFJ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FFMYCXQZFJ');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rocío Jacob · Product Engineer</title>
 <meta name="description" content="">
@@ -269,9 +277,7 @@ const trackedViews = new Set();
 let analyticsObserver;
 const track = (event, parameters = {}) => {
   if (!["project_view", "select_content", "case_open", "contact_click", "email_copy"].includes(event)) return;
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: "portfolio_event", _clear: true, portfolio_event_name: event,
-    portfolio_parameters: { language: lang, ...parameters } });
+  gtag("event", event, { language: lang, ...parameters });
 };
 const COPY_ICON = '<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>', CHECK_ICON = '<path d="M5 12.5l4.5 4.5L19 7.5"/>';
 const setCopy = (b, done) => { $("span", b).textContent = done ? T().copied : T().copy; $("svg", b).innerHTML = done ? CHECK_ICON : COPY_ICON; };

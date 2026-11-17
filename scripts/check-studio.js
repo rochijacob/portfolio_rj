@@ -31,6 +31,7 @@ const shots = process.env.SHOTS;
       assert.equal(await page.locator('#offers .cta').count(), 0, 'Services should not contain a contact CTA');
       assert.equal(await page.locator('.availability').count(), 0, 'Freelance availability line should be removed');
       assert.ok(await page.evaluate(() => dataLayer.some(item => item.event === 'gtm.js')), 'GTM bootstrap is missing');
+      assert.ok(await page.evaluate(() => dataLayer.some(item => item[0] === 'config' && item[1] === 'G-FFMYCXQZFJ')), 'GA4 configuration is missing');
       const experienceText = await page.locator('#experience').textContent();
       for (const employer of ['Universidad de San Andrés', 'Accenture', 'Muvinai']) assert.ok(experienceText.includes(employer), `${employer} is missing from experience`);
       assert.ok((await page.locator('.feat .k').first().textContent()).includes(lang === 'es' ? 'Estudio de software' : 'Software studio'), 'Project case should remain anonymized');
@@ -71,7 +72,7 @@ const shots = process.env.SHOTS;
         const status = await p.locator('#copy-status').textContent();
         assert.ok(status.length > 0, 'Copy outcome should be announced');
         assert.equal(/Could not|No se pudo/.test(status), mode !== 'success', 'Incorrect copy feedback');
-        assert.ok(await p.evaluate(expected => dataLayer.some(item => item.portfolio_event_name === 'email_copy' && item.portfolio_parameters.result === expected), mode === 'success' ? 'success' : 'failure'), 'Email copy event is missing');
+        assert.ok(await p.evaluate(expected => dataLayer.some(item => item[0] === 'event' && item[1] === 'email_copy' && item[2].result === expected), mode === 'success' ? 'success' : 'failure'), 'Email copy event is missing');
         assert.equal(/Copied|Copiado/.test(await p.locator('[data-copy] span').textContent()), mode === 'success', 'Copy label out of sync');
         await p.waitForTimeout(1900);
       }

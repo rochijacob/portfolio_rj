@@ -2,13 +2,13 @@
 
 Sitio: https://rochijacob.github.io/portfolio_rj/
 
-El código carga únicamente GTM-TW2MSTRV. Tanto GTM-TW2MSTRV como GTM-K79GS3KK son contenedores de Tag Manager. El ID de medición GA4 informado es G-FFMYCXQZFJ. No instalar además el segundo contenedor ni un config directo de GA4.
+La web carga GTM-TW2MSTRV y la etiqueta GA4 directa G-FFMYCXQZFJ. GTM-K79GS3KK es otro contenedor, con una propiedad distinta (G-DV2NR6RG18) en su versión pública; no se carga en esta web. No añadir otra etiqueta GA4 para G-FFMYCXQZFJ dentro de GTM-TW2MSTRV mientras exista la directa, porque duplicaría visitas y eventos.
 
-Verificación del 16/11/2026: el recurso público de GTM-TW2MSTRV devuelve tags:[], predicates:[], rules:[]. Aunque se confirmó publicación en el chat, esa versión pública no tiene etiquetas. Falta publicar la etiqueta Google y la etiqueta de eventos descritas abajo. No se confirmó recepción en GA4.
+Verificación del 16/11/2026: el recurso público de GTM-TW2MSTRV devuelve tags:[], predicates:[], rules:[]. Por eso GA4 se carga directamente desde el sitio. El script y los eventos están implementados; la recepción en la cuenta se debe confirmar en Realtime y DebugView.
 
 ## Enlaces listos para copiar
 
-Enlaces cortos disponibles después del deploy:
+Enlaces cortos publicados:
 
 - X: https://rochijacob.github.io/portfolio_rj/x/
 - LinkedIn: https://rochijacob.github.io/portfolio_rj/in/
@@ -27,7 +27,7 @@ https://rochijacob.github.io/portfolio_rj/?utm_source=linkedin&utm_medium=social
 Post de LinkedIn:
 https://rochijacob.github.io/portfolio_rj/?utm_source=linkedin&utm_medium=social&utm_campaign=portfolio&utm_content=post
 
-Para dirigir al español, reemplazar /? por /es.html? después del deploy. Usar utm_content=post_20261116 para distinguir publicaciones. No incluir nombres de personas, emails ni datos privados en UTMs. No etiquetar enlaces internos ni el sitemap.
+Para dirigir al español, reemplazar /? por /es.html?. Usar utm_content=post_20261116 para distinguir publicaciones. No incluir nombres de personas, emails ni datos privados en UTMs. No etiquetar enlaces internos ni el sitemap.
 
 El tráfico orgánico no lleva UTM: GA4 usa el referente del buscador. Visitas sin referente pueden aparecer como direct; no es posible recuperar con certeza un origen perdido. X sin UTM también puede aparecer como t.co. Los cambios de idioma conservan UTMs y anclas.
 
@@ -45,16 +45,14 @@ Todos llevan language. Un clic de contacto indica intención: no confirma un men
 
 case_open está preparado para futuros casos completos: la versión actual de main retiró ese desplegable, por lo que hoy no dispara ese evento. No se restauró contenido retirado para producir métricas.
 
-## Configuración necesaria en GTM
+## Cómo confirmar que funciona
 
-La etiqueta Google base registra visitas; NO reenvía automáticamente los eventos propios del sitio.
+1. En GA4, abrir Informes → Tiempo real. En otra ventana privada abrir la home con `?utm_source=x&utm_medium=social&utm_campaign=portfolio&utm_content=test` y navegar entre proyectos. Comprobar que aparece una visita y eventos `project_view` o `select_content`. Los reportes de adquisición pueden demorar más que Tiempo real.
+2. Abrir el enlace corto `/in/` en otra sesión privada y revisar en Tiempo real la fuente `linkedin` y el evento `contact_click` al pulsar el mail. El click no confirma que se haya enviado un mensaje.
+3. Para DebugView, habilitar modo debug con Tag Assistant o con `gtag('set','debug_mode',true)` temporalmente en la consola antes de interactuar. Confirmar nombre y parámetros. No dejar debug_mode activado para todos los visitantes.
+4. Revisar una sola vista de página por carga. Si aparecen dos, verificar que no haya otra etiqueta G-FFMYCXQZFJ publicada en GTM o instalada por otro medio.
 
-1. Etiqueta Google con ID G-FFMYCXQZFJ y disparador Initialization / All Pages. Debe estar publicada en GTM-TW2MSTRV.
-2. Variable de capa de datos versión 2: nombre portfolio_event_name.
-3. Variables de capa de datos versión 2 para portfolio_parameters.language, portfolio_parameters.project_code, portfolio_parameters.content_type, portfolio_parameters.content_id, portfolio_parameters.method, portfolio_parameters.location y portfolio_parameters.result.
-4. Disparador: Evento personalizado, nombre exacto portfolio_event.
-5. Etiqueta Google Analytics: evento GA4. Measurement ID G-FFMYCXQZFJ. Nombre del evento: variable del paso 2. Parámetros language, project_code, content_type, content_id, method, location, result, cada uno asociado con su variable del paso 3.
-6. Asignar el disparador del paso 4. Probar en Preview/Tag Assistant y DebugView, luego publicar. No crear disparadores paralelos para las mismas acciones.
+GTM-TW2MSTRV permanece instalado, pero hoy está vacío. Si más adelante se decide administrar GA4 desde GTM, primero preparar en el contenedor la Google tag y las etiquetas de eventos, después retirar la instalación directa de la web en el mismo despliegue y comprobar el conteo. No publicar ambas configuraciones simultáneamente.
 
 ## Informe mínimo
 
