@@ -20,6 +20,7 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 - **Experiencia y formación sin desplegable:** era raro que una parte se desplegara y la otra no. Ahora las dos son listas iguales con rol, organización y fechas a la vista.
 - **Libros:** se quitó "Ver lista". Quedan solo los lomos.
 - **Cambio de idioma sin recargar:** las páginas prerenderizadas usan links reales (SEO y sin JS); con JS se cambia en el lugar y solo se actualiza la dirección con `history.replaceState`.
+- **"Fuera del trabajo" reescrito** a partir de un tag que le encantó ("Beyond work, I love to learn about..."), con lo que ella dijo que le gusta: finanzas y mercados, leer, armar cosas digitales o físicas, diseño y dibujo, viajes, curiosidad, DJ y fotografía. Cierra con humor honesto ("mi mayor desafío es elegir qué idea termino primero"), la tensión que ella misma nombró. No incluir datos más personales (astrología, skincare, viajes con fechas) sin que lo pida.
 - **Bajada del hero reescrita en el tono de anzalabidi** (redacción del agente, falta el visto bueno): "Aprendí a programar construyendo y sigo trabajando así: lo lanzo, miro cómo se usa y arreglo lo que molesta. Hoy eso significa llevar la IA y las automatizaciones de “esto nos ahorraría horas” a algo que tu equipo usa todos los días."
 
 **Ajustes editoriales aprobados (2026-11-16, decisión vigente sobre las notas históricas de abajo).** Rocío pidió aplicar el wording y las mejoras de lectura en H. Implementados en `codex/editorial-reading-refinements`, pendientes de publicación:
