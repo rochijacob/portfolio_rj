@@ -7,83 +7,91 @@
 <meta name="description" content="">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#f4f6f7">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rocío Jacob · Product Engineer">
-<meta property="og:description" content="I turn manual operations into digital products and automated workflows.">
-<meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23003049'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fdf0d5'%3ERJ%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&family=Geist:wght@400;500&family=Instrument+Serif:ital@0;1&family=Shantell+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f4f6f7;--ink:#003049;--mut:#48606e;--line:#dae2e6;--acc:#1b5e85;--chip:#c9dde9;--card:#ffffff;--shelf:#003049;--dot:rgba(0,48,73,.075);
-  --serif:"Newsreader",Georgia,"Times New Roman",serif;--mono:"DM Mono",ui-monospace,Menlo,Consolas,monospace}
-:root[data-theme=dark]{--bg:#00202f;--ink:#fdf0d5;--mut:#9fb6c3;--line:#123f55;--acc:#8fbcd6;--chip:#0f4560;--card:#00283b;--shelf:#669bbc;--dot:rgba(240,244,246,.055)}
+/* A · Cuaderno. Lab direction: a tall display serif carries the page, and handwritten
+   notes in the margin make it read like a dotted sketchbook someone is annotating. */
+:root{--bg:#f4f6f7;--ink:#003049;--soft:#4a6676;--acc:#3d7aa3;--hand:#3f86b5;--line:rgba(0,48,73,.16);--dot:rgba(0,48,73,.15);--shelf:#003049;
+  --serif:"Instrument Serif",Georgia,serif;--txt:"Geist",system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,monospace;--hand-f:"Shantell Sans","Comic Sans MS",cursive}
+:root[data-theme=dark]{--bg:#00202f;--ink:#f0f4f6;--soft:#a3b9c5;--acc:#8fbcd6;--hand:#8cc3e6;--line:rgba(240,244,246,.17);--dot:rgba(240,244,246,.09);--shelf:#669bbc}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg) radial-gradient(var(--dot) 1px,transparent 1.4px) 0 0/22px 22px;color:var(--ink);font:400 1.125rem/1.65 var(--serif);transition:background-color .3s,color .3s}
-a{color:inherit;text-decoration-color:var(--acc);text-underline-offset:3px}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg) radial-gradient(circle,var(--dot) 1.1px,transparent 1.3px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.7 var(--txt);-webkit-font-smoothing:antialiased;transition:background-color .3s,color .3s}
+a{color:inherit;text-decoration-color:var(--acc);text-underline-offset:4px;text-decoration-thickness:1px}
 a:hover{color:var(--acc)}
 :focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:3px}
-.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:9}
-.mono{font:400 .78rem/1.4 var(--mono);letter-spacing:.02em;text-transform:uppercase;color:var(--mut)}
-.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
-header.top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:22px 0 18px;border-bottom:1px solid var(--line)}
-.mark{padding:10px 0;font:500 1.15rem var(--serif);text-decoration:none;margin-right:auto;font-style:italic}
-nav.n{display:flex;gap:4px 16px;flex-wrap:wrap}
-nav.n a{font:400 .78rem var(--mono);text-transform:uppercase;text-decoration:none;color:var(--mut);padding:10px 0}
-nav.n a:hover{color:var(--acc)}
-.lang{display:inline-flex;align-items:center;gap:2px;font:400 .78rem var(--mono);color:var(--mut)}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-.lang button,.theme{min-width:40px;min-height:40px;font:400 .78rem var(--mono);color:var(--mut);border-radius:6px}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:9}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+.lbl{font:400 .75rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+header{display:flex;align-items:center;gap:8px 22px;flex-wrap:wrap;padding:22px 0}
+.mark{font:italic 400 1.6rem/1 var(--serif);text-decoration:none;margin-right:auto;padding:8px 0}
+header nav{display:flex;gap:2px 18px;flex-wrap:wrap}
+header nav a{font:400 .75rem var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--soft);padding:12px 0}
+.lang{display:inline-flex;align-items:center;font:400 .75rem var(--mono);color:var(--soft)}
+.lang button,.theme{min-width:40px;min-height:40px;font:400 .75rem var(--mono)}
 .lang button[aria-pressed=true]{color:var(--ink);text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:4px}
-.theme{border:1px solid var(--line);color:var(--ink);font-size:1rem}
-.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:56px;padding:56px 0 40px}
-main{max-width:660px;min-width:0}
-.hero p{font-size:clamp(1.45rem,1.1rem + 1.6vw,2.05rem);line-height:1.42;margin:14px 0 28px;letter-spacing:-.01em}
-.chip{background:var(--chip);padding:.05em .38em;border-radius:6px;text-decoration:none;white-space:nowrap;transition:background .2s}
-.chip:hover{background:var(--acc);color:var(--bg)}
-.pill{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);font:500 .85rem var(--mono);text-transform:uppercase;letter-spacing:.03em;padding:14px 22px;border-radius:999px;text-decoration:none;transition:transform .2s,background .2s}
-.pill:hover{background:var(--acc);color:#fff;transform:translateY(-2px)}
-:root[data-theme=dark] .pill:hover{color:#00202f}
-section{padding:44px 0;border-top:1px solid var(--line)}
-section.hero{border:0;padding-top:0}
-h2{font:600 1.9rem/1.15 var(--serif);margin:6px 0 18px;letter-spacing:-.015em}
-h3{font:600 1.2rem/1.3 var(--serif);margin:0}
+.theme{border:1px solid var(--line);border-radius:10px;font-size:1rem;color:var(--ink)}
+/* The page is one reading column; the margin to its right is for notes. */
+.page{max-width:720px}
+.anch{position:relative}
+.note{position:absolute;left:calc(100% + 56px);top:var(--y,0);width:220px;margin:0;font:400 1.08rem/1.35 var(--hand-f);color:var(--hand);transform:rotate(-2deg)}
+.note svg{display:block;width:74px;height:40px;stroke:var(--hand);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin:0 0 4px -6px}
+h1{font:400 clamp(2.9rem,1.6rem + 5vw,5.4rem)/.98 var(--serif);letter-spacing:-.02em;margin:56px 0 0}
+h1 em{color:var(--acc)}
+.intro{font-size:1.2rem;color:var(--soft);max-width:34em;margin:28px 0 0}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin:30px 0 0}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 24px;border-radius:10px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:500}
+.cta a:not(.btn),.skip{display:inline-flex;align-items:center;min-height:44px}
+.btn:hover{color:var(--bg);background:var(--acc)}
+.cityw{width:min(1064px,calc(100vw - 56px));margin:56px 0 0;position:relative}
+.city{display:block;width:100%;height:auto;fill:none;stroke:var(--ink);stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round}
+.city .outline{stroke-width:1.55}.city .detail{stroke-width:.65}.city .context{stroke:var(--soft);stroke-width:.75;opacity:.65}
+.city .guide{stroke:var(--acc);stroke-width:.65;opacity:.85}.city .axis{stroke-dasharray:8 5 1 5;stroke-width:.5;opacity:.5}
+.city .wash{fill:var(--acc);fill-opacity:.07;stroke:none}
+.city text{font:400 8px var(--mono);letter-spacing:.12em;fill:var(--soft);stroke:none}
+.cityw .note{left:56%;top:-14px}
+section{margin-top:128px}
+h2{font:400 clamp(2.4rem,1.6rem + 3vw,3.6rem)/1 var(--serif);letter-spacing:-.015em;margin:10px 0 28px}
+h2 em{color:var(--acc)}
+h3{font:400 1.9rem/1.1 var(--serif);margin:0}
 p{margin:0 0 1em}
-.list{list-style:none;margin:0;padding:0}
-.wr li{display:grid;grid-template-columns:92px 1fr;gap:16px;padding:12px 0;border-bottom:1px dotted var(--line);align-items:baseline}
-.wr li>span:last-child,.wr a{font-size:1.15rem}
-/* work */
-.case{padding:20px 0;border-bottom:1px dotted var(--line)}
-.case .meta{display:flex;flex-wrap:wrap;gap:4px 14px;margin:4px 0 8px}
-.case .imp{color:var(--acc)}
-.case p{margin:0;color:var(--ink)}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 24px;margin:8px 0 28px}
-.stats b{display:block;font:600 2rem/1 var(--serif);letter-spacing:-.02em}
-.stats span{font-size:.95rem;color:var(--mut);line-height:1.35;display:block;margin-top:4px}
-.tl li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px dotted var(--line)}
-.tl small{display:block;color:var(--mut);font-size:.98rem;line-height:1.45}
-.sk{display:grid;grid-template-columns:150px 1fr;gap:6px 16px;padding:10px 0;border-bottom:1px dotted var(--line)}
-.fin li{display:grid;grid-template-columns:92px 1fr;gap:16px;padding:9px 0}
-.contact h2{font-size:clamp(1.7rem,1.2rem + 2vw,2.5rem)}
-/* side */
-aside .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
-.portrait{width:72px;height:72px;border-radius:50%;background:var(--chip);display:grid;place-items:center;font:500 1.2rem var(--serif);font-style:italic;overflow:hidden;position:relative}
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:0 0 40px}
+.nums b{display:block;font:400 clamp(2.6rem,1.8rem + 2.4vw,3.8rem)/1 var(--serif);position:relative;width:max-content}
+.nums span{display:block;color:var(--soft);font-size:.95rem;line-height:1.45;margin-top:8px}
+.ring{position:absolute;left:-14px;top:-10px;width:calc(100% + 28px);height:calc(100% + 18px);stroke:var(--hand);fill:none;stroke-width:1.5;stroke-linecap:round;overflow:visible}
+.case{padding:26px 0;border-top:1px solid var(--line)}
+.case .lbl{display:flex;flex-wrap:wrap;gap:4px 16px;margin:8px 0 10px}
+.case .res{color:var(--acc)}
+.case p{color:var(--soft);margin:0;max-width:36em}
+.lab li{padding:14px 0;border-top:1px solid var(--line);list-style:none}
+.lab ul{margin:0;padding:0}
+.lab b{font-weight:500}
+.lab small{display:block;color:var(--soft);font-size:.95rem}
+.lab .go{display:inline-flex;align-items:center;min-height:44px;font-family:var(--serif);font-size:1.4rem;font-style:italic}
+.prof p{font:400 clamp(1.5rem,1.2rem + 1vw,1.9rem)/1.3 var(--serif)}
+.prof p+p{font:400 1.0625rem/1.7 var(--txt);color:var(--soft)}
+.me{display:flex;gap:18px;align-items:center;margin:0 0 26px}
+.portrait{width:72px;height:72px;border-radius:50%;background:var(--line);display:grid;place-items:center;overflow:hidden;position:relative;font-family:var(--serif)}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
-aside h2{font-size:1.35rem;margin:14px 0 2px}
-aside .links{display:flex;flex-direction:column;margin:14px 0}
-aside .links a{font:400 .8rem var(--mono);text-transform:uppercase;padding:9px 0;text-decoration:none;border-bottom:1px dotted var(--line)}
-aside .blk{margin:16px 0 0;font-size:1rem;line-height:1.5}
-aside .pill{width:100%;justify-content:center;margin-top:18px}
-footer{border-top:1px solid var(--line);padding:26px 0 40px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
-footer a{margin-right:18px;padding:10px 0;display:inline-block}
-.rv{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
-.rv.in{opacity:1;transform:none}
-@media(min-width:940px){.grid{grid-template-columns:minmax(0,660px) 290px;justify-content:space-between}aside .card{position:sticky;top:28px}}
-@media(max-width:939px){aside{order:2}}
-@media(max-width:560px){body{font-size:1.06rem}.tl li,.sk{grid-template-columns:1fr;gap:2px}.wrap{padding:0 18px}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+.off{color:var(--soft);font-size:.98rem;margin-top:22px}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:170px 1fr;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
+.tl li.exh{border:0}
+.tl small{display:block;color:var(--soft)}
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.svc h3{font-size:1.6rem;margin-bottom:8px}
+.svc p{color:var(--soft);font-size:.98rem}
+.contact h2{font-size:clamp(2.6rem,1.6rem + 4vw,4.6rem)}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;padding:72px 0 48px}
+footer a{display:inline-block;padding:10px 0;margin-right:18px}
+@media(max-width:1180px){.note{position:static;width:auto;max-width:300px;margin:14px 0 0 6px}.cityw .note{position:absolute;margin:0;width:200px}.anch{display:flex;flex-direction:column}.anch>.note{order:9}.note svg{transform:scaleY(-1);height:30px}}
+@media(max-width:980px){.nums,.svc{grid-template-columns:1fr}.tl li{grid-template-columns:1fr;gap:0}}
+@media(max-width:640px){.wrap{padding:0 18px}h1{margin-top:28px}section{margin-top:88px}.cityw{overflow:hidden}.city{width:860px;max-width:none;margin-left:calc(50% - 430px)}.city text{font-size:11px}.cityw{padding-top:64px}.cityw .note{left:2px;top:0;width:170px;font-size:1rem}header nav{display:none}.btn{width:100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
@@ -91,83 +99,72 @@ footer a{margin-right:18px;padding:10px 0;display:inline-block}
 <script>
 /*CORE*/
 
-/* ---------- Site A · Notebook ---------- */
+/* ---------- Site A · Cuaderno ---------- */
 let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 document.documentElement.dataset.theme = theme;
+/* Hand-drawn marks: a curved arrow and a loose ring. Kept slightly irregular on purpose. */
+const arrow = (flip = false) => `<svg viewBox="0 0 74 40" aria-hidden="true"${flip ? ' style="transform:scaleX(-1)"' : ""}><path d="M70 6C52 4 30 10 14 30"/><path d="M12 18l1 13 13-3"/></svg>`;
+const ring = `<svg class="ring" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><path d="M60 4C30 1 4 12 5 32c1 22 46 26 74 18 22-6 20-36-6-44-14-4-30-2-38 2" vector-effect="non-scaling-stroke"/></svg>`;
+const note = (text, flip, y = 0) => `<p class="note" style="--y:${y}px">${arrow(flip)}${text}</p>`;
 
 function render(t) {
-  const nav = ["books", "about", "work", "experience", "skills"].map(k => `<a href="#${k}">${t.nav[k]}</a>`).join("");
+  const n = t.a.notes, F = t.featured;
+  const nav = [["work", t.nav.work], ["books", t.nav.books], ["about", t.nav.about], ["contact", t.nav.contact]].map(([id, l]) => `<a href="#${id}">${l}</a>`).join("");
   $("#app").innerHTML = `
 <a class="skip" href="#main">${t.skip}</a>
-<header class="top">
-  <a class="mark" href="#top" id="top">rocío jacob</a>
-  <nav class="n" aria-label="Sections">${nav}</nav>
+<header>
+  <a class="mark" href="#top" id="top">Rocío Jacob</a>
+  <nav aria-label="${esc(t.menu)}">${nav}</nav>
   ${langToggle()}
   <button class="theme" type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}">${theme === "dark" ? "☀" : "☾"}</button>
 </header>
-<div class="grid">
-<main id="main">
-  <section class="hero">
-    <div class="mono">${t.a.kicker} · ${t.location}</div>
-    <p>${t.a.hero}</p>
-    <div class="mono" style="margin:-10px 0 24px">${t.sub}</div>
-    <a class="pill" href="${mailto()}">${t.cta} →</a>
-  </section>
+<main id="main" class="page">
+  <div class="anch"><h1>${t.a.split[0]} <em>${t.a.split[1]}</em></h1>${note(n.self, false, 40)}</div>
+  <p class="intro">${t.heroIntro}</p>
+  <div class="cta"><a class="btn" href="#contact">${t.cta} ↗</a><a href="#work">${t.seeWork}</a></div>
+  <div class="cityw">${city(t.illo)}${note(n.here, true)}</div>
 
-  <section id="books" class="rv">
-    <div class="mono">01</div><h2>${t.h.books}</h2><p>${t.booksIntro}</p>
+  <section id="work" class="anch">${note(n.big, false, 150)}
+    <div class="lbl">${t.a.pick}</div>
+    <h2>${t.h.work}</h2>
+    <div class="nums">${Object.values(F).map((f, i) => `<div><b>${f.number}${i === 0 ? ring : ""}</b><span>${f.label}</span></div>`).join("")}</div>
+  </section>
+  <div>${t.cases.map(c => `<article class="case"><h3>${c.name}</h3><div class="lbl"><span>${c.org}</span><span>${c.role}</span><span>${c.when}</span><span class="res">${c.impact}</span></div><p>${c.body}</p></article>`).join("")}</div>
+
+  <section id="books" class="anch">${note(n.read, false, 170)}
+    <div class="lbl">${t.nav.books}</div>
+    <h2>${t.booksIntro.split(" ").slice(0, 3).join(" ")} <em>${t.booksIntro.split(" ").slice(3).join(" ")}</em></h2>
     ${bookShelf(true)}
-    
   </section>
 
-  <section id="about" class="rv">
-    <div class="mono">02</div><h2>${t.h.about}</h2>
-    ${t.about.map(p => `<p>${p}</p>`).join("")}
+  <section class="lab anch">${note(n.lab, false, 150)}
+    <div class="lbl">${t.h.lab}</div>
+    <h2>${t.labIntro}</h2>
+    <ul>${t.lab.map((l, i) => `<li><b>${labName(l)}</b><small>${labMeta(l)}</small>${i === 0 ? `<a class="go" href="site-A-article.html">${t.a.readDraft} →</a>` : ""}</li>`).join("")}</ul>
+  </section>
+
+  <section id="about" class="prof">
+    <div class="lbl">${t.h.about}</div>
+    <div class="me" style="margin-top:18px">${portrait()}<div><b style="font-weight:500">${t.name}</b><br><span class="lbl">${t.remote}</span></div></div>
+    ${t.profile.map(p => `<p>${p}</p>`).join("")}
     ${offClock()}
-    <h3 id="finance" style="margin-top:28px">${t.h.finance}</h3>
-    <ul class="list fin">${t.finance.map(f => `<li><span class="mono">${f.k}</span><span>${f.v}</span></li>`).join("")}</ul>
+    <ul class="tl" style="margin-top:40px">${expSplit(t, e => `<li><span class="lbl">${e.when}</span><div>${e.role}<small>${e.org}</small></div></li>`)}</ul>
   </section>
 
-  <section id="work" class="rv">
-    <div class="mono">03</div><h2>${t.h.work}</h2>
-    <div class="stats">${t.stats.slice(0, 4).map(s => `<div><b>${s.n}</b><span>${s.l}</span></div>`).join("")}</div>
-    ${t.cases.map(c => `<article class="case"><h3>${c.url ? `<a href="${c.url}" ${ext}>${c.name}</a>` : c.name}</h3>
-      <div class="meta mono"><span>${c.org}</span><span>${c.role}</span><span>${c.when}</span><span class="imp">${c.impact}</span></div><p>${caseBody(c)}</p></article>`).join("")}
-    <h3 id="lab" style="margin-top:34px">${t.h.lab}</h3><p>${t.labIntro}</p>
-    <ul class="list fin">${t.lab.map(l => `<li style="grid-template-columns:1fr;gap:0"><b>${labName(l)}</b><span>${labMeta(l)}</span></li>`).join("")}</ul>
+  <section>
+    <div class="lbl">${t.h.services}</div>
+    <h2>${t.freelance.split(". ")[0]}.</h2>
+    <div class="svc">${t.services.map(s => `<div><h3>${s.name}</h3><p>${s.body}</p><p class="lbl">${t.delivLabel}: ${s.deliv}</p></div>`).join("")}</div>
   </section>
 
-  <section id="experience" class="rv">
-    <div class="mono">04</div><h2>${t.h.experience}</h2>
-    <ul class="list tl">${expSplit(t, e => `<li><span class="mono">${e.when}</span><div><h3>${e.role}</h3><small>${e.org}${e.note ? " · " + e.note : ""}</small></div></li>`)}</ul>
-  </section>
-
-  <section id="skills" class="rv">
-    <div class="mono">05</div><h2>${t.h.skills}</h2>
-    ${t.skills.map(s => `<div class="sk"><span class="mono">${s.name}</span><span>${s.items.join(", ")}</span></div>`).join("")}
-  </section>
-
-  <section id="contact" class="contact rv">
-    <div class="mono">06 · ${t.h.contact}</div><h2>${t.contactTitle}</h2>
-    <p>${t.freelance}</p>
-    ${t.services.map(s => `<article class="case"><h3>${s.name}</h3><div class="meta mono"><span>${s.sub}</span></div><p>${svcBody(s)}</p></article>`).join("")}
-    <p style="margin-top:20px">${t.contactBody}</p>
-    <a class="pill" href="${mailto()}">${t.cta} →</a>
+  <section id="contact" class="contact anch">${note(n.bye, false, 60)}
+    <div class="lbl">${t.h.contact}</div>
+    <h2>${t.contactTitle}</h2>
+    <p style="color:var(--soft)">${t.contactBody}</p>
+    <div class="cta"><a class="btn" href="${mailto()}">${t.cta} ↗</a><a href="${L.linkedin}" ${ext}>LinkedIn</a></div>
   </section>
 </main>
-<aside aria-label="${t.name}">
-  <div class="card">
-    ${portrait()}
-    <h2>${t.name}</h2>
-    <div class="mono">${t.role} · ${t.location}</div>
-    <div class="blk"><span class="mono">${t.a.cardNow}</span><br>${t.a.cardNowBody}</div>
-    <div class="blk"><span class="mono">${t.a.cardReading}</span><br><a href="#books">${t.a.cardReadingLink}</a></div>
-    <div class="links">${footerLinks()}</div>
-    <a class="pill" href="${mailto()}">${t.cta}</a>
-  </div>
-</aside>
-</div>
-<footer><span class="mono">${t.footer.rights}</span><span class="mono">${footerLinks()}</span></footer>`;
+<footer><span class="lbl">${t.footer.rights}</span><span class="lbl">${footerLinks()}</span></footer>`;
 }
 document.addEventListener("click", e => {
   if (e.target.closest("[data-theme-btn]")) {

@@ -42,7 +42,7 @@ const content = {
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remote worldwide",
     status: "Open to freelance · Buenos Aires",
     cta: "Work with me", ctaAlt: "Let's talk", mailSubject: "Project for Rocío",
-    skip: "Skip to content", langLabel: "Language", themeLabel: "Toggle light / dark", portraitAlt: "Pixel-art avatar of Rocío Jacob",
+    skip: "Skip to content", langLabel: "Language", themeLabel: "Toggle light / dark", portraitAlt: "Photo of Rocío Jacob",
     nav: { home: "Home", about: "About", work: "Work", experience: "Experience", skills: "Stack", books: "Books", writing: "Writing", contact: "Contact", play: "Playground", services: "Services" },
     h: { services: "What I offer", about: "About", work: "Selected work", experience: "Experience", skills: "Skills & stack", books: "Books", writing: "Writing", contact: "Work with me", finance: "The finance side", lab: "Lab", numbers: "In numbers" },
     about: [
@@ -66,7 +66,7 @@ const content = {
       { code: "WK.02", line: "Ticketing for 15K+ users on three continents.", name: "Event SaaS platform", org: "Software studio", role: "Project Leader", when: "Nov 2023 – Apr 2025", impact: "15K+ users · 5+ clients",
         body: "Led development of a platform for ticketing, access control and client relationships, used by music festivals and crypto events across America, Europe and Asia. I managed a team of six, handled 5+ client accounts directly, and set priorities and roadmap with clients and stakeholders.", tags: ["Project leadership", "Jira", "Roadmap", "React"] },
       { code: "WK.03", name: "High-volume checkout", org: "Software studio", role: "Senior Developer", when: "2021 – 2023", impact: "300+ payments / day",
-        body: "Designed and launched a checkout with custom billing that processes 300+ payments a day. It was one of the first React integrations of Mercado Pago.", tags: ["React", "Mercado Pago", "Billing"] },
+        body: "Designed and launched, as part of a team, a checkout with custom billing that processes 300+ payments a day. It was one of the first React integrations of Mercado Pago.", tags: ["React", "Mercado Pago", "Billing"] },
       { code: "WK.04", line: "From manual coordination to an automated flow.", name: "Final-project tracking", org: "A university", role: "Product & automation lead", when: "Apr 2026 – present", impact: "100+ projects per cycle",
         body: "I own the backend of the system that tracks student capstone projects and coordinates their defense committees: the data layer, the sync and the workflows. Alongside it, I drive automation, BI and AI projects for university operations.",
         steps: [
@@ -143,7 +143,7 @@ const content = {
       ] },
     expWork: "Work", expEdu: "Education",
     why: "Why work with me", menu: "Menu", workCols: { p: "Project", w: "When", i: "Result" },
-    readCase: "Read the full case", seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
+    readCase: "Read the full case", svcMore: "Deliverable and who it is for", seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
     fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
     gotMind: "Have a manual process, a stalled automation or a product that needs to move forward?", reach: "Or write to me at",
     illo: "Architectural drawing of Buenos Aires: Kavanagh, Congress, the Obelisk, and Puente de la Mujer",
@@ -156,14 +156,47 @@ const content = {
     contactBody: "Tell me what you are building. I answer every email.",
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "View", close: "Close", open: "Open", repo: "Repository",
+    /* J · Hero sketches (lab spike): options for the hero illustration if the skyline moves to the footer. */
+    j: { title: "Hero sketches", lead: "If the Buenos Aires skyline closes the page, the hero needs its own drawing. Three options in the same line style.",
+      opts: [
+        { k: "Option 1", name: "The Obelisk, up close", why: "One landmark instead of four. It keeps Buenos Aires in the hero without repeating the footer.", note: "home base. I work remotely from here", alt: "Architectural drawing of the Obelisk of Buenos Aires with trees, people and a height dimension" },
+        { k: "Option 2", name: "Downtown from above", why: "A street plan: 9 de Julio, the diagonals, the docks and the river. The city as a map, the skyline as the closing view.", note: "home base. I work remotely from here", alt: "Schematic street plan of downtown Buenos Aires seen from above, with the Obelisk marked" },
+        { k: "Option 3", name: "The turntable", why: "Something of mine, drawn like a technical plan. More personal, less about the city.", note: "off the clock, I DJ", alt: "Technical drawing of a turntable seen from above" }
+      ], foot: "And the skyline closes the page", schematic: "Schematic drawings, not to scale." },
+    /* I · Charla (lab): conversational copy. Drafted by the agent from facts already on the site; pending Rocío's OK. */
+    talk: {
+      hello: "Hi, I'm Rocío.", tags: ["product", "operations", "business"],
+      intro: "I turn the manual stuff (scattered spreadsheets, emails copied by hand, processes that live in someone's head) into products and automated flows. I taught myself to code in 2021 and haven't stopped since.",
+      avail: "Taking freelance projects. Write to me by {email} or on {linkedin}. My {github}? Open too, if you're curious.",
+      work: "Things I've built that people actually use", services: "Ways we can work together", about: "A bit more about me", books: "What I read, and then build with", contact: "Got a process that eats your week?",
+      more: "Read more", less: "Close"
+    },
+    /* A · Article (lab draft, design skeleton). [COMPLETAR] marks what Rocío still has to write. */
+    article: {
+      back: "Back to the notebook", kicker: "Lab · draft", title: "Python games", dek: "How I learned Python: loops, state and collisions.",
+      why: { h: "Why I made it", p: "[COMPLETAR] One or two sentences: what I wanted to learn, and why games instead of a course." },
+      built: { h: "What I built", items: ["Pong (turtle)", "Flappy Bird (pygame)", "Frogger (turtle)", "A platformer (pygame, with a sprite sheet)", "Space Invaders (pygame)"], p: "[COMPLETAR] Which came first, which was hardest, how long it took." },
+      problem: { h: "The interesting problem: collisions", p: "Every one of these games has to answer the same question many times a second: are these two things touching? The simplest answer treats each sprite as a rectangle.", own: "[COMPLETAR] How I solved it in my games, in my words." },
+      demo: { label: "Drag the light square", hint: "Two rectangles overlap when they overlap on both axes.", hit: "Touching", miss: "Not touching", reset: "Reset" },
+      codeNote: "Illustrative example, not copied from the repository.",
+      learned: { h: "What I learned", p: "How I learned Python: loops, state and collisions." },
+      redo: { h: "What I would do differently today", p: "[COMPLETAR]" },
+      repo: "See the code on GitHub",
+      box: "This article is a design skeleton. The game screenshots are left out on purpose: some sprites come from tutorials, not from me."
+    },
     /* A · Notebook */
     a: {
       hero: "Hi, I'm Rocío. I'm a <a class=\"chip\" href=\"#work\">product engineer</a> in Buenos Aires. I turn manual operations into digital products and automated workflows. I taught myself to code in 2021 from <a class=\"chip\" href=\"#books\">books</a> and the open web. Since then I have built an app that 40K people open every day, led a team of six, and worked in <a class=\"chip\" href=\"#finance\">finance</a>. Now I am teaching Corporate Finance and getting ready for a Master in Finance (April 2027).",
-      kicker: "A notebook, kept in public", cardNow: "Now", cardNowBody: "Building automation, BI and AI for a university. Teaching Corporate Finance. MFin starts April 2027.", cardReading: "Reading", cardReadingLink: "Books I've read"
+      kicker: "A notebook, kept in public", cardNow: "Now", cardNowBody: "Building automation, BI and AI for a university. Teaching Corporate Finance. MFin starts April 2027.", cardReading: "Reading", cardReadingLink: "Books I've read",
+      notes: { self: "self-taught, since 2021", here: "home base. I work remotely from here", big: "an app people opened every day", read: "I read first, then build", lab: "the draft is open", bye: "I answer every email" },
+      split: ["I turn manual operations", "into digital products and automated workflows."],
+      pick: "Picked from the notebook", readDraft: "Read the draft", nowTitle: "Now"
     },
     /* B · Dock */
     b: {
-      
+      man: { page: "ROCIO(1)", book: "Product Engineer's Manual", name: "NAME", synopsis: "SYNOPSIS", desc: "DESCRIPTION", options: "OPTIONS", examples: "EXAMPLES", play: "PLAYGROUND", files: "FILES", history: "HISTORY", see: "SEE ALSO",
+        cmd: "rocio [--freelance] [--remote] <your-process>", reach: "Reach me by {email} or {linkedin}. Yes, both are open.", run: "run", stack: "stack", out: "result",
+        critters: "Buenos Aires birds drawn with characters: a monk parakeet, a pigeon and an ovenbird on its mud nest.", updated: "Last updated" },
       playTitle: "Playground", playBody: "I learned Python by building small games. This is a tiny browser remake of that habit: a hop-through-the-gaps loop in plain canvas. The originals (pygame / turtle) are on my GitHub.",
       playHint: "Space, click or tap to hop", playScore: "Score", playBest: "Best", playStart: "Press to start", playOver: "Game over · press to retry", originals: "See the originals"
     },
@@ -220,7 +253,7 @@ const content = {
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remoto a todo el mundo",
     status: "Disponible para freelance · Buenos Aires",
     cta: "Trabajemos juntos", ctaAlt: "Hablemos", mailSubject: "Proyecto para Rocío",
-    skip: "Ir al contenido", langLabel: "Idioma", themeLabel: "Cambiar modo claro / oscuro", portraitAlt: "Avatar en pixel art de Rocío Jacob",
+    skip: "Ir al contenido", langLabel: "Idioma", themeLabel: "Cambiar modo claro / oscuro", portraitAlt: "Foto de Rocío Jacob",
     nav: { home: "Inicio", about: "Sobre mí", work: "Trabajo", experience: "Experiencia", skills: "Stack", books: "Libros", writing: "Escritos", contact: "Contacto", play: "Playground", services: "Servicios" },
     h: { services: "Servicios", about: "Sobre mí", work: "Proyectos destacados", experience: "Experiencia", skills: "Herramientas", books: "Libros", writing: "Escritos", contact: "Trabajemos juntos", finance: "El lado financiero", lab: "Lab", numbers: "En números" },
     about: [
@@ -244,7 +277,7 @@ const content = {
       { code: "WK.02", line: "Venta y control de entradas para más de 15 mil usuarios en tres continentes.", name: "Plataforma SaaS de eventos", org: "Estudio de software", role: "Project Leader", when: "Nov 2023 – Abr 2025", impact: "15K+ usuarios · 5+ clientes",
         body: "Lideré el desarrollo de una plataforma de venta de entradas, control de accesos y relación con clientes, usada por festivales de música y eventos cripto en América, Europa y Asia. Coordiné un equipo de seis personas, manejé más de cinco cuentas de clientes y definí las prioridades y la hoja de ruta junto a ellos.", tags: ["Liderazgo de proyecto", "Jira", "Hoja de ruta", "React"] },
       { code: "WK.03", name: "Checkout de alto volumen", org: "Estudio de software", role: "Senior Developer", when: "2021 – 2023", impact: "300+ pagos / día",
-        body: "Diseñé y lancé un checkout con facturación a medida que procesa más de 300 pagos por día. Una de las primeras integraciones de Mercado Pago en React.", tags: ["React", "Mercado Pago", "Facturación"] },
+        body: "Diseñé y lancé en equipo un checkout con facturación a medida que procesa más de 300 pagos por día. Una de las primeras integraciones de Mercado Pago en React.", tags: ["React", "Mercado Pago", "Facturación"] },
       { code: "WK.04", line: "De la coordinación manual a un flujo automatizado.", name: "Seguimiento de trabajos finales", org: "Una universidad", role: "Líder de producto y automatización", when: "Abr 2026 – presente", impact: "Más de 100 trabajos por entrega",
         body: "Estoy a cargo del backend del sistema que hace el seguimiento de los trabajos finales de grado y coordina las mesas de defensa: datos, sincronización y flujos de trabajo. En paralelo llevo adelante proyectos de automatización, BI e IA para la universidad.",
         steps: [
@@ -321,7 +354,7 @@ const content = {
       ] },
     expWork: "Experiencia laboral", expEdu: "Formación",
     why: "Por qué trabajar conmigo", menu: "Menú", workCols: { p: "Proyecto", w: "Período", i: "Resultado" },
-    readCase: "Leer el caso completo", seeWork: "Ver proyectos", remoteNote: "Buenos Aires · Trabajo remoto", moreWork: "Otros proyectos",
+    readCase: "Leer el caso completo", svcMore: "Entregable y para quién", seeWork: "Ver proyectos", remoteNote: "Buenos Aires · Trabajo remoto", moreWork: "Otros proyectos",
     fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
     gotMind: "¿Tenés un proceso manual, una automatización trabada o un producto que necesita avanzar?", reach: "O escribime a",
     illo: "Croquis arquitectónico de Buenos Aires: Kavanagh, Congreso, Obelisco y Puente de la Mujer",
@@ -334,12 +367,42 @@ const content = {
     contactBody: "Contame en qué estás trabajando. Respondo todos los mails.",
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "Ver", close: "Cerrar", open: "Abrir", repo: "Repositorio",
+    j: { title: "Bocetos de hero", lead: "Si el skyline de Buenos Aires cierra la página, el hero necesita su propio dibujo. Tres opciones con la misma línea.",
+      opts: [
+        { k: "Opción 1", name: "El Obelisco, de cerca", why: "Un solo hito en vez de cuatro. Buenos Aires sigue en el hero sin repetir el pie.", note: "mi base. Trabajo remoto desde acá", alt: "Croquis arquitectónico del Obelisco de Buenos Aires con árboles, personas y una cota de altura" },
+        { k: "Opción 2", name: "El centro desde arriba", why: "Un plano de calles: la 9 de Julio, las diagonales, los diques y el río. La ciudad como mapa y el skyline como cierre.", note: "mi base. Trabajo remoto desde acá", alt: "Plano esquemático del centro de Buenos Aires visto desde arriba, con el Obelisco marcado" },
+        { k: "Opción 3", name: "La bandeja", why: "Algo mío, dibujado como un plano técnico. Más personal, menos ciudad.", note: "fuera del trabajo, soy DJ", alt: "Dibujo técnico de una bandeja giradiscos vista desde arriba" }
+      ], foot: "Y el skyline cierra la página", schematic: "Dibujos esquemáticos, no a escala." },
+    talk: {
+      hello: "Hola, soy Rocío.", tags: ["producto", "operaciones", "negocio"],
+      intro: "Convierto lo manual (planillas sueltas, mails copiados a mano, procesos que viven en la cabeza de alguien) en productos y flujos automáticos. Aprendí a programar sola en 2021 y no paré.",
+      avail: "Tomo proyectos freelance. Escribime por {email} o por {linkedin}. ¿Mi {github}? También está abierto, si tenés curiosidad.",
+      work: "Cosas que hice y que la gente usa de verdad", services: "Cómo podemos trabajar juntos", about: "Un poco más sobre mí", books: "Lo que leo, y después pongo en práctica", contact: "¿Tenés un proceso que te come la semana?",
+      more: "Leer más", less: "Cerrar"
+    },
+    article: {
+      back: "Volver al cuaderno", kicker: "Lab · borrador", title: "Juegos en Python", dek: "Así aprendí Python: loops, estado y colisiones.",
+      why: { h: "Por qué lo hice", p: "[COMPLETAR] Una o dos frases: qué quería aprender y por qué con juegos y no con un curso." },
+      built: { h: "Qué construí", items: ["Pong (turtle)", "Flappy Bird (pygame)", "Frogger (turtle)", "Un plataformas (pygame, con hoja de sprites)", "Space Invaders (pygame)"], p: "[COMPLETAR] Cuál fue el primero, cuál el más difícil, cuánto tiempo llevó." },
+      problem: { h: "El problema interesante: colisiones", p: "Todos estos juegos tienen que responder la misma pregunta muchas veces por segundo: ¿estas dos cosas se tocan? La respuesta más simple trata a cada sprite como un rectángulo.", own: "[COMPLETAR] Cómo lo resolví en mis juegos, con mis palabras." },
+      demo: { label: "Arrastrá el cuadrado claro", hint: "Dos rectángulos se tocan cuando se superponen en los dos ejes.", hit: "Se tocan", miss: "No se tocan", reset: "Reiniciar" },
+      codeNote: "Ejemplo ilustrativo, no copiado del repositorio.",
+      learned: { h: "Qué aprendí", p: "Así aprendí Python: loops, estado y colisiones." },
+      redo: { h: "Qué haría distinto hoy", p: "[COMPLETAR]" },
+      repo: "Ver el código en GitHub",
+      box: "Este artículo es un esqueleto de diseño. Las capturas de los juegos quedan afuera a propósito: algunos sprites vienen de tutoriales, no son míos."
+    },
     a: {
       hero: "Hola, soy Rocío, <a class=\"chip\" href=\"#work\">product engineer</a> en Buenos Aires. Transformo procesos manuales en productos digitales y flujos automatizados. Aprendí a programar sola en 2021, con <a class=\"chip\" href=\"#books\">libros</a> y la web. Desde entonces hice una app que 40 mil personas abren todos los días, lideré un equipo de seis y trabajé en <a class=\"chip\" href=\"#finance\">finanzas</a>. Hoy doy clases de Finanzas Corporativas y en abril de 2027 empiezo una Maestría en Finanzas.",
-      kicker: "Un cuaderno abierto", cardNow: "Ahora", cardNowBody: "Automatización, BI e IA para una universidad. Dando Finanzas Corporativas. El MFin arranca en abril de 2027.", cardReading: "Leyendo", cardReadingLink: "Libros que leí"
+      kicker: "Un cuaderno abierto", cardNow: "Ahora", cardNowBody: "Automatización, BI e IA para una universidad. Dando Finanzas Corporativas. El MFin arranca en abril de 2027.", cardReading: "Leyendo", cardReadingLink: "Libros que leí",
+      notes: { self: "autodidacta, desde 2021", here: "mi base. Trabajo remoto desde acá", big: "una app que la gente abría todos los días", read: "primero leo, después construyo", lab: "el borrador está abierto", bye: "respondo todos los mails" },
+      split: ["Transformo procesos manuales", "en productos digitales y flujos automatizados."],
+      pick: "Elegido del cuaderno", readDraft: "Leer el borrador", nowTitle: "Ahora"
     },
     b: {
-      
+      man: { page: "ROCIO(1)", book: "Manual de una ingeniera de producto", name: "NOMBRE", synopsis: "SINOPSIS", desc: "DESCRIPCIÓN", options: "OPCIONES", examples: "EJEMPLOS", play: "PLAYGROUND", files: "ARCHIVOS", history: "HISTORIA", see: "VER TAMBIÉN",
+        cmd: "rocio [--freelance] [--remoto] <tu-proceso>", reach: "Escribime por {email} o por {linkedin}. Sí, los dos están abiertos.", run: "correr", stack: "stack", out: "resultado",
+        critters: "Pájaros de Buenos Aires dibujados con caracteres: una cotorra, una paloma y un hornero sobre su nido de barro.", updated: "Última actualización" },
       playTitle: "Playground", playBody: "Aprendí Python haciendo juegos chicos. Esta es una versión mínima de esa costumbre, hecha para el navegador: un loop de saltar entre huecos en canvas puro. Los originales (pygame / turtle) están en mi GitHub.",
       playHint: "Espacio, clic o toque para saltar", playScore: "Puntos", playBest: "Récord", playStart: "Tocá para empezar", playOver: "Fin del juego · tocá para reintentar", originals: "Ver los originales"
     },
@@ -432,7 +495,7 @@ function footerLinks() {
   return `<a href="mailto:${L.email}">${f.email}</a><a href="${L.linkedin}" ${ext}>${f.linkedin}</a><a href="${L.github}" ${ext}>${f.github}</a>`;
 }
 function portrait() {
-  return `<span class="portrait"><span aria-hidden="true">RJ</span><img src="profile.png" alt="${esc(T().portraitAlt)}" width="96" height="96" style="image-rendering:pixelated" onload="this.previousElementSibling.style.visibility='hidden'" onerror="this.remove()"></span>`;
+  return `<span class="portrait"><span aria-hidden="true">RJ</span><img src="profile.jpg" alt="${esc(T().portraitAlt)}" width="96" height="96" onload="this.previousElementSibling.style.visibility='hidden';this.parentNode.classList.add('ok')" onerror="this.parentNode.classList.add('err');this.remove()"></span>`;
 }
 const caseBody = c => c.body + (c.steps ? "<br><br>" + c.steps.map(x => `<b>${x.k}.</b> ${x.v}`).join("<br>") : "");
 const svcBody = s => s.body + (s.deliv ? `<br><b>${T().delivLabel}:</b> ${s.deliv}` : "") + (s.ideal ? `<br><b>${T().idealLabel}:</b> ${s.ideal}` : "");
@@ -452,6 +515,8 @@ const MASCOTS = {
   sit: ["..X...X.....", "..XXXXX.....", "..XoXoX.....", "..XXXXX.....", "...XXX......", "..XXXXX.....", "..XXXXXX....", ".XXXXXXX....", ".XXXXXXX...X", ".XXXXXXXX..X", ".XXXXXXXX..X", ".XX.XXXXX.X.", ".XX.XXXXXXX.", "XXX.XXX....."]
 };
 const CAT = MASCOTS[MASCOT];
+/* Second walking frame for the cat: legs together. Alternating it with CAT reads as steps. */
+const CAT_STEP = [...MASCOTS.cat.slice(0, 8), "....XX....XX..", "....XX....XX.."];
 const pixelCat = (px = 4, grid = CAT) => `<svg width="${grid[0].length * px}" height="${grid.length * px}" viewBox="0 0 ${grid[0].length} ${grid.length}" shape-rendering="crispEdges" aria-hidden="true">` +
   grid.map((r, j) => [...r].map((c, i) => c === "." ? "" : `<rect x="${i}" y="${j}" width="1" height="1" fill="${c === "o" ? "#003049" : PINK}"/>`).join("")).join("") + `</svg>`;
 document.head.insertAdjacentHTML("beforeend", `<style>.eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px;margin-right:8px}.eq i{width:3px;height:14px;background:${PINK};transform-origin:bottom;animation:eq .9s ease-in-out infinite alternate}.eq i:nth-child(2){animation-delay:-.3s}.eq i:nth-child(3){animation-delay:-.6s}.eq i:nth-child(4){animation-delay:-.15s}@keyframes eq{from{transform:scaleY(.2)}to{transform:scaleY(1)}}@media(prefers-reduced-motion:reduce){.eq i{animation:none;transform:scaleY(.6)}}</style>`);
@@ -498,6 +563,114 @@ document.addEventListener("click", e => {
     return;
   }
   lang = b.dataset.lang; store.set("rj-lang", lang);
-  const y = scrollY; apply(); scrollTo(0, y);
-  const again = $(`[data-lang="${lang}"]`) || $("[data-lang]"); if (again) again.focus();
+  swap(() => {
+    const y = scrollY; apply(); scrollTo(0, y);
+    const again = $(`[data-lang="${lang}"]`) || $("[data-lang]"); if (again) again.focus();
+  });
 });
+/* Re-render behind a short cross-fade where the browser supports view transitions, so a language
+   change does not snap. Without support, or with reduced motion, it runs straight away. */
+function swap(fn) { if (!reduced && document.startViewTransition) document.startViewTransition(fn); else fn(); }
+/* Text selection as a pink highlighter stroke (the mascot's pink), on every direction. */
+document.head.insertAdjacentHTML("beforeend", `<style>::selection{background:color-mix(in srgb,${PINK} 42%,transparent);color:inherit}::view-transition-old(root),::view-transition-new(root){animation-duration:.26s}</style>`);
+/* Every <details> opens and closes with a height animation instead of snapping. */
+document.addEventListener("click", e => {
+  const s = e.target.closest("summary"), d = s && s.parentNode;
+  if (!d || d.tagName !== "DETAILS" || reduced || !d.animate) return;
+  e.preventDefault();
+  const closing = d._anim ? !d._closing : d.open, from = d.offsetHeight;
+  if (d._anim) { d._anim.onfinish = null; d._anim.cancel(); }
+  d.open = true;
+  const cs = getComputedStyle(d), shut = s.getBoundingClientRect().bottom - d.getBoundingClientRect().top + parseFloat(cs.paddingBottom) + parseFloat(cs.borderBottomWidth);
+  d.style.height = ""; const full = d.offsetHeight;
+  d._closing = closing; d.style.overflow = "hidden";
+  d._anim = d.animate({ height: [from + "px", (closing ? shut : full) + "px"] }, { duration: 340, easing: "cubic-bezier(.22,.7,.2,1)" });
+  d._anim.onfinish = () => { if (closing) d.open = false; d.style.overflow = ""; d._anim = null; };
+});
+
+/* Buenos Aires sketch, shared by A, D and H. Each site styles .city with its own variables. */
+/* A composed architectural elevation, not a geographic or to-scale survey.
+   Each landmark has its own clear silhouette; details stay inside its facade. */
+const city = alt => {
+  const repeat = (n, draw) => Array.from({ length: n }, (_, i) => draw(i)).join("");
+  // Narrow paired jambs read as windows, with equal margins on every facade.
+  const windows = (x, y, w, h, cols, rows) => repeat(cols, i => repeat(rows, j => {
+    const cx = x + w * (i + .5) / cols, cy = y + h * (j + .5) / rows;
+    return `M${cx - 1.6} ${cy - 2.5}v5h3.2v-5`;
+  }));
+  const block = (x, w, top, cols, rows) => `<path d="M${x} 222V${top}h${w}v${222 - top}M${x - 2} ${top + 5}h${w + 4}"/><path class="detail" d="${windows(x + 5, top + 11, w - 10, 202 - top, cols, rows)}"/>`;
+  const tree = x => `M${x} 222v-17m0 7l-5-5m5 2l5-6M${x - 12} 204c-6-5-3-12 2-13-1-9 12-13 17-6 9-1 13 11 6 16 0 7-8 11-13 6-4 3-9 2-12-3Z`;
+  const person = x => `<circle cx="${x}" cy="211" r="1.5"/><path d="M${x} 214v4m-2 4 2-4 2 4m-5-6 3-2 3 2"/>`;
+  const kavanaghWindows = [
+    [179, 151, 18, 61, 2, 7], [275, 151, 18, 61, 2, 7],
+    [204, 114, 18, 98, 2, 11], [250, 114, 18, 98, 2, 11],
+    [228, 57, 16, 155, 2, 17]
+  ].map(args => windows(...args)).join("");
+  return `<svg class="city" viewBox="0 0 1200 274" role="img" aria-label="${esc(alt)}">
+<g class="context">
+  ${block(40, 43, 174, 3, 3)}${block(94, 49, 134, 4, 6)}
+  ${block(691, 38, 155, 3, 4)}${block(742, 43, 117, 3, 8)}${block(797, 30, 169, 2, 3)}
+  ${block(1137, 37, 180, 3, 2)}
+</g>
+<!-- Kavanagh: recessed wings, a continuous central shaft and roof terraces. -->
+<g>
+  <path class="wash" d="M244 48h6v58h24v38h25v78h-55Z"/>
+  <path class="outline" d="M173 222V144h25v-38h24V48h7V29h14v19h7v58h24v38h25v78"/>
+  <path class="detail" d="M198 144v78m24-174v174m28-116v116m24-78v78M173 149h25m0-38h24m28 0h24m0 38h25M222 53h28M229 35h14M232 29v-5h8v5M226 217h20v5${kavanaghWindows}"/>
+</g>
+<!-- Congreso: lantern, ribbed dome, drum, pediment, paired columns, steps. -->
+<g>
+  <path class="wash" d="M450 87c20 10 29 26 30 49h-30ZM455 180h19v32h-19Z"/>
+  <path class="outline" d="M356 216V173h49v-9h12v-25h-5v-4h7c0-22 12-40 26-48v-9h10v9c14 8 26 26 26 48h7v4h-5v25h12v9h49v43"/>
+  <path d="M443 78v-7q7-9 14 0v7M450 66v-9M417 139h66M417 164h66M405 173l45-20 45 20M405 178h90M356 178h49m90 0h49M352 216h196m-200 3h204m-204 3h204"/>
+  <path class="detail" d="M450 87c-8 12-13 28-13 48m13-48c8 12 13 28 13 48m-13-48v48M419 135h62M425 143v15m8-15v15m9-15v9m16-9v9m9-9v15m8-15v15M417 171l33-14 33 14M356 211h49m90 0h49${repeat(6, i => `M${413 + i * 14} 182v30m4-30v30m-5-30h6m-6 30h6`)}${windows(362, 183, 37, 23, 3, 1)}${windows(501, 183, 37, 23, 3, 1)}"/>
+</g>
+<!-- Obelisco: two faces, a quiet dimension and a stepped plinth. -->
+<g>
+  <path class="wash" d="M600 35l5 20 9 161h-14Z"/>
+  <path class="outline" d="M586 216l9-161 5-20 5 20 9 161ZM582 222v-6h36v6"/>
+  <path class="detail" d="M600 35v181M595 55h10M596 203v9h5v-9ZM597 69v6m6-6v6M577 222h46"/>
+  <path class="guide axis" d="M600 19v10m0 198v9"/>
+  <path class="guide" d="M618 35h22m-17 187h17M635 35v187M632 38l6-6m-6 193 6-6"/>
+  <text x="649" y="130" text-anchor="middle" transform="rotate(-90 649 130)">${esc(T().cityHeight)}</text>
+</g>
+<!-- Puente de la Mujer: tapered mast and an ordered fan of stays. -->
+<g>
+  <path class="wash" d="M975 212l87-113-78 113Z"/>
+  <path class="outline" d="M854 212h264v5H854M975 212l87-113-78 113M976 217l3 12h9l3-12"/>
+  <path class="detail" d="${repeat(9, i => `M${870 + i * 12} 208L1058 104`)}M854 208h264${repeat(27, i => `M${858 + i * 10} 208v4`)}"/>
+</g>
+<g class="context">
+  <path d="${tree(319)}${tree(666)}${tree(840)}M339 222v-25h7m-7 2h7M562 222v-23h6m-6 2h6"/>
+  ${person(335)}${person(554)}${person(1102)}
+  <path d="M17 222h836m267 0h64M26 226h803M867 231h80m58 0h110M888 238h171"/>
+  <path class="detail" d="${repeat(54, i => `M${32 + i * 15} 227l-4 5`)}"/>
+</g>
+<g class="guide"><path d="M236 229v12m214-12v12m150-2v2m384-6v6"/></g>
+<g text-anchor="middle">
+  <text x="236" y="257">KAVANAGH</text><text x="450" y="257">CONGRESO</text>
+  <text x="600" y="257">OBELISCO</text><text x="984" y="257">PUENTE DE LA MUJER</text>
+</g>
+</svg>`;
+};
+
+/* The Obelisk up close, same line language as the skyline. Shared by H (hero) and J. Styled via .sk. */
+const obelisk = alt => {
+  const g = 400, rep = (n, f) => Array.from({ length: n }, (_, i) => f(i)).join("");
+  const tree = (x, g) => `M${x} ${g}v-20m0 8l-6-6m6 2l6-7M${x - 14} ${g - 22}c-7-6-3-14 3-15-1-11 14-15 20-7 10-1 15 13 7 19 0 8-9 13-15 7-5 3-11 2-15-4Z`;
+  const person = (x, g) => `<circle cx="${x}" cy="${g - 13}" r="1.8"/><path d="M${x} ${g - 10}v5m-2.5 5 2.5-5 2.5 5m-6-8 3.5-2 3.5 2"/>`;
+  return `<svg class="sk" viewBox="0 0 420 450" role="img" aria-label="${esc(alt)}">
+<g class="context">
+  <path d="M18 ${g}V300h46v100M24 306h34M74 ${g}V258h40v142M70 264h48M306 ${g}V270h42v130M302 276h50M360 ${g}V318h42v82M356 324h50"/>
+  <path class="detail" d="${rep(3, i => rep(5, j => `M${28 + i * 12} ${316 + j * 16}v6h4v-6`))}${rep(3, i => rep(8, j => `M${82 + i * 11} ${272 + j * 15}v6h4v-6`))}${rep(3, i => rep(7, j => `M${314 + i * 12} ${284 + j * 15}v6h4v-6`))}${rep(3, i => rep(4, j => `M${368 + i * 12} ${332 + j * 15}v6h4v-6`))}"/>
+</g>
+<path class="wash" d="M210 40l13 44 9 296h-22Z"/>
+<path class="outline" d="M188 380l9-296 13-44 13 44 9 296ZM176 392v-12h68v12M166 ${g}v-8h88v8"/>
+<path class="detail" d="M210 40v340M197 84h26M205 110v10h10v-10ZM204 352v28h12v-28ZM176 386h68"/>
+<path d="M120 ${g}v-14h40v14M260 ${g}v-14h40v14"/><text x="140" y="${g - 4}" text-anchor="middle">B</text><text x="280" y="${g - 4}" text-anchor="middle">A</text>
+<g class="context"><path d="${tree(96, g)}${tree(330, g)}M56 ${g}v-34h9m-9 3h9M372 ${g}v-34h-9m9 3h-9"/>${person(150, g)}${person(268, g)}${person(292, g)}</g>
+<path d="M6 ${g}h408"/><path class="detail" d="${rep(26, i => `M${14 + i * 15.5} ${g + 5}l-5 7`)}"/>
+<g class="guide"><path d="M244 40h28m-28 360h28M264 40v360M260 44l8-8m-8 368 8-8"/></g>
+<text x="278" y="220" text-anchor="middle" transform="rotate(-90 278 220)">${esc(T().cityHeight)}</text>
+<text x="210" y="432" text-anchor="middle">OBELISCO · AV. 9 DE JULIO</text>
+</svg>`; };

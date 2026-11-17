@@ -13,29 +13,73 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 
 ## Estado
 
-Rocío eligió quedarse con cuatro direcciones (2026-11-14): **A, B, D y H**. Las que más le gustan son **A y H**. C, E, F y G se eliminaron del repo (siguen en el historial de git).
+**Laboratorio tipográfico (2026-11-16, lo más reciente).** A Rocío H le parece prolija pero "le falta creatividad" y sospecha de la tipografía: H usa Geist en todo, como muchos portfolios de desarrolladores. Pidió retomar A, B y D como **laboratorio para ir combinando** (no candidatas a reemplazar H) y sumar opciones con referencias nuevas: falakgala.dev, lokiii.me, 10xshivam.dev (wording), d0xxed.com (bichitos de fondo) y nan.fyi/database (esqueleto de artículo). Diseño en `docs/superpowers/specs/2026-11-16-laboratorio-tipografico-design.md`; plan en `docs/superpowers/plans/`.
 
-| Archivo | Dirección | Qué le gusta a Rocío |
-|---|---|---|
-| `site-H-studio.html` | Sobria: papel punteado, líneas finas, tipografía, dock flotante | La principal. Es donde se van combinando las ideas de las otras |
-| `site-A-notebook.html` | Editorial, columna de lectura, tarjeta lateral, modo claro/oscuro | El estilo en general y el estante de libros con el gato |
-| `site-B-dock.html` | Azul marino, dock flotante, juego en canvas | El fondo de puntitos, "como los cuadernos donde dibujás" |
-| `site-D-ledger.html` | Perfil de inversión: ticker `ROCI`, gráfico, tenencias | Cómo espacia y muestra la información: el track record, la tesis y los tags de pares |
+**La web publicada (H, `index.html`, rama `main`) no se toca:** Rocío dijo "la web posta dejémosla así". Ve las variantes por capturas y decide qué pasa a H. No empujar a `main` sin que lo pida.
 
-`index.html` es la dirección H, lista para publicar; `compare.html` compara las cuatro. No está desplegado todavía. La rama de trabajo es `claude/bold-feynman-x0n91n`; no hay PR abierto.
+| Archivo | Dirección | Tipografía | Qué prueba |
+|---|---|---|---|
+| `index.html` / `site-H-studio.html` | H · Studio, la publicada | Geist + Geist Mono | Ver "Reglas de H" abajo |
+| `site-A-notebook.html` | A · Cuaderno | Instrument Serif + Geist + Shantell Sans | Titular serif grande con itálica en celeste; notas manuscritas al margen con flechas y un círculo a mano; croquis en el hero; estante con la panterita |
+| `site-A-article.html` | A · Artículo | Igual que A | Esqueleto de blog estilo nan.fyi: título centrado, columna angosta, recuadro de nota, código y una demo de colisiones que se arrastra (mouse y dedo). Contenido del borrador de juegos en Python con `[COMPLETAR]` visibles; sin capturas de los juegos (sprites ajenos). A lo enlaza desde su Lab |
+| `site-B-dock.html` | B · Terminal (`rocio(1)`) | IBM Plex Mono + Mrs Saint Delafield (firma) | Página de manual: NOMBRE, SINOPSIS, OPCIONES (servicios como flags), EJEMPLOS (casos como comandos), ARCHIVOS (libros), HISTORIA, VER TAMBIÉN. Cotorra, paloma y hornero en su nido dibujados con caracteres flotando detrás del texto (capa fija sin clics; quietos con reducir movimiento). Conserva el juego en canvas y el arranque en oscuro |
+| `site-D-ledger.html` | D · Ledger | Barlow Condensed + Barlow + IBM Plex Mono | Hero solo tipográfico enorme; cinta de cifras; historia `[01]`–`[04]` con tags de pares; tesis; track record que se abre; el croquis baja al pie como panorama de cierre (la respuesta a "¿qué hacemos en el hero si la ilustración va al footer?"). Se quitaron el gráfico y las tenencias |
+| `site-I-talk.html` | I · Charla (nueva) | Instrument Serif + Hanken Grotesk | Wording conversacional estilo 10xshivam: links como chips de borde punteado dentro de las frases, títulos de sección con voz. Textos en `content.*.talk` |
+
+**Ajustes finales y publicación de la mezcla (2026-11-17, lo más reciente).** Rocío aprobó la mezcla con estos cambios y pidió publicarla:
+
+- **Servicios:** no le gusta "entregable y para quién" dentro de "Cómo podemos trabajar juntos". Se quitó de H: queda nombre y una frase por servicio. (Los campos `deliv` e `ideal` siguen en `content` y los usan otras direcciones.)
+- **Más aire entre secciones:** el espacio entre secciones subió a `clamp(96px, 11vw, 160px)` (88 px en celular). No volver a apretar.
+- **Caso de trabajos finales:** el paso a paso ("Leer el caso completo") se sacó de H para guardarlo como **artículo** con diagramas. Los `steps` siguen en `content.*.cases` (WK.04).
+- **Loader:** pidió la panterita en 8 bits como loader. Camina en el lugar mientras cargan las fuentes: mínimo 450 ms (para que no parpadee), máximo 1,8 s (para que una fuente lenta no bloquee). La página ya está renderizada debajo; al levantarse arranca la entrada del hero. Esto reemplaza, por pedido explícito, la regla vieja de no tapar contenido.
+- **Skeleton:** el único contenido que llega tarde es la foto; su círculo hace un brillo de carga hasta que la imagen aparece.
+
+**La mezcla en H (2026-11-17, lo más reciente; manda sobre lo anterior).** Rocío eligió qué combinar y se aplicó en H, en la rama de trabajo, **sin publicar** (`main` sigue con la H anterior hasta que lo pida):
+
+- **Hero:** titular en serif a la izquierda y el **Obelisco de cerca** a la derecha (`obelisk()` en `core.js`), con la nota a mano "mi base. Trabajo remoto desde acá". En celular el dibujo va debajo del texto.
+- **El skyline cierra la página**, entre el contacto y el pie. "Una sola ilustración" pasa a ser dos: Obelisco arriba, skyline abajo.
+- **"Un POCO de serif"** (A le pareció demasiado): Instrument Serif solo en el titular del hero, el título de servicios y la pregunta de cierre. Todo lo demás sigue en Geist. No extender el serif a títulos de casos ni de secciones sin que lo pida.
+- **Servicios como en Charla**, que le gustó mucho: título "Cómo podemos trabajar juntos", nombre y una frase por servicio; entregable e ideal quedan dentro de un desplegable.
+- **Desplegables:** los valora y pidió que sean fluidos. Todos los `<details>` de todas las direcciones se abren y cierran con animación de altura (bloque en `core.js`); aguanta clics repetidos y se apaga con reducir movimiento.
+- **Cambio de idioma:** le resultaba abrupto. Ahora el re-render va dentro de un fundido corto (`swap()` en `core.js`, View Transitions; sin soporte o con reducir movimiento es instantáneo). Además volvió el scroll suave al navegar con el dock (pidió mejorar la navegación; se había quitado en una revisión anterior).
+- **Selección de texto:** pidió que al marcar texto con el mouse "quede algo lindo y diferente". Es un resaltador en el rosa de la panterita (`::selection` en `core.js`, todas las direcciones).
+- **Foto:** reemplazó el avatar pixel por una foto suya (`profile.jpg`, recorte cuadrado sin metadatos). `profile.png` y `avatar-full.png` quedan en el repo sin uso.
+- **Texto del checkout:** "Diseñé y lancé **en equipo** un checkout…" (EN: "as part of a team").
+- **Se conservan** B (tal cual) y el artículo de A ("me encantó la estructura"), para usarlo cuando haya artículos.
+- **Pendiente:** dijo que en A ve "varias cosas desalineadas" y que la ve "muy cargada". Como lo que le gustó de A ya pasó a H, A no se retocó; falta que diga si quiere mantenerla viva y qué ve desalineado.
+
+Gusto general confirmado: simpleza de texto (como Charla y Ledger), poco a la vista y el resto en desplegables.
+
+**Primera devolución de Rocío sobre el laboratorio (2026-11-17, lo más reciente):**
+
+- Le gusta el serif (A, I), "aunque hay secciones que no me gustan": **falta que diga cuáles**.
+- Le encantan las notas a mano, sobre todo la del croquis ("mi base. Trabajo remoto desde acá"). Condición: al achicar el navegador no pueden generar desborde. La nota del croquis ahora queda siempre superpuesta al cielo del dibujo (no baja como bloque aparte); barrido de 320 a 1600 px sin desborde horizontal en todas las variantes.
+- Botones "más cuadrados con redondeo": 10 px de radio en A, J y **también en H** (pidió "desredondear los bordes" de H: dock 14 px, links y botones 10 px, tags 6 px). No volver a las píldoras de 999 px.
+- La nota de la app va en pasado: "una app que la gente abría todos los días" (ya no trabaja ahí).
+- El artículo de A "está buenísimo". I · Charla le "encantó".
+- B le encantó pero la siente "demasiado creativa": **se conserva tal cual**, por si algún día quiere virar hacia eso. No llevar sus ideas a H por ahora.
+- De D le gusta que Buenos Aires quede como pie.
+- **Panterita de H:** pidió que "camine" de verdad. Ahora alterna dos cuadros (`CAT` y `CAT_STEP` en `core.js`, patas separadas y juntas) cada 28 px de scroll, y se da vuelta cuando la página sube. Con reducir movimiento sigue quieta.
+- **Hero:** si el skyline baja al pie, quiere una ilustración a la derecha del hero (como teodorovillanueva.com), con la misma línea del croquis. Sus ideas: enfatizar el Obelisco, o la ciudad vista desde arriba como plano de calles, o cosas que le gusten mucho. `site-J-hero.html` es un boceto con tres opciones dentro de un hero real (Obelisco de cerca, plano del centro, bandeja de DJ) y el skyline como cierre. **Falta que elija.** Los dibujos son esquemáticos, no a escala.
+
+Estos cambios de H están en la rama de trabajo, **no publicados** (`main` sigue igual hasta que lo pida).
+
+`compare.html` es la portada del laboratorio. Los textos nuevos de I (`content.*.talk`), las notas a mano de A (`content.*.a.notes`) y los rótulos del manual de B (`content.*.b.man`) los redactó el agente con hechos que ya estaban en el sitio: **falta el visto bueno de Rocío**.
+
+El croquis (`city()`) se movió de la plantilla de H a `core.js` para que lo usen A y D. `scripts/check-same.js` verifica que H renderice idéntica (guardar referencia con `--save` antes de tocar algo compartido). `scripts/check-lab.js` prueba el tema al cambiar idioma, la demo del artículo (mouse y táctil sin scroll) y que los bichitos de B no tapen controles.
 
 ### Criterio de diseño (vale para todo lo que siga)
 
 Rocío dijo que las primeras versiones se veían "hechas por una IA sin criterio de diseño". Quiere algo **sobrio, creativo, fresco y limpio**. Le gustan los fondos tipo hoja de dibujo o cuadriculada.
 
-Reglas de H, la referencia:
+Reglas de H, la publicada (el laboratorio puede romperlas a propósito):
 
 - Un solo acento de color (celeste) sobre crema y azul. El rosa aparece solo en el gato y en una caja de libro.
 - Líneas finas en vez de cajas. Sin tarjetas, sombras ni bordes gruesos.
 - Columna fija de etiquetas a la izquierda y contenido a la derecha, en una grilla de 12.
-- La tipografía hace el trabajo (Geist, con Geist Mono para etiquetas).
+- La tipografía hace el trabajo: Geist, Geist Mono para etiquetas, y un poco de Instrument Serif (hero, título de servicios y cierre).
 - Fondo de papel punteado (también en A).
-- Una sola ilustración: el dibujo lineal de Buenos Aires.
+- Dos ilustraciones con la misma línea: el Obelisco en el hero y el skyline de Buenos Aires como cierre.
 - Sin metáforas en los nombres de sección, movimiento mínimo, contenido editado (casos que se abren al clic, 4 números).
 - Un único detalle lúdico: el gato pixel camina sobre el borde del dock según el scroll.
 
@@ -64,7 +108,7 @@ Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H
 
 **Modo oscuro: es "importantísimo" para Rocío.** Lo tienen las cuatro: A, D y H comparten la clave `rj-theme` (por defecto siguen la preferencia del sistema); B usa `rj-theme-b` y arranca en oscuro. Cualquier componente nuevo tiene que verse bien en ambos modos: usar las variables (`--bg`, `--ink`, `--acc`...) y no colores fijos.
 
-**Puntos del fondo:** pidió que sean más suaves para que no compitan con el texto. Están en opacidad ~0.075 (claro) y ~0.055 (oscuro). No subirlos.
+**Puntos del fondo (ajustado 2026-11-16):** primero pidió que fueran más suaves; después notó que en pantallas con mucho brillo no se veían. Ahora son de borde nítido (1,1 px) con opacidad 0,15 (claro) y 0,09 (oscuro) en A y H; B usa `#c3ced5` en claro. No volver a bajarlos al 0,075 difuso: desaparecen en monitores brillantes.
 
 **Ilustración (tercera versión):** la primera le pareció "muy cuadrada" y la segunda, un boceto suelto, tampoco. Pidió algo "tipo croquis arquitectónico". Ahora es un alzado de Buenos Aires con recursos de croquis: esquinas donde las líneas se pasan, ejes de simetría en línea de trazo y punto, una cota (67,5 m del Obelisco), suelo rayado, árboles y figuras de escala, flecha de norte y rótulos chicos. Se genera en la función `city()` de `src/site-H-studio.html`. Falta que confirme si esta versión le gusta.
 
@@ -109,7 +153,7 @@ Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H
 - **Frase de diseño:** no le gustaba "Me importan los productos lindos... tiene que verse bien". Ahora: "Cuido cómo funciona un producto y cómo se siente al usarlo. El diseño no llega al final."
 - **"Cómo pienso":** como sección propia con diagrama le pareció forzado. Quedó como una tira de cinco preguntas dentro de "Sobre mí" ("Cómo encaro un proyecto"), sin ejemplos ni flechas.
 - **Largo:** la página bajó de unos 10.000 a unos 5.600 px en escritorio. Orden actual: hero, tres resultados, tres casos, servicios, sobre mí, libros, "Más sobre mí" (experiencia y otros proyectos, plegados), contacto. Se quitaron de H: "Por qué trabajar conmigo", Herramientas y Lab.
-- **Dock:** se esconde al bajar y vuelve al subir o cerca del inicio, para no tapar lo que se lee. Cuatro secciones.
+- **Dock:** cuatro secciones. Se probó que se escondiera al bajar; Rocío lo rechazó (ver "Corrección explícita" más abajo). Queda fijo abajo, sin movimiento.
 - **Animaciones:** se quitó la aparición por opacidad y el scroll suave en H. No volver a poner contenido invisible a la espera de una animación.
 - **Contacto:** además del `mailto:` hay un botón que copia el mail y un link a LinkedIn. Los botones del hero llevan a la sección de contacto.
 - **Redacción:** en inglés, fuera la jerga de inversión ("underwrite", "compounds"). En español, menos anglicismos: "desarrollo móvil", "hoja de ruta", "venta de entradas", "repositorio central de datos". Ciudadanías reemplazadas por "autorización laboral en la Unión Europea".
@@ -118,6 +162,31 @@ Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H
 Pendiente de Rocío tras esta revisión: **imágenes de los casos** (el campo `img` de cada caso ya se muestra si existe; es el hueco más grande: la página habla de cuidar el diseño y no muestra producto), el paso a paso de los otros dos casos principales (solo el universitario tiene "Leer el caso completo"), duración orientativa de cada servicio, y decidir si quiere formulario o agenda (necesita un servicio externo con cuenta suya).
 
 A, B y D comparten el contenido nuevo pero no esta reestructura.
+
+**Capa leve de animaciones (2026-11-16, lo más reciente).** Rocío pidió animaciones "elegantes y fluidas, sin zarparse". Esto convive con la regla anterior de no dejar contenido invisible: lo que se quitó fue la aparición por opacidad desde cero; lo nuevo nunca baja de 40 a 50 % de opacidad, así que el texto se lee siempre. Qué hay (todo en el bloque "Motion" del CSS de H):
+
+- Primera carga solamente: el titular, la bajada y los botones se asientan (10 px, 0,7 s) y el croquis se dibuja de izquierda a derecha (1,5 s). No se repite al cambiar idioma o tema (atributo `data-intro` que se quita a los 2,4 s).
+- Al hacer scroll: los bloques que arrancan fuera de pantalla suben 12 px al entrar (`soften()`). Los que ya están a la vista no se tocan.
+- Respuestas chicas: botones que suben 1 px, la flecha de los destacados que se corre 3 px, el contenido de los desplegables que se despliega, y la panterita que se desliza suave.
+- Una sola curva (`--ease`) y duraciones de 0,2 a 0,7 s. Con "reducir movimiento" se apaga todo.
+
+No agregar más: nada de parallax, contadores, texto que se tipea ni animaciones en bucle.
+
+**"Copiar mail" como texto (2026-11-16, lo más reciente).** Rocío prefiere ese CTA con el ícono de copiar y solo las palabras, sin borde de botón. Ahora es texto subrayado con ícono (`.copy`), con altura táctil de 44 px; al copiar, el ícono pasa a un tilde y dice "Copiado" durante unos segundos, y un aviso accesible confirma o explica el error. El CTA principal "Trabajemos juntos" sigue siendo un botón relleno: es la única acción con peso de botón.
+
+**Dock estable y selector de idioma (2026-11-16, lo más reciente).** A Rocío le resultaba raro que el dock cambiara de tamaño al cambiar el idioma (las etiquetas en español son más largas) y que el botón de idioma fuera uno solo que alterna. Ahora: cada link del dock tiene ancho fijo (96 px en escritorio; el botón de menú móvil, 132 px) y el idioma es un selector con "EN" y "ES" siempre visibles, la activa resaltada. `scripts/check-studio.js` verifica que el dock mida lo mismo en los dos idiomas en cinco anchos y que haya exactamente un idioma activo. Si se agregan o renombran secciones del dock, revisar que la etiqueta más larga entre en 96 px.
+
+**La panterita vuelve a caminar (2026-11-16, lo más reciente).** Rocío extrañaba que la mascota se moviera al hacer scroll y pidió traerla de vuelta. Esto **reemplaza** la parte de la corrección anterior que decía "la mascota permanece estática". Lo que sigue valiendo: el dock queda fijo abajo, no se esconde ni cambia de lugar; solo se mueve la mascota. Camina sobre el borde superior del dock: a la izquierda arriba de la página, a la derecha al llegar al final (`walk()` en `src/site-H-studio.html`). Con "reducir movimiento" activado en el sistema queda quieta. Con el menú móvil abierto se oculta.
+
+**Integración de la rama `codex/portfolio-ux-refinements` (2026-11-16).** Rocío trabajó una versión local con otra herramienta y pidió validarla con criterio. Se revisó (build reproducible, `check.js` y `check-studio.js` en verde, capturas en escritorio y celular) y se integró completa por avance rápido: es la versión publicada. Donde este documento se contradiga, **valen las tres entradas que siguen** por ser las más recientes.
+
+Costos conocidos de esa versión, aceptados a sabiendas:
+
+- El dock fijo tapa una franja de contenido mientras se lee (más notorio en celular). Es decisión explícita de Rocío; no reabrir.
+- H pesa unos 80 KB sin comprimir, por encima de la guía de 60 KB.
+- Los casos siguen sin imágenes; es el pendiente más importante del sitio.
+
+Ajuste hecho al integrar: en celular los rótulos del croquis se veían a menos de 6 px; ahora usan 11 px.
 
 **Mejoras UX y diseño aplicadas (2026-11-16):** Rocío aprobó implementar la segunda auditoría completa. En H, el hero es más ancho y compacto; la disponibilidad se separa de la bajada. Los tres destacados muestran cifra, contexto y nombre breve. Los casos separan título (hasta 36 px), descripción y resultado; la escala ya no se repite en la tabla. Servicios usa el ancho completo con descripción, entregable y destinatario separados. Los títulos de sección son más visibles y los metadatos suben a 12 px. Las cinco preguntas del método se leen en filas. Otros proyectos queda junto a los casos; experiencia/formación, dentro de Sobre mí. Se conserva la paleta; los resultados pequeños usan el azul de mayor contraste. La biblioteca ajusta sus lomos al ancho disponible sin zoom ni scroll interno y el encabezado móvil conserva LinkedIn y GitHub.
 
@@ -161,9 +230,14 @@ HTML + CSS + JS plano, sin frameworks. Cada sitio publicado es un solo archivo a
 src/core.js              contenido (objeto `content`, EN y ES) + helpers compartidos
 src/site-*.html          plantilla de cada dirección (CSS + función render) con el marcador /*CORE*/
 src/build.mjs            inserta core.js en cada plantilla y escribe los site-*.html de la raíz
-scripts/check.js         verificación automática con Playwright
+scripts/check.js         verificación automática con Playwright (todas las páginas)
+scripts/check-lab.js     comportamiento del laboratorio (tema, demo del artículo, bichitos de B)
+scripts/check-same.js    H idéntica antes y después de tocar algo compartido
+site-A-article.html      artículo de A (generado)
+site-I-talk.html         dirección I (generado)
 site-*.html (raíz)       SALIDA GENERADA. No editar a mano.
-index.html               página comparadora (a mano, no generada)
+index.html               H, la publicada (generada desde site-H-studio)
+compare.html             portada del laboratorio (a mano)
 vercel.json              cleanUrls
 ```
 
@@ -212,7 +286,9 @@ Los casos y el resto del relato siguen anonimizados, en especial el caso univers
 
 No volver a anonimizar el bloque de experiencia/formación. No trasladar los nombres reales a los casos sin una indicación explícita, porque la autorización del caso universitario depende de mantenerlo anónimo.
 
-**Analytics (2026-11-16):** la home incluye el Google tag de GA4 `G-FFMYCXQZFJ` con `gtag.js` y `gtag('config', ...)`. Publica directamente eventos de lectura, proyectos, navegación, CTA, contacto, copia de email y preferencias, sin PII. No carga también el contenedor `GTM-K79GS3KK`, para evitar redundancia o mediciones duplicadas. La configuración de informes y la convención de URLs UTM están documentadas en `docs/ANALYTICS.md`.
+**Analytics (2026-11-16, actualizado):** carga únicamente GTM-TW2MSTRV. G-FFMYCXQZFJ es el ID GA4; los dos IDs GTM son contenedores, no propiedades Analytics. El contenedor público TW2MSTRV estaba vacío (tags:[]) al verificar: falta configurar/publicar Google tag y GA4 Event dentro de GTM. Eventos seleccionados se emiten como portfolio_event con portfolio_event_name y portfolio_parameters; detalles en docs/ANALYTICS.md. Prioridad: X, LinkedIn y tráfico orgánico. Enlaces cortos x/ e in/ redirigen con UTMs. No afirmar recepción en GA4 hasta comprobarla.
+
+**SEO y auditoría (2026-11-16):** se integró origin/main para conservar hero, foto y diseño actuales. La raíz es EN y es.html ES, con HTML prerenderizado por src/seo.mjs, metadatos, hreflang, canonical, Person/ProfilePage y sitemap. Se omite el loader en páginas públicas prerenderizadas. El selector de idiomas usa enlaces reales. Las propuestas editoriales y de UX están en docs/AUDIT-2026-11-16.md; no se aplicaron rediseños extensos. Dominio confirmado: https://rochijacob.github.io/portfolio_rj/. GitHub Pages necesita sitemap enviado en Search Console; robots del proyecto no controla la raíz del host. El trabajo queda en codex/portfolio-ux-refinements, pendiente de integración a main para publicar.
 
 En los casos se usan órdenes de magnitud ("más de cien", "de días a minutos") y no cifras internas exactas. No se mencionan personas, áreas internas, VPN ni GitLab.
 
@@ -254,7 +330,7 @@ Sin respuesta todavía:
 
 - Si los "porqué" del Lab la representan (vinieron de un borrador, como propuesta).
 - Si la línea de equity research ("Sostengo un proceso estructurado de equity research...") puede ser pública.
-- Qué dirección elige, o qué mezcla.
+- Qué ideas del laboratorio (A, artículo, B, D, I) quiere llevar a H, y si aprueba los textos nuevos de I, las notas de A y los rótulos de B.
 
 Los carga Rocío más adelante:
 
@@ -263,9 +339,23 @@ Los carga Rocío más adelante:
 - `profile.jpg`.
 - Revisar su GitHub público antes de publicar: el footer enlaza al perfil y los repos pueden mostrar nombres de empresas.
 
-## Deploy
+## Deploy y ramas
 
-Vercel, importando el repo con preset "Other", sin build command ni output directory. Los HTML de la raíz ya están generados y versionados. Antes de publicar: quitar `noindex` solo si `index.html` pasa a ser el sitio elegido, y agregar una imagen `og:image` si se quiere vista previa al compartir.
+El sitio está en **GitHub Pages**: https://rochijacob.github.io/portfolio_rj/ (el repo es público; Pages es gratis). Vercel no se usó. El plan era publicar ahí, pero Rocío habilitó Pages y quedó funcionando, y `vercel.json` sigue en el repo por si cambia de idea.
+
+**Ramas (2026-11-16).** Hasta hoy Pages servía una rama de sesión (`claude/bold-feynman-x0n91n`), que además era la rama por defecto del repo. Eso es frágil: cada sesión nueva crea una rama con otro nombre. Se creó `main` con el mismo contenido. El esquema que queda:
+
+- `main` es lo publicado. Se actualiza con avance rápido desde la rama de trabajo cuando Rocío pide "actualicemos la web"; el agente necesita ese permiso explícito para empujar a `main`.
+- La rama de la sesión (`claude/...`) es donde se trabaja.
+- La rama `codex/portfolio-ux-refinements` contiene ahora el nuevo trabajo de SEO, auditoría y Analytics; NO borrarla antes de integrarlo a main.
+
+**Pasos que solo Rocío puede hacer en GitHub** (el agente no tiene acceso a esos ajustes), en este orden:
+
+1. Settings, Pages, Source: rama `main`, carpeta `/ (root)`, Save. Esperar a que figure como publicado.
+2. Settings, Branches, Default branch: cambiar a `main`.
+3. Integrar primero los cambios nuevos de `codex/portfolio-ux-refinements`; solo después considerar borrar ramas terminadas.
+
+Si se borra la rama desde la que Pages publica antes del paso 1, el sitio da 404.
 
 ## Qué no se verificó
 

@@ -1,7 +1,7 @@
 const { chromium } = require('playwright');
 const path = require('path');
 const root = path.join(__dirname, '..'), out = process.env.SHOTS || path.join(require('os').tmpdir(), 'portfolio-shots'); require('fs').mkdirSync(out, { recursive: true });
-const sites = ['site-A-notebook', 'site-B-dock', 'site-D-ledger', 'site-H-studio'];
+const sites = (process.env.SITES || 'site-A-notebook,site-A-article,site-B-dock,site-D-ledger,site-I-talk,site-J-hero,site-H-studio').split(',');
 (async () => {
   const br = await chromium.launch(process.env.BROWSER_CHANNEL ? { channel: process.env.BROWSER_CHANNEL } : {});
   for (const s of sites) for (const w of [390, 768, 1440]) for (const lg of ['en', 'es']) {

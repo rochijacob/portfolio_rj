@@ -14,7 +14,8 @@ export function prerender(html, language) {
     matchMedia: () => ({matches: false}), window: {}, innerHeight: 900,
     addEventListener() {}, setInterval() {}, gtag() {}, };
   const code = html.match(/<script>\s*\/\* =+[\s\S]*?<\/script>/)[0].replace(/^<script>|<\/script>$/g, '');
-  runInNewContext(code.replace(/\napply\(\);/, '\nrender(T());') + '\nresult = {title:T().meta.title, description:T().meta.desc, links:L};', sandbox);
+  const renderCode = code.slice(0, code.indexOf('/* Loader: shown'));
+  runInNewContext(renderCode + '\nspy = () => {}; walk = () => {}; soften = () => {}; render(T()); result = {title:T().meta.title, description:T().meta.desc, links:L};', sandbox);
   const { title, description, links } = sandbox.result;
   const url = origin + (language === 'es' ? 'es.html' : '');
   const escape = value => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
@@ -34,11 +35,11 @@ export function prerender(html, language) {
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="${language === 'es' ? 'es_AR' : 'en_US'}">
 <meta property="og:site_name" content="Rocío Jacob">
-<meta property="og:image" content="${origin}profile.png">
+<meta property="og:image" content="${origin}profile.jpg">
 <meta property="og:image:alt" content="Rocío Jacob">
 <meta name="twitter:title" content="${escape(title)}">
 <meta name="twitter:description" content="${escape(description)}">
-<meta name="twitter:image" content="${origin}profile.png">
+<meta name="twitter:image" content="${origin}profile.jpg">
 <script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>`;
   return html.replace('<html lang="en">', `<html lang="${language}" data-page-language="${language}">`)
     .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)

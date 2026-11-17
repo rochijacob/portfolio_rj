@@ -8,6 +8,13 @@ Verificación del 16/11/2026: el recurso público de GTM-TW2MSTRV devuelve tags:
 
 ## Enlaces listos para copiar
 
+Enlaces cortos disponibles después del deploy:
+
+- X: https://rochijacob.github.io/portfolio_rj/x/
+- LinkedIn: https://rochijacob.github.io/portfolio_rj/in/
+
+Redirigen a las URLs UTM de abajo. No cargan Analytics durante el salto ni se incluyen en el sitemap. La URL larga se ve en el navegador al llegar. Son redirecciones HTML/JavaScript compatibles con GitHub Pages, no redirects HTTP 301.
+
 Bio de X:
 https://rochijacob.github.io/portfolio_rj/?utm_source=x&utm_medium=social&utm_campaign=portfolio&utm_content=bio
 
@@ -35,6 +42,8 @@ El tráfico orgánico no lleva UTM: GA4 usa el referente del buscador. Visitas s
 | email_copy | Intento de copia | result: success o failure |
 
 Todos llevan language. Un clic de contacto indica intención: no confirma un mensaje enviado. No se envía el email ni texto libre. No se registran tema, navegación genérica ni scroll personalizado. GA4 puede registrar sus eventos automáticos y de medición mejorada.
+
+case_open está preparado para futuros casos completos: la versión actual de main retiró ese desplegable, por lo que hoy no dispara ese evento. No se restauró contenido retirado para producir métricas.
 
 ## Configuración necesaria en GTM
 

@@ -7,7 +7,7 @@ const root = path.join(__dirname, '..');
 (async () => {
   const server = http.createServer((req, res) => {
     const pathname = new URL(req.url, 'http://localhost').pathname.replace('/portfolio_rj/', '');
-    try { res.setHeader('Content-Type', pathname.endsWith('.png') ? 'image/png' : 'text/html; charset=utf-8'); res.end(readFileSync(path.join(root, pathname || 'index.html'))); }
+    try { res.setHeader('Content-Type', pathname.endsWith('.png') ? 'image/png' : 'text/html; charset=utf-8'); res.end(readFileSync(path.join(root, !pathname || pathname.endsWith('/') ? pathname + 'index.html' : pathname))); }
     catch { res.writeHead(404); res.end(); }
   });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -29,13 +29,20 @@ const root = path.join(__dirname, '..');
       assert.equal(await page.locator('link[hreflang]').count(), 3);
       assert.equal(JSON.parse(await page.locator('script[type="application/ld+json"]').textContent())['@graph'][1].inLanguage, lang);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
-      await page.locator('[data-lang]').click();
+      await page.locator(`[data-lang="${lang === 'es' ? 'en' : 'es'}"]`).click();
       await page.waitForURL(lang === 'es' ? /portfolio_rj\/(\?|$)/ : /es\.html/);
       assert.equal(await page.locator('html').getAttribute('lang'), lang === 'es' ? 'en' : 'es');
       if (js) assert.ok(page.url().includes('utm_source=linkedin'));
       assert.deepEqual(errors, []);
       await context.close();
     }
-    console.log('PASS: EN/ES static HTML, no-JS navigation, canonical, hreflang, schema, mobile layout and campaign preservation.');
+    for (const [slug, source] of [['x','x'],['in','linkedin']]) {
+      const html = readFileSync(path.join(root, slug, 'index.html'), 'utf8');
+      const destination = JSON.parse(html.match(/location.replace\((".*?")\)/)[1]);
+      assert.equal(new URL(destination).searchParams.get('utm_source'), source);
+      assert.ok(html.includes('noindex,follow'));
+      assert.ok(!html.includes('googletagmanager'));
+    }
+    console.log('PASS: EN/ES static HTML, no-JS navigation, canonical, hreflang, schema, mobile layout, campaign preservation and short-link destinations.');
   } finally { await browser?.close(); server.close(); }
 })().catch(error => {console.error(error); process.exitCode=1;});

@@ -7,105 +7,96 @@
 <meta name="description" content="">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#f4f6f7">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rocío Jacob · Product Engineer">
-<meta property="og:description" content="I turn manual operations into digital products and automated workflows.">
-<meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23003049'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fdf0d5'%3ERJ%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f4f6f7;--card:#ffffff;--ink:#003049;--mut:#48606e;--line:#c5d4da;--grid:#e2e9ed;--up:#1f7a4d;--upbg:#e2efdc;--sky:#669bbc;
-  --sans:"IBM Plex Sans",system-ui,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;--hand:"Caveat","Segoe Script","Bradley Hand",cursive}
-:root[data-theme=dark]{--paper:#00202f;--card:#002a3d;--ink:#f0f4f6;--mut:#a3b9c5;--line:#1b4a60;--grid:#072d40;--up:#63d19b;--upbg:#0c3a36;--sky:#669bbc}
+/* D · Ledger. Lab direction: the hero is type only, set huge in a condensed grotesk;
+   numbers are tabular mono; the Buenos Aires sketch closes the page as a panorama. */
+:root{--bg:#f4f6f7;--ink:#003049;--soft:#4a6676;--acc:#3d7aa3;--up:#1f7a4d;--line:rgba(0,48,73,.16);--dot:rgba(0,48,73,.15);
+  --cond:"Barlow Condensed","Arial Narrow",sans-serif;--txt:"Barlow",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+:root[data-theme=dark]{--bg:#00202f;--ink:#f0f4f6;--soft:#a3b9c5;--acc:#8fbcd6;--up:#6fcf97;--line:rgba(240,244,246,.17);--dot:rgba(240,244,246,.09)}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;color:var(--ink);font:400 1.02rem/1.6 var(--sans);background:var(--paper) linear-gradient(var(--grid) 1px,transparent 1px) 0 0/28px 28px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
-a{color:inherit;text-underline-offset:3px}a:hover{color:var(--up)}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg) radial-gradient(circle,var(--dot) 1.1px,transparent 1.3px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.65 var(--txt);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;transition:background-color .3s}
+a{color:inherit;text-decoration-color:var(--acc);text-underline-offset:4px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-:focus-visible{outline:2px solid var(--up);outline-offset:3px;border-radius:4px}
-.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:var(--paper);padding:8px 12px;z-index:99}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-.mono{font:400 .76rem/1.5 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--mut)}
-header{display:flex;flex-wrap:wrap;align-items:center;gap:4px 20px;padding:16px 0;border-bottom:1.5px solid var(--ink)}
-.tk{font:500 1rem var(--mono);background:var(--ink);color:var(--paper);padding:9px 12px;border-radius:4px;text-decoration:none;margin-right:auto}
-.tk:hover{color:var(--paper);background:var(--up)}
-header nav{display:flex;flex-wrap:wrap;gap:2px 16px}
-header nav a{font:400 .76rem var(--mono);text-transform:uppercase;text-decoration:none;padding:11px 0;letter-spacing:.04em}
-.lang{display:inline-flex;align-items:center;gap:2px;font:400 .76rem var(--mono);color:var(--mut)}
-.lang button{min-width:40px;min-height:40px;font:500 .76rem var(--mono);color:var(--mut)}
-.lang button[aria-pressed=true]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--up)}
-.theme{min-width:40px;min-height:40px;border:1px solid var(--line);border-radius:6px}
-.hero{position:relative;display:grid;gap:36px;padding:64px 0 56px;align-items:center}
-.rings{position:absolute;left:50%;top:50%;width:min(900px,150vw);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 46px,var(--sky) 46px 47px);-webkit-mask:radial-gradient(circle,#000 30%,transparent 70%);mask:radial-gradient(circle,#000 30%,transparent 70%);pointer-events:none;z-index:-1}
-.hero{overflow:hidden;isolation:isolate}
-.note{background:var(--card);border:1px solid var(--line);box-shadow:0 1px 0 #fff inset,0 18px 40px -18px rgba(0,48,73,.35);padding:34px 30px 22px;transform:rotate(-1.6deg);max-width:440px;justify-self:center;position:relative}
-.note::before{content:"";position:absolute;top:-12px;left:50%;width:92px;height:24px;background:rgba(102,155,188,.45);transform:translateX(-50%) rotate(2deg)}
-.note p{font:600 clamp(2.1rem,6vw,3rem)/1.08 var(--hand);margin:0 0 18px}
-.note .sig{font:500 1.5rem var(--hand);display:flex;justify-content:space-between;align-items:baseline}
-.intro h1{font:600 clamp(1.7rem,4vw,2.5rem)/1.15 var(--sans);letter-spacing:-.02em;margin:10px 0 14px}
-.talk{font:600 1.7rem var(--hand);margin:18px 0 10px}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);font:500 .82rem var(--mono);text-transform:uppercase;letter-spacing:.05em;padding:14px 22px;border-radius:6px;text-decoration:none;transition:background .2s,transform .2s}
-.btn:hover{background:var(--up);color:var(--paper);transform:translateY(-2px)}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:clamp(18px,3vw,30px);margin:0 0 26px;scroll-margin-top:16px}
-h2{font:600 1.5rem/1.2 var(--sans);letter-spacing:-.015em;margin:0}
-.ph{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 16px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-h3{font:600 1.05rem/1.35 var(--sans);margin:0}
-p{margin:0 0 .9em}
-.quote{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 20px}
-.px{font:500 clamp(2.4rem,7vw,3.6rem)/1 var(--mono);letter-spacing:-.03em}
-.chg{font:500 .95rem var(--mono);color:var(--up);background:var(--upbg);padding:3px 8px;border-radius:4px;display:inline-block;margin:6px 0 0 8px}
-.rng{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
-.rng button{min-width:52px;min-height:40px;font:500 .78rem var(--mono);border-right:1px solid var(--line)}
-.rng button:last-child{border:0}.rng button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
-svg.chart{display:block;width:100%;height:auto;margin:16px 0 6px;overflow:visible}
-.chart .ln{fill:none;stroke:var(--up);stroke-width:2.5;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.3s ease forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-.chart .ar{fill:url(#g);opacity:0;animation:fade .8s .5s forwards}@keyframes fade{to{opacity:1}}
-.chart .gr{stroke:var(--line);stroke-width:1;stroke-dasharray:3 4}
-.chart text{font:400 11px var(--mono);fill:var(--mut)}
-.chart .pt{fill:var(--card);stroke:var(--up);stroke-width:2.5;cursor:pointer;transition:r .15s}
-.chart .pt:hover,.chart .pt:focus,.chart .pt.on{fill:var(--up);r:8;outline:none}
-.cap{font:500 .92rem var(--mono);min-height:3em;padding:8px 12px;border-left:3px solid var(--up);background:var(--upbg);border-radius:0 6px 6px 0}
-.ms{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:2px 24px;font-size:.9rem}
-.ms li{padding:5px 0;border-bottom:1px dotted var(--line)}.ms li::before{content:"▲ ";color:var(--up);font-size:.7rem}
-.fine{font-size:.78rem;color:var(--mut);margin:12px 0 0;font-style:italic}
-.story{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:22px}
-.story .n{font:500 .85rem var(--mono);color:var(--up)}
-.story sup a{font:500 .72rem var(--mono);text-decoration:none;color:var(--up);padding:6px 4px}
-.pairs{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;list-style:none;padding:0}
-.pairs li{font:500 .74rem var(--mono);letter-spacing:.06em;background:color-mix(in srgb,var(--sky) 26%,transparent);border:1px solid var(--sky);border-radius:999px;padding:5px 12px}
-.th{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:22px}
-.th h3{font:600 1.75rem/1.05 var(--hand)}
-table{width:100%;border-collapse:collapse;font-size:.95rem}
-th{font:400 .72rem var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--mut);text-align:left;padding:6px 10px 8px 0;border-bottom:1.5px solid var(--ink)}
-td{padding:13px 10px 13px 0;border-bottom:1px solid var(--line);vertical-align:top}
-td small{display:block;color:var(--mut);font-size:.88rem;line-height:1.45;margin-top:3px}
-.t{font:500 .82rem var(--mono);background:var(--paper);border:1px solid var(--line);padding:2px 7px;border-radius:4px;white-space:nowrap}
-.up{color:var(--up);font-weight:500;font-family:var(--mono);font-size:.86rem}
-.w{display:flex;align-items:center;gap:8px;font:500 .86rem var(--mono);min-width:110px}
-.w i{height:8px;background:var(--up);border-radius:2px;display:block;transform-origin:left;animation:grow .9s cubic-bezier(.2,.8,.2,1) both}@keyframes grow{from{transform:scaleX(0)}}
-.cv{font:500 .74rem var(--mono);text-transform:uppercase;padding:2px 8px;border-radius:4px;border:1px solid var(--line);white-space:nowrap}
-.cv.high{background:var(--upbg);color:var(--up);border-color:transparent}.cv.low{color:var(--mut)}
-.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:0 26px}
-.two .panel{min-width:0}
-.kv{list-style:none;margin:0;padding:0}.kv li{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.95rem}
-.portrait{width:64px;height:64px;border-radius:8px;background:var(--paper);border:1px solid var(--line);display:grid;place-items:center;font:500 1rem var(--mono);position:relative;overflow:hidden}
-.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.end{text-align:center;padding:50px 20px}
-.end p.h{font:600 clamp(2.4rem,8vw,4rem)/1 var(--hand);margin:0 0 14px}
-footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;padding:18px 0 40px;border-top:1.5px solid var(--ink)}
-footer a{margin-right:16px;display:inline-block;padding:9px 0}
-.rv{opacity:0;transition:opacity .8s}.rv.in{opacity:1}
-@media(min-width:860px){.hero{grid-template-columns:1fr 1fr}}
-@media(max-width:700px){
-  thead{position:absolute;left:-9999px}tr{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
-  td{display:grid;grid-template-columns:96px 1fr;gap:10px;border:0;padding:4px 0}
-  td::before{content:attr(data-l);font:400 .7rem var(--mono);text-transform:uppercase;color:var(--mut);padding-top:3px}
-  .kv li{grid-template-columns:1fr;gap:0}
-}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation-duration:.01s!important;animation-delay:0s!important;scroll-behavior:auto!important}.rv{opacity:1}}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:9}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.m{font:400 .78rem/1.4 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--soft)}
+header{display:flex;align-items:center;gap:8px 24px;flex-wrap:wrap;padding:20px 0;border-bottom:1px solid var(--ink)}
+.tk{font:700 1.4rem/1 var(--cond);letter-spacing:.04em;text-decoration:none;margin-right:auto;padding:10px 0}
+.tk span{color:var(--up);font:500 .85rem var(--mono);margin-left:10px;letter-spacing:0}
+header nav a{font:500 .8rem var(--mono);text-transform:uppercase;text-decoration:none;color:var(--soft);padding:12px 0;margin-left:18px}
+.lang{display:inline-flex;align-items:center;font:400 .78rem var(--mono);color:var(--soft)}
+.lang button,.theme{min-width:40px;min-height:40px;font:400 .78rem var(--mono)}
+.lang button[aria-pressed=true]{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.theme{border:1px solid var(--line);font-size:1rem}
+/* Hero: nothing but type. */
+.hero{padding:clamp(48px,8vw,120px) 0 56px;border-bottom:1px solid var(--line)}
+h1{font:700 clamp(3.4rem,1rem + 9.4vw,10rem)/.86 var(--cond);text-transform:uppercase;letter-spacing:-.01em;margin:22px 0 0}
+h1 span{color:var(--acc)}
+.sub{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:44px;align-items:end}
+.sub p{grid-column:1/7;margin:0;font-size:1.2rem;color:var(--soft)}
+.sub .act{grid-column:9/13;display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;background:var(--ink);color:var(--bg);text-decoration:none;font:600 1.05rem var(--cond);letter-spacing:.06em;text-transform:uppercase}
+.btn.o{background:none;color:var(--ink);border:1px solid var(--ink)}
+.ticker{display:flex;gap:28px;overflow-x:auto;scrollbar-width:none;white-space:nowrap;padding:14px 0;border-bottom:1px solid var(--line)}
+.ticker span b{font:500 1rem var(--mono);margin-right:8px}
+.ticker .u{color:var(--up)}
+section{padding:96px 0 0}
+.sh{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-bottom:34px}
+.sh .m{grid-column:1/4;padding-top:14px}
+h2{grid-column:4/13;font:600 clamp(2.4rem,1.4rem + 3vw,4rem)/.95 var(--cond);text-transform:uppercase;margin:0}
+.body{margin-left:calc(25% + 6px)}
+.story{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 48px}
+.story .n{font:500 .85rem var(--mono);color:var(--acc)}
+.story h3{font:600 1.9rem/1 var(--cond);text-transform:uppercase;margin:8px 0}
+.story p{color:var(--soft);margin:0}
+.pairs{list-style:none;margin:40px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.pairs li{font:500 .8rem var(--mono);border:1px solid var(--line);padding:6px 12px}
+.th{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.th h3{font:600 1.5rem/1.05 var(--cond);text-transform:uppercase;margin:0 0 10px}
+.th p{color:var(--soft);font-size:.98rem;margin:0}
+/* Track record rows open in place. */
+.tr{border-top:1px solid var(--ink)}
+.tr summary{list-style:none;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr) minmax(0,3fr) 24px;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line);cursor:pointer;min-height:48px}
+.tr summary::-webkit-details-marker{display:none}
+.tr .nm{font:600 1.7rem/1.05 var(--cond);text-transform:uppercase}
+.tr .nm small{display:block;font:400 .78rem var(--mono);color:var(--soft);text-transform:uppercase;margin-top:6px}
+.tr .up{color:var(--up);font:500 .9rem var(--mono)}
+.tr .pl{font:400 1.2rem var(--mono);color:var(--soft);transition:transform .2s}
+.tr details[open] .pl{transform:rotate(45deg)}
+.tr .x{padding:16px 0 26px;border-bottom:1px solid var(--line);color:var(--soft);max-width:70ch}
+.cols{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr) minmax(0,3fr) 24px;gap:20px;padding-bottom:10px}
+.kv{list-style:none;margin:0;padding:0}
+.kv li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:20px;padding:12px 0;border-top:1px solid var(--line)}
+.kv li.exh{border:0}
+.kv small{display:block;color:var(--soft)}
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.svc h3{font:600 1.6rem/1 var(--cond);text-transform:uppercase;margin:0 0 10px}
+.svc p{color:var(--soft);font-size:.98rem;margin:0 0 10px}
+/* Closing: contact sits on top of the city. */
+.end{padding:140px 0 0;text-align:center}
+.end .big{font:700 clamp(3rem,1rem + 7vw,7.5rem)/.9 var(--cond);text-transform:uppercase;margin:16px 0 26px}
+.end p{color:var(--soft);max-width:52ch;margin:0 auto 26px}
+.end .big{color:var(--ink);max-width:none}
+.end .act{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.pano{margin-top:72px;overflow:hidden}
+.city{display:block;width:100%;height:auto;fill:none;stroke:var(--ink);stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round}
+.city .outline{stroke-width:1.55}.city .detail{stroke-width:.65}.city .context{stroke:var(--soft);stroke-width:.75;opacity:.65}
+.city .guide{stroke:var(--acc);stroke-width:.65;opacity:.85}.city .axis{stroke-dasharray:8 5 1 5;stroke-width:.5;opacity:.5}
+.city .wash{fill:var(--acc);fill-opacity:.07;stroke:none}
+.city text{font:400 8px var(--mono);letter-spacing:.12em;fill:var(--soft);stroke:none}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;border-top:1px solid var(--ink);padding:16px 0 40px}
+footer a{display:inline-block;padding:10px 0;margin-left:18px}
+.fine{font:400 .75rem var(--mono);color:var(--soft);margin-top:14px}
+@media(max-width:900px){.sh,.sub{display:block}.sh .m{padding:0 0 8px}.sub .act{justify-content:flex-start;margin-top:24px}.body{margin-left:0}.story,.th,.svc{grid-template-columns:1fr}header nav{display:none}}
+@media(max-width:640px){.wrap{padding:0 18px}.cols{display:none}.tr summary{grid-template-columns:1fr 24px;gap:6px 12px}.tr summary .up{grid-column:1}.tr summary .w{grid-column:1}.tr summary .pl{grid-row:1;grid-column:2}.kv li{grid-template-columns:1fr;gap:0}
+  .city{width:860px;max-width:none;margin-left:calc(50% - 430px)}.city text{font-size:11px}.btn{flex:1 1 100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
@@ -155,7 +146,7 @@ const content = {
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remote worldwide",
     status: "Open to freelance · Buenos Aires",
     cta: "Work with me", ctaAlt: "Let's talk", mailSubject: "Project for Rocío",
-    skip: "Skip to content", langLabel: "Language", themeLabel: "Toggle light / dark", portraitAlt: "Pixel-art avatar of Rocío Jacob",
+    skip: "Skip to content", langLabel: "Language", themeLabel: "Toggle light / dark", portraitAlt: "Photo of Rocío Jacob",
     nav: { home: "Home", about: "About", work: "Work", experience: "Experience", skills: "Stack", books: "Books", writing: "Writing", contact: "Contact", play: "Playground", services: "Services" },
     h: { services: "What I offer", about: "About", work: "Selected work", experience: "Experience", skills: "Skills & stack", books: "Books", writing: "Writing", contact: "Work with me", finance: "The finance side", lab: "Lab", numbers: "In numbers" },
     about: [
@@ -179,7 +170,7 @@ const content = {
       { code: "WK.02", line: "Ticketing for 15K+ users on three continents.", name: "Event SaaS platform", org: "Software studio", role: "Project Leader", when: "Nov 2023 – Apr 2025", impact: "15K+ users · 5+ clients",
         body: "Led development of a platform for ticketing, access control and client relationships, used by music festivals and crypto events across America, Europe and Asia. I managed a team of six, handled 5+ client accounts directly, and set priorities and roadmap with clients and stakeholders.", tags: ["Project leadership", "Jira", "Roadmap", "React"] },
       { code: "WK.03", name: "High-volume checkout", org: "Software studio", role: "Senior Developer", when: "2021 – 2023", impact: "300+ payments / day",
-        body: "Designed and launched a checkout with custom billing that processes 300+ payments a day. It was one of the first React integrations of Mercado Pago.", tags: ["React", "Mercado Pago", "Billing"] },
+        body: "Designed and launched, as part of a team, a checkout with custom billing that processes 300+ payments a day. It was one of the first React integrations of Mercado Pago.", tags: ["React", "Mercado Pago", "Billing"] },
       { code: "WK.04", line: "From manual coordination to an automated flow.", name: "Final-project tracking", org: "A university", role: "Product & automation lead", when: "Apr 2026 – present", impact: "100+ projects per cycle",
         body: "I own the backend of the system that tracks student capstone projects and coordinates their defense committees: the data layer, the sync and the workflows. Alongside it, I drive automation, BI and AI projects for university operations.",
         steps: [
@@ -256,7 +247,7 @@ const content = {
       ] },
     expWork: "Work", expEdu: "Education",
     why: "Why work with me", menu: "Menu", workCols: { p: "Project", w: "When", i: "Result" },
-    readCase: "Read the full case", seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
+    readCase: "Read the full case", svcMore: "Deliverable and who it is for", seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
     fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
     gotMind: "Have a manual process, a stalled automation or a product that needs to move forward?", reach: "Or write to me at",
     illo: "Architectural drawing of Buenos Aires: Kavanagh, Congress, the Obelisk, and Puente de la Mujer",
@@ -269,14 +260,47 @@ const content = {
     contactBody: "Tell me what you are building. I answer every email.",
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "View", close: "Close", open: "Open", repo: "Repository",
+    /* J · Hero sketches (lab spike): options for the hero illustration if the skyline moves to the footer. */
+    j: { title: "Hero sketches", lead: "If the Buenos Aires skyline closes the page, the hero needs its own drawing. Three options in the same line style.",
+      opts: [
+        { k: "Option 1", name: "The Obelisk, up close", why: "One landmark instead of four. It keeps Buenos Aires in the hero without repeating the footer.", note: "home base. I work remotely from here", alt: "Architectural drawing of the Obelisk of Buenos Aires with trees, people and a height dimension" },
+        { k: "Option 2", name: "Downtown from above", why: "A street plan: 9 de Julio, the diagonals, the docks and the river. The city as a map, the skyline as the closing view.", note: "home base. I work remotely from here", alt: "Schematic street plan of downtown Buenos Aires seen from above, with the Obelisk marked" },
+        { k: "Option 3", name: "The turntable", why: "Something of mine, drawn like a technical plan. More personal, less about the city.", note: "off the clock, I DJ", alt: "Technical drawing of a turntable seen from above" }
+      ], foot: "And the skyline closes the page", schematic: "Schematic drawings, not to scale." },
+    /* I · Charla (lab): conversational copy. Drafted by the agent from facts already on the site; pending Rocío's OK. */
+    talk: {
+      hello: "Hi, I'm Rocío.", tags: ["product", "operations", "business"],
+      intro: "I turn the manual stuff (scattered spreadsheets, emails copied by hand, processes that live in someone's head) into products and automated flows. I taught myself to code in 2021 and haven't stopped since.",
+      avail: "Taking freelance projects. Write to me by {email} or on {linkedin}. My {github}? Open too, if you're curious.",
+      work: "Things I've built that people actually use", services: "Ways we can work together", about: "A bit more about me", books: "What I read, and then build with", contact: "Got a process that eats your week?",
+      more: "Read more", less: "Close"
+    },
+    /* A · Article (lab draft, design skeleton). [COMPLETAR] marks what Rocío still has to write. */
+    article: {
+      back: "Back to the notebook", kicker: "Lab · draft", title: "Python games", dek: "How I learned Python: loops, state and collisions.",
+      why: { h: "Why I made it", p: "[COMPLETAR] One or two sentences: what I wanted to learn, and why games instead of a course." },
+      built: { h: "What I built", items: ["Pong (turtle)", "Flappy Bird (pygame)", "Frogger (turtle)", "A platformer (pygame, with a sprite sheet)", "Space Invaders (pygame)"], p: "[COMPLETAR] Which came first, which was hardest, how long it took." },
+      problem: { h: "The interesting problem: collisions", p: "Every one of these games has to answer the same question many times a second: are these two things touching? The simplest answer treats each sprite as a rectangle.", own: "[COMPLETAR] How I solved it in my games, in my words." },
+      demo: { label: "Drag the light square", hint: "Two rectangles overlap when they overlap on both axes.", hit: "Touching", miss: "Not touching", reset: "Reset" },
+      codeNote: "Illustrative example, not copied from the repository.",
+      learned: { h: "What I learned", p: "How I learned Python: loops, state and collisions." },
+      redo: { h: "What I would do differently today", p: "[COMPLETAR]" },
+      repo: "See the code on GitHub",
+      box: "This article is a design skeleton. The game screenshots are left out on purpose: some sprites come from tutorials, not from me."
+    },
     /* A · Notebook */
     a: {
       hero: "Hi, I'm Rocío. I'm a <a class=\"chip\" href=\"#work\">product engineer</a> in Buenos Aires. I turn manual operations into digital products and automated workflows. I taught myself to code in 2021 from <a class=\"chip\" href=\"#books\">books</a> and the open web. Since then I have built an app that 40K people open every day, led a team of six, and worked in <a class=\"chip\" href=\"#finance\">finance</a>. Now I am teaching Corporate Finance and getting ready for a Master in Finance (April 2027).",
-      kicker: "A notebook, kept in public", cardNow: "Now", cardNowBody: "Building automation, BI and AI for a university. Teaching Corporate Finance. MFin starts April 2027.", cardReading: "Reading", cardReadingLink: "Books I've read"
+      kicker: "A notebook, kept in public", cardNow: "Now", cardNowBody: "Building automation, BI and AI for a university. Teaching Corporate Finance. MFin starts April 2027.", cardReading: "Reading", cardReadingLink: "Books I've read",
+      notes: { self: "self-taught, since 2021", here: "home base. I work remotely from here", big: "an app people opened every day", read: "I read first, then build", lab: "the draft is open", bye: "I answer every email" },
+      split: ["I turn manual operations", "into digital products and automated workflows."],
+      pick: "Picked from the notebook", readDraft: "Read the draft", nowTitle: "Now"
     },
     /* B · Dock */
     b: {
-      
+      man: { page: "ROCIO(1)", book: "Product Engineer's Manual", name: "NAME", synopsis: "SYNOPSIS", desc: "DESCRIPTION", options: "OPTIONS", examples: "EXAMPLES", play: "PLAYGROUND", files: "FILES", history: "HISTORY", see: "SEE ALSO",
+        cmd: "rocio [--freelance] [--remote] <your-process>", reach: "Reach me by {email} or {linkedin}. Yes, both are open.", run: "run", stack: "stack", out: "result",
+        critters: "Buenos Aires birds drawn with characters: a monk parakeet, a pigeon and an ovenbird on its mud nest.", updated: "Last updated" },
       playTitle: "Playground", playBody: "I learned Python by building small games. This is a tiny browser remake of that habit: a hop-through-the-gaps loop in plain canvas. The originals (pygame / turtle) are on my GitHub.",
       playHint: "Space, click or tap to hop", playScore: "Score", playBest: "Best", playStart: "Press to start", playOver: "Game over · press to retry", originals: "See the originals"
     },
@@ -333,7 +357,7 @@ const content = {
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remoto a todo el mundo",
     status: "Disponible para freelance · Buenos Aires",
     cta: "Trabajemos juntos", ctaAlt: "Hablemos", mailSubject: "Proyecto para Rocío",
-    skip: "Ir al contenido", langLabel: "Idioma", themeLabel: "Cambiar modo claro / oscuro", portraitAlt: "Avatar en pixel art de Rocío Jacob",
+    skip: "Ir al contenido", langLabel: "Idioma", themeLabel: "Cambiar modo claro / oscuro", portraitAlt: "Foto de Rocío Jacob",
     nav: { home: "Inicio", about: "Sobre mí", work: "Trabajo", experience: "Experiencia", skills: "Stack", books: "Libros", writing: "Escritos", contact: "Contacto", play: "Playground", services: "Servicios" },
     h: { services: "Servicios", about: "Sobre mí", work: "Proyectos destacados", experience: "Experiencia", skills: "Herramientas", books: "Libros", writing: "Escritos", contact: "Trabajemos juntos", finance: "El lado financiero", lab: "Lab", numbers: "En números" },
     about: [
@@ -357,7 +381,7 @@ const content = {
       { code: "WK.02", line: "Venta y control de entradas para más de 15 mil usuarios en tres continentes.", name: "Plataforma SaaS de eventos", org: "Estudio de software", role: "Project Leader", when: "Nov 2023 – Abr 2025", impact: "15K+ usuarios · 5+ clientes",
         body: "Lideré el desarrollo de una plataforma de venta de entradas, control de accesos y relación con clientes, usada por festivales de música y eventos cripto en América, Europa y Asia. Coordiné un equipo de seis personas, manejé más de cinco cuentas de clientes y definí las prioridades y la hoja de ruta junto a ellos.", tags: ["Liderazgo de proyecto", "Jira", "Hoja de ruta", "React"] },
       { code: "WK.03", name: "Checkout de alto volumen", org: "Estudio de software", role: "Senior Developer", when: "2021 – 2023", impact: "300+ pagos / día",
-        body: "Diseñé y lancé un checkout con facturación a medida que procesa más de 300 pagos por día. Una de las primeras integraciones de Mercado Pago en React.", tags: ["React", "Mercado Pago", "Facturación"] },
+        body: "Diseñé y lancé en equipo un checkout con facturación a medida que procesa más de 300 pagos por día. Una de las primeras integraciones de Mercado Pago en React.", tags: ["React", "Mercado Pago", "Facturación"] },
       { code: "WK.04", line: "De la coordinación manual a un flujo automatizado.", name: "Seguimiento de trabajos finales", org: "Una universidad", role: "Líder de producto y automatización", when: "Abr 2026 – presente", impact: "Más de 100 trabajos por entrega",
         body: "Estoy a cargo del backend del sistema que hace el seguimiento de los trabajos finales de grado y coordina las mesas de defensa: datos, sincronización y flujos de trabajo. En paralelo llevo adelante proyectos de automatización, BI e IA para la universidad.",
         steps: [
@@ -434,7 +458,7 @@ const content = {
       ] },
     expWork: "Experiencia laboral", expEdu: "Formación",
     why: "Por qué trabajar conmigo", menu: "Menú", workCols: { p: "Proyecto", w: "Período", i: "Resultado" },
-    readCase: "Leer el caso completo", seeWork: "Ver proyectos", remoteNote: "Buenos Aires · Trabajo remoto", moreWork: "Otros proyectos",
+    readCase: "Leer el caso completo", svcMore: "Entregable y para quién", seeWork: "Ver proyectos", remoteNote: "Buenos Aires · Trabajo remoto", moreWork: "Otros proyectos",
     fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
     gotMind: "¿Tenés un proceso manual, una automatización trabada o un producto que necesita avanzar?", reach: "O escribime a",
     illo: "Croquis arquitectónico de Buenos Aires: Kavanagh, Congreso, Obelisco y Puente de la Mujer",
@@ -447,12 +471,42 @@ const content = {
     contactBody: "Contame en qué estás trabajando. Respondo todos los mails.",
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "Ver", close: "Cerrar", open: "Abrir", repo: "Repositorio",
+    j: { title: "Bocetos de hero", lead: "Si el skyline de Buenos Aires cierra la página, el hero necesita su propio dibujo. Tres opciones con la misma línea.",
+      opts: [
+        { k: "Opción 1", name: "El Obelisco, de cerca", why: "Un solo hito en vez de cuatro. Buenos Aires sigue en el hero sin repetir el pie.", note: "mi base. Trabajo remoto desde acá", alt: "Croquis arquitectónico del Obelisco de Buenos Aires con árboles, personas y una cota de altura" },
+        { k: "Opción 2", name: "El centro desde arriba", why: "Un plano de calles: la 9 de Julio, las diagonales, los diques y el río. La ciudad como mapa y el skyline como cierre.", note: "mi base. Trabajo remoto desde acá", alt: "Plano esquemático del centro de Buenos Aires visto desde arriba, con el Obelisco marcado" },
+        { k: "Opción 3", name: "La bandeja", why: "Algo mío, dibujado como un plano técnico. Más personal, menos ciudad.", note: "fuera del trabajo, soy DJ", alt: "Dibujo técnico de una bandeja giradiscos vista desde arriba" }
+      ], foot: "Y el skyline cierra la página", schematic: "Dibujos esquemáticos, no a escala." },
+    talk: {
+      hello: "Hola, soy Rocío.", tags: ["producto", "operaciones", "negocio"],
+      intro: "Convierto lo manual (planillas sueltas, mails copiados a mano, procesos que viven en la cabeza de alguien) en productos y flujos automáticos. Aprendí a programar sola en 2021 y no paré.",
+      avail: "Tomo proyectos freelance. Escribime por {email} o por {linkedin}. ¿Mi {github}? También está abierto, si tenés curiosidad.",
+      work: "Cosas que hice y que la gente usa de verdad", services: "Cómo podemos trabajar juntos", about: "Un poco más sobre mí", books: "Lo que leo, y después pongo en práctica", contact: "¿Tenés un proceso que te come la semana?",
+      more: "Leer más", less: "Cerrar"
+    },
+    article: {
+      back: "Volver al cuaderno", kicker: "Lab · borrador", title: "Juegos en Python", dek: "Así aprendí Python: loops, estado y colisiones.",
+      why: { h: "Por qué lo hice", p: "[COMPLETAR] Una o dos frases: qué quería aprender y por qué con juegos y no con un curso." },
+      built: { h: "Qué construí", items: ["Pong (turtle)", "Flappy Bird (pygame)", "Frogger (turtle)", "Un plataformas (pygame, con hoja de sprites)", "Space Invaders (pygame)"], p: "[COMPLETAR] Cuál fue el primero, cuál el más difícil, cuánto tiempo llevó." },
+      problem: { h: "El problema interesante: colisiones", p: "Todos estos juegos tienen que responder la misma pregunta muchas veces por segundo: ¿estas dos cosas se tocan? La respuesta más simple trata a cada sprite como un rectángulo.", own: "[COMPLETAR] Cómo lo resolví en mis juegos, con mis palabras." },
+      demo: { label: "Arrastrá el cuadrado claro", hint: "Dos rectángulos se tocan cuando se superponen en los dos ejes.", hit: "Se tocan", miss: "No se tocan", reset: "Reiniciar" },
+      codeNote: "Ejemplo ilustrativo, no copiado del repositorio.",
+      learned: { h: "Qué aprendí", p: "Así aprendí Python: loops, estado y colisiones." },
+      redo: { h: "Qué haría distinto hoy", p: "[COMPLETAR]" },
+      repo: "Ver el código en GitHub",
+      box: "Este artículo es un esqueleto de diseño. Las capturas de los juegos quedan afuera a propósito: algunos sprites vienen de tutoriales, no son míos."
+    },
     a: {
       hero: "Hola, soy Rocío, <a class=\"chip\" href=\"#work\">product engineer</a> en Buenos Aires. Transformo procesos manuales en productos digitales y flujos automatizados. Aprendí a programar sola en 2021, con <a class=\"chip\" href=\"#books\">libros</a> y la web. Desde entonces hice una app que 40 mil personas abren todos los días, lideré un equipo de seis y trabajé en <a class=\"chip\" href=\"#finance\">finanzas</a>. Hoy doy clases de Finanzas Corporativas y en abril de 2027 empiezo una Maestría en Finanzas.",
-      kicker: "Un cuaderno abierto", cardNow: "Ahora", cardNowBody: "Automatización, BI e IA para una universidad. Dando Finanzas Corporativas. El MFin arranca en abril de 2027.", cardReading: "Leyendo", cardReadingLink: "Libros que leí"
+      kicker: "Un cuaderno abierto", cardNow: "Ahora", cardNowBody: "Automatización, BI e IA para una universidad. Dando Finanzas Corporativas. El MFin arranca en abril de 2027.", cardReading: "Leyendo", cardReadingLink: "Libros que leí",
+      notes: { self: "autodidacta, desde 2021", here: "mi base. Trabajo remoto desde acá", big: "una app que la gente abría todos los días", read: "primero leo, después construyo", lab: "el borrador está abierto", bye: "respondo todos los mails" },
+      split: ["Transformo procesos manuales", "en productos digitales y flujos automatizados."],
+      pick: "Elegido del cuaderno", readDraft: "Leer el borrador", nowTitle: "Ahora"
     },
     b: {
-      
+      man: { page: "ROCIO(1)", book: "Manual de una ingeniera de producto", name: "NOMBRE", synopsis: "SINOPSIS", desc: "DESCRIPCIÓN", options: "OPCIONES", examples: "EJEMPLOS", play: "PLAYGROUND", files: "ARCHIVOS", history: "HISTORIA", see: "VER TAMBIÉN",
+        cmd: "rocio [--freelance] [--remoto] <tu-proceso>", reach: "Escribime por {email} o por {linkedin}. Sí, los dos están abiertos.", run: "correr", stack: "stack", out: "resultado",
+        critters: "Pájaros de Buenos Aires dibujados con caracteres: una cotorra, una paloma y un hornero sobre su nido de barro.", updated: "Última actualización" },
       playTitle: "Playground", playBody: "Aprendí Python haciendo juegos chicos. Esta es una versión mínima de esa costumbre, hecha para el navegador: un loop de saltar entre huecos en canvas puro. Los originales (pygame / turtle) están en mi GitHub.",
       playHint: "Espacio, clic o toque para saltar", playScore: "Puntos", playBest: "Récord", playStart: "Tocá para empezar", playOver: "Fin del juego · tocá para reintentar", originals: "Ver los originales"
     },
@@ -545,7 +599,7 @@ function footerLinks() {
   return `<a href="mailto:${L.email}">${f.email}</a><a href="${L.linkedin}" ${ext}>${f.linkedin}</a><a href="${L.github}" ${ext}>${f.github}</a>`;
 }
 function portrait() {
-  return `<span class="portrait"><span aria-hidden="true">RJ</span><img src="profile.png" alt="${esc(T().portraitAlt)}" width="96" height="96" style="image-rendering:pixelated" onload="this.previousElementSibling.style.visibility='hidden'" onerror="this.remove()"></span>`;
+  return `<span class="portrait"><span aria-hidden="true">RJ</span><img src="profile.jpg" alt="${esc(T().portraitAlt)}" width="96" height="96" onload="this.previousElementSibling.style.visibility='hidden';this.parentNode.classList.add('ok')" onerror="this.parentNode.classList.add('err');this.remove()"></span>`;
 }
 const caseBody = c => c.body + (c.steps ? "<br><br>" + c.steps.map(x => `<b>${x.k}.</b> ${x.v}`).join("<br>") : "");
 const svcBody = s => s.body + (s.deliv ? `<br><b>${T().delivLabel}:</b> ${s.deliv}` : "") + (s.ideal ? `<br><b>${T().idealLabel}:</b> ${s.ideal}` : "");
@@ -565,6 +619,8 @@ const MASCOTS = {
   sit: ["..X...X.....", "..XXXXX.....", "..XoXoX.....", "..XXXXX.....", "...XXX......", "..XXXXX.....", "..XXXXXX....", ".XXXXXXX....", ".XXXXXXX...X", ".XXXXXXXX..X", ".XXXXXXXX..X", ".XX.XXXXX.X.", ".XX.XXXXXXX.", "XXX.XXX....."]
 };
 const CAT = MASCOTS[MASCOT];
+/* Second walking frame for the cat: legs together. Alternating it with CAT reads as steps. */
+const CAT_STEP = [...MASCOTS.cat.slice(0, 8), "....XX....XX..", "....XX....XX.."];
 const pixelCat = (px = 4, grid = CAT) => `<svg width="${grid[0].length * px}" height="${grid.length * px}" viewBox="0 0 ${grid[0].length} ${grid.length}" shape-rendering="crispEdges" aria-hidden="true">` +
   grid.map((r, j) => [...r].map((c, i) => c === "." ? "" : `<rect x="${i}" y="${j}" width="1" height="1" fill="${c === "o" ? "#003049" : PINK}"/>`).join("")).join("") + `</svg>`;
 document.head.insertAdjacentHTML("beforeend", `<style>.eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px;margin-right:8px}.eq i{width:3px;height:14px;background:${PINK};transform-origin:bottom;animation:eq .9s ease-in-out infinite alternate}.eq i:nth-child(2){animation-delay:-.3s}.eq i:nth-child(3){animation-delay:-.6s}.eq i:nth-child(4){animation-delay:-.15s}@keyframes eq{from{transform:scaleY(.2)}to{transform:scaleY(1)}}@media(prefers-reduced-motion:reduce){.eq i{animation:none;transform:scaleY(.6)}}</style>`);
@@ -611,156 +667,187 @@ document.addEventListener("click", e => {
     return;
   }
   lang = b.dataset.lang; store.set("rj-lang", lang);
-  const y = scrollY; apply(); scrollTo(0, y);
-  const again = $(`[data-lang="${lang}"]`) || $("[data-lang]"); if (again) again.focus();
+  swap(() => {
+    const y = scrollY; apply(); scrollTo(0, y);
+    const again = $(`[data-lang="${lang}"]`) || $("[data-lang]"); if (again) again.focus();
+  });
 });
+/* Re-render behind a short cross-fade where the browser supports view transitions, so a language
+   change does not snap. Without support, or with reduced motion, it runs straight away. */
+function swap(fn) { if (!reduced && document.startViewTransition) document.startViewTransition(fn); else fn(); }
+/* Text selection as a pink highlighter stroke (the mascot's pink), on every direction. */
+document.head.insertAdjacentHTML("beforeend", `<style>::selection{background:color-mix(in srgb,${PINK} 42%,transparent);color:inherit}::view-transition-old(root),::view-transition-new(root){animation-duration:.26s}</style>`);
+/* Every <details> opens and closes with a height animation instead of snapping. */
+document.addEventListener("click", e => {
+  const s = e.target.closest("summary"), d = s && s.parentNode;
+  if (!d || d.tagName !== "DETAILS" || reduced || !d.animate) return;
+  e.preventDefault();
+  const closing = d._anim ? !d._closing : d.open, from = d.offsetHeight;
+  if (d._anim) { d._anim.onfinish = null; d._anim.cancel(); }
+  d.open = true;
+  const cs = getComputedStyle(d), shut = s.getBoundingClientRect().bottom - d.getBoundingClientRect().top + parseFloat(cs.paddingBottom) + parseFloat(cs.borderBottomWidth);
+  d.style.height = ""; const full = d.offsetHeight;
+  d._closing = closing; d.style.overflow = "hidden";
+  d._anim = d.animate({ height: [from + "px", (closing ? shut : full) + "px"] }, { duration: 340, easing: "cubic-bezier(.22,.7,.2,1)" });
+  d._anim.onfinish = () => { if (closing) d.open = false; d.style.overflow = ""; d._anim = null; };
+});
+
+/* Buenos Aires sketch, shared by A, D and H. Each site styles .city with its own variables. */
+/* A composed architectural elevation, not a geographic or to-scale survey.
+   Each landmark has its own clear silhouette; details stay inside its facade. */
+const city = alt => {
+  const repeat = (n, draw) => Array.from({ length: n }, (_, i) => draw(i)).join("");
+  // Narrow paired jambs read as windows, with equal margins on every facade.
+  const windows = (x, y, w, h, cols, rows) => repeat(cols, i => repeat(rows, j => {
+    const cx = x + w * (i + .5) / cols, cy = y + h * (j + .5) / rows;
+    return `M${cx - 1.6} ${cy - 2.5}v5h3.2v-5`;
+  }));
+  const block = (x, w, top, cols, rows) => `<path d="M${x} 222V${top}h${w}v${222 - top}M${x - 2} ${top + 5}h${w + 4}"/><path class="detail" d="${windows(x + 5, top + 11, w - 10, 202 - top, cols, rows)}"/>`;
+  const tree = x => `M${x} 222v-17m0 7l-5-5m5 2l5-6M${x - 12} 204c-6-5-3-12 2-13-1-9 12-13 17-6 9-1 13 11 6 16 0 7-8 11-13 6-4 3-9 2-12-3Z`;
+  const person = x => `<circle cx="${x}" cy="211" r="1.5"/><path d="M${x} 214v4m-2 4 2-4 2 4m-5-6 3-2 3 2"/>`;
+  const kavanaghWindows = [
+    [179, 151, 18, 61, 2, 7], [275, 151, 18, 61, 2, 7],
+    [204, 114, 18, 98, 2, 11], [250, 114, 18, 98, 2, 11],
+    [228, 57, 16, 155, 2, 17]
+  ].map(args => windows(...args)).join("");
+  return `<svg class="city" viewBox="0 0 1200 274" role="img" aria-label="${esc(alt)}">
+<g class="context">
+  ${block(40, 43, 174, 3, 3)}${block(94, 49, 134, 4, 6)}
+  ${block(691, 38, 155, 3, 4)}${block(742, 43, 117, 3, 8)}${block(797, 30, 169, 2, 3)}
+  ${block(1137, 37, 180, 3, 2)}
+</g>
+<!-- Kavanagh: recessed wings, a continuous central shaft and roof terraces. -->
+<g>
+  <path class="wash" d="M244 48h6v58h24v38h25v78h-55Z"/>
+  <path class="outline" d="M173 222V144h25v-38h24V48h7V29h14v19h7v58h24v38h25v78"/>
+  <path class="detail" d="M198 144v78m24-174v174m28-116v116m24-78v78M173 149h25m0-38h24m28 0h24m0 38h25M222 53h28M229 35h14M232 29v-5h8v5M226 217h20v5${kavanaghWindows}"/>
+</g>
+<!-- Congreso: lantern, ribbed dome, drum, pediment, paired columns, steps. -->
+<g>
+  <path class="wash" d="M450 87c20 10 29 26 30 49h-30ZM455 180h19v32h-19Z"/>
+  <path class="outline" d="M356 216V173h49v-9h12v-25h-5v-4h7c0-22 12-40 26-48v-9h10v9c14 8 26 26 26 48h7v4h-5v25h12v9h49v43"/>
+  <path d="M443 78v-7q7-9 14 0v7M450 66v-9M417 139h66M417 164h66M405 173l45-20 45 20M405 178h90M356 178h49m90 0h49M352 216h196m-200 3h204m-204 3h204"/>
+  <path class="detail" d="M450 87c-8 12-13 28-13 48m13-48c8 12 13 28 13 48m-13-48v48M419 135h62M425 143v15m8-15v15m9-15v9m16-9v9m9-9v15m8-15v15M417 171l33-14 33 14M356 211h49m90 0h49${repeat(6, i => `M${413 + i * 14} 182v30m4-30v30m-5-30h6m-6 30h6`)}${windows(362, 183, 37, 23, 3, 1)}${windows(501, 183, 37, 23, 3, 1)}"/>
+</g>
+<!-- Obelisco: two faces, a quiet dimension and a stepped plinth. -->
+<g>
+  <path class="wash" d="M600 35l5 20 9 161h-14Z"/>
+  <path class="outline" d="M586 216l9-161 5-20 5 20 9 161ZM582 222v-6h36v6"/>
+  <path class="detail" d="M600 35v181M595 55h10M596 203v9h5v-9ZM597 69v6m6-6v6M577 222h46"/>
+  <path class="guide axis" d="M600 19v10m0 198v9"/>
+  <path class="guide" d="M618 35h22m-17 187h17M635 35v187M632 38l6-6m-6 193 6-6"/>
+  <text x="649" y="130" text-anchor="middle" transform="rotate(-90 649 130)">${esc(T().cityHeight)}</text>
+</g>
+<!-- Puente de la Mujer: tapered mast and an ordered fan of stays. -->
+<g>
+  <path class="wash" d="M975 212l87-113-78 113Z"/>
+  <path class="outline" d="M854 212h264v5H854M975 212l87-113-78 113M976 217l3 12h9l3-12"/>
+  <path class="detail" d="${repeat(9, i => `M${870 + i * 12} 208L1058 104`)}M854 208h264${repeat(27, i => `M${858 + i * 10} 208v4`)}"/>
+</g>
+<g class="context">
+  <path d="${tree(319)}${tree(666)}${tree(840)}M339 222v-25h7m-7 2h7M562 222v-23h6m-6 2h6"/>
+  ${person(335)}${person(554)}${person(1102)}
+  <path d="M17 222h836m267 0h64M26 226h803M867 231h80m58 0h110M888 238h171"/>
+  <path class="detail" d="${repeat(54, i => `M${32 + i * 15} 227l-4 5`)}"/>
+</g>
+<g class="guide"><path d="M236 229v12m214-12v12m150-2v2m384-6v6"/></g>
+<g text-anchor="middle">
+  <text x="236" y="257">KAVANAGH</text><text x="450" y="257">CONGRESO</text>
+  <text x="600" y="257">OBELISCO</text><text x="984" y="257">PUENTE DE LA MUJER</text>
+</g>
+</svg>`;
+};
+
+/* The Obelisk up close, same line language as the skyline. Shared by H (hero) and J. Styled via .sk. */
+const obelisk = alt => {
+  const g = 400, rep = (n, f) => Array.from({ length: n }, (_, i) => f(i)).join("");
+  const tree = (x, g) => `M${x} ${g}v-20m0 8l-6-6m6 2l6-7M${x - 14} ${g - 22}c-7-6-3-14 3-15-1-11 14-15 20-7 10-1 15 13 7 19 0 8-9 13-15 7-5 3-11 2-15-4Z`;
+  const person = (x, g) => `<circle cx="${x}" cy="${g - 13}" r="1.8"/><path d="M${x} ${g - 10}v5m-2.5 5 2.5-5 2.5 5m-6-8 3.5-2 3.5 2"/>`;
+  return `<svg class="sk" viewBox="0 0 420 450" role="img" aria-label="${esc(alt)}">
+<g class="context">
+  <path d="M18 ${g}V300h46v100M24 306h34M74 ${g}V258h40v142M70 264h48M306 ${g}V270h42v130M302 276h50M360 ${g}V318h42v82M356 324h50"/>
+  <path class="detail" d="${rep(3, i => rep(5, j => `M${28 + i * 12} ${316 + j * 16}v6h4v-6`))}${rep(3, i => rep(8, j => `M${82 + i * 11} ${272 + j * 15}v6h4v-6`))}${rep(3, i => rep(7, j => `M${314 + i * 12} ${284 + j * 15}v6h4v-6`))}${rep(3, i => rep(4, j => `M${368 + i * 12} ${332 + j * 15}v6h4v-6`))}"/>
+</g>
+<path class="wash" d="M210 40l13 44 9 296h-22Z"/>
+<path class="outline" d="M188 380l9-296 13-44 13 44 9 296ZM176 392v-12h68v12M166 ${g}v-8h88v8"/>
+<path class="detail" d="M210 40v340M197 84h26M205 110v10h10v-10ZM204 352v28h12v-28ZM176 386h68"/>
+<path d="M120 ${g}v-14h40v14M260 ${g}v-14h40v14"/><text x="140" y="${g - 4}" text-anchor="middle">B</text><text x="280" y="${g - 4}" text-anchor="middle">A</text>
+<g class="context"><path d="${tree(96, g)}${tree(330, g)}M56 ${g}v-34h9m-9 3h9M372 ${g}v-34h-9m9 3h-9"/>${person(150, g)}${person(268, g)}${person(292, g)}</g>
+<path d="M6 ${g}h408"/><path class="detail" d="${rep(26, i => `M${14 + i * 15.5} ${g + 5}l-5 7`)}"/>
+<g class="guide"><path d="M244 40h28m-28 360h28M264 40v360M260 44l8-8m-8 368 8-8"/></g>
+<text x="278" y="220" text-anchor="middle" transform="rotate(-90 278 220)">${esc(T().cityHeight)}</text>
+<text x="210" y="432" text-anchor="middle">OBELISCO · AV. 9 DE JULIO</text>
+</svg>`; };
 
 
 /* ---------- Site D · Ledger ---------- */
-let range = "max", activeM = -1;
 let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 document.documentElement.dataset.theme = theme;
-const NOW = 2026.87, SPAN = { y1: 1, y3: 3, max: 99 };
-
-function chartData(t) {
-  const all = t.d.milestones, t0 = Math.max(all[0].t, NOW - SPAN[range]);
-  const at = x => { // linear interpolation of the index at time x
-    for (let i = 1; i < all.length; i++) if (x <= all[i].t) { const a = all[i - 1], b = all[i]; return a.v + (b.v - a.v) * (x - a.t) / (b.t - a.t); }
-    return all[all.length - 1].v;
-  };
-  const pts = all.map((m, i) => ({ ...m, i })).filter(m => m.t >= t0);
-  const line = pts[0].t > t0 ? [{ t: t0, v: at(t0) }, ...pts] : pts;
-  return { pts, line, t0, first: line[0].v, last: all[all.length - 1].v };
-}
-function chart(t) {
-  const { pts, line, t0, first, last } = chartData(t), W = 800, H = 300, P = { l: 8, r: 16, t: 18, b: 28 };
-  const lo = Math.max(0, first - 8), hi = last + 8;
-  const X = x => P.l + (x - t0) / (NOW - t0) * (W - P.l - P.r), Y = v => H - P.b - (v - lo) / (hi - lo) * (H - P.t - P.b);
-  const d = line.map((p, i) => (i ? "L" : "M") + X(p.t).toFixed(1) + " " + Y(p.v).toFixed(1)).join(" ");
-  const years = []; for (let y = Math.ceil(t0); y <= NOW; y++) years.push(y);
-  const step = years.length > 4 ? 1 : 1;
-  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="group" aria-label="${esc(t.d.chartTitle)}">
-    <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f7a4d" stop-opacity=".22"/><stop offset="1" stop-color="#1f7a4d" stop-opacity="0"/></linearGradient></defs>
-    ${years.filter((_, i) => i % step === 0).map(y => `<line class="gr" x1="${X(y)}" x2="${X(y)}" y1="${P.t}" y2="${H - P.b}"/><text x="${X(y) + 4}" y="${H - 8}">${y}</text>`).join("")}
-    <line class="gr" x1="${P.l}" x2="${W - P.r}" y1="${Y(first)}" y2="${Y(first)}"/>
-    <path class="ar" d="${d} L${X(NOW)} ${H - P.b} L${X(t0)} ${H - P.b} Z"/>
-    <path class="ln" pathLength="1" d="${d}"/>
-    ${pts.map(p => `<circle class="pt${p.i === activeM ? " on" : ""}" cx="${X(p.t).toFixed(1)}" cy="${Y(p.v).toFixed(1)}" r="6" tabindex="0" role="button" data-m="${p.i}" aria-label="${esc(p.l)}"/>`).join("")}
-  </svg>`;
-}
-const bookTk = (b, i) => b.title.startsWith("[") ? "BK0" + (i + 1) : b.title.replace(/[^A-Za-z]/g, "").toUpperCase().replace(/(?!^)[AEIOU]/g, "").slice(0, 4);
 
 function render(t) {
-  const d = t.d, cd = chartData(t), pct = Math.round((cd.last - cd.first) / cd.first * 100);
-  if (activeM < 0 || !cd.pts.some(p => p.i === activeM)) activeM = cd.pts[cd.pts.length - 1].i;
+  const d = t.d, words = t.pitch.split(" "), cut = Math.ceil(words.length / 2);
   $("#app").innerHTML = `
 <a class="skip" href="#main">${t.skip}</a>
 <header>
-  <a class="tk" href="#top">${d.ticker}</a>
-  <nav aria-label="Sections"><a href="#chart">${d.chartTitle.split(",")[0]}</a><a href="#thesis">${d.thesisTitle}</a><a href="#holdings">${d.holdingsTitle}</a><a href="#positions">${d.positionsTitle}</a><a href="#books">${t.nav.books}</a><a href="#contact">${t.nav.contact}</a></nav>
+  <a class="tk" href="#top" id="top">${d.ticker}<span>▲ ${d.since}</span></a>
+  <nav aria-label="${esc(t.menu)}"><a href="#story">${d.storyTitle}</a><a href="#positions">${d.positionsTitle}</a><a href="#contact">${t.nav.contact}</a></nav>
   ${langToggle()}
   <button class="theme" type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}">${theme === "dark" ? "☀" : "☾"}</button>
 </header>
 <main id="main">
-  <div class="hero" id="top"><div class="rings" aria-hidden="true"></div>
-    <div class="note"><p>“${d.manifesto}”</p><div class="sig"><span>— Rocío</span><span class="mono">${d.scroll} ↓</span></div></div>
-    <div class="intro">
-      <div class="mono">${t.name} · ${t.role} · ${t.remote}</div>
-      <h1>${t.pitch}</h1>
-      <p>${t.sub}</p>
-      <p class="talk">${d.talk} <span style="margin-left:8px">${pixelCat(3)}</span></p>
-      <a class="btn" href="${mailto()}">${t.cta} →</a>
-    </div>
+  <div class="hero">
+    <div class="m">${t.name} · ${t.role} · ${t.remote}</div>
+    <h1>${words.slice(0, cut).join(" ")} <span>${words.slice(cut).join(" ")}</span></h1>
+    <div class="sub"><p>${t.heroIntro}</p><div class="act"><a class="btn" href="#contact">${t.cta} ↗</a><a class="btn o" href="#positions">${t.seeWork}</a></div></div>
   </div>
+  <div class="ticker m" aria-label="${esc(t.h.numbers)}">${t.stats.slice(0, 6).map(s => `<span><b class="u">▲ ${s.n}</b>${s.l}</span>`).join("")}</div>
 
-  <section class="panel" id="chart" aria-labelledby="hc">
-    <div class="quote">
-      <div><div class="mono"><span class="t">${d.ticker}</span> &nbsp;${d.exchange}</div>
-        <h2 id="hc" class="mono" style="margin:8px 0 4px">${d.chartTitle}</h2>
-        <span class="px">${cd.last.toFixed(2)}</span><span class="chg">▲ +${(cd.last - cd.first).toFixed(1)} (+${pct}%) ${range === "max" ? d.since : d.ranges[range]}</span></div>
-      <div class="rng" role="group" aria-label="Range">${Object.keys(d.ranges).map(k => `<button type="button" data-range="${k}" aria-pressed="${k === range}">${d.ranges[k]}</button>`).join("")}</div>
+  <section id="story">
+    <div class="sh"><span class="m">[01] – [04]</span><h2>${d.storyTitle}</h2></div>
+    <div class="body"><div class="story">${d.story.map((s, i) => `<div><span class="n">[0${i + 1}]</span><h3>${s.h}</h3><p>${s.p}</p></div>`).join("")}</div>
+    <ul class="pairs">${d.pairs.map(p => `<li>${p}</li>`).join("")}</ul></div>
+  </section>
+
+  <section id="thesis">
+    <div class="sh"><span class="m">${d.thesisSub}</span><h2>${d.thesisTitle}</h2></div>
+    <div class="body th">${d.thesis.map(x => `<div><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>
+  </section>
+
+  <section id="positions">
+    <div class="sh"><span class="m">${d.positionsSub}</span><h2>${d.positionsTitle}</h2></div>
+    <div class="body tr">
+      <div class="cols m"><span>${d.cols.position}</span><span>${d.cols.entry}</span><span>${d.cols.impact}</span><span></span></div>
+      ${t.cases.map((c, i) => `<details id="pos-${i}"><summary><span class="nm">${c.name}<small>${c.org} · ${c.role}</small></span><span class="w m">${c.when}</span><span class="up">▲ ${c.impact}</span><span class="pl" aria-hidden="true">+</span></summary><div class="x">${caseBody(c)}</div></details>`).join("")}
     </div>
-    ${chart(t)}
-    <div class="cap" id="cap" aria-live="polite">${d.milestones[activeM].l}</div>
-    <ul class="ms">${cd.pts.map(p => `<li>${p.l}</li>`).join("")}</ul>
-    <p class="fine">${d.illustrative}</p>
   </section>
 
-  <section class="panel rv" id="story"><div class="ph"><h2>${d.storyTitle}</h2><span class="mono">[01] – [04]</span></div>
-    <div class="story">${d.story.map((s, i) => `<div><span class="n">[0${i + 1}]</span><h3>${s.h}</h3><p>${s.p}<sup><a href="${s.href}" aria-label="[${i + 1}] ${s.href.slice(1)}">${i + 1}</a></sup></p></div>`).join("")}</div>
-    <ul class="pairs">${d.pairs.map(p => `<li>${p}</li>`).join("")}</ul>
+  <section id="services">
+    <div class="sh"><span class="m">${t.nav.services}</span><h2>${t.h.services}</h2></div>
+    <div class="body svc">${t.services.map(s => `<div><h3>${s.name}</h3><p>${s.body}</p><p class="m">${t.delivLabel}: ${s.deliv}</p></div>`).join("")}</div>
   </section>
 
-  <section class="panel rv" id="thesis"><div class="ph"><h2>${d.thesisTitle}</h2><span class="mono">${d.thesisSub}</span></div>
-    <div class="th">${d.thesis.map(x => `<div><h3>${x.h}</h3><p>${x.p}</p></div>`).join("")}</div>
+  <section id="about">
+    <div class="sh"><span class="m">${t.remote}</span><h2>${t.h.about}</h2></div>
+    <div class="body">${t.profile.map(p => `<p style="max-width:62ch">${p}</p>`).join("")}${offClock()}
+      <ul class="kv" style="margin-top:36px">${expSplit(t, e => `<li><span class="m">${e.when}</span><span>${e.role}<small>${e.org}</small></span></li>`)}</ul></div>
   </section>
 
-  <section class="panel rv" id="holdings"><div class="ph"><h2>${d.holdingsTitle}</h2><span class="mono">${d.holdingsSub}</span></div>
-    <table><thead><tr><th>${d.cols.ticker}</th><th>${d.cols.holding}</th><th>${d.cols.weight}</th><th>${d.cols.thesis}</th></tr></thead>
-    <tbody>${d.holdings.map(h => `<tr><td data-l="${d.cols.ticker}"><span class="t">${h.tk}</span></td><td data-l="${d.cols.holding}"><b>${h.name}</b></td><td data-l="${d.cols.weight}"><span class="w"><i style="width:${h.w * 2.2}px"></i>${h.w}%</span></td><td data-l="${d.cols.thesis}">${h.p}</td></tr>`).join("")}</tbody></table>
-    <p class="fine">${d.illustrative}</p>
-  </section>
-
-  <section class="panel rv" id="positions"><div class="ph"><h2>${d.positionsTitle}</h2><span class="mono">${d.positionsSub}</span></div>
-    <table><thead><tr><th>${d.cols.position}</th><th>${d.cols.entry}</th><th>${d.cols.impact}</th></tr></thead>
-    <tbody>${t.cases.map(c => `<tr><td data-l="${d.cols.position}"><div><b>${c.url ? `<a href="${c.url}" ${ext}>${c.name}</a>` : c.name}</b> <span class="mono">${c.org} · ${c.role}</span><small>${caseBody(c)}</small></div></td><td data-l="${d.cols.entry}"><span class="mono" style="white-space:nowrap">${c.when}</span></td><td data-l="${d.cols.impact}"><span class="up">▲ ${c.impact}</span></td></tr>`).join("")}</tbody></table>
-  </section>
-
-  <div class="two">
-    <section class="panel rv" id="experience"><div class="ph"><h2>${t.h.experience}</h2></div>
-      <ul class="kv">${expSplit(t, e => `<li><span class="mono">${e.when}</span><span><b>${e.role}</b><br>${e.org}${e.note ? `<small style="display:block;color:var(--mut)">${e.note}</small>` : ""}</span></li>`)}</ul>
-    </section>
-    <div>
-      <section class="panel rv" id="about"><div class="ph"><h2>${t.h.about}</h2>${portrait()}</div>
-        <p>${t.about[0]}</p><p>${t.about[1]}</p><p>${t.about[2]}</p>${offClock()}
-        <ul class="kv">${t.finance.map(f => `<li><span class="mono">${f.k}</span><span>${f.v}</span></li>`).join("")}</ul>
-      </section>
-      <section class="panel rv" id="skills"><div class="ph"><h2>${t.h.skills}</h2></div>
-        <ul class="kv">${t.skills.map(s => `<li><span class="mono">${s.name}</span><span>${s.items.join(" · ")}</span></li>`).join("")}</ul>
-      </section>
-    </div>
-  </div>
-
-  <section class="panel rv" id="books"><div class="ph"><h2>${d.booksTitle}</h2></div>
-    <p>${t.booksIntro}</p>
-    <table><thead><tr><th>${d.cols.ticker}</th><th>${d.cols.title}</th><th>${d.cols.conviction}</th><th>${d.cols.thesis}</th></tr></thead>
-    <tbody>${content.books.map((b, i) => `<tr><td data-l="${d.cols.ticker}"><span class="t">${bookTk(b, i)}</span></td><td data-l="${d.cols.title}"><div><b>${b.url ? `<a href="${b.url}" ${ext}>${esc(b.title)}</a>` : esc(b.title)}</b><small>${esc(b.author)}</small></div></td><td data-l="${d.cols.conviction}"><span>${b.conviction ? `<span class="cv ${b.conviction}">${d.conviction[b.conviction]}</span>` : "—"}</span></td><td data-l="${d.cols.thesis}">${esc(b.note[lang] || "")}</td></tr>`).join("")}</tbody></table>
-  </section>
-
-  <div class="two">
-    <section class="panel rv" id="offers"><div class="ph"><h2>${t.h.services}</h2></div>
-      <ul class="kv">${t.services.map(s => `<li><span class="mono">${s.sub}</span><span><b>${s.name}</b><small style="display:block;color:var(--mut)">${svcBody(s)}</small></span></li>`).join("")}</ul>
-    </section>
-    <section class="panel rv" id="lab"><div class="ph"><h2>${t.h.lab}</h2></div>
-      <p>${t.labIntro}</p>
-      <ul class="kv">${t.lab.map(l => `<li style="grid-template-columns:1fr;gap:0"><b>${labName(l)}</b><span style="color:var(--mut)">${labMeta(l)}</span></li>`).join("")}</ul>
-    </section>
-  </div>
-
-  <section class="end rv" id="contact">
-    <p class="h">${d.talk}</p>
-    <p style="max-width:56ch;margin:0 auto 8px">${t.freelance}</p><p>${t.contactBody}</p>
-    <a class="btn" href="${mailto()}">${t.cta} →</a>
+  <section class="end" id="contact">
+    <div class="m">${t.h.contact}</div>
+    <p class="big">${d.talk}</p>
+    <p>${t.contactBody}</p>
+    <div class="act"><a class="btn" href="${mailto()}">${t.cta} ↗</a><a class="btn o" href="${L.linkedin}" ${ext}>LinkedIn</a></div>
   </section>
 </main>
-<footer><span class="mono">${t.footer.rights}</span><span class="mono">${footerLinks()}</span></footer>`;
-}
-function setM(i) {
-  activeM = i; $("#cap").textContent = T().d.milestones[i].l;
-  $$(".pt").forEach(p => p.classList.toggle("on", +p.dataset.m === i));
+<div class="pano">${city(t.illo)}</div>
+<footer><span class="m">${t.footer.rights}</span><span class="m">${footerLinks()}</span></footer>`;
 }
 document.addEventListener("click", e => {
   if (e.target.closest("[data-theme-btn]")) {
     theme = theme === "dark" ? "light" : "dark"; store.set("rj-theme", theme);
-    document.documentElement.dataset.theme = theme;
-    const y = scrollY; apply(); scrollTo(0, y); $("[data-theme-btn]").focus(); return;
+    document.documentElement.dataset.theme = theme; apply(); $("[data-theme-btn]").focus();
   }
-  const r = e.target.closest("[data-range]");
-  if (r) { range = r.dataset.range; activeM = -1; const y = scrollY; apply(); scrollTo(0, y); $(`[data-range="${range}"]`).focus(); return; }
-  const m = e.target.closest("[data-m]"); if (m) setM(+m.dataset.m);
 });
-document.addEventListener("mouseover", e => { const m = e.target.closest("[data-m]"); if (m) setM(+m.dataset.m); });
-document.addEventListener("focusin", e => { const m = e.target.closest("[data-m]"); if (m) setM(+m.dataset.m); });
 apply();
 </script>
 </body>
