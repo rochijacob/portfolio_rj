@@ -28,6 +28,10 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 
 **Publicado (2026-11-17).** La mezcla está en `main` (GitHub Pages). El empuje con `--force` está bloqueado en estas sesiones: para publicar, integrar `origin/main` en la rama con un merge normal y empujar `HEAD:main`.
 
+**Artículo escondido (decisión de Rocío, 2026-11-17):** le pareció perfecto, pero por ahora no va a la web. `site-K-case.html` vive solo en la rama de trabajo, **no en `main`**. Mientras siga así, no empujar la rama entera a `main`: los arreglos de la web se hacen sobre `origin/main` (checkout suelto, cambio, build, `git push origin HEAD:main`) y después se integran a la rama con un merge.
+
+**Loader, ajuste:** la panterita le quedaba gigante y sobre un fondo liso. Ahora mide la mitad (3 px por píxel) y el fondo del loader es el mismo papel punteado.
+
 **Artículo del caso (borrador, sin enlazar desde H):** `site-K-case.html` convierte el caso de trabajos finales en artículo sobre el esqueleto del artículo de A. Usa el texto de `cases` WK.04 tal cual y tres diagramas de cajas y flechas (antes, después, pasos del flujo), con rótulos en `content.*.caseArt`. Pendiente de Rocío: confirmar el orden de las piezas en el diagrama "después" (marcado `[REVISAR]`), y pasar cifras reales si quiere un gráfico (marcado `[COMPLETAR]`; no se dibujó ninguno para no inventar datos). Cuando lo apruebe, enlazarlo desde el caso en H.
 
 **Ajustes finales y publicación de la mezcla (2026-11-17, lo más reciente).** Rocío aprobó la mezcla con estos cambios y pidió publicarla:
