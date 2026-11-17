@@ -32,10 +32,10 @@ gtag('config', 'G-FFMYCXQZFJ');
 /* Design rules for this direction: one accent, hairlines instead of boxes, generous air,
    a neutral grotesk with small uppercase mono labels. The page is dotted sketch paper.
    If something needs a border to be understood, cut it. */
-:root{--bg:#f4f6f7;--acc:#5a8fb1;--ink:#003049;--soft:#4a6676;--hair:rgba(0,48,73,.16);--dot:rgba(0,48,73,.12);--blue:#1b5e85;
+:root{--bg:#f4f6f7;--acc:#5a8fb1;--ink:#003049;--soft:#4a6676;--hair:rgba(0,48,73,.16);--dot:rgba(0,48,73,.06);--blue:#1b5e85;
   --serif:"Instrument Serif",Georgia,serif;--hand:"Shantell Sans","Comic Sans MS",cursive;
   --txt:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"Geist Mono",ui-monospace,Menlo,Consolas,monospace}
-:root[data-theme=dark]{--bg:#00202f;--acc:#7fb2d2;--ink:#f0f4f6;--soft:#a3b9c5;--hair:rgba(240,244,246,.17);--dot:rgba(240,244,246,.072);--blue:#a9d0e8}
+:root[data-theme=dark]{--bg:#00202f;--acc:#7fb2d2;--ink:#f0f4f6;--soft:#a3b9c5;--hair:rgba(240,244,246,.17);--dot:rgba(240,244,246,.045);--blue:#a9d0e8}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg) radial-gradient(circle,var(--dot) 1.1px,transparent 1.3px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.7 var(--txt);font-feature-settings:"tnum";-webkit-font-smoothing:antialiased;padding-bottom:120px;transition:background-color .3s}
@@ -46,7 +46,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:99}
 .w{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
 /* Fade the sketch-paper dots behind reading areas without adding cards or changing the palette. */
-/* No veil behind content: the dots are simply lighter (80% of their previous opacity). */
+/* No veil behind content: the dots themselves are light (0.06 light, 0.045 dark). */
 .k{font:400 .75rem/1.6 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft)}
 .s{font-size:.875rem;color:var(--soft)}
 .hd{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 20px;min-height:76px}
@@ -72,7 +72,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .dock .lg a[aria-current=true]{background:var(--bg);color:var(--ink);opacity:1}
 @media(max-width:640px){.dock .lg a{width:40px;height:38px}}
 .hero{padding:clamp(28px,3.5vw,48px) 0 0}
-/* A little serif, on purpose: only the hero headline, the services title and the closing question. */
+/* A little serif, on purpose: only the hero headline and the closing question. */
 .hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:24px 48px;align-items:center}
 h1{font:400 clamp(2.7rem,1.5rem + 4.2vw,5rem)/1 var(--serif);letter-spacing:-.015em;margin:0;text-wrap:balance}
 h1 span{color:var(--acc);font-style:italic}
@@ -126,7 +126,7 @@ dl.f dt{font:400 .75rem/2 var(--mono);letter-spacing:.07em;text-transform:upperc
 .sec>h2 span{display:block;color:var(--soft)}
 .sec>div{grid-column:4/13;min-width:0}
 #offers{display:block}
-#offers>h2{position:static;font:italic 400 clamp(2rem,1.5rem + 2vw,2.8rem)/1.05 var(--serif);letter-spacing:0;margin-bottom:28px}
+#offers>h2{position:static;margin-bottom:24px}
 .services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-bottom:24px}
 .service h3{margin:0 0 10px}
 .service p{font-size:1rem;line-height:1.65;margin-bottom:8px;color:var(--soft)}
@@ -137,8 +137,8 @@ dl.f dt{font:400 .75rem/2 var(--mono);letter-spacing:.07em;text-transform:upperc
 .service dd{margin:0;color:var(--soft)}
 .svc-lead{font-size:clamp(1.3rem,1rem + 1vw,1.6rem);line-height:1.4;letter-spacing:-.02em;color:var(--ink);max-width:34ch;margin:0 0 18px;text-wrap:balance}
 .svc-facts{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0 0 48px;padding:0}
-.svc-facts li{font:400 .75rem/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;border:1px solid var(--hair);border-radius:6px;padding:9px 12px;color:var(--ink)}
-.svc-facts li:first-child{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,transparent)}
+.svc-facts li{font:400 .6875rem/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;border:1px solid var(--hair);border-radius:6px;padding:8px 11px;color:var(--soft)}
+.svc-facts li:first-child{border-color:color-mix(in srgb,var(--acc) 55%,transparent);background:color-mix(in srgb,var(--acc) 7%,transparent);color:var(--ink)}
 .ind{margin-top:40px;padding-top:24px;border-top:1px solid var(--hair)}
 .ind h3{font:400 .75rem/1.6 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft);margin:0 0 10px}
 .ind ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 28px}
@@ -325,28 +325,35 @@ function languageControl(t) {
     return `<${tag} ${attrs} data-lang="${next}" lang="${next}" aria-label="${next === 'es' ? 'Español' : 'English'}">${next.toUpperCase()}</${tag}>`;
   }).join('')}</span>`;
 }
-/* Temporary project illustrations (placeholders until there are real screenshots): clean rounded line
-   drawings with a light wash, in the same ink as the croquis. */
-const rr = (x, y, w, h, r, c = "outline", fill = true) => (fill ? `<rect class="wash" x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}"/>` : "") + `<rect class="${c}" x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}"/>`;
-const ln = (d, c = "detail") => `<path class="${c}" d="${d}"/>`;
-const skSvg = body => `<svg class="sk" viewBox="0 0 240 150" aria-hidden="true">${body}${ln("M36 138H204", "context")}</svg>`;
+/* Temporary project croquis (placeholders until there are real screenshots), in the language of the
+   Obelisk and the skyline: elevations on a hatched ground, one washed face, a dimension and figures for scale. */
+const G = 126, rp = (n, f) => Array.from({ length: n }, (_, i) => f(i)).join("");
+const ground = () => `<path d="M6 ${G}h228"/><path class="detail" d="${rp(15, i => `M${14 + i * 15.5} ${G + 4}l-4 6`)}"/>`;
+const fig = x => `<g class="context"><circle cx="${x}" cy="${G - 11}" r="1.6"/><path d="M${x} ${G - 8.5}v4.5m-2.2 4 2.2-4 2.2 4m-5.2-7 3-1.8 3 1.8"/></g>`;
+/* vertical dimension from y1 to y2 at x, with extension lines starting at x0 and the label rotated beside it */
+const dimV = (x0, x, y1, y2, label) => `<path class="guide" d="M${x0} ${y1}H${x + 4}M${x0} ${y2}H${x + 4}M${x} ${y1}V${y2}M${x - 3} ${y1 + 3}l6-6M${x - 3} ${y2 + 3}l6-6"/><text x="${x + 11}" y="${(y1 + y2) / 2}" text-anchor="middle" transform="rotate(-90 ${x + 11} ${(y1 + y2) / 2})">${label}</text>`;
+const skSvg = body => `<svg class="sk" viewBox="0 0 240 150" aria-hidden="true">${body}${ground()}</svg>`;
 const SKETCH = {
-  /* Gym chain app: the app on a phone (weekly visits and a check-in button) next to a dumbbell. */
-  "WK.01": () => skSvg(rr(56, 14, 60, 118, 10) + ln("M79 22H93") + ln("M66 36H96") +
-    [12, 20, 16, 28, 34].map((h, i) => rr(66 + i * 8, 88 - h, 5, h, 1, "guide")).join("") + ln("M64 88H106") +
-    rr(66, 102, 40, 14, 7, "detail") + ln("M78 109H94", "guide") +
-    ln("M134 80H210", "outline") + rr(142, 60, 9, 40, 2) + rr(152, 67, 6, 26, 2) + rr(193, 60, 9, 40, 2) + rr(186, 67, 6, 26, 2)),
-  /* Event platform: a ticket with a perforated stub, and a phone confirming the scan. */
-  "WK.02": () => skSvg(`<path class="wash" d="M30 40H110a6 6 0 0 0 12 0H144a6 6 0 0 1 6 6V104a6 6 0 0 1-6 6H122a6 6 0 0 0-12 0H30a6 6 0 0 1-6-6V46a6 6 0 0 1 6-6Z"/>` +
-    ln("M30 40H110a6 6 0 0 0 12 0H144a6 6 0 0 1 6 6V104a6 6 0 0 1-6 6H122a6 6 0 0 0-12 0H30a6 6 0 0 1-6-6V46a6 6 0 0 1 6-6Z", "outline") +
-    `<path class="guide" stroke-dasharray="3 4" d="M116 52V98"/>` + ln("M36 58H96M36 68H82") + ln("M36 90H62", "outline") +
-    rr(125, 64, 19, 19, 2, "detail", false) + rr(128, 67, 5, 5, 1, "guide") + rr(136, 75, 5, 5, 1, "guide") + rr(136, 67, 5, 5, 1, "guide") +
-    rr(170, 30, 46, 88, 8) + ln("M186 37H200") + `<circle class="guide" cx="193" cy="70" r="12"/>` + ln("M187 70l4 4 8-8", "guide") + ln("M183 96H203")),
-  /* Final-project tracking: a three-column board where projects move along and get ticked off. */
-  "WK.04": () => skSvg(rr(30, 20, 180, 112, 8, "outline", false) + ln("M30 38H210M90 38V132M150 38V132") + ln("M40 29H62M100 29H122M160 29H182") +
-    [48, 70, 92].map(y => rr(38, y, 44, 16, 3, "detail")).join("") + [48, 70].map(y => rr(98, y, 44, 16, 3, "detail")).join("") +
-    [48, 70, 92].map(y => rr(158, y, 44, 16, 3, "detail") + ln(`M164 ${y + 8}l3 3 6-6`, "guide") + ln(`M178 ${y + 8}H196`)).join("") +
-    `<path class="guide" stroke-dasharray="3 4" d="M120 92C124 108 140 112 156 104"/>` + ln("M150 101l6 3-3 6", "guide"))
+  /* Gym chain app: the phone standing like a building, its screen a chart of daily users; a dumbbell on the floor. */
+  "WK.01": () => skSvg(`<path class="wash" d="M100 26h8v100h-8Z"/><path class="outline" d="M60 126V26h48v100"/>` +
+    `<path class="detail" d="M100 26v100M65 34h30v80H65ZM74 30h12M70 104h20"/>` +
+    `<path class="detail" d="${rp(5, i => { const h = [10, 18, 14, 26, 34][i]; return `M${69 + i * 5} 96v-${h}h3v${h}`; })}M67 96h26"/>` +
+    dimV(56, 44, 26, 126, "500K+") +
+    `<path class="outline" d="M140 ${G}v-22h8v22M149 ${G - 5}v-12h5v12M154 ${G - 11}h34M188 ${G - 5}v-12h5v12M194 ${G}v-22h8v22"/>` + `<path class="wash" d="M140 ${G - 22}h8v22h-8ZM194 ${G - 22}h8v22h-8Z"/>` +
+    fig(124) + fig(216)),
+  /* Event platform: a festival stage in elevation, truss and speakers, a crowd for scale; the span measures the reach. */
+  "WK.02": () => skSvg(`<path class="wash" d="M56 100h128v8H56Z"/>` +
+    `<path class="outline" d="M40 ${G}V30h160v${G - 30}M48 ${G}V40h144v${G - 40}M40 40h8m144 0h8M56 100h128v8H56Z"/>` +
+    `<path class="detail" d="${rp(16, i => `M${48 + i * 9} 30l4.5 10 4.5-10`)}${rp(9, i => `M40 ${40 + i * 9.5}l8 4.75-8 4.75`)}${rp(9, i => `M192 ${40 + i * 9.5}l8 4.75-8 4.75`)}M60 100V74h16v26M164 100V74h16v26M64 80h8M64 88h8M168 80h8M168 88h8M56 108v18m128-18v18"/>` +
+    `<path class="guide" stroke-dasharray="2 3" d="M92 40l-10 40M120 40v40M148 40l10 40"/>` +
+    `<path class="guide" d="M40 24V14m160 10V14M40 18h160M43 21l-6-6m166 6-6-6"/><text x="120" y="12" text-anchor="middle">15K+</text>` +
+    fig(84) + fig(98) + fig(118) + fig(136) + fig(152)),
+  /* Final-project tracking: the university facade (pediment, columns, steps) beside a measured stack of projects. */
+  "WK.04": () => skSvg(`<path class="wash" d="M40 50l60-22 60 22Z"/>` +
+    `<path class="outline" d="M36 50l64-24 64 24ZM40 50v8h120v-8M36 112h128M30 119h140M24 ${G}h152"/>` +
+    `<path class="detail" d="M48 50l52-19 52 19M40 54h120${rp(6, i => `M${46 + i * 21} 58v54m6-54v54m-7-54h8m-8 54h8`)}M96 112V84h8v28"/>` +
+    `<path class="outline" d="M186 ${G}V74h28v${G - 74}"/><path class="detail" d="${rp(16, i => `M186 ${77 + i * 3}h28`)}M190 70h28v4"/>` +
+    dimV(216, 228, 74, G, "100+") + fig(176)),
 };
 function render(t) {
   const h1 = `${esc(t.heroPitch.slice(0, -t.heroAccent.length))}<span>${esc(t.heroAccent)}</span>`;
