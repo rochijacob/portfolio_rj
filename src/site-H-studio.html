@@ -32,10 +32,10 @@ gtag('config', 'G-FFMYCXQZFJ');
 /* Design rules for this direction: one accent, hairlines instead of boxes, generous air,
    a neutral grotesk with small uppercase mono labels. The page is dotted sketch paper.
    If something needs a border to be understood, cut it. */
-:root{--bg:#f4f6f7;--acc:#5a8fb1;--ink:#003049;--soft:#4a6676;--hair:rgba(0,48,73,.16);--dot:rgba(0,48,73,.15);--blue:#1b5e85;
+:root{--bg:#f4f6f7;--acc:#5a8fb1;--ink:#003049;--soft:#4a6676;--hair:rgba(0,48,73,.16);--dot:rgba(0,48,73,.12);--blue:#1b5e85;
   --serif:"Instrument Serif",Georgia,serif;--hand:"Shantell Sans","Comic Sans MS",cursive;
   --txt:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"Geist Mono",ui-monospace,Menlo,Consolas,monospace}
-:root[data-theme=dark]{--bg:#00202f;--acc:#7fb2d2;--ink:#f0f4f6;--soft:#a3b9c5;--hair:rgba(240,244,246,.17);--dot:rgba(240,244,246,.09);--blue:#a9d0e8}
+:root[data-theme=dark]{--bg:#00202f;--acc:#7fb2d2;--ink:#f0f4f6;--soft:#a3b9c5;--hair:rgba(240,244,246,.17);--dot:rgba(240,244,246,.072);--blue:#a9d0e8}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg) radial-gradient(circle,var(--dot) 1.1px,transparent 1.3px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.7 var(--txt);font-feature-settings:"tnum";-webkit-font-smoothing:antialiased;padding-bottom:120px;transition:background-color .3s}
@@ -46,7 +46,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:99}
 .w{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
 /* Fade the sketch-paper dots behind reading areas without adding cards or changing the palette. */
-.reading{background:color-mix(in srgb,var(--bg) 86%,transparent);box-shadow:0 0 32px 24px color-mix(in srgb,var(--bg) 86%,transparent)}
+/* No veil behind content: the dots are simply lighter (80% of their previous opacity). */
 .k{font:400 .75rem/1.6 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft)}
 .s{font-size:.875rem;color:var(--soft)}
 .hd{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 20px;min-height:76px}
@@ -108,12 +108,11 @@ h1 span{color:var(--acc);font-style:italic}
 .pick .met{margin-top:auto;padding-top:14px;font-size:.875rem;line-height:1.4;color:var(--soft)}
 .pick .met .n{display:block;font:500 1.6rem/1.1 var(--txt);letter-spacing:-.03em;color:var(--ink);margin-bottom:2px}
 .pick .go{font-size:.875rem;font-weight:500;color:var(--blue);margin-top:10px}
-.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:40px;padding:clamp(72px,8vw,112px) 0 0;scroll-margin-top:24px}
-.feat h2{font:500 clamp(1.65rem,2.7vw,2.25rem)/1.14 var(--txt);letter-spacing:-.035em;margin:14px 0 16px;text-wrap:balance}
-.feat .case-summary{font-size:1.125rem;color:var(--soft);line-height:1.55;margin-bottom:20px;max-width:36ch}
-.feat .case-result{font-size:1.125rem;font-weight:500;color:var(--blue);line-height:1.5;margin-bottom:0}
-.feat>div:first-child{grid-column:1/7}.feat>div:last-child{grid-column:7/13}
-.feat p{font-size:1.125rem;line-height:1.6;max-width:50ch}
+.pick{order:var(--o)}.pick[aria-expanded=true]{border-color:var(--ink)}
+.pick .go i{display:inline-block;font-style:normal;transition:transform .25s}.pick[aria-expanded=true] .go i{transform:rotate(90deg)}
+.case{order:4;grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px 48px;padding:28px 0 8px;scroll-margin-top:24px}
+.case p{font-size:1.0625rem;line-height:1.65;max-width:60ch;margin:0}.case dl.f{margin:0}
+.js .case:not(.on){display:none}
 dl.f{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);border-top:1px solid var(--hair)}
 dl.f dt,dl.f dd{margin:0;padding:16px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
 dl.f dt{font:400 .75rem/2 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft)}
@@ -216,7 +215,8 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
 @media(max-width:860px){
   .hero{grid-template-columns:minmax(0,1fr)}.hero h1{hyphens:auto;overflow-wrap:anywhere}.fig{justify-self:center;max-width:340px;margin-top:0;display:flex;align-items:center;gap:16px}
   .fig .sk{width:50%;height:190px;flex:none}.note{position:static;width:auto;min-width:0;flex:1}.note svg{display:none}
-  .sec,.feat{display:block}.sec>h2{position:static}
+  .sec{display:block}.sec>h2{position:static}
+  .case{grid-template-columns:1fr;order:var(--o)}
   .pk{grid-template-columns:1fr;max-width:520px;gap:16px}
   .services{grid-template-columns:1fr;gap:36px}
   .service{max-width:60ch}
@@ -234,8 +234,7 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   .today{font-size:1.0625rem}
   .cta .btn{flex:1 1 auto;justify-content:center}
   .city{width:860px;max-width:none;margin-left:calc(50% - 430px)}.city text{font-size:11px;letter-spacing:.08em}
-  .sec{padding-top:88px}.feat{padding-top:64px}
-  .feat h2{margin-bottom:16px}.feat>div+div{margin-top:20px}.feat p{font-size:1.0625rem}
+  .sec{padding-top:88px}
   .xp li{grid-template-columns:1fr}.xp .k{text-align:left;grid-row:1}
   .steps li{grid-template-columns:24px minmax(0,1fr);gap:4px 12px}.steps li>.k{grid-row:1/3}.steps li>.s{grid-column:2}
   .cols{gap:36px 24px}
@@ -278,7 +277,7 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   .btn:hover{transform:translateY(-1px)}.btn:active{transform:translateY(0)}
   .pick{transition:border-color .2s,transform .25s var(--ease)}.pick:hover{transform:translateY(-2px)}
   .pick .go{transition:transform .25s var(--ease)}.pick:hover .go{transform:translateX(3px)}
-  details[open]>.b,details[open]>dl{animation:unfold .3s var(--ease)}
+  details[open]>.b,details[open]>dl,.case.on{animation:unfold .3s var(--ease)}
   @keyframes unfold{from{opacity:.3;transform:translateY(-4px)}}
   .dock .cat{transition:transform .25s ease-out}
   #loader svg:first-child{animation:stepa .5s steps(1) infinite}#loader svg+svg{animation:stepb .5s steps(1) infinite}
@@ -297,6 +296,8 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
 let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 document.documentElement.dataset.theme = theme;
 const DOCK = [["work", "work"], ["offers", "services"], ["about", "about"], ["contact", "contact"]];
+let openCase = null;
+document.documentElement.classList?.add("js");
 const MAIN = ["WK.01", "WK.02", "WK.04"];
 const trackedViews = new Set();
 let analyticsObserver;
@@ -361,9 +362,8 @@ function render(t) {
     <figure class="fig">${obelisk(t.j.opts[0].alt)}<p class="note"><svg viewBox="0 0 74 40" aria-hidden="true"><path d="M70 6C52 4 30 10 14 30"/><path d="M12 18l1 13 13-3"/></svg>${t.a.notes.here}</p></figure>
   </div>
 
-  <div id="work"><section class="picks" data-track-view="section_view" data-track-id="work"><h2>${t.talk.work}</h2><div class="pk">${main.map(c => { const f = t.featured[c.code]; return `<a class="pick" href="#${fid(c)}" data-track-event="select_content" data-track-content-type="project" data-track-content-id="${c.code}"><span class="pic">${SKETCH[c.code]()}</span><span class="tx"><span class="k">${c.org} · ${c.when}</span><b>${f.title}</b><span class="sum">${f.summary}</span><span class="met"><span class="n">${f.number}</span>${f.label}</span><span class="go">${t.viewCase} ›</span></span></a>`; }).join("")}</div></section>
-  ${main.map(c => { const f = t.featured[c.code]; return `<section class="feat" id="${fid(c)}" data-track-view="project_view" data-track-id="${c.code}"><div class="reading"><span class="k">${c.org} · ${c.when}</span><h2>${f.title}</h2><p class="case-summary">${f.summary}</p><p class="case-result">${c.impact}</p>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div>
-    <div class="reading"><p>${c.body}</p><dl class="f"><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl></div></section>`; }).join("")}
+  <div id="work"><section class="picks" data-track-view="section_view" data-track-id="work"><h2>${t.talk.work}</h2><div class="pk">${main.map((c, i) => { const f = t.featured[c.code]; return `<a class="pick" href="#${fid(c)}" style="--o:${i * 2}" aria-controls="${fid(c)}" aria-expanded="${openCase === c.code}" data-case="${c.code}" data-track-event="select_content" data-track-content-type="project" data-track-content-id="${c.code}"><span class="pic">${SKETCH[c.code]()}</span><span class="tx"><span class="k">${c.org} · ${c.when}</span><b>${f.title}</b><span class="sum">${f.summary}</span><span class="met"><span class="n">${f.number}</span>${f.label}</span><span class="go">${t.viewCase} <i aria-hidden="true">›</i></span></span></a>`; }).join("")}
+    ${main.map((c, i) => `<div class="case${openCase === c.code ? " on" : ""}" id="${fid(c)}" style="--o:${i * 2 + 1}" data-track-view="project_view" data-track-id="${c.code}"><div><p>${c.body}</p>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div><dl class="f"><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl></div>`).join("")}</div></section>
     <details class="fold related reading" id="more-work"><summary><h3>${t.moreWork}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b">${rest.map(c => `<h4>${c.name}</h4><p class="s">${c.org} · ${c.role} · ${c.when}</p><p>${caseBody(c)}</p>`).join("")}</div></details>
   </div>
 
@@ -410,7 +410,7 @@ function observeAnalytics() {
 let softIO;
 function soften() {
   if (softIO) softIO.disconnect();
-  const els = $$(".feat > div, .sec > div, .end");
+  const els = $$(".sec > div, .end");
   if (calm.matches || !("IntersectionObserver" in window)) return;
   softIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove("pre"); softIO.unobserve(e.target); } }), { rootMargin: "0px 0px -6% 0px" });
   els.forEach(el => { el.classList.add("soft"); if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("pre"); softIO.observe(el); } });
@@ -454,6 +454,15 @@ document.addEventListener("click", e => {
     }
   }
   track(target.dataset.trackEvent, parameters);
+});
+/* A project box opens its case right below the row (below the box itself on a phone). One at a time. */
+document.addEventListener("click", e => {
+  const a = e.target.closest("[data-case]"); if (!a) return;
+  e.preventDefault();
+  openCase = openCase === a.dataset.case ? null : a.dataset.case;
+  $$("[data-case]").forEach(x => x.setAttribute("aria-expanded", x.dataset.case === openCase));
+  $$(".case").forEach(x => x.classList.toggle("on", x.id === "f" + (openCase || "").replace(".", "")));
+  if (openCase) track("case_open", { project_code: openCase });
 });
 document.addEventListener("toggle", e => {
   if (e.target.matches("details.more") && e.target.open) track("case_open", { project_code: e.target.id.replace("case-", "") });

@@ -34,7 +34,7 @@ const shots = process.env.SHOTS;
       assert.ok(await page.evaluate(() => dataLayer.some(item => item[0] === 'config' && item[1] === 'G-FFMYCXQZFJ')), 'GA4 configuration is missing');
       const experienceText = await page.locator('#experience').textContent();
       for (const employer of ['Universidad de San Andrés', 'Accenture', 'Muvinai']) assert.ok(experienceText.includes(employer), `${employer} is missing from experience`);
-      assert.ok((await page.locator('.feat .k').first().textContent()).includes(lang === 'es' ? 'Estudio de software' : 'Software studio'), 'Project case should remain anonymized');
+      assert.ok((await page.locator('.pick .k').first().textContent()).includes(lang === 'es' ? 'Estudio de software' : 'Software studio'), 'Project case should remain anonymized');
       assert.ok(layout.shelfOverflow <= 1 && layout.shelfVertical <= 1, 'Books overflow internally');
       assert.ok(layout.social, 'A header contact link is hidden');
       assert.deepEqual(errors, []);
