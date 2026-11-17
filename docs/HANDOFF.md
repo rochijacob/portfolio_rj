@@ -26,6 +26,20 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 | `site-D-ledger.html` | D · Ledger | Barlow Condensed + Barlow + IBM Plex Mono | Hero solo tipográfico enorme; cinta de cifras; historia `[01]`–`[04]` con tags de pares; tesis; track record que se abre; el croquis baja al pie como panorama de cierre (la respuesta a "¿qué hacemos en el hero si la ilustración va al footer?"). Se quitaron el gráfico y las tenencias |
 | `site-I-talk.html` | I · Charla (nueva) | Instrument Serif + Hanken Grotesk | Wording conversacional estilo 10xshivam: links como chips de borde punteado dentro de las frases, títulos de sección con voz. Textos en `content.*.talk` |
 
+**Primera devolución de Rocío sobre el laboratorio (2026-11-17, lo más reciente):**
+
+- Le gusta el serif (A, I), "aunque hay secciones que no me gustan": **falta que diga cuáles**.
+- Le encantan las notas a mano, sobre todo la del croquis ("mi base. Trabajo remoto desde acá"). Condición: al achicar el navegador no pueden generar desborde. La nota del croquis ahora queda siempre superpuesta al cielo del dibujo (no baja como bloque aparte); barrido de 320 a 1600 px sin desborde horizontal en todas las variantes.
+- Botones "más cuadrados con redondeo": 10 px de radio en A, J y **también en H** (pidió "desredondear los bordes" de H: dock 14 px, links y botones 10 px, tags 6 px). No volver a las píldoras de 999 px.
+- La nota de la app va en pasado: "una app que la gente abría todos los días" (ya no trabaja ahí).
+- El artículo de A "está buenísimo". I · Charla le "encantó".
+- B le encantó pero la siente "demasiado creativa": **se conserva tal cual**, por si algún día quiere virar hacia eso. No llevar sus ideas a H por ahora.
+- De D le gusta que Buenos Aires quede como pie.
+- **Panterita de H:** pidió que "camine" de verdad. Ahora alterna dos cuadros (`CAT` y `CAT_STEP` en `core.js`, patas separadas y juntas) cada 28 px de scroll, y se da vuelta cuando la página sube. Con reducir movimiento sigue quieta.
+- **Hero:** si el skyline baja al pie, quiere una ilustración a la derecha del hero (como teodorovillanueva.com), con la misma línea del croquis. Sus ideas: enfatizar el Obelisco, o la ciudad vista desde arriba como plano de calles, o cosas que le gusten mucho. `site-J-hero.html` es un boceto con tres opciones dentro de un hero real (Obelisco de cerca, plano del centro, bandeja de DJ) y el skyline como cierre. **Falta que elija.** Los dibujos son esquemáticos, no a escala.
+
+Estos cambios de H están en la rama de trabajo, **no publicados** (`main` sigue igual hasta que lo pida).
+
 `compare.html` es la portada del laboratorio. Los textos nuevos de I (`content.*.talk`), las notas a mano de A (`content.*.a.notes`) y los rótulos del manual de B (`content.*.b.man`) los redactó el agente con hechos que ya estaban en el sitio: **falta el visto bueno de Rocío**.
 
 El croquis (`city()`) se movió de la plantilla de H a `core.js` para que lo usen A y D. `scripts/check-same.js` verifica que H renderice idéntica (guardar referencia con `--save` antes de tocar algo compartido). `scripts/check-lab.js` prueba el tema al cambiar idioma, la demo del artículo (mouse y táctil sin scroll) y que los bichitos de B no tapen controles.

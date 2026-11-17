@@ -34,7 +34,7 @@ header nav a{font:400 .75rem var(--mono);letter-spacing:.08em;text-transform:upp
 .lang{display:inline-flex;align-items:center;font:400 .75rem var(--mono);color:var(--soft)}
 .lang button,.theme{min-width:40px;min-height:40px;font:400 .75rem var(--mono)}
 .lang button[aria-pressed=true]{color:var(--ink);text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:4px}
-.theme{border:1px solid var(--line);border-radius:50%;font-size:1rem;color:var(--ink)}
+.theme{border:1px solid var(--line);border-radius:10px;font-size:1rem;color:var(--ink)}
 /* The page is one reading column; the margin to its right is for notes. */
 .page{max-width:720px}
 .anch{position:relative}
@@ -44,7 +44,7 @@ h1{font:400 clamp(2.9rem,1.6rem + 5vw,5.4rem)/.98 var(--serif);letter-spacing:-.
 h1 em{color:var(--acc)}
 .intro{font-size:1.2rem;color:var(--soft);max-width:34em;margin:28px 0 0}
 .cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin:30px 0 0}
-.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 24px;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 24px;border-radius:10px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:500}
 .cta a:not(.btn),.skip{display:inline-flex;align-items:center;min-height:44px}
 .btn:hover{color:var(--bg);background:var(--acc)}
 .cityw{width:min(1064px,calc(100vw - 56px));margin:56px 0 0;position:relative}
@@ -88,9 +88,9 @@ p{margin:0 0 1em}
 .contact h2{font-size:clamp(2.6rem,1.6rem + 4vw,4.6rem)}
 footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;padding:72px 0 48px}
 footer a{display:inline-block;padding:10px 0;margin-right:18px}
-@media(max-width:1180px){.note,.cityw .note{position:static;width:auto;max-width:300px;margin:14px 0 0 6px}.anch{display:flex;flex-direction:column}.anch>.note{order:9}.note svg{transform:scaleY(-1);height:30px}}
+@media(max-width:1180px){.note{position:static;width:auto;max-width:300px;margin:14px 0 0 6px}.cityw .note{position:absolute;margin:0;width:200px}.anch{display:flex;flex-direction:column}.anch>.note{order:9}.note svg{transform:scaleY(-1);height:30px}}
 @media(max-width:980px){.nums,.svc{grid-template-columns:1fr}.tl li{grid-template-columns:1fr;gap:0}}
-@media(max-width:640px){.wrap{padding:0 18px}h1{margin-top:28px}section{margin-top:88px}.cityw{overflow:hidden}.city{width:860px;max-width:none;margin-left:calc(50% - 430px)}.city text{font-size:11px}header nav{display:none}.btn{width:100%;justify-content:center}}
+@media(max-width:640px){.wrap{padding:0 18px}h1{margin-top:28px}section{margin-top:88px}.cityw{overflow:hidden}.city{width:860px;max-width:none;margin-left:calc(50% - 430px)}.city text{font-size:11px}.cityw{padding-top:64px}.cityw .note{left:2px;top:0;width:170px;font-size:1rem}header nav{display:none}.btn{width:100%;justify-content:center}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -256,6 +256,13 @@ const content = {
     contactBody: "Tell me what you are building. I answer every email.",
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "View", close: "Close", open: "Open", repo: "Repository",
+    /* J · Hero sketches (lab spike): options for the hero illustration if the skyline moves to the footer. */
+    j: { title: "Hero sketches", lead: "If the Buenos Aires skyline closes the page, the hero needs its own drawing. Three options in the same line style.",
+      opts: [
+        { k: "Option 1", name: "The Obelisk, up close", why: "One landmark instead of four. It keeps Buenos Aires in the hero without repeating the footer.", note: "home base. I work remotely from here", alt: "Architectural drawing of the Obelisk of Buenos Aires with trees, people and a height dimension" },
+        { k: "Option 2", name: "Downtown from above", why: "A street plan: 9 de Julio, the diagonals, the docks and the river. The city as a map, the skyline as the closing view.", note: "home base. I work remotely from here", alt: "Schematic street plan of downtown Buenos Aires seen from above, with the Obelisk marked" },
+        { k: "Option 3", name: "The turntable", why: "Something of mine, drawn like a technical plan. More personal, less about the city.", note: "off the clock, I DJ", alt: "Technical drawing of a turntable seen from above" }
+      ], foot: "And the skyline closes the page", schematic: "Schematic drawings, not to scale." },
     /* I · Charla (lab): conversational copy. Drafted by the agent from facts already on the site; pending Rocío's OK. */
     talk: {
       hello: "Hi, I'm Rocío.", tags: ["product", "operations", "business"],
@@ -281,7 +288,7 @@ const content = {
     a: {
       hero: "Hi, I'm Rocío. I'm a <a class=\"chip\" href=\"#work\">product engineer</a> in Buenos Aires. I turn manual operations into digital products and automated workflows. I taught myself to code in 2021 from <a class=\"chip\" href=\"#books\">books</a> and the open web. Since then I have built an app that 40K people open every day, led a team of six, and worked in <a class=\"chip\" href=\"#finance\">finance</a>. Now I am teaching Corporate Finance and getting ready for a Master in Finance (April 2027).",
       kicker: "A notebook, kept in public", cardNow: "Now", cardNowBody: "Building automation, BI and AI for a university. Teaching Corporate Finance. MFin starts April 2027.", cardReading: "Reading", cardReadingLink: "Books I've read",
-      notes: { self: "self-taught, since 2021", here: "home base. I work remotely from here", big: "the app people open every day", read: "I read first, then build", lab: "the draft is open", bye: "I answer every email" },
+      notes: { self: "self-taught, since 2021", here: "home base. I work remotely from here", big: "an app people opened every day", read: "I read first, then build", lab: "the draft is open", bye: "I answer every email" },
       split: ["I turn manual operations", "into digital products and automated workflows."],
       pick: "Picked from the notebook", readDraft: "Read the draft", nowTitle: "Now"
     },
@@ -461,6 +468,12 @@ const content = {
     contactBody: "Contame en qué estás trabajando. Respondo todos los mails.",
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "Ver", close: "Cerrar", open: "Abrir", repo: "Repositorio",
+    j: { title: "Bocetos de hero", lead: "Si el skyline de Buenos Aires cierra la página, el hero necesita su propio dibujo. Tres opciones con la misma línea.",
+      opts: [
+        { k: "Opción 1", name: "El Obelisco, de cerca", why: "Un solo hito en vez de cuatro. Buenos Aires sigue en el hero sin repetir el pie.", note: "mi base. Trabajo remoto desde acá", alt: "Croquis arquitectónico del Obelisco de Buenos Aires con árboles, personas y una cota de altura" },
+        { k: "Opción 2", name: "El centro desde arriba", why: "Un plano de calles: la 9 de Julio, las diagonales, los diques y el río. La ciudad como mapa y el skyline como cierre.", note: "mi base. Trabajo remoto desde acá", alt: "Plano esquemático del centro de Buenos Aires visto desde arriba, con el Obelisco marcado" },
+        { k: "Opción 3", name: "La bandeja", why: "Algo mío, dibujado como un plano técnico. Más personal, menos ciudad.", note: "fuera del trabajo, soy DJ", alt: "Dibujo técnico de una bandeja giradiscos vista desde arriba" }
+      ], foot: "Y el skyline cierra la página", schematic: "Dibujos esquemáticos, no a escala." },
     talk: {
       hello: "Hola, soy Rocío.", tags: ["producto", "operaciones", "negocio"],
       intro: "Convierto lo manual (planillas sueltas, mails copiados a mano, procesos que viven en la cabeza de alguien) en productos y flujos automáticos. Aprendí a programar sola en 2021 y no paré.",
@@ -483,7 +496,7 @@ const content = {
     a: {
       hero: "Hola, soy Rocío, <a class=\"chip\" href=\"#work\">product engineer</a> en Buenos Aires. Transformo procesos manuales en productos digitales y flujos automatizados. Aprendí a programar sola en 2021, con <a class=\"chip\" href=\"#books\">libros</a> y la web. Desde entonces hice una app que 40 mil personas abren todos los días, lideré un equipo de seis y trabajé en <a class=\"chip\" href=\"#finance\">finanzas</a>. Hoy doy clases de Finanzas Corporativas y en abril de 2027 empiezo una Maestría en Finanzas.",
       kicker: "Un cuaderno abierto", cardNow: "Ahora", cardNowBody: "Automatización, BI e IA para una universidad. Dando Finanzas Corporativas. El MFin arranca en abril de 2027.", cardReading: "Leyendo", cardReadingLink: "Libros que leí",
-      notes: { self: "autodidacta, desde 2021", here: "mi base. Trabajo remoto desde acá", big: "la app que se abre todos los días", read: "primero leo, después construyo", lab: "el borrador está abierto", bye: "respondo todos los mails" },
+      notes: { self: "autodidacta, desde 2021", here: "mi base. Trabajo remoto desde acá", big: "una app que la gente abría todos los días", read: "primero leo, después construyo", lab: "el borrador está abierto", bye: "respondo todos los mails" },
       split: ["Transformo procesos manuales", "en productos digitales y flujos automatizados."],
       pick: "Elegido del cuaderno", readDraft: "Leer el borrador", nowTitle: "Ahora"
     },
@@ -601,6 +614,8 @@ const MASCOTS = {
   sit: ["..X...X.....", "..XXXXX.....", "..XoXoX.....", "..XXXXX.....", "...XXX......", "..XXXXX.....", "..XXXXXX....", ".XXXXXXX....", ".XXXXXXX...X", ".XXXXXXXX..X", ".XXXXXXXX..X", ".XX.XXXXX.X.", ".XX.XXXXXXX.", "XXX.XXX....."]
 };
 const CAT = MASCOTS[MASCOT];
+/* Second walking frame for the cat: legs together. Alternating it with CAT reads as steps. */
+const CAT_STEP = [...MASCOTS.cat.slice(0, 8), "....XX....XX..", "....XX....XX.."];
 const pixelCat = (px = 4, grid = CAT) => `<svg width="${grid[0].length * px}" height="${grid.length * px}" viewBox="0 0 ${grid[0].length} ${grid.length}" shape-rendering="crispEdges" aria-hidden="true">` +
   grid.map((r, j) => [...r].map((c, i) => c === "." ? "" : `<rect x="${i}" y="${j}" width="1" height="1" fill="${c === "o" ? "#003049" : PINK}"/>`).join("")).join("") + `</svg>`;
 document.head.insertAdjacentHTML("beforeend", `<style>.eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px;margin-right:8px}.eq i{width:3px;height:14px;background:${PINK};transform-origin:bottom;animation:eq .9s ease-in-out infinite alternate}.eq i:nth-child(2){animation-delay:-.3s}.eq i:nth-child(3){animation-delay:-.6s}.eq i:nth-child(4){animation-delay:-.15s}@keyframes eq{from{transform:scaleY(.2)}to{transform:scaleY(1)}}@media(prefers-reduced-motion:reduce){.eq i{animation:none;transform:scaleY(.6)}}</style>`);

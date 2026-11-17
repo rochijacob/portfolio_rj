@@ -36,19 +36,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hd{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 20px;min-height:76px}
 .hd .me{font-weight:600;text-decoration:none;padding:10px 0;letter-spacing:-.01em}
 .hd .k a{text-decoration:none;padding:12px 0;margin-left:18px}
-.dock{position:fixed;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:2px;padding:5px;background:var(--ink);border-radius:999px;max-width:calc(100vw - 16px);box-shadow:0 10px 30px -12px rgba(0,48,73,.55)}
-.dock a{color:var(--bg);text-decoration:none;font-size:.875rem;width:96px;padding:10px 0;text-align:center;border-radius:999px;white-space:nowrap;transition:background .2s}
+.dock{position:fixed;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:2px;padding:5px;background:var(--ink);border-radius:14px;max-width:calc(100vw - 16px);box-shadow:0 10px 30px -12px rgba(0,48,73,.55)}
+.dock a{color:var(--bg);text-decoration:none;font-size:.875rem;width:96px;padding:10px 0;text-align:center;border-radius:10px;white-space:nowrap;transition:background .2s}
 .dock a:hover{color:var(--bg);background:color-mix(in srgb,var(--bg) 16%,transparent)}
 .dock a[aria-current=location]{background:var(--bg);color:var(--ink)}
 .dock .cat{position:absolute;bottom:100%;left:16px;line-height:0;will-change:transform}
+.dock .cat svg+svg,.dock .cat[data-f="1"] svg:first-child{display:none}.dock .cat[data-f="1"] svg+svg{display:block}.dock .cat.back svg{transform:scaleX(-1)}
 .dock .lks{display:flex;gap:2px}.dock .mn{display:none}
 .dock i{width:1px;height:20px;background:color-mix(in srgb,var(--bg) 30%,transparent);margin:0 4px}
-.dock button{color:var(--bg);min-width:40px;height:40px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:5px;transition:background .2s}
+.dock button{color:var(--bg);min-width:40px;height:40px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;gap:5px;transition:background .2s}
 .dock button:hover{background:color-mix(in srgb,var(--bg) 16%,transparent)}
 .dock button:focus-visible,.dock a:focus-visible{outline-color:var(--acc)}
 .dock button svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.dock .lg{display:inline-flex;align-items:center;gap:2px;padding:3px;border-radius:999px;background:color-mix(in srgb,var(--bg) 14%,transparent)}
-.dock .lg button{width:38px;min-width:0;height:34px;font:500 .75rem var(--mono);letter-spacing:.06em;opacity:.78;transition:background .2s,color .2s,opacity .2s}
+.dock .lg{display:inline-flex;align-items:center;gap:2px;padding:3px;border-radius:10px;background:color-mix(in srgb,var(--bg) 14%,transparent)}
+.dock .lg button{border-radius:8px;width:38px;min-width:0;height:34px;font:500 .75rem var(--mono);letter-spacing:.06em;opacity:.78;transition:background .2s,color .2s,opacity .2s}
 .dock .lg button:hover{opacity:1}
 .dock .lg button[aria-pressed=true]{background:var(--bg);color:var(--ink);opacity:1}
 .hero{padding:clamp(28px,3.5vw,48px) 0 0}
@@ -57,7 +58,7 @@ h1 span{color:var(--acc)}
 .today{margin:24px 0 0;max-width:64ch;font-size:1.125rem;color:var(--soft)}
 .availability{margin:12px 0 0;font-size:.875rem;color:var(--soft)}
 .cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:28px}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);padding:14px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:.9375rem;border:1px solid var(--ink);transition:background .2s,color .2s}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:500;font-size:.9375rem;border:1px solid var(--ink);transition:background .2s,color .2s}
 .btn:hover{background:var(--blue);border-color:var(--blue);color:var(--bg)}
 .btn.o{background:transparent;color:var(--ink)}.btn.o:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .cta .k{margin-left:auto}
@@ -103,7 +104,7 @@ p{margin:0 0 1.1em;max-width:56ch;text-wrap:pretty}
 .cols h3{margin:12px 0 14px}.cols p{font-size:.9688rem;margin:0;line-height:1.65}
 .c4 h3{font-size:1.125rem}
 .tags{display:flex;flex-wrap:wrap;gap:10px;margin:52px 0 0;padding:0;list-style:none}
-.tags li{font:400 .6875rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;border:1px solid var(--ink);border-radius:999px;padding:8px 13px;background:var(--bg)}
+.tags li{font:400 .6875rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;border:1px solid var(--ink);border-radius:6px;padding:8px 13px;background:var(--bg)}
 ul.r{list-style:none;margin:0;padding:0}
 ul.r>li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:4px 24px;padding:21px 0;border-top:1px solid var(--hair)}
 ul.r>li:first-child{border-top:0;padding-top:0}
@@ -187,9 +188,9 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   .dock .mn{display:inline-flex;padding:0 16px;font-size:.9375rem;width:132px;min-width:0;justify-content:space-between;height:44px}
   .dock button{height:44px;min-width:44px}
   .dock .lg button{width:40px;min-width:0;height:38px}
-  .dock .lks{display:none;position:absolute;left:0;right:0;bottom:calc(100% + 10px);flex-direction:column;gap:2px;padding:8px;background:var(--ink);border-radius:22px;box-shadow:0 10px 30px -12px rgba(0,48,73,.55)}
+  .dock .lks{display:none;position:absolute;left:0;right:0;bottom:calc(100% + 10px);flex-direction:column;gap:2px;padding:8px;background:var(--ink);border-radius:14px;box-shadow:0 10px 30px -12px rgba(0,48,73,.55)}
   .dock.open .lks{display:flex}
-  .dock .lks a{width:auto;padding:13px 16px;font-size:1rem;text-align:left;border-radius:14px}
+  .dock .lks a{width:auto;padding:13px 16px;font-size:1rem;text-align:left;border-radius:10px}
   .dock.open .cat{visibility:hidden}
 }
 @media(max-width:360px){.dock .mn{width:112px;padding:0 12px}.dock .lg button{width:36px}}
@@ -382,6 +383,13 @@ const content = {
     contactBody: "Tell me what you are building. I answer every email.",
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "View", close: "Close", open: "Open", repo: "Repository",
+    /* J · Hero sketches (lab spike): options for the hero illustration if the skyline moves to the footer. */
+    j: { title: "Hero sketches", lead: "If the Buenos Aires skyline closes the page, the hero needs its own drawing. Three options in the same line style.",
+      opts: [
+        { k: "Option 1", name: "The Obelisk, up close", why: "One landmark instead of four. It keeps Buenos Aires in the hero without repeating the footer.", note: "home base. I work remotely from here", alt: "Architectural drawing of the Obelisk of Buenos Aires with trees, people and a height dimension" },
+        { k: "Option 2", name: "Downtown from above", why: "A street plan: 9 de Julio, the diagonals, the docks and the river. The city as a map, the skyline as the closing view.", note: "home base. I work remotely from here", alt: "Schematic street plan of downtown Buenos Aires seen from above, with the Obelisk marked" },
+        { k: "Option 3", name: "The turntable", why: "Something of mine, drawn like a technical plan. More personal, less about the city.", note: "off the clock, I DJ", alt: "Technical drawing of a turntable seen from above" }
+      ], foot: "And the skyline closes the page", schematic: "Schematic drawings, not to scale." },
     /* I · Charla (lab): conversational copy. Drafted by the agent from facts already on the site; pending Rocío's OK. */
     talk: {
       hello: "Hi, I'm Rocío.", tags: ["product", "operations", "business"],
@@ -407,7 +415,7 @@ const content = {
     a: {
       hero: "Hi, I'm Rocío. I'm a <a class=\"chip\" href=\"#work\">product engineer</a> in Buenos Aires. I turn manual operations into digital products and automated workflows. I taught myself to code in 2021 from <a class=\"chip\" href=\"#books\">books</a> and the open web. Since then I have built an app that 40K people open every day, led a team of six, and worked in <a class=\"chip\" href=\"#finance\">finance</a>. Now I am teaching Corporate Finance and getting ready for a Master in Finance (April 2027).",
       kicker: "A notebook, kept in public", cardNow: "Now", cardNowBody: "Building automation, BI and AI for a university. Teaching Corporate Finance. MFin starts April 2027.", cardReading: "Reading", cardReadingLink: "Books I've read",
-      notes: { self: "self-taught, since 2021", here: "home base. I work remotely from here", big: "the app people open every day", read: "I read first, then build", lab: "the draft is open", bye: "I answer every email" },
+      notes: { self: "self-taught, since 2021", here: "home base. I work remotely from here", big: "an app people opened every day", read: "I read first, then build", lab: "the draft is open", bye: "I answer every email" },
       split: ["I turn manual operations", "into digital products and automated workflows."],
       pick: "Picked from the notebook", readDraft: "Read the draft", nowTitle: "Now"
     },
@@ -587,6 +595,12 @@ const content = {
     contactBody: "Contame en qué estás trabajando. Respondo todos los mails.",
     footer: { email: "Email", linkedin: "LinkedIn", github: "GitHub", rights: "© 2026 Rocío Jacob" },
     view: "Ver", close: "Cerrar", open: "Abrir", repo: "Repositorio",
+    j: { title: "Bocetos de hero", lead: "Si el skyline de Buenos Aires cierra la página, el hero necesita su propio dibujo. Tres opciones con la misma línea.",
+      opts: [
+        { k: "Opción 1", name: "El Obelisco, de cerca", why: "Un solo hito en vez de cuatro. Buenos Aires sigue en el hero sin repetir el pie.", note: "mi base. Trabajo remoto desde acá", alt: "Croquis arquitectónico del Obelisco de Buenos Aires con árboles, personas y una cota de altura" },
+        { k: "Opción 2", name: "El centro desde arriba", why: "Un plano de calles: la 9 de Julio, las diagonales, los diques y el río. La ciudad como mapa y el skyline como cierre.", note: "mi base. Trabajo remoto desde acá", alt: "Plano esquemático del centro de Buenos Aires visto desde arriba, con el Obelisco marcado" },
+        { k: "Opción 3", name: "La bandeja", why: "Algo mío, dibujado como un plano técnico. Más personal, menos ciudad.", note: "fuera del trabajo, soy DJ", alt: "Dibujo técnico de una bandeja giradiscos vista desde arriba" }
+      ], foot: "Y el skyline cierra la página", schematic: "Dibujos esquemáticos, no a escala." },
     talk: {
       hello: "Hola, soy Rocío.", tags: ["producto", "operaciones", "negocio"],
       intro: "Convierto lo manual (planillas sueltas, mails copiados a mano, procesos que viven en la cabeza de alguien) en productos y flujos automáticos. Aprendí a programar sola en 2021 y no paré.",
@@ -609,7 +623,7 @@ const content = {
     a: {
       hero: "Hola, soy Rocío, <a class=\"chip\" href=\"#work\">product engineer</a> en Buenos Aires. Transformo procesos manuales en productos digitales y flujos automatizados. Aprendí a programar sola en 2021, con <a class=\"chip\" href=\"#books\">libros</a> y la web. Desde entonces hice una app que 40 mil personas abren todos los días, lideré un equipo de seis y trabajé en <a class=\"chip\" href=\"#finance\">finanzas</a>. Hoy doy clases de Finanzas Corporativas y en abril de 2027 empiezo una Maestría en Finanzas.",
       kicker: "Un cuaderno abierto", cardNow: "Ahora", cardNowBody: "Automatización, BI e IA para una universidad. Dando Finanzas Corporativas. El MFin arranca en abril de 2027.", cardReading: "Leyendo", cardReadingLink: "Libros que leí",
-      notes: { self: "autodidacta, desde 2021", here: "mi base. Trabajo remoto desde acá", big: "la app que se abre todos los días", read: "primero leo, después construyo", lab: "el borrador está abierto", bye: "respondo todos los mails" },
+      notes: { self: "autodidacta, desde 2021", here: "mi base. Trabajo remoto desde acá", big: "una app que la gente abría todos los días", read: "primero leo, después construyo", lab: "el borrador está abierto", bye: "respondo todos los mails" },
       split: ["Transformo procesos manuales", "en productos digitales y flujos automatizados."],
       pick: "Elegido del cuaderno", readDraft: "Leer el borrador", nowTitle: "Ahora"
     },
@@ -727,6 +741,8 @@ const MASCOTS = {
   sit: ["..X...X.....", "..XXXXX.....", "..XoXoX.....", "..XXXXX.....", "...XXX......", "..XXXXX.....", "..XXXXXX....", ".XXXXXXX....", ".XXXXXXX...X", ".XXXXXXXX..X", ".XXXXXXXX..X", ".XX.XXXXX.X.", ".XX.XXXXXXX.", "XXX.XXX....."]
 };
 const CAT = MASCOTS[MASCOT];
+/* Second walking frame for the cat: legs together. Alternating it with CAT reads as steps. */
+const CAT_STEP = [...MASCOTS.cat.slice(0, 8), "....XX....XX..", "....XX....XX.."];
 const pixelCat = (px = 4, grid = CAT) => `<svg width="${grid[0].length * px}" height="${grid.length * px}" viewBox="0 0 ${grid[0].length} ${grid.length}" shape-rendering="crispEdges" aria-hidden="true">` +
   grid.map((r, j) => [...r].map((c, i) => c === "." ? "" : `<rect x="${i}" y="${j}" width="1" height="1" fill="${c === "o" ? "#003049" : PINK}"/>`).join("")).join("") + `</svg>`;
 document.head.insertAdjacentHTML("beforeend", `<style>.eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px;margin-right:8px}.eq i{width:3px;height:14px;background:${PINK};transform-origin:bottom;animation:eq .9s ease-in-out infinite alternate}.eq i:nth-child(2){animation-delay:-.3s}.eq i:nth-child(3){animation-delay:-.6s}.eq i:nth-child(4){animation-delay:-.15s}@keyframes eq{from{transform:scaleY(.2)}to{transform:scaleY(1)}}@media(prefers-reduced-motion:reduce){.eq i{animation:none;transform:scaleY(.6)}}</style>`);
@@ -848,7 +864,7 @@ const MAIN = ["WK.01", "WK.02", "WK.04"];
 const COPY_ICON = '<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>', CHECK_ICON = '<path d="M5 12.5l4.5 4.5L19 7.5"/>';
 const setCopy = (b, done) => { $("span", b).textContent = done ? T().copied : T().copy; $("svg", b).innerHTML = done ? CHECK_ICON : COPY_ICON; };
 const themeIcon = () => theme === "dark" ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>' : '<path d="M20 14A8 8 0 0110 4a8 8 0 1010 10z"/>';
-const dockMarkup = t => `<nav class="dock" aria-label="${esc(t.menu)}"><span class="cat" id="cat" aria-hidden="true">${pixelCat(2)}</span><button type="button" class="mn" data-menu aria-expanded="false" aria-controls="dlinks"><span id="mlabel">${t.menu}</span><span aria-hidden="true">▾</span></button><span class="lks" id="dlinks">${DOCK.map(([id, k]) => `<a href="#${id}" data-sec="${id}">${t.nav[k]}</a>`).join("")}</span><i aria-hidden="true"></i>
+const dockMarkup = t => `<nav class="dock" aria-label="${esc(t.menu)}"><span class="cat" id="cat" aria-hidden="true">${pixelCat(2)}${pixelCat(2, CAT_STEP)}</span><button type="button" class="mn" data-menu aria-expanded="false" aria-controls="dlinks"><span id="mlabel">${t.menu}</span><span aria-hidden="true">▾</span></button><span class="lks" id="dlinks">${DOCK.map(([id, k]) => `<a href="#${id}" data-sec="${id}">${t.nav[k]}</a>`).join("")}</span><i aria-hidden="true"></i>
   <button type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}"><svg viewBox="0 0 24 24" aria-hidden="true">${themeIcon()}</svg></button>
   <span class="lg" role="group" aria-label="${esc(t.langLabel)}"><button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="${lang === "en"}">EN</button><button type="button" data-lang="es" lang="es" aria-label="Español" aria-pressed="${lang === "es"}">ES</button></span></nav>`;
 function render(t) {
@@ -918,7 +934,12 @@ function walk() {
   if (calm.matches) { c.style.transform = ""; return; }
   const max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
   c.style.transform = `translateX(${(p * Math.max(0, c.parentNode.clientWidth - c.offsetWidth - 32)).toFixed(1)}px)`;
+  // One step every 28 px of scroll; the cat turns around when the page scrolls back up.
+  c.dataset.f = Math.floor(scrollY / 28) % 2;
+  if (scrollY !== lastY) c.classList.toggle("back", scrollY < lastY);
+  lastY = scrollY;
 }
+let lastY = 0;
 function spy() {
   const readingLine = innerHeight * .35;
   const current = DOCK.find(([id]) => { const r = $("#" + id).getBoundingClientRect(); return r.top <= readingLine && r.bottom > readingLine; });

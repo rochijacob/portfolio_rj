@@ -3,7 +3,7 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 const dir = new URL(".", import.meta.url);
 const core = readFileSync(new URL("core.js", dir), "utf8");
-for (const f of ["site-A-notebook", "site-A-article", "site-B-dock", "site-D-ledger", "site-I-talk", "site-H-studio"]) {
+for (const f of ["site-A-notebook", "site-A-article", "site-B-dock", "site-D-ledger", "site-I-talk", "site-J-hero", "site-H-studio"]) {
   if (!existsSync(new URL(`${f}.html`, dir))) continue;
   const tpl = readFileSync(new URL(`${f}.html`, dir), "utf8");
   const out = tpl.replace("/*CORE*/", () => core);

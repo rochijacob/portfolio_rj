@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rocío Jacob · Hero sketches</title>
+<meta name="description" content="">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23003049'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fdf0d5'%3ERJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&family=Geist:wght@400;500&family=Instrument+Serif:ital@0;1&family=Shantell+Sans:wght@400&display=swap" rel="stylesheet">
+<style>
+/* J · Hero sketches. Lab spike: three candidate hero illustrations, each shown in a real
+   hero (serif title left, drawing right), then the skyline as the closing panorama. */
+:root{--bg:#f4f6f7;--ink:#003049;--soft:#4a6676;--acc:#3d7aa3;--hand:#3f86b5;--line:rgba(0,48,73,.16);--dot:rgba(0,48,73,.15);
+  --serif:"Instrument Serif",Georgia,serif;--txt:"Geist",system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,monospace;--hand-f:"Shantell Sans",cursive}
+:root[data-theme=dark]{--bg:#00202f;--ink:#f0f4f6;--soft:#a3b9c5;--acc:#8fbcd6;--hand:#8cc3e6;--line:rgba(240,244,246,.17);--dot:rgba(240,244,246,.09)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg) radial-gradient(circle,var(--dot) 1.1px,transparent 1.3px) 0 0/22px 22px;color:var(--ink);font:400 1.0625rem/1.7 var(--txt);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-color:var(--acc);text-underline-offset:4px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:3px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+.lbl{font:400 .75rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+header{display:flex;align-items:center;gap:8px 18px;padding:22px 0}
+header a{font:italic 400 1.4rem var(--serif);text-decoration:none;margin-right:auto;padding:8px 0}
+.lang{display:inline-flex;align-items:center;font:400 .75rem var(--mono);color:var(--soft)}
+.lang button,.theme{min-width:40px;min-height:40px;font:400 .75rem var(--mono)}
+.lang button[aria-pressed=true]{color:var(--ink);text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:4px}
+.theme{border:1px solid var(--line);border-radius:10px;font-size:1rem}
+.top h1{font:400 clamp(2.4rem,5vw,3.6rem)/1 var(--serif);margin:32px 0 8px}
+.top p{color:var(--soft);max-width:56ch;margin:0}
+.opt{margin-top:72px;padding-top:22px;border-top:1px solid var(--line)}
+.opt .why{color:var(--soft);max-width:60ch;margin:4px 0 0}
+.opt h2{font:400 1.9rem/1.1 var(--serif);margin:6px 0 0}
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:center;margin-top:36px}
+.hero .t{font:400 clamp(2.5rem,1.4rem + 3.6vw,4.4rem)/1 var(--serif);letter-spacing:-.015em;margin:0}
+.hero .t em{color:var(--acc)}
+.hero p.i{color:var(--soft);font-size:1.12rem;margin:22px 0 26px;max-width:30em}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:10px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:500}
+.fig{position:relative;margin:0}
+.sk{display:block;width:100%;height:auto;max-height:480px;fill:none;stroke:var(--ink);stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round}
+.sk .outline{stroke-width:1.6}.sk .detail{stroke-width:.65}.sk .context{stroke:var(--soft);stroke-width:.75;opacity:.65}
+.sk .guide{stroke:var(--acc);stroke-width:.7;opacity:.9}.sk .wash{fill:var(--acc);fill-opacity:.09;stroke:none}
+.sk .water{stroke:var(--acc);stroke-width:.6;opacity:.7}
+.sk text{font:400 8px var(--mono);letter-spacing:.12em;fill:var(--soft);stroke:none}
+.note{position:absolute;margin:0;font:400 1.05rem/1.3 var(--hand-f);color:var(--hand);transform:rotate(-2deg);width:170px}
+.note svg{display:block;width:64px;height:34px;stroke:var(--hand);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.n1{left:0;top:6%}.n2{right:0;bottom:-44px;text-align:right}.n2 svg{margin-left:auto}.n3{left:0;bottom:0}
+.pano{margin-top:96px}
+.city{display:block;width:100%;height:auto;fill:none;stroke:var(--ink);stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round;margin-top:16px}
+.city .outline{stroke-width:1.55}.city .detail{stroke-width:.65}.city .context{stroke:var(--soft);stroke-width:.75;opacity:.65}
+.city .guide{stroke:var(--acc);stroke-width:.65;opacity:.85}.city .axis{stroke-dasharray:8 5 1 5;stroke-width:.5;opacity:.5}
+.city .wash{fill:var(--acc);fill-opacity:.07;stroke:none}
+.city text{font:400 8px var(--mono);letter-spacing:.12em;fill:var(--soft);stroke:none}
+footer{padding:20px 0 56px}
+@media(max-width:820px){.hero{grid-template-columns:1fr;gap:28px}.sk{max-height:400px}.sk text{font-size:10px}}
+@media(max-width:640px){.wrap{padding:0 18px}.pano{overflow:hidden}.city{width:860px;max-width:none;margin-left:calc(50% - 430px)}.city text{font-size:11px}.btn{width:100%;justify-content:center}}
+</style>
+</head>
+<body>
+<div id="app" class="wrap"></div>
+<script>
+/*CORE*/
+
+/* ---------- Site J · Hero sketches ---------- */
+let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+document.documentElement.dataset.theme = theme;
+const rep = (n, f) => Array.from({ length: n }, (_, i) => f(i)).join("");
+const arrow = flip => `<svg viewBox="0 0 74 40" aria-hidden="true"${flip ? ' style="transform:scaleX(-1)"' : ""}><path d="M70 6C52 4 30 10 14 30"/><path d="M12 18l1 13 13-3"/></svg>`;
+const tree = (x, g) => `M${x} ${g}v-20m0 8l-6-6m6 2l6-7M${x - 14} ${g - 22}c-7-6-3-14 3-15-1-11 14-15 20-7 10-1 15 13 7 19 0 8-9 13-15 7-5 3-11 2-15-4Z`;
+const person = (x, g) => `<circle cx="${x}" cy="${g - 13}" r="1.8"/><path d="M${x} ${g - 10}v5m-2.5 5 2.5-5 2.5 5m-6-8 3.5-2 3.5 2"/>`;
+
+/* 1. The Obelisk in elevation: two faces, stepped plinth, hedges, a height dimension. */
+const obelisk = alt => { const g = 400; return `<svg class="sk" viewBox="0 0 420 450" role="img" aria-label="${esc(alt)}">
+<g class="context">
+  <path d="M18 ${g}V300h46v100M24 306h34M74 ${g}V258h40v142M70 264h48M306 ${g}V270h42v130M302 276h50M360 ${g}V318h42v82M356 324h50"/>
+  <path class="detail" d="${rep(3, i => rep(5, j => `M${28 + i * 12} ${316 + j * 16}v6h4v-6`))}${rep(3, i => rep(8, j => `M${82 + i * 11} ${272 + j * 15}v6h4v-6`))}${rep(3, i => rep(7, j => `M${314 + i * 12} ${284 + j * 15}v6h4v-6`))}${rep(3, i => rep(4, j => `M${368 + i * 12} ${332 + j * 15}v6h4v-6`))}"/>
+</g>
+<path class="wash" d="M210 40l13 44 9 296h-22Z"/>
+<path class="outline" d="M188 380l9-296 13-44 13 44 9 296ZM176 392v-12h68v12M166 ${g}v-8h88v8"/>
+<path class="detail" d="M210 40v340M197 84h26M205 110v10h10v-10ZM204 352v28h12v-28ZM176 386h68"/>
+<path d="M120 ${g}v-14h40v14M260 ${g}v-14h40v14"/><text x="140" y="${g - 4}" text-anchor="middle">B</text><text x="280" y="${g - 4}" text-anchor="middle">A</text>
+<g class="context"><path d="${tree(96, g)}${tree(330, g)}M56 ${g}v-34h9m-9 3h9M372 ${g}v-34h-9m9 3h-9"/>${person(150, g)}${person(268, g)}${person(292, g)}</g>
+<path d="M6 ${g}h408"/><path class="detail" d="${rep(26, i => `M${14 + i * 15.5} ${g + 5}l-5 7`)}"/>
+<g class="guide"><path d="M244 40h28m-28 360h28M264 40v360M260 44l8-8m-8 368 8-8"/></g>
+<text x="278" y="220" text-anchor="middle" transform="rotate(-90 278 220)">${esc(T().cityHeight)}</text>
+<text x="210" y="432" text-anchor="middle">OBELISCO · AV. 9 DE JULIO</text>
+</svg>`; };
+
+/* 2. Downtown as a street plan. Schematic: the grid, the wide avenue, the diagonals, the docks, the river. */
+const plan = alt => `<svg class="sk" viewBox="0 0 420 450" role="img" aria-label="${esc(alt)}">
+<path class="detail" d="${rep(11, i => `M${30 + i * 26} 40V400`)}${rep(13, i => `M20 ${52 + i * 28}H318`)}"/>
+<path class="wash" d="M126 34h34v372h-34Z"/>
+<path class="outline" d="M126 34V406M160 34V406"/><path class="detail" d="M137 34V406M149 34V406"/>
+<path d="M20 192H318M20 304H300"/>
+<path class="outline" d="M143 192L262 290M143 192L226 386"/>
+<circle class="outline" cx="143" cy="192" r="19" style="fill:var(--bg)"/><path class="outline" d="M139 196l4-12 4 12Z" style="fill:var(--ink)"/>
+<path class="outline" d="M262 290h34v28h-34Z" style="fill:var(--bg)"/><path class="outline" d="M22 292h30v24H22Z" style="fill:var(--bg)"/>
+<path class="outline" d="M330 70h24v62h-24ZM330 146h24v62h-24ZM330 222h24v62h-24ZM330 298h24v62h-24Z"/>
+<path d="M322 252h40"/><path class="guide" d="M342 252l14-9"/>
+<path class="outline" d="M384 34c8 40-6 70 4 112s-8 84 2 128-4 92 6 132"/>
+<path class="water" d="${rep(9, i => `M${396 + (i % 2) * 5} ${60 + i * 40}h14m-8 8h12`)}"/>
+<g class="guide"><path d="M143 173V150h-60M279 290V270h-40M37 292V270h44M354 100h18"/></g>
+<text x="24" y="146">OBELISCO</text><text x="196" y="266">PLAZA DE MAYO</text><text x="22" y="266">CONGRESO</text>
+<text x="20" y="186">AV. CORRIENTES</text><text x="20" y="329">AV. DE MAYO</text>
+<text x="143" y="424" text-anchor="middle">AV. 9 DE JULIO</text>
+<text x="342" y="56" text-anchor="middle">DIQUES</text><text x="412" y="230" text-anchor="middle" transform="rotate(90 412 230)">RÍO DE LA PLATA</text>
+</svg>`;
+
+/* 3. A turntable in plan view, drawn like a technical sheet. */
+const deck = alt => `<svg class="sk" viewBox="0 0 420 450" role="img" aria-label="${esc(alt)}">
+<path class="outline" d="M34 76h352a10 10 0 0 1 10 10v268a10 10 0 0 1-10 10H34a10 10 0 0 1-10-10V86a10 10 0 0 1 10-10Z"/>
+<circle class="wash" cx="176" cy="220" r="124" style="stroke:none"/>
+<circle class="outline" cx="176" cy="220" r="124"/><circle cx="176" cy="220" r="116"/>
+<g class="detail">${rep(9, i => `<circle cx="176" cy="220" r="${106 - i * 7}"/>`)}</g>
+<circle class="outline" cx="176" cy="220" r="38" style="fill:var(--bg)"/><circle cx="176" cy="220" r="3.5" style="fill:var(--ink)"/>
+<circle class="outline" cx="338" cy="118" r="20"/><circle cx="338" cy="118" r="7"/>
+<path class="outline" d="M338 118L328 250l-52 38"/><path class="outline" d="M270 280l14 18-16 10-12-18Z" style="fill:var(--bg)"/>
+<path d="M356 104l18-10"/><circle cx="377" cy="92" r="6"/>
+<path d="M350 214h18v96h-18ZM346 262h26"/><path class="detail" d="${rep(9, i => `M374 ${222 + i * 10}h6`)}"/>
+<path class="outline" d="M44 318h34v26H44Z"/><path d="M90 322h18v18H90ZM116 322h18v18h-18Z"/>
+<path class="detail" d="${rep(24, i => { const a = i * Math.PI / 12, x = 176 + Math.cos(a) * 124, y = 220 + Math.sin(a) * 124, x2 = 176 + Math.cos(a) * 119, y2 = 220 + Math.sin(a) * 119; return `M${x.toFixed(1)} ${y.toFixed(1)}L${x2.toFixed(1)} ${y2.toFixed(1)}`; })}"/>
+<g class="guide"><path d="M52 62h248M52 56v12M300 56v12M176 220h124M176 220V96"/></g>
+<text x="176" y="54" text-anchor="middle">Ø 12"</text><text x="61" y="310" text-anchor="middle">START</text><text x="359" y="326" text-anchor="middle">PITCH</text>
+<text x="210" y="392" text-anchor="middle">33 ⅓ · 45 RPM</text>
+</svg>`;
+const DRAW = [obelisk, plan, deck], POS = ["n1", "n2", "n3"];
+
+function render(t) {
+  const J = t.j;
+  $("#app").innerHTML = `
+<header><a href="compare.html">← Lab</a>${langToggle()}<button class="theme" type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}">${theme === "dark" ? "☀" : "☾"}</button></header>
+<main>
+<div class="top"><h1>${J.title}</h1><p>${J.lead}</p></div>
+${J.opts.map((o, i) => `<section class="opt"><div class="lbl">${o.k}</div><h2>${o.name}</h2><p class="why">${o.why}</p>
+  <div class="hero"><div><p class="t">${t.a.split[0]} <em>${t.a.split[1]}</em></p><p class="i">${t.heroIntro}</p><a class="btn" href="#">${t.cta} ↗</a></div>
+  <figure class="fig">${DRAW[i](o.alt)}<p class="note ${POS[i]}">${i === 1 ? "" : arrow(i === 0)}${o.note}${i === 1 ? arrow(false) : ""}</p></figure></div></section>`).join("")}
+<section class="pano"><div class="lbl">${J.foot}</div>${city(t.illo)}</section>
+</main>
+<footer><span class="lbl">${J.schematic}</span></footer>`;
+}
+document.addEventListener("click", e => {
+  if (e.target.closest("[data-theme-btn]")) {
+    theme = theme === "dark" ? "light" : "dark"; store.set("rj-theme", theme);
+    document.documentElement.dataset.theme = theme; apply(); $("[data-theme-btn]").focus();
+  }
+});
+apply();
+</script>
+</body>
+</html>
