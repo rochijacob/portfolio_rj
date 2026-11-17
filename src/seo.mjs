@@ -1,0 +1,50 @@
+// Render the existing Studio template at build time, without network or dependencies.
+import { runInNewContext } from 'node:vm';
+export const origin = 'https://rochijacob.github.io/portfolio_rj/';
+export function prerender(html, language) {
+  const app = { innerHTML: '' }, styles = [];
+  const node = { content: '', dataset: {}, setAttribute() {}, getBoundingClientRect: () => ({top: 0, bottom: 0}) };
+  const document = {
+    documentElement: { dataset: { pageLanguage: language } },
+    head: { insertAdjacentHTML: (_, value) => styles.push(value) },
+    querySelector: selector => selector === '#app' ? app : node,
+    querySelectorAll: () => [], addEventListener() {},
+  };
+  const sandbox = { document, navigator: { language }, localStorage: { getItem: () => null },
+    matchMedia: () => ({matches: false}), window: {}, innerHeight: 900,
+    addEventListener() {}, setInterval() {}, gtag() {}, };
+  const code = html.match(/<script>\s*\/\* =+[\s\S]*?<\/script>/)[0].replace(/^<script>|<\/script>$/g, '');
+  runInNewContext(code.replace(/\napply\(\);/, '\nrender(T());') + '\nresult = {title:T().meta.title, description:T().meta.desc, links:L};', sandbox);
+  const { title, description, links } = sandbox.result;
+  const url = origin + (language === 'es' ? 'es.html' : '');
+  const escape = value => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+  const schema = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'Person', '@id': origin + '#person', name: 'Rocío Jacob', url: origin,
+      jobTitle: 'Product Engineer', sameAs: [links.linkedin, links.github], knowsLanguage: ['es', 'en'],
+      knowsAbout: ['Process automation', 'Web development', 'React Native', 'Business intelligence', 'AI agents'] },
+    { '@type': 'ProfilePage', '@id': url + '#page', url, name: title, description,
+      inLanguage: language, mainEntity: { '@id': origin + '#person' } }
+  ] };
+  const metadata = `
+<link rel="canonical" href="${url}">
+<link rel="alternate" hreflang="en" href="${origin}">
+<link rel="alternate" hreflang="es" href="${origin}es.html">
+<link rel="alternate" hreflang="x-default" href="${origin}">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:url" content="${url}">
+<meta property="og:locale" content="${language === 'es' ? 'es_AR' : 'en_US'}">
+<meta property="og:site_name" content="Rocío Jacob">
+<meta property="og:image" content="${origin}profile.png">
+<meta property="og:image:alt" content="Rocío Jacob">
+<meta name="twitter:title" content="${escape(title)}">
+<meta name="twitter:description" content="${escape(description)}">
+<meta name="twitter:image" content="${origin}profile.png">
+<script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>`;
+  return html.replace('<html lang="en">', `<html lang="${language}" data-page-language="${language}">`)
+    .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
+    .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${escape(description)}">`)
+    .replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${escape(title)}">`)
+    .replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${escape(description)}">`)
+    .replace('</head>', metadata + styles.join('') + '</head>')
+    .replace('<div id="app"></div>', () => `<div id="app">${app.innerHTML}</div>`);
+}

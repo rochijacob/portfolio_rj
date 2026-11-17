@@ -1,53 +1,56 @@
-# Analytics del portfolio
+# Analytics: X, LinkedIn y búsqueda orgánica
 
-La home carga el Google tag de la propiedad GA4 `G-FFMYCXQZFJ`. Las visitas y los eventos personalizados se envían directamente con `gtag.js`; no hace falta publicar un contenedor adicional de Tag Manager para esta web. No se envía el email ni ningún otro dato personal.
+Sitio: https://rochijacob.github.io/portfolio_rj/
 
-## Qué falta configurar en Google Analytics
+El código carga únicamente GTM-TW2MSTRV. Tanto GTM-TW2MSTRV como GTM-K79GS3KK son contenedores de Tag Manager. El ID de medición GA4 informado es G-FFMYCXQZFJ. No instalar además el segundo contenedor ni un config directo de GA4.
 
-1. Abrir **Realtime** y **DebugView** en GA4 para confirmar que llegan visitas y eventos desde el dominio publicado.
-2. En GA4, registrar como dimensiones personalizadas los parámetros que se quieran usar en informes. No hace falta registrar todos: para empezar alcanzan `section_id`, `project_code`, `location`, `method`, `language` y `result`.
-3. Marcar como eventos clave solo las acciones que representen intención real de contacto.
+Verificación del 16/11/2026: el recurso público de GTM-TW2MSTRV devuelve tags:[], predicates:[], rules:[]. Aunque se confirmó publicación en el chat, esa versión pública no tiene etiquetas. Falta publicar la etiqueta Google y la etiqueta de eventos descritas abajo. No se confirmó recepción en GA4.
 
-`contact_click` y `email_copy` con `result=success` son los mejores candidatos para marcar como eventos clave. No conviene marcar navegación, vistas o cambios de tema/idioma como conversiones.
+## Enlaces listos para copiar
 
-## Mapa de eventos
+Bio de X:
+https://rochijacob.github.io/portfolio_rj/?utm_source=x&utm_medium=social&utm_campaign=portfolio&utm_content=bio
 
-| Evento | Cuándo ocurre | Parámetros principales | Para qué sirve |
-|---|---|---|---|
-| `section_view` | Una sección importante entra en pantalla por primera vez | `section_id` | Ver hasta dónde llega la lectura |
-| `project_view` | Un caso destacado entra en pantalla por primera vez | `project_code` | Comparar interés entre proyectos |
-| `select_content` | Se elige un proyecto desde el resumen superior | `content_type`, `content_id` | Medir qué caso llama la atención |
-| `case_open` | Se abre un caso completo | `project_code` | Separar lectura superficial de interés real |
-| `navigation_click` | Se usa el dock o el nombre del encabezado | `section_id` | Entender cómo se recorre la página |
-| `cta_click` | Se usa un CTA del hero | `location`, `target` | Comparar contacto vs. ver proyectos |
-| `contact_click` | Se abre email o LinkedIn | `method`, `location` | Medir intención de contacto |
-| `email_copy` | Se intenta copiar el email | `result` | Medir intención y detectar fallas del portapapeles |
-| `theme_change` | Se cambia claro/oscuro | `selected_theme` | Señal UX opcional |
-| `language_change` | Se cambia EN/ES | `selected_language` | Entender preferencia de idioma |
+Post de X:
+https://rochijacob.github.io/portfolio_rj/?utm_source=x&utm_medium=social&utm_campaign=portfolio&utm_content=post
 
-Todos los eventos incluyen también `language` y `theme`.
+Perfil de LinkedIn:
+https://rochijacob.github.io/portfolio_rj/?utm_source=linkedin&utm_medium=social&utm_campaign=portfolio&utm_content=profile
 
-## URLs personalizadas para saber de dónde llegan
+Post de LinkedIn:
+https://rochijacob.github.io/portfolio_rj/?utm_source=linkedin&utm_medium=social&utm_campaign=portfolio&utm_content=post
 
-GA4 reconoce los parámetros UTM de la URL. Mantener siempre minúsculas, sin tildes ni espacios y usar nombres consistentes:
+Para dirigir al español, reemplazar /? por /es.html? después del deploy. Usar utm_content=post_20261116 para distinguir publicaciones. No incluir nombres de personas, emails ni datos privados en UTMs. No etiquetar enlaces internos ni el sitemap.
 
-```text
-https://portfoliorj-beta.vercel.app/?utm_source=linkedin&utm_medium=social&utm_campaign=portfolio&utm_content=profile
+El tráfico orgánico no lleva UTM: GA4 usa el referente del buscador. Visitas sin referente pueden aparecer como direct; no es posible recuperar con certeza un origen perdido. X sin UTM también puede aparecer como t.co. Los cambios de idioma conservan UTMs y anclas.
 
-https://portfoliorj-beta.vercel.app/?utm_source=linkedin&utm_medium=direct_message&utm_campaign=freelance_outreach&utm_content=automation
+## Eventos que emite el código
 
-https://portfoliorj-beta.vercel.app/?utm_source=github&utm_medium=profile&utm_campaign=portfolio&utm_content=readme
+| Evento | Significado | Parámetros |
+|---|---|---|
+| project_view | Caso entra en pantalla, una vez por página | project_code |
+| select_content | Clic en proyecto destacado | content_type, content_id |
+| case_open | Apertura del caso completo | project_code |
+| contact_click | Clic en email o LinkedIn | method, location |
+| email_copy | Intento de copia | result: success o failure |
 
-https://portfoliorj-beta.vercel.app/?utm_source=cv&utm_medium=document&utm_campaign=job_search&utm_content=english
+Todos llevan language. Un clic de contacto indica intención: no confirma un mensaje enviado. No se envía el email ni texto libre. No se registran tema, navegación genérica ni scroll personalizado. GA4 puede registrar sus eventos automáticos y de medición mejorada.
 
-https://portfoliorj-beta.vercel.app/?utm_source=email&utm_medium=signature&utm_campaign=portfolio&utm_content=signature
-```
+## Configuración necesaria en GTM
 
-Convención recomendada:
+La etiqueta Google base registra visitas; NO reenvía automáticamente los eventos propios del sitio.
 
-- `utm_source`: plataforma o lugar exacto (`linkedin`, `github`, `cv`, `email`).
-- `utm_medium`: tipo de canal (`social`, `direct_message`, `profile`, `document`, `signature`).
-- `utm_campaign`: objetivo estable (`portfolio`, `freelance_outreach`, `job_search`).
-- `utm_content`: variante concreta del enlace (`profile`, `automation`, `english`, `signature`).
+1. Etiqueta Google con ID G-FFMYCXQZFJ y disparador Initialization / All Pages. Debe estar publicada en GTM-TW2MSTRV.
+2. Variable de capa de datos versión 2: nombre portfolio_event_name.
+3. Variables de capa de datos versión 2 para portfolio_parameters.language, portfolio_parameters.project_code, portfolio_parameters.content_type, portfolio_parameters.content_id, portfolio_parameters.method, portfolio_parameters.location y portfolio_parameters.result.
+4. Disparador: Evento personalizado, nombre exacto portfolio_event.
+5. Etiqueta Google Analytics: evento GA4. Measurement ID G-FFMYCXQZFJ. Nombre del evento: variable del paso 2. Parámetros language, project_code, content_type, content_id, method, location, result, cada uno asociado con su variable del paso 3.
+6. Asignar el disparador del paso 4. Probar en Preview/Tag Assistant y DebugView, luego publicar. No crear disparadores paralelos para las mismas acciones.
 
-No usar UTMs en enlaces internos del sitio: iniciarían una campaña nueva y romperían la atribución original de la visita.
+## Informe mínimo
+
+GA4 → Adquisición de tráfico: usar Fuente/medio de la sesión. Comparar x / social, linkedin / social y el grupo de canales de la sesión Organic Search. En Exploraciones, cruzar esos segmentos con nombre de evento, sesiones y usuarios. Filtrar el informe, no la recolección desde JavaScript, mantiene la atribución.
+
+Registrar dimensiones de evento para project_code, method, location y result si se necesitan en informes. Marcar contact_click como evento clave opcional; para copias exitosas, crear un evento derivado email_copy_success con condición result=success y marcar solo ese.
+
+Verificación pendiente en la cuenta: una visita por carga, eventos únicos por interacción y fuente/medio correctos. Las pruebas locales bloquean Google y verifican únicamente la emisión del sitio; no prueban recepción en la propiedad.

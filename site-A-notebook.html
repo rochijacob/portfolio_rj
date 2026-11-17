@@ -125,7 +125,7 @@ const content = {
   ],
 
   en: {
-    meta: { title: "Rocío Jacob · Product Engineer", desc: "I turn manual operations into digital products and automated workflows. Buenos Aires, remote worldwide." },
+    meta: { title: "Rocío Jacob | Automation & Web Development", desc: "Product engineer in Buenos Aires. Process automation, BI, AI agents and web development. Explore my projects and freelance services. Remote work." },
     name: "Rocío Jacob", role: "Product Engineer",
     oneLiner: "I'm Rocío. I turn manual operations into digital products and automated workflows.",
     pitch: "I turn manual operations into digital products and automated workflows.",
@@ -303,7 +303,7 @@ const content = {
   },
 
   es: {
-    meta: { title: "Rocío Jacob · Product Engineer", desc: "Transformo procesos manuales en productos digitales y flujos automatizados. Buenos Aires, remoto a todo el mundo." },
+    meta: { title: "Rocío Jacob | Automatización y desarrollo web", desc: "Desarrollo web, automatización de procesos, BI y agentes de IA. Soy Rocío Jacob, product engineer en Buenos Aires. Proyectos freelance y trabajo remoto." },
     name: "Rocío Jacob", role: "Ingeniera de producto",
     oneLiner: "Soy Rocío. Transformo procesos manuales en productos digitales y flujos automatizados.",
     pitch: "Transformo procesos manuales en productos digitales y flujos automatizados.",
@@ -490,6 +490,8 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 };
 let lang = (() => {
+  const pageLanguage = document.documentElement.dataset.pageLanguage;
+  if (pageLanguage === "en" || pageLanguage === "es") return pageLanguage;
   const s = store.get("rj-lang");
   if (s === "en" || s === "es") return s;
   return (navigator.language || "en").toLowerCase().startsWith("es") ? "es" : "en";
@@ -581,6 +583,11 @@ function apply() {
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-lang]");
   if (!b || b.dataset.lang === lang) return;
+  if (b.matches("a[href]")) {
+    e.preventDefault();
+    location.href = b.getAttribute("href") + location.search + location.hash;
+    return;
+  }
   lang = b.dataset.lang; store.set("rj-lang", lang);
   const y = scrollY; apply(); scrollTo(0, y);
   const again = $(`[data-lang="${lang}"]`) || $("[data-lang]"); if (again) again.focus();

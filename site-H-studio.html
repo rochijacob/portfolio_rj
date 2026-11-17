@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFMYCXQZFJ"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-FFMYCXQZFJ');
-</script>
+<!-- GA4 is configured in this published Google Tag Manager container. -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TW2MSTRV');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rocío Jacob · Product Engineer</title>
 <meta name="description" content="">
@@ -195,8 +193,10 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
 @media(max-width:480px){.c4{grid-template-columns:1fr}dl.f{grid-template-columns:1fr}dl.f dt{border:0;padding-bottom:0}dl.f dd{padding-top:2px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1}}
 </style>
-</head>
+<meta name="robots" content="noindex,follow"></head>
 <body>
+<noscript><style>.dock [data-menu],.dock [data-theme-btn]{display:none}.dock .lks{display:flex;position:static;flex-direction:row;flex-wrap:wrap;box-shadow:none}.dock{flex-wrap:wrap;border-radius:18px}.spn{pointer-events:none}</style></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TW2MSTRV" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 <div id="app"></div>
 <script>
 /* ============================================================
@@ -235,7 +235,7 @@ const content = {
   ],
 
   en: {
-    meta: { title: "Rocío Jacob · Product Engineer", desc: "I turn manual operations into digital products and automated workflows. Buenos Aires, remote worldwide." },
+    meta: { title: "Rocío Jacob | Automation & Web Development", desc: "Product engineer in Buenos Aires. Process automation, BI, AI agents and web development. Explore my projects and freelance services. Remote work." },
     name: "Rocío Jacob", role: "Product Engineer",
     oneLiner: "I'm Rocío. I turn manual operations into digital products and automated workflows.",
     pitch: "I turn manual operations into digital products and automated workflows.",
@@ -413,7 +413,7 @@ const content = {
   },
 
   es: {
-    meta: { title: "Rocío Jacob · Product Engineer", desc: "Transformo procesos manuales en productos digitales y flujos automatizados. Buenos Aires, remoto a todo el mundo." },
+    meta: { title: "Rocío Jacob | Automatización y desarrollo web", desc: "Desarrollo web, automatización de procesos, BI y agentes de IA. Soy Rocío Jacob, product engineer en Buenos Aires. Proyectos freelance y trabajo remoto." },
     name: "Rocío Jacob", role: "Ingeniera de producto",
     oneLiner: "Soy Rocío. Transformo procesos manuales en productos digitales y flujos automatizados.",
     pitch: "Transformo procesos manuales en productos digitales y flujos automatizados.",
@@ -600,6 +600,8 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 };
 let lang = (() => {
+  const pageLanguage = document.documentElement.dataset.pageLanguage;
+  if (pageLanguage === "en" || pageLanguage === "es") return pageLanguage;
   const s = store.get("rj-lang");
   if (s === "en" || s === "es") return s;
   return (navigator.language || "en").toLowerCase().startsWith("es") ? "es" : "en";
@@ -691,6 +693,11 @@ function apply() {
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-lang]");
   if (!b || b.dataset.lang === lang) return;
+  if (b.matches("a[href]")) {
+    e.preventDefault();
+    location.href = b.getAttribute("href") + location.search + location.hash;
+    return;
+  }
   lang = b.dataset.lang; store.set("rj-lang", lang);
   const y = scrollY; apply(); scrollTo(0, y);
   const again = $(`[data-lang="${lang}"]`) || $("[data-lang]"); if (again) again.focus();
@@ -706,7 +713,10 @@ const MAIN = ["WK.01", "WK.02", "WK.04"];
 const trackedViews = new Set();
 let analyticsObserver;
 const track = (event, parameters = {}) => {
-  gtag("event", event, { language: lang, theme, ...parameters });
+  if (!["project_view", "select_content", "case_open", "contact_click", "email_copy"].includes(event)) return;
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: "portfolio_event", _clear: true, portfolio_event_name: event,
+    portfolio_parameters: { language: lang, ...parameters } });
 };
 /* A composed architectural elevation, not a geographic or to-scale survey.
    Each landmark has its own clear silhouette; details stay inside its facade. */
@@ -775,7 +785,13 @@ const city = alt => {
 const themeIcon = () => theme === "dark" ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>' : '<path d="M20 14A8 8 0 0110 4a8 8 0 1010 10z"/>';
 const dockMarkup = t => `<nav class="dock" aria-label="${esc(t.menu)}"><span class="cat" id="cat" aria-hidden="true">${pixelCat(2)}</span><button type="button" class="mn" data-menu aria-expanded="false" aria-controls="dlinks"><span id="mlabel">${t.menu}</span><span aria-hidden="true">▾</span></button><span class="lks" id="dlinks">${DOCK.map(([id, k]) => `<a href="#${id}" data-sec="${id}" data-track-event="navigation_click" data-track-section-id="${id}">${t.nav[k]}</a>`).join("")}</span><i aria-hidden="true"></i>
   <button type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}"><svg viewBox="0 0 24 24" aria-hidden="true">${themeIcon()}</svg></button>
-  <button type="button" class="lg" data-lang="${lang === "en" ? "es" : "en"}" data-track-event="language_change" data-track-selected-language="${lang === "en" ? "es" : "en"}" aria-label="${esc(t.langLabel)}: ${lang === "en" ? "Español" : "English"}"><b${lang === "en" ? ' class="on"' : ""}>EN</b><b${lang === "es" ? ' class="on"' : ""}>ES</b></button></nav>`;
+  ${languageControl(t)}</nav>`;
+function languageControl(t) {
+  const next = lang === 'en' ? 'es' : 'en';
+  const tag = document.documentElement.dataset.pageLanguage ? 'a' : 'button';
+  const attrs = tag === 'a' ? `href="${next === 'es' ? 'es.html' : './'}" hreflang="${next}"` : 'type="button"';
+  return `<${tag} ${attrs} class="lg" data-lang="${next}" aria-label="${esc(t.langLabel)}: ${next === 'es' ? 'Español' : 'English'}"><b${lang === 'en' ? ' class="on"' : ''}>EN</b> <b${lang === 'es' ? ' class="on"' : ''}>ES</b></${tag}>`;
+}
 function render(t) {
   const m = t.pitch.match(/^(.*?)( into | en )(.*)$/);
   const h1 = m ? `${m[1]} <span>${m[2].trim()}&nbsp;${m[3]}</span>` : t.pitch;
