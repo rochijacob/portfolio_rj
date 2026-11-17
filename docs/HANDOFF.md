@@ -2,7 +2,7 @@
 
 Documento para que otro agente (o Rocío) retome el trabajo sin el historial de la conversación. Actualizalo cada vez que cambie una decisión.
 
-Última actualización: 2026-11-14.
+Última actualización: 2026-11-16.
 
 ## Objetivo
 
@@ -196,19 +196,23 @@ node scripts/check.js
 5. **El nombre es "Rocío Jacob", con tilde.** El ticker de D es `ROCI`.
 6. **El teléfono no va en el sitio.**
 
-### Anonimización (decisión de Rocío, 2026-11-14)
+### Anonimización (actualizada por Rocío, 2026-11-16)
 
-No se nombran empleadores ni clientes:
+En **Experiencia y formación** se muestran los empleadores reales: Muvinai, Accenture y Universidad de San Andrés. Las instituciones educativas ya se mostraban con su nombre real.
+
+Los casos y el resto del relato siguen anonimizados, en especial el caso universitario que tiene permiso de publicación bajo esa condición:
 
 | Real | En el sitio |
 |---|---|
-| Muvinai | "Estudio de software" / "Software studio" |
-| Accenture | "Consultora global" / "Global consulting firm" |
-| UdeSA como empleadora (PM & Business Partner, docencia) | "Una universidad" / "A university" |
+| Muvinai en casos | "Estudio de software" / "Software studio" |
+| Accenture en casos y perfil | "Consultora global" / "Global consulting firm" |
+| UdeSA en casos | "Una universidad" / "A university" |
 | Cliente del gimnasio | "la cadena de gimnasios más grande de Argentina" (aprobado así) |
 | DataHub (sistema interno) | "un data hub central" |
 
-Sí se nombran las instituciones de su educación (Universidad de San Andrés, IE University): son credenciales suyas y Rocío lo aprobó, sabiendo que facilita deducir quién es "una universidad".
+No volver a anonimizar el bloque de experiencia/formación. No trasladar los nombres reales a los casos sin una indicación explícita, porque la autorización del caso universitario depende de mantenerlo anónimo.
+
+**Analytics (2026-11-16):** la home incluye el Google tag de GA4 `G-FFMYCXQZFJ` con `gtag.js` y `gtag('config', ...)`. Publica directamente eventos de lectura, proyectos, navegación, CTA, contacto, copia de email y preferencias, sin PII. No carga también el contenedor `GTM-K79GS3KK`, para evitar redundancia o mediciones duplicadas. La configuración de informes y la convención de URLs UTM están documentadas en `docs/ANALYTICS.md`.
 
 En los casos se usan órdenes de magnitud ("más de cien", "de días a minutos") y no cifras internas exactas. No se mencionan personas, áreas internas, VPN ni GitLab.
 

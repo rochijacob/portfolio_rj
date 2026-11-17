@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFMYCXQZFJ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FFMYCXQZFJ');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rocío Jacob · Product Engineer</title>
 <meta name="description" content="">
@@ -53,7 +61,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 h1{font:500 clamp(2rem,4.5vw,3.8rem)/1.08 var(--txt);letter-spacing:-.04em;margin:0;max-width:26ch;text-wrap:balance}
 h1 span{color:var(--acc)}
 .today{margin:24px 0 0;max-width:64ch;font-size:1.125rem;color:var(--soft)}
-.availability{margin:12px 0 0;font-size:.875rem;color:var(--soft)}
 .cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:28px}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);padding:14px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:.9375rem;border:1px solid var(--ink);transition:background .2s,color .2s}
 .btn:hover{background:var(--blue);border-color:var(--blue);color:var(--bg)}
@@ -200,6 +207,11 @@ document.documentElement.dataset.theme = theme;
 const clock = () => new Date().toLocaleTimeString(lang === "es" ? "es-AR" : "en-GB", { timeZone: "America/Argentina/Buenos_Aires", hour: "2-digit", minute: "2-digit", hour12: false });
 const DOCK = [["work", "work"], ["offers", "services"], ["about", "about"], ["contact", "contact"]];
 const MAIN = ["WK.01", "WK.02", "WK.04"];
+const trackedViews = new Set();
+let analyticsObserver;
+const track = (event, parameters = {}) => {
+  gtag("event", event, { language: lang, theme, ...parameters });
+};
 /* A composed architectural elevation, not a geographic or to-scale survey.
    Each landmark has its own clear silhouette; details stay inside its facade. */
 const city = alt => {
@@ -265,32 +277,31 @@ const city = alt => {
 </svg>`;
 };
 const themeIcon = () => theme === "dark" ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>' : '<path d="M20 14A8 8 0 0110 4a8 8 0 1010 10z"/>';
-const dockMarkup = t => `<nav class="dock" aria-label="${esc(t.menu)}"><span class="cat" id="cat" aria-hidden="true">${pixelCat(2)}</span><button type="button" class="mn" data-menu aria-expanded="false" aria-controls="dlinks"><span id="mlabel">${t.menu}</span><span aria-hidden="true">▾</span></button><span class="lks" id="dlinks">${DOCK.map(([id, k]) => `<a href="#${id}" data-sec="${id}">${t.nav[k]}</a>`).join("")}</span><i aria-hidden="true"></i>
+const dockMarkup = t => `<nav class="dock" aria-label="${esc(t.menu)}"><span class="cat" id="cat" aria-hidden="true">${pixelCat(2)}</span><button type="button" class="mn" data-menu aria-expanded="false" aria-controls="dlinks"><span id="mlabel">${t.menu}</span><span aria-hidden="true">▾</span></button><span class="lks" id="dlinks">${DOCK.map(([id, k]) => `<a href="#${id}" data-sec="${id}" data-track-event="navigation_click" data-track-section-id="${id}">${t.nav[k]}</a>`).join("")}</span><i aria-hidden="true"></i>
   <button type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}"><svg viewBox="0 0 24 24" aria-hidden="true">${themeIcon()}</svg></button>
-  <button type="button" class="lg" data-lang="${lang === "en" ? "es" : "en"}" aria-label="${esc(t.langLabel)}: ${lang === "en" ? "Español" : "English"}"><b${lang === "en" ? ' class="on"' : ""}>EN</b><b${lang === "es" ? ' class="on"' : ""}>ES</b></button></nav>`;
+  <button type="button" class="lg" data-lang="${lang === "en" ? "es" : "en"}" data-track-event="language_change" data-track-selected-language="${lang === "en" ? "es" : "en"}" aria-label="${esc(t.langLabel)}: ${lang === "en" ? "Español" : "English"}"><b${lang === "en" ? ' class="on"' : ""}>EN</b><b${lang === "es" ? ' class="on"' : ""}>ES</b></button></nav>`;
 function render(t) {
   const m = t.pitch.match(/^(.*?)( into | en )(.*)$/);
   const h1 = m ? `${m[1]} <span>${m[2].trim()}&nbsp;${m[3]}</span>` : t.pitch;
-  const sec = (id, title, body) => `<section class="sec" id="${id}"><h2>${title}</h2><div>${body}</div></section>`;
+  const sec = (id, title, body) => `<section class="sec" id="${id}" data-track-view="section_view" data-track-id="${id}"><h2>${title}</h2><div>${body}</div></section>`;
   const main = MAIN.map(c => t.cases.find(x => x.code === c)), rest = t.cases.filter(x => !MAIN.includes(x.code));
   const fid = c => "f" + c.code.replace(".", "");
   $("#app").innerHTML = `
 <a class="skip" href="#main">${t.skip}</a>
 <header class="w"><div class="hd">
-  <a class="me" href="#top">${t.name}</a>
-  <span class="k lk"><a href="${L.linkedin}" ${ext}>${t.footer.linkedin}</a><a href="${L.github}" ${ext}>${t.footer.github}</a></span>
+  <a class="me" href="#top" data-track-event="navigation_click" data-track-section-id="top">${t.name}</a>
+  <span class="k lk"><a href="${L.linkedin}" data-track-event="contact_click" data-track-method="linkedin" data-track-location="header" ${ext}>${t.footer.linkedin}</a><a href="${L.github}" ${ext}>${t.footer.github}</a></span>
 </div></header>
 <main id="main" class="w">
   <div class="hero" id="top">
     <h1>${h1}</h1>
     <p class="today">${t.heroIntro}</p>
-    <p class="availability">${t.availability}</p>
-    <div class="cta"><a class="btn" href="#contact">${t.cta} ↗</a><a class="btn o" href="#work">${t.seeWork}</a><span class="k">${t.remoteNote} · <span id="clock">${clock()}</span></span></div>
+    <div class="cta"><a class="btn" href="#contact" data-track-event="cta_click" data-track-location="hero" data-track-target="contact">${t.cta} ↗</a><a class="btn o" href="#work" data-track-event="cta_click" data-track-location="hero" data-track-target="work">${t.seeWork}</a><span class="k">${t.remoteNote} · <span id="clock">${clock()}</span></span></div>
     <div class="cityw">${city(t.illo)}</div>
   </div>
-  <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => { const f = t.featured[c.code]; return `<a href="#${fid(c)}"><span class="n">${f.number}</span><span class="metric-label">${f.label}</span><b>${f.title} ›</b></a>`; }).join("")}</nav>
+  <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => { const f = t.featured[c.code]; return `<a href="#${fid(c)}" data-track-event="select_content" data-track-content-type="project" data-track-content-id="${c.code}"><span class="n">${f.number}</span><span class="metric-label">${f.label}</span><b>${f.title} ›</b></a>`; }).join("")}</nav>
 
-  <div id="work">${main.map(c => { const f = t.featured[c.code]; return `<section class="feat" id="${fid(c)}"><div><span class="k">${c.org} · ${c.when}</span><h2>${f.title}</h2><p class="case-summary">${f.summary}</p><p class="case-result">${c.impact}</p>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div>
+  <div id="work">${main.map(c => { const f = t.featured[c.code]; return `<section class="feat" id="${fid(c)}" data-track-view="project_view" data-track-id="${c.code}"><div><span class="k">${c.org} · ${c.when}</span><h2>${f.title}</h2><p class="case-summary">${f.summary}</p><p class="case-result">${c.impact}</p>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div>
     <div><p>${c.body}</p><dl class="f"><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl>
       ${c.steps ? `<details class="more" id="case-${c.code}"><summary><span class="x" aria-hidden="true">+</span>${t.readCase}</summary><dl class="f">${c.steps.map(x => `<dt>${x.k}</dt><dd>${x.v}</dd>`).join("")}</dl></details>` : ""}</div></section>`; }).join("")}
     <details class="fold related" id="more-work"><summary><h3>${t.moreWork}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b">${rest.map(c => `<h4>${c.name}</h4><p class="s">${c.org} · ${c.role} · ${c.when}</p><p>${caseBody(c)}</p>`).join("")}</div></details>
@@ -307,15 +318,30 @@ function render(t) {
 
   ${sec("books", t.h.books, `<p>${t.booksIntro}</p>${bookShelf()}`)}
 
-  <section class="end" id="contact">
+  <section class="end" id="contact" data-track-view="section_view" data-track-id="contact">
     <p class="big">${t.gotMind}</p>
-    <div class="cta" style="margin:0 0 18px"><a class="btn" href="${mailto()}">${t.cta} ↗</a><button type="button" class="btn o" data-copy>${t.copy}</button></div>
+    <div class="cta" style="margin:0 0 18px"><a class="btn" href="${mailto()}" data-track-event="contact_click" data-track-method="email" data-track-location="contact">${t.cta} ↗</a><button type="button" class="btn o" data-copy>${t.copy}</button></div>
     <p class="copy-status" id="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
-    <p class="s"><a class="m" href="${mailto()}">${L.email}</a>, ${t.orLinkedin.replace("LinkedIn", `<a href="${L.linkedin}" ${ext}>LinkedIn</a>`)}.</p>
+    <p class="s"><a class="m" href="${mailto()}" data-track-event="contact_click" data-track-method="email" data-track-location="contact_text">${L.email}</a>, ${t.orLinkedin.replace("LinkedIn", `<a href="${L.linkedin}" data-track-event="contact_click" data-track-method="linkedin" data-track-location="contact" ${ext}>LinkedIn</a>`)}.</p>
   </section>
   <footer class="k"><span>${t.footer.rights}</span><span>${footerLinks()}</span></footer>
 </main>${dockMarkup(t)}`;
   spy();
+  observeAnalytics();
+}
+function observeAnalytics() {
+  analyticsObserver?.disconnect();
+  if (!("IntersectionObserver" in window)) return;
+  analyticsObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const event = entry.target.dataset.trackView;
+    const id = entry.target.dataset.trackId;
+    const key = `${event}:${id}`;
+    if (trackedViews.has(key)) return;
+    trackedViews.add(key);
+    track(event, event === "project_view" ? { project_code: id } : { section_id: id });
+  }), { threshold: .15 });
+  $$('[data-track-view]').forEach(element => analyticsObserver.observe(element));
 }
 function spy() {
   const readingLine = innerHeight * .35;
@@ -329,7 +355,23 @@ document.addEventListener("click", e => {
   b.setAttribute("aria-pressed", theme === "dark");
   $("svg", b).innerHTML = themeIcon();
   $('meta[name="theme-color"]').content = theme === "dark" ? "#00202f" : "#f4f6f7";
+  track("theme_change", { selected_theme: theme });
 });
+document.addEventListener("click", e => {
+  const target = e.target.closest("[data-track-event]"); if (!target) return;
+  const parameters = {};
+  for (const [key, value] of Object.entries(target.dataset)) {
+    if (key.startsWith("track") && key !== "trackEvent") {
+      const raw = key.slice(5);
+      const name = (raw[0].toLowerCase() + raw.slice(1)).replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`);
+      parameters[name] = value;
+    }
+  }
+  track(target.dataset.trackEvent, parameters);
+});
+document.addEventListener("toggle", e => {
+  if (e.target.matches("details.more") && e.target.open) track("case_open", { project_code: e.target.id.replace("case-", "") });
+}, true);
 function closeMenu() {
   $(".dock")?.classList.remove("open");
   $("[data-menu]")?.setAttribute("aria-expanded", "false");
@@ -353,9 +395,11 @@ document.addEventListener("click", async e => {
     await navigator.clipboard.writeText(L.email);
     if (!b.isConnected) return;
     b.textContent = T().copied; status.textContent = T().copySuccess;
+    track("email_copy", { result: "success" });
     setTimeout(() => { if (b.isConnected) b.textContent = T().copy; }, 1800);
   } catch {
     if (b.isConnected) { b.textContent = T().copy; status.textContent = T().copyError; }
+    track("email_copy", { result: "failure" });
   } finally { b.disabled = false; }
 });
 addEventListener("scroll", () => {
