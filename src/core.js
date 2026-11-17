@@ -42,7 +42,7 @@ const content = {
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remote worldwide",
     status: "Open to freelance · Buenos Aires",
     cta: "Work with me", ctaAlt: "Let's talk", mailSubject: "Project for Rocío",
-    skip: "Skip to content", langLabel: "Language", themeLabel: "Toggle light / dark", portraitAlt: "Pixel-art avatar of Rocío Jacob",
+    skip: "Skip to content", langLabel: "Language", themeLabel: "Toggle light / dark", portraitAlt: "Photo of Rocío Jacob",
     nav: { home: "Home", about: "About", work: "Work", experience: "Experience", skills: "Stack", books: "Books", writing: "Writing", contact: "Contact", play: "Playground", services: "Services" },
     h: { services: "What I offer", about: "About", work: "Selected work", experience: "Experience", skills: "Skills & stack", books: "Books", writing: "Writing", contact: "Work with me", finance: "The finance side", lab: "Lab", numbers: "In numbers" },
     about: [
@@ -66,7 +66,7 @@ const content = {
       { code: "WK.02", line: "Ticketing for 15K+ users on three continents.", name: "Event SaaS platform", org: "Software studio", role: "Project Leader", when: "Nov 2023 – Apr 2025", impact: "15K+ users · 5+ clients",
         body: "Led development of a platform for ticketing, access control and client relationships, used by music festivals and crypto events across America, Europe and Asia. I managed a team of six, handled 5+ client accounts directly, and set priorities and roadmap with clients and stakeholders.", tags: ["Project leadership", "Jira", "Roadmap", "React"] },
       { code: "WK.03", name: "High-volume checkout", org: "Software studio", role: "Senior Developer", when: "2021 – 2023", impact: "300+ payments / day",
-        body: "Designed and launched a checkout with custom billing that processes 300+ payments a day. It was one of the first React integrations of Mercado Pago.", tags: ["React", "Mercado Pago", "Billing"] },
+        body: "Designed and launched, as part of a team, a checkout with custom billing that processes 300+ payments a day. It was one of the first React integrations of Mercado Pago.", tags: ["React", "Mercado Pago", "Billing"] },
       { code: "WK.04", line: "From manual coordination to an automated flow.", name: "Final-project tracking", org: "A university", role: "Product & automation lead", when: "Apr 2026 – present", impact: "100+ projects per cycle",
         body: "I own the backend of the system that tracks student capstone projects and coordinates their defense committees: the data layer, the sync and the workflows. Alongside it, I drive automation, BI and AI projects for university operations.",
         steps: [
@@ -144,7 +144,7 @@ const content = {
       ] },
     expWork: "Work", expEdu: "Education",
     why: "Why work with me", menu: "Menu", workCols: { p: "Project", w: "When", i: "Result" },
-    readCase: "Read the full case", seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
+    readCase: "Read the full case", svcMore: "Deliverable and who it is for", seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
     fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
     gotMind: "Have a manual process, a stalled automation or a product that needs to move forward?", reach: "Or write to me at",
     illo: "Architectural drawing of Buenos Aires: Kavanagh, Congress, the Obelisk, and Puente de la Mujer",
@@ -254,7 +254,7 @@ const content = {
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remoto a todo el mundo",
     status: "Disponible para freelance · Buenos Aires",
     cta: "Trabajemos juntos", ctaAlt: "Hablemos", mailSubject: "Proyecto para Rocío",
-    skip: "Ir al contenido", langLabel: "Idioma", themeLabel: "Cambiar modo claro / oscuro", portraitAlt: "Avatar en pixel art de Rocío Jacob",
+    skip: "Ir al contenido", langLabel: "Idioma", themeLabel: "Cambiar modo claro / oscuro", portraitAlt: "Foto de Rocío Jacob",
     nav: { home: "Inicio", about: "Sobre mí", work: "Trabajo", experience: "Experiencia", skills: "Stack", books: "Libros", writing: "Escritos", contact: "Contacto", play: "Playground", services: "Servicios" },
     h: { services: "Servicios", about: "Sobre mí", work: "Proyectos destacados", experience: "Experiencia", skills: "Herramientas", books: "Libros", writing: "Escritos", contact: "Trabajemos juntos", finance: "El lado financiero", lab: "Lab", numbers: "En números" },
     about: [
@@ -278,7 +278,7 @@ const content = {
       { code: "WK.02", line: "Venta y control de entradas para más de 15 mil usuarios en tres continentes.", name: "Plataforma SaaS de eventos", org: "Estudio de software", role: "Project Leader", when: "Nov 2023 – Abr 2025", impact: "15K+ usuarios · 5+ clientes",
         body: "Lideré el desarrollo de una plataforma de venta de entradas, control de accesos y relación con clientes, usada por festivales de música y eventos cripto en América, Europa y Asia. Coordiné un equipo de seis personas, manejé más de cinco cuentas de clientes y definí las prioridades y la hoja de ruta junto a ellos.", tags: ["Liderazgo de proyecto", "Jira", "Hoja de ruta", "React"] },
       { code: "WK.03", name: "Checkout de alto volumen", org: "Estudio de software", role: "Senior Developer", when: "2021 – 2023", impact: "300+ pagos / día",
-        body: "Diseñé y lancé un checkout con facturación a medida que procesa más de 300 pagos por día. Una de las primeras integraciones de Mercado Pago en React.", tags: ["React", "Mercado Pago", "Facturación"] },
+        body: "Diseñé y lancé en equipo un checkout con facturación a medida que procesa más de 300 pagos por día. Una de las primeras integraciones de Mercado Pago en React.", tags: ["React", "Mercado Pago", "Facturación"] },
       { code: "WK.04", line: "De la coordinación manual a un flujo automatizado.", name: "Seguimiento de trabajos finales", org: "Una universidad", role: "Líder de producto y automatización", when: "Abr 2026 – presente", impact: "Más de 100 trabajos por entrega",
         body: "Estoy a cargo del backend del sistema que hace el seguimiento de los trabajos finales de grado y coordina las mesas de defensa: datos, sincronización y flujos de trabajo. En paralelo llevo adelante proyectos de automatización, BI e IA para la universidad.",
         steps: [
@@ -356,7 +356,7 @@ const content = {
       ] },
     expWork: "Experiencia laboral", expEdu: "Formación",
     why: "Por qué trabajar conmigo", menu: "Menú", workCols: { p: "Proyecto", w: "Período", i: "Resultado" },
-    readCase: "Leer el caso completo", seeWork: "Ver proyectos", remoteNote: "Buenos Aires · Trabajo remoto", moreWork: "Otros proyectos",
+    readCase: "Leer el caso completo", svcMore: "Entregable y para quién", seeWork: "Ver proyectos", remoteNote: "Buenos Aires · Trabajo remoto", moreWork: "Otros proyectos",
     fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
     gotMind: "¿Tenés un proceso manual, una automatización trabada o un producto que necesita avanzar?", reach: "O escribime a",
     illo: "Croquis arquitectónico de Buenos Aires: Kavanagh, Congreso, Obelisco y Puente de la Mujer",
@@ -495,7 +495,7 @@ function footerLinks() {
   return `<a href="mailto:${L.email}">${f.email}</a><a href="${L.linkedin}" ${ext}>${f.linkedin}</a><a href="${L.github}" ${ext}>${f.github}</a>`;
 }
 function portrait() {
-  return `<span class="portrait"><span aria-hidden="true">RJ</span><img src="profile.png" alt="${esc(T().portraitAlt)}" width="96" height="96" style="image-rendering:pixelated" onload="this.previousElementSibling.style.visibility='hidden'" onerror="this.remove()"></span>`;
+  return `<span class="portrait"><span aria-hidden="true">RJ</span><img src="profile.jpg" alt="${esc(T().portraitAlt)}" width="96" height="96" onload="this.previousElementSibling.style.visibility='hidden'" onerror="this.remove()"></span>`;
 }
 const caseBody = c => c.body + (c.steps ? "<br><br>" + c.steps.map(x => `<b>${x.k}.</b> ${x.v}`).join("<br>") : "");
 const svcBody = s => s.body + (s.deliv ? `<br><b>${T().delivLabel}:</b> ${s.deliv}` : "") + (s.ideal ? `<br><b>${T().idealLabel}:</b> ${s.ideal}` : "");
@@ -558,8 +558,29 @@ document.addEventListener("click", e => {
   const b = e.target.closest("[data-lang]");
   if (!b || b.dataset.lang === lang) return;
   lang = b.dataset.lang; store.set("rj-lang", lang);
-  const y = scrollY; apply(); scrollTo(0, y);
-  const again = $(`[data-lang="${lang}"]`) || $("[data-lang]"); if (again) again.focus();
+  swap(() => {
+    const y = scrollY; apply(); scrollTo(0, y);
+    const again = $(`[data-lang="${lang}"]`) || $("[data-lang]"); if (again) again.focus();
+  });
+});
+/* Re-render behind a short cross-fade where the browser supports view transitions, so a language
+   change does not snap. Without support, or with reduced motion, it runs straight away. */
+function swap(fn) { if (!reduced && document.startViewTransition) document.startViewTransition(fn); else fn(); }
+/* Text selection as a pink highlighter stroke (the mascot's pink), on every direction. */
+document.head.insertAdjacentHTML("beforeend", `<style>::selection{background:color-mix(in srgb,${PINK} 42%,transparent);color:inherit}::view-transition-old(root),::view-transition-new(root){animation-duration:.26s}</style>`);
+/* Every <details> opens and closes with a height animation instead of snapping. */
+document.addEventListener("click", e => {
+  const s = e.target.closest("summary"), d = s && s.parentNode;
+  if (!d || d.tagName !== "DETAILS" || reduced || !d.animate) return;
+  e.preventDefault();
+  const closing = d._anim ? !d._closing : d.open, from = d.offsetHeight;
+  if (d._anim) { d._anim.onfinish = null; d._anim.cancel(); }
+  d.open = true;
+  const cs = getComputedStyle(d), shut = s.getBoundingClientRect().bottom - d.getBoundingClientRect().top + parseFloat(cs.paddingBottom) + parseFloat(cs.borderBottomWidth);
+  d.style.height = ""; const full = d.offsetHeight;
+  d._closing = closing; d.style.overflow = "hidden";
+  d._anim = d.animate({ height: [from + "px", (closing ? shut : full) + "px"] }, { duration: 340, easing: "cubic-bezier(.22,.7,.2,1)" });
+  d._anim.onfinish = () => { if (closing) d.open = false; d.style.overflow = ""; d._anim = null; };
 });
 
 /* Buenos Aires sketch, shared by A, D and H. Each site styles .city with its own variables. */
@@ -627,3 +648,24 @@ const city = alt => {
 </g>
 </svg>`;
 };
+
+/* The Obelisk up close, same line language as the skyline. Shared by H (hero) and J. Styled via .sk. */
+const obelisk = alt => {
+  const g = 400, rep = (n, f) => Array.from({ length: n }, (_, i) => f(i)).join("");
+  const tree = (x, g) => `M${x} ${g}v-20m0 8l-6-6m6 2l6-7M${x - 14} ${g - 22}c-7-6-3-14 3-15-1-11 14-15 20-7 10-1 15 13 7 19 0 8-9 13-15 7-5 3-11 2-15-4Z`;
+  const person = (x, g) => `<circle cx="${x}" cy="${g - 13}" r="1.8"/><path d="M${x} ${g - 10}v5m-2.5 5 2.5-5 2.5 5m-6-8 3.5-2 3.5 2"/>`;
+  return `<svg class="sk" viewBox="0 0 420 450" role="img" aria-label="${esc(alt)}">
+<g class="context">
+  <path d="M18 ${g}V300h46v100M24 306h34M74 ${g}V258h40v142M70 264h48M306 ${g}V270h42v130M302 276h50M360 ${g}V318h42v82M356 324h50"/>
+  <path class="detail" d="${rep(3, i => rep(5, j => `M${28 + i * 12} ${316 + j * 16}v6h4v-6`))}${rep(3, i => rep(8, j => `M${82 + i * 11} ${272 + j * 15}v6h4v-6`))}${rep(3, i => rep(7, j => `M${314 + i * 12} ${284 + j * 15}v6h4v-6`))}${rep(3, i => rep(4, j => `M${368 + i * 12} ${332 + j * 15}v6h4v-6`))}"/>
+</g>
+<path class="wash" d="M210 40l13 44 9 296h-22Z"/>
+<path class="outline" d="M188 380l9-296 13-44 13 44 9 296ZM176 392v-12h68v12M166 ${g}v-8h88v8"/>
+<path class="detail" d="M210 40v340M197 84h26M205 110v10h10v-10ZM204 352v28h12v-28ZM176 386h68"/>
+<path d="M120 ${g}v-14h40v14M260 ${g}v-14h40v14"/><text x="140" y="${g - 4}" text-anchor="middle">B</text><text x="280" y="${g - 4}" text-anchor="middle">A</text>
+<g class="context"><path d="${tree(96, g)}${tree(330, g)}M56 ${g}v-34h9m-9 3h9M372 ${g}v-34h-9m9 3h-9"/>${person(150, g)}${person(268, g)}${person(292, g)}</g>
+<path d="M6 ${g}h408"/><path class="detail" d="${rep(26, i => `M${14 + i * 15.5} ${g + 5}l-5 7`)}"/>
+<g class="guide"><path d="M244 40h28m-28 360h28M264 40v360M260 44l8-8m-8 368 8-8"/></g>
+<text x="278" y="220" text-anchor="middle" transform="rotate(-90 278 220)">${esc(T().cityHeight)}</text>
+<text x="210" y="432" text-anchor="middle">OBELISCO · AV. 9 DE JULIO</text>
+</svg>`; };

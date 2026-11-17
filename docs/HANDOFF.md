@@ -26,6 +26,22 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 | `site-D-ledger.html` | D · Ledger | Barlow Condensed + Barlow + IBM Plex Mono | Hero solo tipográfico enorme; cinta de cifras; historia `[01]`–`[04]` con tags de pares; tesis; track record que se abre; el croquis baja al pie como panorama de cierre (la respuesta a "¿qué hacemos en el hero si la ilustración va al footer?"). Se quitaron el gráfico y las tenencias |
 | `site-I-talk.html` | I · Charla (nueva) | Instrument Serif + Hanken Grotesk | Wording conversacional estilo 10xshivam: links como chips de borde punteado dentro de las frases, títulos de sección con voz. Textos en `content.*.talk` |
 
+**La mezcla en H (2026-11-17, lo más reciente; manda sobre lo anterior).** Rocío eligió qué combinar y se aplicó en H, en la rama de trabajo, **sin publicar** (`main` sigue con la H anterior hasta que lo pida):
+
+- **Hero:** titular en serif a la izquierda y el **Obelisco de cerca** a la derecha (`obelisk()` en `core.js`), con la nota a mano "mi base. Trabajo remoto desde acá". En celular el dibujo va debajo del texto.
+- **El skyline cierra la página**, entre el contacto y el pie. "Una sola ilustración" pasa a ser dos: Obelisco arriba, skyline abajo.
+- **"Un POCO de serif"** (A le pareció demasiado): Instrument Serif solo en el titular del hero, el título de servicios y la pregunta de cierre. Todo lo demás sigue en Geist. No extender el serif a títulos de casos ni de secciones sin que lo pida.
+- **Servicios como en Charla**, que le gustó mucho: título "Cómo podemos trabajar juntos", nombre y una frase por servicio; entregable e ideal quedan dentro de un desplegable.
+- **Desplegables:** los valora y pidió que sean fluidos. Todos los `<details>` de todas las direcciones se abren y cierran con animación de altura (bloque en `core.js`); aguanta clics repetidos y se apaga con reducir movimiento.
+- **Cambio de idioma:** le resultaba abrupto. Ahora el re-render va dentro de un fundido corto (`swap()` en `core.js`, View Transitions; sin soporte o con reducir movimiento es instantáneo). Además volvió el scroll suave al navegar con el dock (pidió mejorar la navegación; se había quitado en una revisión anterior).
+- **Selección de texto:** pidió que al marcar texto con el mouse "quede algo lindo y diferente". Es un resaltador en el rosa de la panterita (`::selection` en `core.js`, todas las direcciones).
+- **Foto:** reemplazó el avatar pixel por una foto suya (`profile.jpg`, recorte cuadrado sin metadatos). `profile.png` y `avatar-full.png` quedan en el repo sin uso.
+- **Texto del checkout:** "Diseñé y lancé **en equipo** un checkout…" (EN: "as part of a team").
+- **Se conservan** B (tal cual) y el artículo de A ("me encantó la estructura"), para usarlo cuando haya artículos.
+- **Pendiente:** dijo que en A ve "varias cosas desalineadas" y que la ve "muy cargada". Como lo que le gustó de A ya pasó a H, A no se retocó; falta que diga si quiere mantenerla viva y qué ve desalineado.
+
+Gusto general confirmado: simpleza de texto (como Charla y Ledger), poco a la vista y el resto en desplegables.
+
 **Primera devolución de Rocío sobre el laboratorio (2026-11-17, lo más reciente):**
 
 - Le gusta el serif (A, I), "aunque hay secciones que no me gustan": **falta que diga cuáles**.
@@ -53,9 +69,9 @@ Reglas de H, la publicada (el laboratorio puede romperlas a propósito):
 - Un solo acento de color (celeste) sobre crema y azul. El rosa aparece solo en el gato y en una caja de libro.
 - Líneas finas en vez de cajas. Sin tarjetas, sombras ni bordes gruesos.
 - Columna fija de etiquetas a la izquierda y contenido a la derecha, en una grilla de 12.
-- La tipografía hace el trabajo (Geist, con Geist Mono para etiquetas).
+- La tipografía hace el trabajo: Geist, Geist Mono para etiquetas, y un poco de Instrument Serif (hero, título de servicios y cierre).
 - Fondo de papel punteado (también en A).
-- Una sola ilustración: el dibujo lineal de Buenos Aires.
+- Dos ilustraciones con la misma línea: el Obelisco en el hero y el skyline de Buenos Aires como cierre.
 - Sin metáforas en los nombres de sección, movimiento mínimo, contenido editado (casos que se abren al clic, 4 números).
 - Un único detalle lúdico: el gato pixel camina sobre el borde del dock según el scroll.
 

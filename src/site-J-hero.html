@@ -70,26 +70,6 @@ let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)")
 document.documentElement.dataset.theme = theme;
 const rep = (n, f) => Array.from({ length: n }, (_, i) => f(i)).join("");
 const arrow = flip => `<svg viewBox="0 0 74 40" aria-hidden="true"${flip ? ' style="transform:scaleX(-1)"' : ""}><path d="M70 6C52 4 30 10 14 30"/><path d="M12 18l1 13 13-3"/></svg>`;
-const tree = (x, g) => `M${x} ${g}v-20m0 8l-6-6m6 2l6-7M${x - 14} ${g - 22}c-7-6-3-14 3-15-1-11 14-15 20-7 10-1 15 13 7 19 0 8-9 13-15 7-5 3-11 2-15-4Z`;
-const person = (x, g) => `<circle cx="${x}" cy="${g - 13}" r="1.8"/><path d="M${x} ${g - 10}v5m-2.5 5 2.5-5 2.5 5m-6-8 3.5-2 3.5 2"/>`;
-
-/* 1. The Obelisk in elevation: two faces, stepped plinth, hedges, a height dimension. */
-const obelisk = alt => { const g = 400; return `<svg class="sk" viewBox="0 0 420 450" role="img" aria-label="${esc(alt)}">
-<g class="context">
-  <path d="M18 ${g}V300h46v100M24 306h34M74 ${g}V258h40v142M70 264h48M306 ${g}V270h42v130M302 276h50M360 ${g}V318h42v82M356 324h50"/>
-  <path class="detail" d="${rep(3, i => rep(5, j => `M${28 + i * 12} ${316 + j * 16}v6h4v-6`))}${rep(3, i => rep(8, j => `M${82 + i * 11} ${272 + j * 15}v6h4v-6`))}${rep(3, i => rep(7, j => `M${314 + i * 12} ${284 + j * 15}v6h4v-6`))}${rep(3, i => rep(4, j => `M${368 + i * 12} ${332 + j * 15}v6h4v-6`))}"/>
-</g>
-<path class="wash" d="M210 40l13 44 9 296h-22Z"/>
-<path class="outline" d="M188 380l9-296 13-44 13 44 9 296ZM176 392v-12h68v12M166 ${g}v-8h88v8"/>
-<path class="detail" d="M210 40v340M197 84h26M205 110v10h10v-10ZM204 352v28h12v-28ZM176 386h68"/>
-<path d="M120 ${g}v-14h40v14M260 ${g}v-14h40v14"/><text x="140" y="${g - 4}" text-anchor="middle">B</text><text x="280" y="${g - 4}" text-anchor="middle">A</text>
-<g class="context"><path d="${tree(96, g)}${tree(330, g)}M56 ${g}v-34h9m-9 3h9M372 ${g}v-34h-9m9 3h-9"/>${person(150, g)}${person(268, g)}${person(292, g)}</g>
-<path d="M6 ${g}h408"/><path class="detail" d="${rep(26, i => `M${14 + i * 15.5} ${g + 5}l-5 7`)}"/>
-<g class="guide"><path d="M244 40h28m-28 360h28M264 40v360M260 44l8-8m-8 368 8-8"/></g>
-<text x="278" y="220" text-anchor="middle" transform="rotate(-90 278 220)">${esc(T().cityHeight)}</text>
-<text x="210" y="432" text-anchor="middle">OBELISCO · AV. 9 DE JULIO</text>
-</svg>`; };
-
 /* 2. Downtown as a street plan. Schematic: the grid, the wide avenue, the diagonals, the docks, the river. */
 const plan = alt => `<svg class="sk" viewBox="0 0 420 450" role="img" aria-label="${esc(alt)}">
 <path class="detail" d="${rep(11, i => `M${30 + i * 26} 40V400`)}${rep(13, i => `M20 ${52 + i * 28}H318`)}"/>
