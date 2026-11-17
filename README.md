@@ -9,7 +9,7 @@ Cuatro direcciones de diseño para el mismo contenido. Cada archivo es autoconte
 | `site-D-ledger.html` | Perfil de inversión, ticker `ROCI` |
 | `site-H-studio.html` | Sobria y limpia: líneas finas, tipografía, un solo detalle |
 
-`index.html` es una página para comparar todas.
+`index.html` es la home en inglés y `es.html` su versión en español. `compare.html` compara las direcciones.
 
 ## Editar contenido
 
@@ -20,6 +20,8 @@ node src/build.mjs
 ```
 
 Eso regenera los HTML. Para verificar: `node scripts/check.js`.
+
+SEO: el build prerenderiza las dos páginas públicas y genera canonical, hreflang, JSON-LD, sitemap y redirecciones cortas `x/` e `in/`. El dominio se configura en `src/seo.mjs`. Prueba adicional: `node scripts/check-seo.js` (Playwright; `BROWSER_CHANNEL=chrome`). Ver `docs/AUDIT-2026-11-16.md` y `docs/ANALYTICS.md` para propuestas, Search Console y configuración pendiente de GTM.
 
 El contexto completo del proyecto, las decisiones y los pendientes están en `docs/HANDOFF.md`. Los ítems marcados `// REPLACE` y los `[CORCHETES]` son datos pendientes.
 

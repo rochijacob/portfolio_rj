@@ -1,14 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-page-language="en">
 <head>
 <meta charset="utf-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TW2MSTRV');</script>
+<!-- Google Analytics 4: the published GTM container currently has no tags. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFMYCXQZFJ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FFMYCXQZFJ');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rocío Jacob · Product Engineer</title>
-<meta name="description" content="">
+<title>Rocío Jacob | Automation & Web Development</title>
+<meta name="description" content="Product engineer in Buenos Aires. Process automation, BI, AI agents and web development. Explore my projects and freelance services. Remote work.">
 <meta name="theme-color" content="#f4f6f7">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Rocío Jacob · Product Engineer">
-<meta property="og:description" content="I turn manual operations into digital products and automated workflows.">
+<meta property="og:title" content="Rocío Jacob | Automation &amp; Web Development">
+<meta property="og:description" content="Product engineer in Buenos Aires. Process automation, BI, AI agents and web development. Explore my projects and freelance services. Remote work.">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23003049'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fdf0d5'%3ERJ%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +45,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 :focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:2px}
 .skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:99}
 .w{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+/* Fade the sketch-paper dots behind reading areas without adding cards or changing the palette. */
+.reading{background:color-mix(in srgb,var(--bg) 86%,transparent);box-shadow:0 0 32px 24px color-mix(in srgb,var(--bg) 86%,transparent)}
 .k{font:400 .75rem/1.6 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft)}
 .s{font-size:.875rem;color:var(--soft)}
 .hd{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 20px;min-height:76px}
@@ -52,6 +68,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .dock .lg button{border-radius:8px;width:38px;min-width:0;height:34px;font:500 .75rem var(--mono);letter-spacing:.06em;opacity:.78;transition:background .2s,color .2s,opacity .2s}
 .dock .lg button:hover{opacity:1}
 .dock .lg button[aria-pressed=true]{background:var(--bg);color:var(--ink);opacity:1}
+.dock .lg a{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;width:38px;height:34px;padding:0;font:500 .75rem var(--mono);opacity:.78}
+.dock .lg a[aria-current=true]{background:var(--bg);color:var(--ink);opacity:1}
+@media(max-width:640px){.dock .lg a{width:40px;height:38px}}
 .hero{padding:clamp(28px,3.5vw,48px) 0 0}
 /* A little serif, on purpose: only the hero headline, the services title and the closing question. */
 .hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:24px 48px;align-items:center}
@@ -65,7 +84,6 @@ h1 span{color:var(--acc);font-style:italic}
 .note{position:absolute;left:0;top:7%;width:150px;margin:0;font:400 1.02rem/1.3 var(--hand);color:var(--blue);transform:rotate(-2deg);max-width:none}
 .note svg{display:block;width:60px;height:32px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transform:scaleX(-1)}
 .today{margin:24px 0 0;max-width:64ch;font-size:1.125rem;color:var(--soft)}
-.availability{margin:12px 0 0;font-size:.875rem;color:var(--soft)}
 .cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:28px}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:500;font-size:.9375rem;border:1px solid var(--ink);transition:background .2s,color .2s}
 .btn:hover{background:var(--blue);border-color:var(--blue);color:var(--bg)}
@@ -78,17 +96,17 @@ h1 span{color:var(--acc);font-style:italic}
 .city .guide{stroke:var(--acc);stroke-width:.65;opacity:.85}.city .axis{stroke-dasharray:8 5 1 5;stroke-width:.5;opacity:.5}
 .city .wash{fill:var(--acc);fill-opacity:.07;stroke:none}
 .city text{font:400 8px var(--mono);letter-spacing:.12em;fill:var(--soft);stroke:none}
-.hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:clamp(48px,6vw,80px)}
+.hi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:clamp(32px,4vw,56px)}
 .hi a{display:block;text-decoration:none}
 .hi .n{display:block;font:500 clamp(1.7rem,2.5vw,2rem)/1.15 var(--txt);letter-spacing:-.03em;margin-bottom:6px}
 .hi .metric-label{display:block;font-size:.875rem;color:var(--soft);margin-bottom:14px}
 .hi b{display:block;font-weight:500}.hi a:hover b{color:var(--blue)}
 .hi .s{display:block;margin:2px 0 0}
-.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:clamp(96px,11vw,160px) 0 0;scroll-margin-top:24px}
+.feat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:40px;padding:clamp(72px,8vw,112px) 0 0;scroll-margin-top:24px}
 .feat h2{font:500 clamp(1.65rem,2.7vw,2.25rem)/1.14 var(--txt);letter-spacing:-.035em;margin:14px 0 16px;text-wrap:balance}
 .feat .case-summary{font-size:1.125rem;color:var(--soft);line-height:1.55;margin-bottom:20px;max-width:36ch}
 .feat .case-result{font-size:1.125rem;font-weight:500;color:var(--blue);line-height:1.5;margin-bottom:0}
-.feat>div:first-child{grid-column:1/6}.feat>div:last-child{grid-column:7/13}
+.feat>div:first-child{grid-column:1/7}.feat>div:last-child{grid-column:7/13}
 .feat p{font-size:1.125rem;line-height:1.6;max-width:50ch}
 dl.f{margin:28px 0 0;display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);border-top:1px solid var(--hair)}
 dl.f dt,dl.f dd{margin:0;padding:16px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
@@ -98,17 +116,18 @@ dl.f dt{font:400 .75rem/2 var(--mono);letter-spacing:.07em;text-transform:upperc
 .sec>h2 span{display:block;color:var(--soft)}
 .sec>div{grid-column:4/13;min-width:0}
 #offers{display:block}
-#offers>h2{position:static;font:italic 400 clamp(2rem,1.5rem + 2vw,2.8rem)/1.05 var(--serif);letter-spacing:0;margin-bottom:40px}
-.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-bottom:40px}
+#offers>h2{position:static;font:italic 400 clamp(2rem,1.5rem + 2vw,2.8rem)/1.05 var(--serif);letter-spacing:0;margin-bottom:28px}
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-bottom:24px}
 .service h3{margin:0 0 10px}
 .service p{font-size:1rem;line-height:1.65;margin-bottom:8px;color:var(--soft)}
+.service .deliverable{color:var(--ink)}
 .service details{border:0}.service summary{display:flex;align-items:center;gap:10px;padding:10px 0;font-size:.875rem;font-weight:500}.service summary .x{justify-self:auto;font-size:1.1rem}
 .service dl{margin:0;font-size:.9375rem;line-height:1.65}
 .service dt{font-weight:600;margin:20px 0 4px}
 .service dd{margin:0;color:var(--soft)}
 h3{font:500 1.3125rem/1.2 var(--txt);letter-spacing:-.025em;margin:0}
 p{margin:0 0 1.1em;max-width:56ch;text-wrap:pretty}
-.lead{font:400 clamp(1.3rem,2.2vw,1.7rem)/1.32 var(--txt);letter-spacing:-.025em;max-width:30ch;margin-bottom:1.2em}
+.lead{font:400 clamp(1.3rem,2.2vw,1.7rem)/1.32 var(--txt);letter-spacing:-.025em;max-width:42ch;margin-bottom:1em}
 .cols{display:grid;gap:52px 44px}
 .c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .cols h3{margin:12px 0 14px}.cols p{font-size:.9688rem;margin:0;line-height:1.65}
@@ -130,14 +149,27 @@ summary .x{font-size:1.25rem;line-height:1;transition:transform .25s;justify-sel
 details[open] .x{transform:rotate(45deg)}
 .b{padding:0 0 30px;max-width:56ch}
 .fold summary{grid-template-columns:minmax(0,1fr) 20px}.fold:first-of-type{border-top:1px solid var(--hair)}
-.related{margin-top:64px}
+.related{margin-top:40px}
 .related h3{font-size:1.125rem}
 .related .b h4{font-size:1.125rem;font-weight:500;margin:24px 0 8px}
 .shot{display:block;width:100%;height:auto;border:1px solid var(--hair);border-radius:8px;margin-top:6px}
 h3.sub{margin:40px 0 0;font:500 1rem/1.5 var(--txt);letter-spacing:0;color:var(--ink)}
 .steps{list-style:none;margin:16px 0 0;padding:0}
-.steps li{padding:16px 0;display:grid;grid-template-columns:28px minmax(0,1.2fr) minmax(0,1fr);gap:8px 20px;align-items:baseline;border-top:1px solid var(--hair)}
+.steps li{padding:16px 0;display:grid;grid-template-columns:28px minmax(0,1fr);gap:4px 20px;align-items:baseline;border-top:1px solid var(--hair)}
+.steps li>.k{grid-row:1/3}.steps li>.s{grid-column:2}
 .steps b{font-weight:500;line-height:1.4}
+.experience{margin-top:40px}
+.experience h3{margin-bottom:20px}
+.experience-overview{margin:0;max-width:56ch}
+.experience-overview dt{font-weight:500;margin:16px 0 4px}
+.experience-overview dd{margin:0;color:var(--soft)}
+.experience .fold{margin-top:20px}
+.experience summary{padding:18px 0;font-weight:500}
+.book-list{margin-top:8px;max-width:56ch}
+.book-list summary{padding:16px 0;font-weight:500}
+.book-list ul{list-style:none;padding:0;margin:0 0 16px}
+.book-list li{padding:12px 0;border-top:1px solid var(--hair)}
+.book-list li span{display:block;color:var(--soft)}
 .btn{cursor:pointer;font-family:inherit}
 .copy{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 6px;border-radius:6px;color:var(--ink);font:500 .9375rem var(--txt);cursor:pointer;text-decoration:underline;text-decoration-color:var(--hair);text-decoration-thickness:1px;text-underline-offset:.3em;transition:color .2s,text-decoration-color .2s}
 .copy svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
@@ -172,7 +204,8 @@ h3.sub{margin:40px 0 0;font:500 1rem/1.5 var(--txt);letter-spacing:0;color:var(-
 footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding:22px 0 20px}
 footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-child{margin-left:0}
 @media(max-width:860px){
-  .hero{grid-template-columns:1fr}.fig{justify-self:start;max-width:340px;margin-top:8px}
+  .hero{grid-template-columns:minmax(0,1fr)}.hero h1{hyphens:auto;overflow-wrap:anywhere}.fig{justify-self:center;max-width:340px;margin-top:0;display:flex;align-items:center;gap:16px}
+  .fig .sk{width:50%;height:190px;flex:none}.note{position:static;width:auto;min-width:0;flex:1}.note svg{display:none}
   .sec,.feat{display:block}.sec>h2{position:static}
   .hi{gap:24px}
   .services{grid-template-columns:1fr;gap:36px}
@@ -191,8 +224,8 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   .today{font-size:1.0625rem}
   .cta .btn{flex:1 1 auto;justify-content:center}
   .city{width:860px;max-width:none;margin-left:calc(50% - 430px)}.city text{font-size:11px;letter-spacing:.08em}
-  .sec,.feat{padding-top:88px}
-  .feat h2{margin-bottom:16px}.feat>div+div{margin-top:28px}.feat p{font-size:1.0625rem}
+  .sec{padding-top:88px}.feat{padding-top:64px}
+  .feat h2{margin-bottom:16px}.feat>div+div{margin-top:20px}.feat p{font-size:1.0625rem}
   .hi{grid-template-columns:1fr;gap:24px}
   .hi a{display:grid;grid-template-columns:90px minmax(0,1fr);column-gap:14px;align-items:baseline}
   .hi .n{grid-row:1/3}.hi .metric-label{margin:0 0 4px}.hi b{grid-column:2}
@@ -243,9 +276,143 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
-</head>
+
+<link rel="canonical" href="https://rochijacob.github.io/portfolio_rj/">
+<link rel="alternate" hreflang="en" href="https://rochijacob.github.io/portfolio_rj/">
+<link rel="alternate" hreflang="es" href="https://rochijacob.github.io/portfolio_rj/es.html">
+<link rel="alternate" hreflang="x-default" href="https://rochijacob.github.io/portfolio_rj/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:url" content="https://rochijacob.github.io/portfolio_rj/">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Rocío Jacob">
+<meta property="og:image" content="https://rochijacob.github.io/portfolio_rj/profile.jpg">
+<meta property="og:image:alt" content="Rocío Jacob">
+<meta name="twitter:title" content="Rocío Jacob | Automation &amp; Web Development">
+<meta name="twitter:description" content="Product engineer in Buenos Aires. Process automation, BI, AI agents and web development. Explore my projects and freelance services. Remote work.">
+<meta name="twitter:image" content="https://rochijacob.github.io/portfolio_rj/profile.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://rochijacob.github.io/portfolio_rj/#person","name":"Rocío Jacob","url":"https://rochijacob.github.io/portfolio_rj/","jobTitle":"Product Engineer","sameAs":["https://www.linkedin.com/in/rocio-jacob-7b72a4159/","https://github.com/rochijacob"],"knowsLanguage":["es","en"],"knowsAbout":["Process automation","Web development","React Native","Business intelligence","AI agents"]},{"@type":"ProfilePage","@id":"https://rochijacob.github.io/portfolio_rj/#page","url":"https://rochijacob.github.io/portfolio_rj/","name":"Rocío Jacob | Automation & Web Development","description":"Product engineer in Buenos Aires. Process automation, BI, AI agents and web development. Explore my projects and freelance services. Remote work.","inLanguage":"en","mainEntity":{"@id":"https://rochijacob.github.io/portfolio_rj/#person"}}]}</script><style>.exh{display:block!important;font-weight:600;padding:26px 0 10px!important;border:0!important;margin:0}.exh:first-child{padding-top:0!important}</style><style>.eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px;margin-right:8px}.eq i{width:3px;height:14px;background:#e56b9a;transform-origin:bottom;animation:eq .9s ease-in-out infinite alternate}.eq i:nth-child(2){animation-delay:-.3s}.eq i:nth-child(3){animation-delay:-.6s}.eq i:nth-child(4){animation-delay:-.15s}@keyframes eq{from{transform:scaleY(.2)}to{transform:scaleY(1)}}@media(prefers-reduced-motion:reduce){.eq i{animation:none;transform:scaleY(.6)}}</style><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;600&family=Permanent+Marker&family=Playfair+Display:wght@700&display=swap"><style>
+.spines{display:flex;align-items:flex-end;gap:5px;overflow-x:auto;padding:26px 6px 0}
+.spines.shelf{border-bottom:8px solid var(--shelf,var(--ink))}
+.spn{flex:0 0 auto;padding:12px 0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:10px;border-radius:2px;transform-origin:bottom center;box-shadow:2px 4px 10px rgba(0,0,0,.2),inset 3px 0 0 rgba(255,255,255,.14),inset -3px 0 0 rgba(0,0,0,.16);transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.spn:nth-child(4n+2){transform:rotate(-1.6deg)}.spn:nth-child(5n+4){transform:rotate(1.2deg)}
+.spn:hover,.spn:focus-visible,.spn[aria-pressed=true]{transform:translateY(-12px)}
+.spn i{flex:0 0 auto;width:60%;height:5px;background:var(--ac)}
+.spn span{writing-mode:vertical-rl;display:flex;align-items:center;gap:14px;min-height:0;white-space:nowrap;overflow:hidden}
+.spn b{font-weight:inherit;line-height:1}
+.spn em{font:400 .62rem/1 system-ui,sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.spines>.cat{margin-left:auto;align-self:flex-end;line-height:0;padding-left:14px}
+.spcap{min-height:1.6em;margin:14px 0 0}
+</style><style>::selection{background:color-mix(in srgb,#e56b9a 42%,transparent);color:inherit}::view-transition-old(root),::view-transition-new(root){animation-duration:.26s}</style></head>
 <body>
-<div id="app"></div>
+<noscript><style>.dock [data-menu],.dock [data-theme-btn]{display:none}.dock .lks{display:flex;position:static;flex-direction:row;flex-wrap:wrap;box-shadow:none}.dock{flex-wrap:wrap;border-radius:18px}.spn{pointer-events:none}</style></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TW2MSTRV" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+<div id="app">
+<a class="skip" href="#main">Skip to content</a>
+<header class="w"><div class="hd">
+  <a class="me" href="#top" data-track-event="navigation_click" data-track-section-id="top">Rocío Jacob</a>
+  <span class="k lk"><a href="https://www.linkedin.com/in/rocio-jacob-7b72a4159/" data-track-event="contact_click" data-track-method="linkedin" data-track-location="header" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/rochijacob" target="_blank" rel="noopener">GitHub</a></span>
+</div></header>
+<main id="main" class="w">
+  <div class="hero" id="top">
+    <div>
+      <h1>I build web products and automations <span>that reduce manual work.</span></h1>
+      <p class="today">I combine development and project management to turn a fragmented process into a tool your team can use.</p>
+      <div class="cta"><a class="btn" href="#contact">Tell me about your project ↗</a><a class="btn o" href="#work">See the work</a><span class="k">Buenos Aires, remote work</span></div>
+    </div>
+    <figure class="fig"><svg class="sk" viewBox="0 0 420 450" role="img" aria-label="Architectural drawing of the Obelisk of Buenos Aires with trees, people and a height dimension">
+<g class="context">
+  <path d="M18 400V300h46v100M24 306h34M74 400V258h40v142M70 264h48M306 400V270h42v130M302 276h50M360 400V318h42v82M356 324h50"/>
+  <path class="detail" d="M28 316v6h4v-6M28 332v6h4v-6M28 348v6h4v-6M28 364v6h4v-6M28 380v6h4v-6M40 316v6h4v-6M40 332v6h4v-6M40 348v6h4v-6M40 364v6h4v-6M40 380v6h4v-6M52 316v6h4v-6M52 332v6h4v-6M52 348v6h4v-6M52 364v6h4v-6M52 380v6h4v-6M82 272v6h4v-6M82 287v6h4v-6M82 302v6h4v-6M82 317v6h4v-6M82 332v6h4v-6M82 347v6h4v-6M82 362v6h4v-6M82 377v6h4v-6M93 272v6h4v-6M93 287v6h4v-6M93 302v6h4v-6M93 317v6h4v-6M93 332v6h4v-6M93 347v6h4v-6M93 362v6h4v-6M93 377v6h4v-6M104 272v6h4v-6M104 287v6h4v-6M104 302v6h4v-6M104 317v6h4v-6M104 332v6h4v-6M104 347v6h4v-6M104 362v6h4v-6M104 377v6h4v-6M314 284v6h4v-6M314 299v6h4v-6M314 314v6h4v-6M314 329v6h4v-6M314 344v6h4v-6M314 359v6h4v-6M314 374v6h4v-6M326 284v6h4v-6M326 299v6h4v-6M326 314v6h4v-6M326 329v6h4v-6M326 344v6h4v-6M326 359v6h4v-6M326 374v6h4v-6M338 284v6h4v-6M338 299v6h4v-6M338 314v6h4v-6M338 329v6h4v-6M338 344v6h4v-6M338 359v6h4v-6M338 374v6h4v-6M368 332v6h4v-6M368 347v6h4v-6M368 362v6h4v-6M368 377v6h4v-6M380 332v6h4v-6M380 347v6h4v-6M380 362v6h4v-6M380 377v6h4v-6M392 332v6h4v-6M392 347v6h4v-6M392 362v6h4v-6M392 377v6h4v-6"/>
+</g>
+<path class="wash" d="M210 40l13 44 9 296h-22Z"/>
+<path class="outline" d="M188 380l9-296 13-44 13 44 9 296ZM176 392v-12h68v12M166 400v-8h88v8"/>
+<path class="detail" d="M210 40v340M197 84h26M205 110v10h10v-10ZM204 352v28h12v-28ZM176 386h68"/>
+<path d="M120 400v-14h40v14M260 400v-14h40v14"/><text x="140" y="396" text-anchor="middle">B</text><text x="280" y="396" text-anchor="middle">A</text>
+<g class="context"><path d="M96 400v-20m0 8l-6-6m6 2l6-7M82 378c-7-6-3-14 3-15-1-11 14-15 20-7 10-1 15 13 7 19 0 8-9 13-15 7-5 3-11 2-15-4ZM330 400v-20m0 8l-6-6m6 2l6-7M316 378c-7-6-3-14 3-15-1-11 14-15 20-7 10-1 15 13 7 19 0 8-9 13-15 7-5 3-11 2-15-4ZM56 400v-34h9m-9 3h9M372 400v-34h-9m9 3h-9"/><circle cx="150" cy="387" r="1.8"/><path d="M150 390v5m-2.5 5 2.5-5 2.5 5m-6-8 3.5-2 3.5 2"/><circle cx="268" cy="387" r="1.8"/><path d="M268 390v5m-2.5 5 2.5-5 2.5 5m-6-8 3.5-2 3.5 2"/><circle cx="292" cy="387" r="1.8"/><path d="M292 390v5m-2.5 5 2.5-5 2.5 5m-6-8 3.5-2 3.5 2"/></g>
+<path d="M6 400h408"/><path class="detail" d="M14 405l-5 7M29.5 405l-5 7M45 405l-5 7M60.5 405l-5 7M76 405l-5 7M91.5 405l-5 7M107 405l-5 7M122.5 405l-5 7M138 405l-5 7M153.5 405l-5 7M169 405l-5 7M184.5 405l-5 7M200 405l-5 7M215.5 405l-5 7M231 405l-5 7M246.5 405l-5 7M262 405l-5 7M277.5 405l-5 7M293 405l-5 7M308.5 405l-5 7M324 405l-5 7M339.5 405l-5 7M355 405l-5 7M370.5 405l-5 7M386 405l-5 7M401.5 405l-5 7"/>
+<g class="guide"><path d="M244 40h28m-28 360h28M264 40v360M260 44l8-8m-8 368 8-8"/></g>
+<text x="278" y="220" text-anchor="middle" transform="rotate(-90 278 220)">67.5 m</text>
+<text x="210" y="432" text-anchor="middle">OBELISCO · AV. 9 DE JULIO</text>
+</svg><p class="note"><svg viewBox="0 0 74 40" aria-hidden="true"><path d="M70 6C52 4 30 10 14 30"/><path d="M12 18l1 13 13-3"/></svg>home base. I work remotely from here</p></figure>
+  </div>
+  <nav class="hi" aria-label="Selected work"><a href="#fWK01" data-track-event="select_content" data-track-content-type="project" data-track-content-id="WK.01"><span class="n">500K+</span><span class="metric-label">downloads · 40K daily users</span><b>Gym chain app ›</b></a><a href="#fWK02" data-track-event="select_content" data-track-content-type="project" data-track-content-id="WK.02"><span class="n">15K+</span><span class="metric-label">users · 5+ clients</span><b>Event platform ›</b></a><a href="#fWK04" data-track-event="select_content" data-track-content-type="project" data-track-content-id="WK.04"><span class="n">100+</span><span class="metric-label">projects per cycle</span><b>Final-project tracking ›</b></a></nav>
+
+  <div id="work"><section class="feat" id="fWK01" data-track-view="project_view" data-track-id="WK.01"><div class="reading"><span class="k">Software studio · 2021 – 2025</span><h2>Gym chain app</h2><p class="case-summary">Performance and UX for an app used every day.</p><p class="case-result">500K+ downloads · 40K DAU</p></div>
+    <div class="reading"><p>Built and maintained the mobile app for Argentina's largest gym chain. I worked on performance, UX and production polish for an app used by 40K people daily.</p><dl class="f"><dt>Role</dt><dd>Mobile development</dd><dt>Stack</dt><dd>React Native, Expo</dd></dl></div></section><section class="feat" id="fWK02" data-track-view="project_view" data-track-id="WK.02"><div class="reading"><span class="k">Software studio · Nov 2023 – Apr 2025</span><h2>Event platform</h2><p class="case-summary">Ticket sales and access control across three continents.</p><p class="case-result">15K+ users · 5+ clients</p></div>
+    <div class="reading"><p>Led development of a platform for ticketing, access control and client relationships, used by music festivals and crypto events across America, Europe and Asia. I managed a team of six, handled 5+ client accounts directly, and set priorities and roadmap with clients and stakeholders.</p><dl class="f"><dt>Role</dt><dd>Project Leader</dd><dt>Stack</dt><dd>Project leadership, Jira, Roadmap, React</dd></dl></div></section><section class="feat" id="fWK04" data-track-view="project_view" data-track-id="WK.04"><div class="reading"><span class="k">A university · Apr 2026 – present</span><h2>Final-project tracking</h2><p class="case-summary">From manual coordination to an automated workflow.</p><p class="case-result">100+ projects per cycle</p></div>
+    <div class="reading"><p>I own the backend of the system that tracks student capstone projects and coordinates their defense committees: the data layer, the sync and the workflows. Alongside it, I drive automation, BI and AI projects for university operations.</p><dl class="f"><dt>Role</dt><dd>Product & automation lead</dd><dt>Stack</dt><dd>n8n, Python, Google Workspace, AWS, API design, Backend</dd></dl></div></section>
+    <details class="fold related reading" id="more-work"><summary><h3>More work</h3><span class="x" aria-hidden="true">+</span></summary><div class="b"><h4>High-volume checkout</h4><p class="s">Software studio · Senior Developer · 2021 – 2023</p><p>Designed and launched, as part of a team, a checkout with custom billing that processes 300+ payments a day. It was one of the first React integrations of Mercado Pago.</p><h4>Finance process automation</h4><p class="s">Global consulting firm · Management Consultant Senior Analyst · May 2025 – Mar 2026</p><p>I led a process-optimisation initiative for the CFO & Enterprise Value practice, automating manual work with Excel and Power Automate. It was the part of consulting I enjoyed most. I also worked on an Anaplan implementation for a North American airline, run in Scrum with Jira.</p></div></details>
+  </div>
+
+  <section class="sec" id="offers" data-track-view="section_view" data-track-id="offers"><h2>Ways we can work together</h2><div class="reading"><div class="services"><article class="service"><h3>Automation & BI</h3><p>Your team repeats tasks across spreadsheets, email and disconnected systems.</p><p class="deliverable">I deliver a working automation, a dashboard and documentation.</p></article><article class="service"><h3>AI agents</h3><p>Classification, data intake and follow-up take up your team's time.</p><p class="deliverable">I build an AI prototype with human review and criteria to evaluate it.</p></article><article class="service"><h3>Web & product</h3><p>You need a website or app without managing the technical side.</p><p class="deliverable">I build and launch it, with monthly maintenance after launch.</p></article></div>
+    <p>I also manage each project. I work remotely with Argentina and Europe, with work authorization in the European Union.</p></div></section>
+
+  <section class="sec" id="about" data-track-view="section_view" data-track-id="about"><h2>About</h2><div class="reading"><span class="portrait"><span aria-hidden="true">RJ</span><img src="profile.jpg" alt="Photo of Rocío Jacob" width="96" height="96" onload="this.previousElementSibling.style.visibility='hidden';this.parentNode.classList.add('ok')" onerror="this.parentNode.classList.add('err');this.remove()"></span><p class="lead">I taught myself to code in 2021. Since then, I have built products, led projects and kept learning with each release.</p><p>I build the product and understand the business behind it. I studied Business & Digital Business, worked in consulting, and I teach Corporate Finance at a university.</p><p>I care as much about how a product feels as how it works. Design does not come at the end.</p>
+    <h3 class="sub">How I approach a project</h3>
+    <ol class="steps"><li><span class="k">01</span><b>What is really happening today?</b><span class="s">Understand the real situation.</span></li><li><span class="k">02</span><b>Which data can we rely on?</b><span class="s">A single source of data.</span></li><li><span class="k">03</span><b>Who uses it, and how?</b><span class="s">Design around their habits.</span></li><li><span class="k">04</span><b>What can fail, and who supervises?</b><span class="s">Layers and human control.</span></li><li><span class="k">05</span><b>What did we learn?</b><span class="s">Measure and adjust.</span></li></ol>
+    <div style="margin-top:32px"><p class="off"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><b>Off the clock.</b> I DJ and play electronic music. I also love art and photography. The little pink pixel panther is a nod to my favourite cartoon.</p></div>
+    <div class="experience" id="experience"><h3>Experience and education</h3><dl class="experience-overview"><dt>Work</dt><dd>Universidad de San Andrés · Accenture · Muvinai</dd><dt>Education</dt><dd>Business Administration & Digital Business at Universidad de San Andrés; exchange at IE University. Master in Finance at San Andrés starting April 2027.</dd></dl>
+    <details class="fold"><summary><span>View roles and dates</span><span class="x" aria-hidden="true">+</span></summary><div class="b" style="max-width:none"><ul class="r"><li class="exh k">Work</li><li><span class="k">Apr 2026 – present</span><span><b style="font-weight:500">Project Manager & Business Partner · BI, Automation, AI</b><br><span class="s">Universidad de San Andrés</span></span></li><li><span class="k">Jun 2026 – present</span><span><b style="font-weight:500">Tutorial instructor, Corporate Finance</b><br><span class="s">Universidad de San Andrés</span></span></li><li><span class="k">May 2025 – Mar 2026</span><span><b style="font-weight:500">Management Consultant Senior Analyst</b><br><span class="s">Accenture</span></span></li><li><span class="k">Nov 2023 – Apr 2025</span><span><b style="font-weight:500">Project Leader</b><br><span class="s">Muvinai</span></span></li><li><span class="k">Mar 2021 – Oct 2023</span><span><b style="font-weight:500">Senior Developer</b><br><span class="s">Muvinai</span></span></li><li class="exh k">Education</li><li><span class="k">Apr 2027 – 2028</span><span><b style="font-weight:500">Master in Finance (MFin), incoming</b><br><span class="s">Universidad de San Andrés</span></span></li><li><span class="k">Jan – May 2023</span><span><b style="font-weight:500">Exchange semester, BBA</b><br><span class="s">IE University, Madrid</span></span></li><li><span class="k">Mar 2020 – Dec 2024</span><span><b style="font-weight:500">Lic. in Business Administration & Digital Business</b><br><span class="s">Universidad de San Andrés</span></span></li></ul></div></details></div></div></section>
+
+  <section class="sec" id="books" data-track-view="section_view" data-track-id="books"><h2>Books</h2><div class="reading"><p>I learn by reading books and then building something with what I read.</p><div class="spines"><button type="button" class="spn" data-spine="0" aria-pressed="false" aria-label="Shoe Dog, Phil Knight" style="width:44px;height:228px;--book-height:228px;--book-font:.95rem;background:#111111;color:#ffffff;--ac:#f26522;font-family:'Permanent Marker',cursive;font-weight:400;font-size:.95rem;letter-spacing:.02em;text-transform:uppercase"><i></i><span><b>Shoe Dog</b><em>Knight</em></span><i></i></button><button type="button" class="spn" data-spine="1" aria-pressed="false" aria-label="Sapiens, Yuval Noah Harari" style="width:48px;height:236px;--book-height:236px;--book-font:.95rem;background:#f4f1ea;color:#1a1a1a;--ac:#c8102e;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:.95rem;letter-spacing:.02em"><i></i><span><b>Sapiens</b><em>Harari</em></span><i></i></button><button type="button" class="spn" data-spine="2" aria-pressed="false" aria-label="Factfulness, Hans Rosling" style="width:40px;height:222px;--book-height:222px;--book-font:.95rem;background:#f58220;color:#ffffff;--ac:#ffffff;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:.95rem;letter-spacing:.02em;text-transform:uppercase"><i></i><span><b>Factfulness</b><em>Rosling</em></span><i></i></button><button type="button" class="spn" data-spine="3" aria-pressed="false" aria-label="Life 3.0, Max Tegmark" style="width:42px;height:232px;--book-height:232px;--book-font:.95rem;background:#0b1b3a;color:#ffffff;--ac:#6fb1e0;font-family:Oswald,'Arial Narrow',sans-serif;font-weight:300;font-size:.95rem;letter-spacing:.18em;text-transform:uppercase"><i></i><span><b>Life 3.0</b><em>Tegmark</em></span><i></i></button><button type="button" class="spn" data-spine="4" aria-pressed="false" aria-label="Creativity, Inc., Ed Catmull" style="width:46px;height:236px;--book-height:236px;--book-font:.95rem;background:#c8102e;color:#ffffff;--ac:#111111;font-family:Oswald,'Arial Narrow',sans-serif;font-weight:600;font-size:.95rem;letter-spacing:.02em;text-transform:uppercase"><i></i><span><b>Creativity, Inc.</b><em>Catmull</em></span><i></i></button><button type="button" class="spn" data-spine="5" aria-pressed="false" aria-label="The Hard Thing About Hard Things, Ben Horowitz" style="width:50px;height:240px;--book-height:240px;--book-font:.78rem;background:#1c1c1c;color:#ffffff;--ac:#2f80ed;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.02em;text-transform:uppercase"><i></i><span><b>The Hard Thing About Hard Things</b><em>Horowitz</em></span><i></i></button><button type="button" class="spn" data-spine="6" aria-pressed="false" aria-label="Brave New World, Aldous Huxley" style="width:38px;height:214px;--book-height:214px;--book-font:.95rem;background:#e9dcc0;color:#1d3557;--ac:#d1495b;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:.95rem;letter-spacing:.02em"><i></i><span><b>Brave New World</b><em>Huxley</em></span><i></i></button><button type="button" class="spn" data-spine="7" aria-pressed="false" aria-label="Range, David Epstein" style="width:42px;height:226px;--book-height:226px;--book-font:.95rem;background:#fafafa;color:#111111;--ac:#e63946;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:.95rem;letter-spacing:.02em;text-transform:uppercase"><i></i><span><b>Range</b><em>Epstein</em></span><i></i></button><button type="button" class="spn" data-spine="8" aria-pressed="false" aria-label="Outliers, Malcolm Gladwell" style="width:40px;height:220px;--book-height:220px;--book-font:.95rem;background:#ffffff;color:#111111;--ac:#9aa3a8;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:.95rem;letter-spacing:.02em"><i></i><span><b>Outliers</b><em>Gladwell</em></span><i></i></button><button type="button" class="spn" data-spine="9" aria-pressed="false" aria-label="Fahrenheit 451, Ray Bradbury" style="width:36px;height:208px;--book-height:208px;--book-font:.95rem;background:#d62818;color:#111111;--ac:#ffd23f;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:.95rem;letter-spacing:.02em;text-transform:uppercase"><i></i><span><b>Fahrenheit 451</b><em>Bradbury</em></span><i></i></button></div><p class="spcap" id="spcap" aria-live="polite">Hover or tap a spine.</p><details class="fold book-list"><summary><span>View list</span><span class="x" aria-hidden="true">+</span></summary><ul><li><b>Shoe Dog</b><span>Phil Knight</span></li><li><b>Sapiens</b><span>Yuval Noah Harari</span></li><li><b>Factfulness</b><span>Hans Rosling</span></li><li><b>Life 3.0</b><span>Max Tegmark</span></li><li><b>Creativity, Inc.</b><span>Ed Catmull</span></li><li><b>The Hard Thing About Hard Things</b><span>Ben Horowitz</span></li><li><b>Brave New World</b><span>Aldous Huxley</span></li><li><b>Range</b><span>David Epstein</span></li><li><b>Outliers</b><span>Malcolm Gladwell</span></li><li><b>Fahrenheit 451</b><span>Ray Bradbury</span></li></ul></details></div></section>
+
+  <section class="end" id="contact" data-track-view="section_view" data-track-id="contact">
+    <h2 class="big">What needs to work better in your operation?</h2>
+    <p>Tell me about the problem and what you have tried.</p>
+    <div class="cta" style="margin:0 0 18px"><a class="btn" href="mailto:rochijacob@gmail.com?subject=Project%20for%20Roc%C3%ADo" data-track-event="contact_click" data-track-method="email" data-track-location="contact">Email me ↗</a><button type="button" class="copy" data-copy><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy email</span></button></div>
+    <p class="copy-status" id="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
+    <p class="s"><a class="m" href="mailto:rochijacob@gmail.com?subject=Project%20for%20Roc%C3%ADo" data-track-event="contact_click" data-track-method="email" data-track-location="contact_text">rochijacob@gmail.com</a>, or message me on <a href="https://www.linkedin.com/in/rocio-jacob-7b72a4159/" data-track-event="contact_click" data-track-method="linkedin" data-track-location="contact" target="_blank" rel="noopener">LinkedIn</a>.</p>
+  </section>
+  <div class="cityw"><svg class="city" viewBox="0 0 1200 274" role="img" aria-label="Architectural drawing of Buenos Aires: Kavanagh, Congress, the Obelisk, and Puente de la Mujer">
+<g class="context">
+  <path d="M40 222V174h43v48M38 179h47"/><path class="detail" d="M48.9 187.16666666666666v5h3.2v-5M48.9 196.5v5h3.2v-5M48.9 205.83333333333334v5h3.2v-5M59.9 187.16666666666666v5h3.2v-5M59.9 196.5v5h3.2v-5M59.9 205.83333333333334v5h3.2v-5M70.9 187.16666666666666v5h3.2v-5M70.9 196.5v5h3.2v-5M70.9 205.83333333333334v5h3.2v-5"/><path d="M94 222V134h49v88M92 139h53"/><path class="detail" d="M102.275 148.16666666666666v5h3.2v-5M102.275 159.5v5h3.2v-5M102.275 170.83333333333334v5h3.2v-5M102.275 182.16666666666666v5h3.2v-5M102.275 193.5v5h3.2v-5M102.275 204.83333333333334v5h3.2v-5M112.025 148.16666666666666v5h3.2v-5M112.025 159.5v5h3.2v-5M112.025 170.83333333333334v5h3.2v-5M112.025 182.16666666666666v5h3.2v-5M112.025 193.5v5h3.2v-5M112.025 204.83333333333334v5h3.2v-5M121.775 148.16666666666666v5h3.2v-5M121.775 159.5v5h3.2v-5M121.775 170.83333333333334v5h3.2v-5M121.775 182.16666666666666v5h3.2v-5M121.775 193.5v5h3.2v-5M121.775 204.83333333333334v5h3.2v-5M131.525 148.16666666666666v5h3.2v-5M131.525 159.5v5h3.2v-5M131.525 170.83333333333334v5h3.2v-5M131.525 182.16666666666666v5h3.2v-5M131.525 193.5v5h3.2v-5M131.525 204.83333333333334v5h3.2v-5"/>
+  <path d="M691 222V155h38v67M689 160h42"/><path class="detail" d="M699.0666666666666 169.375v5h3.2v-5M699.0666666666666 181.125v5h3.2v-5M699.0666666666666 192.875v5h3.2v-5M699.0666666666666 204.625v5h3.2v-5M708.4 169.375v5h3.2v-5M708.4 181.125v5h3.2v-5M708.4 192.875v5h3.2v-5M708.4 204.625v5h3.2v-5M717.7333333333333 169.375v5h3.2v-5M717.7333333333333 181.125v5h3.2v-5M717.7333333333333 192.875v5h3.2v-5M717.7333333333333 204.625v5h3.2v-5"/><path d="M742 222V117h43v105M740 122h47"/><path class="detail" d="M750.9 130.8125v5h3.2v-5M750.9 141.4375v5h3.2v-5M750.9 152.0625v5h3.2v-5M750.9 162.6875v5h3.2v-5M750.9 173.3125v5h3.2v-5M750.9 183.9375v5h3.2v-5M750.9 194.5625v5h3.2v-5M750.9 205.1875v5h3.2v-5M761.9 130.8125v5h3.2v-5M761.9 141.4375v5h3.2v-5M761.9 152.0625v5h3.2v-5M761.9 162.6875v5h3.2v-5M761.9 173.3125v5h3.2v-5M761.9 183.9375v5h3.2v-5M761.9 194.5625v5h3.2v-5M761.9 205.1875v5h3.2v-5M772.9 130.8125v5h3.2v-5M772.9 141.4375v5h3.2v-5M772.9 152.0625v5h3.2v-5M772.9 162.6875v5h3.2v-5M772.9 173.3125v5h3.2v-5M772.9 183.9375v5h3.2v-5M772.9 194.5625v5h3.2v-5M772.9 205.1875v5h3.2v-5"/><path d="M797 222V169h30v53M795 174h34"/><path class="detail" d="M805.4 183v5h3.2v-5M805.4 194v5h3.2v-5M805.4 205v5h3.2v-5M815.4 183v5h3.2v-5M815.4 194v5h3.2v-5M815.4 205v5h3.2v-5"/>
+  <path d="M1137 222V180h37v42M1135 185h41"/><path class="detail" d="M1144.9 194v5h3.2v-5M1144.9 205v5h3.2v-5M1153.9 194v5h3.2v-5M1153.9 205v5h3.2v-5M1162.9 194v5h3.2v-5M1162.9 205v5h3.2v-5"/>
+</g>
+<!-- Kavanagh: recessed wings, a continuous central shaft and roof terraces. -->
+<g>
+  <path class="wash" d="M244 48h6v58h24v38h25v78h-55Z"/>
+  <path class="outline" d="M173 222V144h25v-38h24V48h7V29h14v19h7v58h24v38h25v78"/>
+  <path class="detail" d="M198 144v78m24-174v174m28-116v116m24-78v78M173 149h25m0-38h24m28 0h24m0 38h25M222 53h28M229 35h14M232 29v-5h8v5M226 217h20v5M181.9 152.85714285714286v5h3.2v-5M181.9 161.57142857142858v5h3.2v-5M181.9 170.28571428571428v5h3.2v-5M181.9 179v5h3.2v-5M181.9 187.71428571428572v5h3.2v-5M181.9 196.42857142857144v5h3.2v-5M181.9 205.14285714285714v5h3.2v-5M190.9 152.85714285714286v5h3.2v-5M190.9 161.57142857142858v5h3.2v-5M190.9 170.28571428571428v5h3.2v-5M190.9 179v5h3.2v-5M190.9 187.71428571428572v5h3.2v-5M190.9 196.42857142857144v5h3.2v-5M190.9 205.14285714285714v5h3.2v-5M277.9 152.85714285714286v5h3.2v-5M277.9 161.57142857142858v5h3.2v-5M277.9 170.28571428571428v5h3.2v-5M277.9 179v5h3.2v-5M277.9 187.71428571428572v5h3.2v-5M277.9 196.42857142857144v5h3.2v-5M277.9 205.14285714285714v5h3.2v-5M286.9 152.85714285714286v5h3.2v-5M286.9 161.57142857142858v5h3.2v-5M286.9 170.28571428571428v5h3.2v-5M286.9 179v5h3.2v-5M286.9 187.71428571428572v5h3.2v-5M286.9 196.42857142857144v5h3.2v-5M286.9 205.14285714285714v5h3.2v-5M206.9 115.95454545454545v5h3.2v-5M206.9 124.86363636363636v5h3.2v-5M206.9 133.77272727272728v5h3.2v-5M206.9 142.6818181818182v5h3.2v-5M206.9 151.5909090909091v5h3.2v-5M206.9 160.5v5h3.2v-5M206.9 169.4090909090909v5h3.2v-5M206.9 178.3181818181818v5h3.2v-5M206.9 187.22727272727275v5h3.2v-5M206.9 196.13636363636363v5h3.2v-5M206.9 205.04545454545456v5h3.2v-5M215.9 115.95454545454545v5h3.2v-5M215.9 124.86363636363636v5h3.2v-5M215.9 133.77272727272728v5h3.2v-5M215.9 142.6818181818182v5h3.2v-5M215.9 151.5909090909091v5h3.2v-5M215.9 160.5v5h3.2v-5M215.9 169.4090909090909v5h3.2v-5M215.9 178.3181818181818v5h3.2v-5M215.9 187.22727272727275v5h3.2v-5M215.9 196.13636363636363v5h3.2v-5M215.9 205.04545454545456v5h3.2v-5M252.9 115.95454545454545v5h3.2v-5M252.9 124.86363636363636v5h3.2v-5M252.9 133.77272727272728v5h3.2v-5M252.9 142.6818181818182v5h3.2v-5M252.9 151.5909090909091v5h3.2v-5M252.9 160.5v5h3.2v-5M252.9 169.4090909090909v5h3.2v-5M252.9 178.3181818181818v5h3.2v-5M252.9 187.22727272727275v5h3.2v-5M252.9 196.13636363636363v5h3.2v-5M252.9 205.04545454545456v5h3.2v-5M261.9 115.95454545454545v5h3.2v-5M261.9 124.86363636363636v5h3.2v-5M261.9 133.77272727272728v5h3.2v-5M261.9 142.6818181818182v5h3.2v-5M261.9 151.5909090909091v5h3.2v-5M261.9 160.5v5h3.2v-5M261.9 169.4090909090909v5h3.2v-5M261.9 178.3181818181818v5h3.2v-5M261.9 187.22727272727275v5h3.2v-5M261.9 196.13636363636363v5h3.2v-5M261.9 205.04545454545456v5h3.2v-5M230.4 59.05882352941177v5h3.2v-5M230.4 68.17647058823529v5h3.2v-5M230.4 77.29411764705883v5h3.2v-5M230.4 86.41176470588235v5h3.2v-5M230.4 95.52941176470588v5h3.2v-5M230.4 104.64705882352942v5h3.2v-5M230.4 113.76470588235294v5h3.2v-5M230.4 122.88235294117646v5h3.2v-5M230.4 132v5h3.2v-5M230.4 141.11764705882354v5h3.2v-5M230.4 150.23529411764707v5h3.2v-5M230.4 159.3529411764706v5h3.2v-5M230.4 168.47058823529412v5h3.2v-5M230.4 177.58823529411765v5h3.2v-5M230.4 186.7058823529412v5h3.2v-5M230.4 195.8235294117647v5h3.2v-5M230.4 204.94117647058823v5h3.2v-5M238.4 59.05882352941177v5h3.2v-5M238.4 68.17647058823529v5h3.2v-5M238.4 77.29411764705883v5h3.2v-5M238.4 86.41176470588235v5h3.2v-5M238.4 95.52941176470588v5h3.2v-5M238.4 104.64705882352942v5h3.2v-5M238.4 113.76470588235294v5h3.2v-5M238.4 122.88235294117646v5h3.2v-5M238.4 132v5h3.2v-5M238.4 141.11764705882354v5h3.2v-5M238.4 150.23529411764707v5h3.2v-5M238.4 159.3529411764706v5h3.2v-5M238.4 168.47058823529412v5h3.2v-5M238.4 177.58823529411765v5h3.2v-5M238.4 186.7058823529412v5h3.2v-5M238.4 195.8235294117647v5h3.2v-5M238.4 204.94117647058823v5h3.2v-5"/>
+</g>
+<!-- Congreso: lantern, ribbed dome, drum, pediment, paired columns, steps. -->
+<g>
+  <path class="wash" d="M450 87c20 10 29 26 30 49h-30ZM455 180h19v32h-19Z"/>
+  <path class="outline" d="M356 216V173h49v-9h12v-25h-5v-4h7c0-22 12-40 26-48v-9h10v9c14 8 26 26 26 48h7v4h-5v25h12v9h49v43"/>
+  <path d="M443 78v-7q7-9 14 0v7M450 66v-9M417 139h66M417 164h66M405 173l45-20 45 20M405 178h90M356 178h49m90 0h49M352 216h196m-200 3h204m-204 3h204"/>
+  <path class="detail" d="M450 87c-8 12-13 28-13 48m13-48c8 12 13 28 13 48m-13-48v48M419 135h62M425 143v15m8-15v15m9-15v9m16-9v9m9-9v15m8-15v15M417 171l33-14 33 14M356 211h49m90 0h49M413 182v30m4-30v30m-5-30h6m-6 30h6M427 182v30m4-30v30m-5-30h6m-6 30h6M441 182v30m4-30v30m-5-30h6m-6 30h6M455 182v30m4-30v30m-5-30h6m-6 30h6M469 182v30m4-30v30m-5-30h6m-6 30h6M483 182v30m4-30v30m-5-30h6m-6 30h6M366.56666666666666 192v5h3.2v-5M378.9 192v5h3.2v-5M391.2333333333333 192v5h3.2v-5M505.56666666666666 192v5h3.2v-5M517.9 192v5h3.2v-5M530.2333333333333 192v5h3.2v-5"/>
+</g>
+<!-- Obelisco: two faces, a quiet dimension and a stepped plinth. -->
+<g>
+  <path class="wash" d="M600 35l5 20 9 161h-14Z"/>
+  <path class="outline" d="M586 216l9-161 5-20 5 20 9 161ZM582 222v-6h36v6"/>
+  <path class="detail" d="M600 35v181M595 55h10M596 203v9h5v-9ZM597 69v6m6-6v6M577 222h46"/>
+  <path class="guide axis" d="M600 19v10m0 198v9"/>
+  <path class="guide" d="M618 35h22m-17 187h17M635 35v187M632 38l6-6m-6 193 6-6"/>
+  <text x="649" y="130" text-anchor="middle" transform="rotate(-90 649 130)">67.5 m</text>
+</g>
+<!-- Puente de la Mujer: tapered mast and an ordered fan of stays. -->
+<g>
+  <path class="wash" d="M975 212l87-113-78 113Z"/>
+  <path class="outline" d="M854 212h264v5H854M975 212l87-113-78 113M976 217l3 12h9l3-12"/>
+  <path class="detail" d="M870 208L1058 104M882 208L1058 104M894 208L1058 104M906 208L1058 104M918 208L1058 104M930 208L1058 104M942 208L1058 104M954 208L1058 104M966 208L1058 104M854 208h264M858 208v4M868 208v4M878 208v4M888 208v4M898 208v4M908 208v4M918 208v4M928 208v4M938 208v4M948 208v4M958 208v4M968 208v4M978 208v4M988 208v4M998 208v4M1008 208v4M1018 208v4M1028 208v4M1038 208v4M1048 208v4M1058 208v4M1068 208v4M1078 208v4M1088 208v4M1098 208v4M1108 208v4M1118 208v4"/>
+</g>
+<g class="context">
+  <path d="M319 222v-17m0 7l-5-5m5 2l5-6M307 204c-6-5-3-12 2-13-1-9 12-13 17-6 9-1 13 11 6 16 0 7-8 11-13 6-4 3-9 2-12-3ZM666 222v-17m0 7l-5-5m5 2l5-6M654 204c-6-5-3-12 2-13-1-9 12-13 17-6 9-1 13 11 6 16 0 7-8 11-13 6-4 3-9 2-12-3ZM840 222v-17m0 7l-5-5m5 2l5-6M828 204c-6-5-3-12 2-13-1-9 12-13 17-6 9-1 13 11 6 16 0 7-8 11-13 6-4 3-9 2-12-3ZM339 222v-25h7m-7 2h7M562 222v-23h6m-6 2h6"/>
+  <circle cx="335" cy="211" r="1.5"/><path d="M335 214v4m-2 4 2-4 2 4m-5-6 3-2 3 2"/><circle cx="554" cy="211" r="1.5"/><path d="M554 214v4m-2 4 2-4 2 4m-5-6 3-2 3 2"/><circle cx="1102" cy="211" r="1.5"/><path d="M1102 214v4m-2 4 2-4 2 4m-5-6 3-2 3 2"/>
+  <path d="M17 222h836m267 0h64M26 226h803M867 231h80m58 0h110M888 238h171"/>
+  <path class="detail" d="M32 227l-4 5M47 227l-4 5M62 227l-4 5M77 227l-4 5M92 227l-4 5M107 227l-4 5M122 227l-4 5M137 227l-4 5M152 227l-4 5M167 227l-4 5M182 227l-4 5M197 227l-4 5M212 227l-4 5M227 227l-4 5M242 227l-4 5M257 227l-4 5M272 227l-4 5M287 227l-4 5M302 227l-4 5M317 227l-4 5M332 227l-4 5M347 227l-4 5M362 227l-4 5M377 227l-4 5M392 227l-4 5M407 227l-4 5M422 227l-4 5M437 227l-4 5M452 227l-4 5M467 227l-4 5M482 227l-4 5M497 227l-4 5M512 227l-4 5M527 227l-4 5M542 227l-4 5M557 227l-4 5M572 227l-4 5M587 227l-4 5M602 227l-4 5M617 227l-4 5M632 227l-4 5M647 227l-4 5M662 227l-4 5M677 227l-4 5M692 227l-4 5M707 227l-4 5M722 227l-4 5M737 227l-4 5M752 227l-4 5M767 227l-4 5M782 227l-4 5M797 227l-4 5M812 227l-4 5M827 227l-4 5"/>
+</g>
+<g class="guide"><path d="M236 229v12m214-12v12m150-2v2m384-6v6"/></g>
+<g text-anchor="middle">
+  <text x="236" y="257">KAVANAGH</text><text x="450" y="257">CONGRESO</text>
+  <text x="600" y="257">OBELISCO</text><text x="984" y="257">PUENTE DE LA MUJER</text>
+</g>
+</svg></div>
+  <footer class="k"><span>© 2026 Rocío Jacob</span><span><a href="mailto:rochijacob@gmail.com">Email</a><a href="https://www.linkedin.com/in/rocio-jacob-7b72a4159/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/rochijacob" target="_blank" rel="noopener">GitHub</a></span></footer>
+</main><nav class="dock" aria-label="Menu"><span class="cat" id="cat" aria-hidden="true"><svg width="28" height="20" viewBox="0 0 14 10" shape-rendering="crispEdges" aria-hidden="true"><rect x="10" y="0" width="1" height="1" fill="#e56b9a"/><rect x="13" y="0" width="1" height="1" fill="#e56b9a"/><rect x="0" y="1" width="1" height="1" fill="#e56b9a"/><rect x="10" y="1" width="1" height="1" fill="#e56b9a"/><rect x="11" y="1" width="1" height="1" fill="#e56b9a"/><rect x="12" y="1" width="1" height="1" fill="#e56b9a"/><rect x="13" y="1" width="1" height="1" fill="#e56b9a"/><rect x="0" y="2" width="1" height="1" fill="#e56b9a"/><rect x="10" y="2" width="1" height="1" fill="#e56b9a"/><rect x="11" y="2" width="1" height="1" fill="#003049"/><rect x="12" y="2" width="1" height="1" fill="#e56b9a"/><rect x="13" y="2" width="1" height="1" fill="#003049"/><rect x="0" y="3" width="1" height="1" fill="#e56b9a"/><rect x="10" y="3" width="1" height="1" fill="#e56b9a"/><rect x="11" y="3" width="1" height="1" fill="#e56b9a"/><rect x="12" y="3" width="1" height="1" fill="#e56b9a"/><rect x="13" y="3" width="1" height="1" fill="#e56b9a"/><rect x="1" y="4" width="1" height="1" fill="#e56b9a"/><rect x="4" y="4" width="1" height="1" fill="#e56b9a"/><rect x="5" y="4" width="1" height="1" fill="#e56b9a"/><rect x="6" y="4" width="1" height="1" fill="#e56b9a"/><rect x="7" y="4" width="1" height="1" fill="#e56b9a"/><rect x="8" y="4" width="1" height="1" fill="#e56b9a"/><rect x="9" y="4" width="1" height="1" fill="#e56b9a"/><rect x="10" y="4" width="1" height="1" fill="#e56b9a"/><rect x="11" y="4" width="1" height="1" fill="#e56b9a"/><rect x="12" y="4" width="1" height="1" fill="#e56b9a"/><rect x="2" y="5" width="1" height="1" fill="#e56b9a"/><rect x="3" y="5" width="1" height="1" fill="#e56b9a"/><rect x="4" y="5" width="1" height="1" fill="#e56b9a"/><rect x="5" y="5" width="1" height="1" fill="#e56b9a"/><rect x="6" y="5" width="1" height="1" fill="#e56b9a"/><rect x="7" y="5" width="1" height="1" fill="#e56b9a"/><rect x="8" y="5" width="1" height="1" fill="#e56b9a"/><rect x="9" y="5" width="1" height="1" fill="#e56b9a"/><rect x="10" y="5" width="1" height="1" fill="#e56b9a"/><rect x="11" y="5" width="1" height="1" fill="#e56b9a"/><rect x="12" y="5" width="1" height="1" fill="#e56b9a"/><rect x="3" y="6" width="1" height="1" fill="#e56b9a"/><rect x="4" y="6" width="1" height="1" fill="#e56b9a"/><rect x="5" y="6" width="1" height="1" fill="#e56b9a"/><rect x="6" y="6" width="1" height="1" fill="#e56b9a"/><rect x="7" y="6" width="1" height="1" fill="#e56b9a"/><rect x="8" y="6" width="1" height="1" fill="#e56b9a"/><rect x="9" y="6" width="1" height="1" fill="#e56b9a"/><rect x="10" y="6" width="1" height="1" fill="#e56b9a"/><rect x="11" y="6" width="1" height="1" fill="#e56b9a"/><rect x="12" y="6" width="1" height="1" fill="#e56b9a"/><rect x="3" y="7" width="1" height="1" fill="#e56b9a"/><rect x="4" y="7" width="1" height="1" fill="#e56b9a"/><rect x="5" y="7" width="1" height="1" fill="#e56b9a"/><rect x="6" y="7" width="1" height="1" fill="#e56b9a"/><rect x="7" y="7" width="1" height="1" fill="#e56b9a"/><rect x="8" y="7" width="1" height="1" fill="#e56b9a"/><rect x="9" y="7" width="1" height="1" fill="#e56b9a"/><rect x="10" y="7" width="1" height="1" fill="#e56b9a"/><rect x="11" y="7" width="1" height="1" fill="#e56b9a"/><rect x="3" y="8" width="1" height="1" fill="#e56b9a"/><rect x="6" y="8" width="1" height="1" fill="#e56b9a"/><rect x="9" y="8" width="1" height="1" fill="#e56b9a"/><rect x="11" y="8" width="1" height="1" fill="#e56b9a"/><rect x="3" y="9" width="1" height="1" fill="#e56b9a"/><rect x="6" y="9" width="1" height="1" fill="#e56b9a"/><rect x="9" y="9" width="1" height="1" fill="#e56b9a"/><rect x="11" y="9" width="1" height="1" fill="#e56b9a"/></svg><svg width="28" height="20" viewBox="0 0 14 10" shape-rendering="crispEdges" aria-hidden="true"><rect x="10" y="0" width="1" height="1" fill="#e56b9a"/><rect x="13" y="0" width="1" height="1" fill="#e56b9a"/><rect x="0" y="1" width="1" height="1" fill="#e56b9a"/><rect x="10" y="1" width="1" height="1" fill="#e56b9a"/><rect x="11" y="1" width="1" height="1" fill="#e56b9a"/><rect x="12" y="1" width="1" height="1" fill="#e56b9a"/><rect x="13" y="1" width="1" height="1" fill="#e56b9a"/><rect x="0" y="2" width="1" height="1" fill="#e56b9a"/><rect x="10" y="2" width="1" height="1" fill="#e56b9a"/><rect x="11" y="2" width="1" height="1" fill="#003049"/><rect x="12" y="2" width="1" height="1" fill="#e56b9a"/><rect x="13" y="2" width="1" height="1" fill="#003049"/><rect x="0" y="3" width="1" height="1" fill="#e56b9a"/><rect x="10" y="3" width="1" height="1" fill="#e56b9a"/><rect x="11" y="3" width="1" height="1" fill="#e56b9a"/><rect x="12" y="3" width="1" height="1" fill="#e56b9a"/><rect x="13" y="3" width="1" height="1" fill="#e56b9a"/><rect x="1" y="4" width="1" height="1" fill="#e56b9a"/><rect x="4" y="4" width="1" height="1" fill="#e56b9a"/><rect x="5" y="4" width="1" height="1" fill="#e56b9a"/><rect x="6" y="4" width="1" height="1" fill="#e56b9a"/><rect x="7" y="4" width="1" height="1" fill="#e56b9a"/><rect x="8" y="4" width="1" height="1" fill="#e56b9a"/><rect x="9" y="4" width="1" height="1" fill="#e56b9a"/><rect x="10" y="4" width="1" height="1" fill="#e56b9a"/><rect x="11" y="4" width="1" height="1" fill="#e56b9a"/><rect x="12" y="4" width="1" height="1" fill="#e56b9a"/><rect x="2" y="5" width="1" height="1" fill="#e56b9a"/><rect x="3" y="5" width="1" height="1" fill="#e56b9a"/><rect x="4" y="5" width="1" height="1" fill="#e56b9a"/><rect x="5" y="5" width="1" height="1" fill="#e56b9a"/><rect x="6" y="5" width="1" height="1" fill="#e56b9a"/><rect x="7" y="5" width="1" height="1" fill="#e56b9a"/><rect x="8" y="5" width="1" height="1" fill="#e56b9a"/><rect x="9" y="5" width="1" height="1" fill="#e56b9a"/><rect x="10" y="5" width="1" height="1" fill="#e56b9a"/><rect x="11" y="5" width="1" height="1" fill="#e56b9a"/><rect x="12" y="5" width="1" height="1" fill="#e56b9a"/><rect x="3" y="6" width="1" height="1" fill="#e56b9a"/><rect x="4" y="6" width="1" height="1" fill="#e56b9a"/><rect x="5" y="6" width="1" height="1" fill="#e56b9a"/><rect x="6" y="6" width="1" height="1" fill="#e56b9a"/><rect x="7" y="6" width="1" height="1" fill="#e56b9a"/><rect x="8" y="6" width="1" height="1" fill="#e56b9a"/><rect x="9" y="6" width="1" height="1" fill="#e56b9a"/><rect x="10" y="6" width="1" height="1" fill="#e56b9a"/><rect x="11" y="6" width="1" height="1" fill="#e56b9a"/><rect x="12" y="6" width="1" height="1" fill="#e56b9a"/><rect x="3" y="7" width="1" height="1" fill="#e56b9a"/><rect x="4" y="7" width="1" height="1" fill="#e56b9a"/><rect x="5" y="7" width="1" height="1" fill="#e56b9a"/><rect x="6" y="7" width="1" height="1" fill="#e56b9a"/><rect x="7" y="7" width="1" height="1" fill="#e56b9a"/><rect x="8" y="7" width="1" height="1" fill="#e56b9a"/><rect x="9" y="7" width="1" height="1" fill="#e56b9a"/><rect x="10" y="7" width="1" height="1" fill="#e56b9a"/><rect x="11" y="7" width="1" height="1" fill="#e56b9a"/><rect x="4" y="8" width="1" height="1" fill="#e56b9a"/><rect x="5" y="8" width="1" height="1" fill="#e56b9a"/><rect x="10" y="8" width="1" height="1" fill="#e56b9a"/><rect x="11" y="8" width="1" height="1" fill="#e56b9a"/><rect x="4" y="9" width="1" height="1" fill="#e56b9a"/><rect x="5" y="9" width="1" height="1" fill="#e56b9a"/><rect x="10" y="9" width="1" height="1" fill="#e56b9a"/><rect x="11" y="9" width="1" height="1" fill="#e56b9a"/></svg></span><button type="button" class="mn" data-menu aria-expanded="false" aria-controls="dlinks"><span id="mlabel">Menu</span><span aria-hidden="true">▾</span></button><span class="lks" id="dlinks"><a href="#work" data-sec="work">Work</a><a href="#offers" data-sec="offers">Services</a><a href="#about" data-sec="about">About</a><a href="#contact" data-sec="contact">Contact</a></span><i aria-hidden="true"></i>
+  <button type="button" data-theme-btn aria-label="Toggle light / dark" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14A8 8 0 0110 4a8 8 0 1010 10z"/></svg></button>
+  <span class="lg" role="group" aria-label="Language"><a href="./" hreflang="en" aria-current="true" data-lang="en" lang="en" aria-label="English">EN</a><a href="es.html" hreflang="es" data-lang="es" lang="es" aria-label="Español">ES</a></span></nav></div>
 <script>
 /* ============================================================
    CONTENT — edit copy here. Everything on the page comes from this object.
@@ -283,14 +450,16 @@ const content = {
   ],
 
   en: {
-    meta: { title: "Rocío Jacob · Product Engineer", desc: "I turn manual operations into digital products and automated workflows. Buenos Aires, remote worldwide." },
+    meta: { title: "Rocío Jacob | Automation & Web Development", desc: "Product engineer in Buenos Aires. Process automation, BI, AI agents and web development. Explore my projects and freelance services. Remote work." },
     name: "Rocío Jacob", role: "Product Engineer",
     oneLiner: "I'm Rocío. I turn manual operations into digital products and automated workflows.",
     pitch: "I turn manual operations into digital products and automated workflows.",
+    heroPitch: "I build web products and automations that reduce manual work.",
+    heroAccent: "that reduce manual work.",
     sub: "Project Manager & Business Partner in BI, Automation and AI. Ex-global consulting firm (corporate finance). Available for freelance projects.",
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remote worldwide",
     status: "Open to freelance · Buenos Aires",
-    cta: "Work with me", ctaAlt: "Let's talk", mailSubject: "Project for Rocío",
+    cta: "Tell me about your project", contactCta: "Email me", ctaAlt: "Let's talk", mailSubject: "Project for Rocío",
     skip: "Skip to content", langLabel: "Language", themeLabel: "Toggle light / dark", portraitAlt: "Photo of Rocío Jacob",
     nav: { home: "Home", about: "About", work: "Work", experience: "Experience", skills: "Stack", books: "Books", writing: "Writing", contact: "Contact", play: "Playground", services: "Services" },
     h: { services: "What I offer", about: "About", work: "Selected work", experience: "Experience", skills: "Skills & stack", books: "Books", writing: "Writing", contact: "Work with me", finance: "The finance side", lab: "Lab", numbers: "In numbers" },
@@ -329,12 +498,12 @@ const content = {
         body: "I led a process-optimisation initiative for the CFO & Enterprise Value practice, automating manual work with Excel and Power Automate. It was the part of consulting I enjoyed most. I also worked on an Anaplan implementation for a North American airline, run in Scrum with Jira.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] }
     ],
     timeline: [
-      { when: "Apr 2026 – present", org: "A university", role: "Project Manager & Business Partner · BI, Automation, AI", note: "Backend owner of the final-project tracking system; automation, BI and AI projects for university operations.", tags: ["API", "BI", "AI agents"] },
-      { when: "Jun 2026 – present", org: "A university", role: "Tutorial instructor, Corporate Finance", note: "Part-time teaching assistant for Corporate Finance.", tags: ["Teaching", "Finance"] },
+      { when: "Apr 2026 – present", org: "Universidad de San Andrés", role: "Project Manager & Business Partner · BI, Automation, AI", note: "Backend owner of the final-project tracking system; automation, BI and AI projects for university operations.", tags: ["API", "BI", "AI agents"] },
+      { when: "Jun 2026 – present", org: "Universidad de San Andrés", role: "Tutorial instructor, Corporate Finance", note: "Part-time teaching assistant for Corporate Finance.", tags: ["Teaching", "Finance"] },
       { when: "Apr 2027 – 2028", org: "Universidad de San Andrés", kind: "edu", role: "Master in Finance (MFin), incoming", note: "Class of 2028.", tags: ["MFin"] },
-      { when: "May 2025 – Mar 2026", org: "Global consulting firm", role: "Management Consultant Senior Analyst", note: "Led a process-automation initiative for the CFO & Enterprise Value practice; Anaplan for a North American airline.", tags: ["Anaplan", "Scrum", "Power Automate"] },
-      { when: "Nov 2023 – Apr 2025", org: "Software studio", role: "Project Leader", note: "Event SaaS for 5+ clients on three continents; team of six.", tags: ["Jira", "Roadmap", "Clients"] },
-      { when: "Mar 2021 – Oct 2023", org: "Software studio", role: "Senior Developer", note: "Mobile apps and a checkout processing 300+ daily payments.", tags: ["React Native", "Expo", "React"] },
+      { when: "May 2025 – Mar 2026", org: "Accenture", role: "Management Consultant Senior Analyst", note: "Led a process-automation initiative for the CFO & Enterprise Value practice; Anaplan for a North American airline.", tags: ["Anaplan", "Scrum", "Power Automate"] },
+      { when: "Nov 2023 – Apr 2025", org: "Muvinai", role: "Project Leader", note: "Event SaaS for 5+ clients on three continents; team of six.", tags: ["Jira", "Roadmap", "Clients"] },
+      { when: "Mar 2021 – Oct 2023", org: "Muvinai", role: "Senior Developer", note: "Mobile apps and a checkout processing 300+ daily payments.", tags: ["React Native", "Expo", "React"] },
       { when: "Jan – May 2023", org: "IE University, Madrid", kind: "edu", role: "Exchange semester, BBA", note: "", tags: [] },
       { when: "Mar 2020 – Dec 2024", org: "Universidad de San Andrés", kind: "edu", role: "Lic. in Business Administration & Digital Business", note: "GPA 8.6/10, top 10%, merit scholarship. TA in Data Architecture, Finance Club.", tags: [] }
     ],
@@ -354,12 +523,12 @@ const content = {
       { k: "Roots", v: "Business & Digital Business at UdeSA, top 10%. Finance Club member." }
     ],
     services: [
-      { code: "SV.01", name: "Automation & BI", sub: "Processes", body: "I take a manual process (scattered Excel files, emails, spreadsheets) and turn it into an automatic flow with dashboards people actually use.", deliv: "Process map, working automation and documentation.", ideal: "Finance and operations teams, institutions." },
-      { code: "SV.02", name: "AI agents", sub: "Internal processes", body: "Classification, data intake, replies and follow-up, with humans supervising.", deliv: "A prototype in real use plus evaluation criteria.", ideal: "Teams with repetitive sorting, intake or reply work." },
-      { code: "SV.03", name: "Web & product", sub: "With monthly support", body: "Site or app, infrastructure, CMS and forms, with ongoing maintenance on a monthly plan.", deliv: "A published site or app, with CMS and documentation.", ideal: "Businesses that need a web presence without an in-house technical team." }
+      { code: "SV.01", name: "Automation & BI", sub: "Processes", body: "Your team repeats tasks across spreadsheets, email and disconnected systems.", deliv: "I deliver a working automation, a dashboard and documentation.", ideal: "Finance and operations teams, institutions." },
+      { code: "SV.02", name: "AI agents", sub: "Internal processes", body: "Classification, data intake and follow-up take up your team's time.", deliv: "I build an AI prototype with human review and criteria to evaluate it.", ideal: "Teams with repetitive sorting, intake or reply work." },
+      { code: "SV.03", name: "Web & product", sub: "With monthly support", body: "You need a website or app without managing the technical side.", deliv: "I build and launch it, with monthly maintenance after launch.", ideal: "Businesses that need a web presence without an in-house technical team." }
     ],
     delivLabel: "Deliverable", idealLabel: "Ideal for",
-    freelance: "I take freelance work in these three shapes, and I run each one as its project manager. Available to work remotely in Argentina and Europe, with work authorization in the European Union.",
+    freelance: "I also manage each project. I work remotely with Argentina and Europe, with work authorization in the European Union.",
     lab: [
       { name: "Python games", status: "Built", why: "How I learned Python: loops, state and collisions.", url: "https://github.com/rochijacob/python_games" },
       { name: "Dog-in-the-pool detector", status: "In progress", why: "Computer vision applied to a household problem." },
@@ -367,26 +536,27 @@ const content = {
     ],
     labIntro: "Things I build out of curiosity.",
     off: { t: "Off the clock", p: "I DJ and play electronic music. I also love art and photography. The little pink pixel panther is a nod to my favourite cartoon." },
-    today: "I combine product engineering, operations and business thinking to build tools that save time and support better decisions. Available for selected freelance projects.",
-    heroIntro: "I combine product engineering, operations and business thinking to build tools that save time and support better decisions.",
-    availability: "Available for selected freelance projects.",
+    today: "I combine product engineering, operations and business thinking to build tools that save time and support better decisions.",
+    heroIntro: "I combine development and project management to turn a fragmented process into a tool your team can use.",
     featured: {
       "WK.01": { title: "Gym chain app", summary: "Performance and UX for an app used every day.", number: "500K+", label: "downloads · 40K daily users" },
       "WK.02": { title: "Event platform", summary: "Ticket sales and access control across three continents.", number: "15K+", label: "users · 5+ clients" },
       "WK.04": { title: "Final-project tracking", summary: "From manual coordination to an automated workflow.", number: "100+", label: "projects per cycle" }
     },
     profile: [
-      "I am self-taught. Everything I know about technology I learned on my own, because I enjoy it: I started in 2021 with books and the open web, and I have not stopped.",
+      "I taught myself to code in 2021. Since then, I have built products, led projects and kept learning with each release.",
       "I build the product and understand the business behind it. I studied Business & Digital Business, worked in consulting, and I teach Corporate Finance at a university.",
       "I care as much about how a product feels as how it works. Design does not come at the end."
     ],
     approach: "How I approach a project", moreTitle: "More about me", expFold: "Experience and education",
+    expDetails: "View roles and dates",
+    educationSummary: "Business Administration & Digital Business at Universidad de San Andrés; exchange at IE University. Master in Finance at San Andrés starting April 2027.",
     copy: "Copy email", copied: "Copied", copySuccess: "Email copied to clipboard.", copyError: "Could not copy. Select the email address below to copy it manually.", orLinkedin: "or message me on LinkedIn",
     think: { title: "How I think", intro: "The questions I ask on every project, in this order.", loop: "and back to the start",
       phases: { u: "Understand", b: "Build", l: "Learn" },
       steps: [
         { ph: "u", q: "What is really happening today?", s: "Understand the real situation.", ex: "Final projects: emails and spreadsheets by hand" },
-        { ph: "u", q: "Where does the truth come from?", s: "A single source of data.", ex: "University: one central data hub" },
+        { ph: "u", q: "Which data can we rely on?", s: "A single source of data.", ex: "University: one central data hub" },
         { ph: "b", q: "Who uses it, and how?", s: "Design around their habits.", ex: "Web: the client edits through a CMS" },
         { ph: "b", q: "What can fail, and who supervises?", s: "Layers and human control.", ex: "Agents: permissions by role" },
         { ph: "l", q: "What did we learn?", s: "Measure and adjust.", ex: "Every case closes with a learning" }
@@ -395,11 +565,12 @@ const content = {
     why: "Why work with me", menu: "Menu", workCols: { p: "Project", w: "When", i: "Result" },
     readCase: "Read the full case", svcMore: "Deliverable and who it is for", seeWork: "See the work", remoteNote: "Buenos Aires, remote work", moreWork: "More work",
     fact: { scale: "Scale", role: "Role", stack: "Stack", when: "When" },
-    gotMind: "Have a manual process, a stalled automation or a product that needs to move forward?", reach: "Or write to me at",
+    gotMind: "What needs to work better in your operation?", contactIntro: "Tell me about the problem and what you have tried.", reach: "Or write to me at",
     illo: "Architectural drawing of Buenos Aires: Kavanagh, Congress, the Obelisk, and Puente de la Mujer",
     cityHeight: "67.5 m",
     booksIntro: "I learn by reading books and then building something with what I read.",
     booksNote: "Hover or tap a spine.",
+    booksList: "View list",
     writingIntro: "Notes on product, finance and what I am learning.",
     soon: "soon",
     contactTitle: "Have a product, a project or a process that needs an owner?",
@@ -502,14 +673,16 @@ const content = {
   },
 
   es: {
-    meta: { title: "Rocío Jacob · Product Engineer", desc: "Transformo procesos manuales en productos digitales y flujos automatizados. Buenos Aires, remoto a todo el mundo." },
+    meta: { title: "Rocío Jacob | Automatización y desarrollo web", desc: "Desarrollo web, automatización de procesos, BI y agentes de IA. Soy Rocío Jacob, product engineer en Buenos Aires. Proyectos freelance y trabajo remoto." },
     name: "Rocío Jacob", role: "Ingeniera de producto",
     oneLiner: "Soy Rocío. Transformo procesos manuales en productos digitales y flujos automatizados.",
     pitch: "Transformo procesos manuales en productos digitales y flujos automatizados.",
+    heroPitch: "Desarrollo productos web y automati\u00adzaciones para reducir el trabajo manual.",
+    heroAccent: "para reducir el trabajo manual.",
     sub: "Project Manager & Business Partner en BI, Automatización e IA. Ex consultoría global en finanzas. Tomo proyectos freelance.",
     location: "Buenos Aires, Argentina", remote: "Buenos Aires · Remoto a todo el mundo",
     status: "Disponible para freelance · Buenos Aires",
-    cta: "Trabajemos juntos", ctaAlt: "Hablemos", mailSubject: "Proyecto para Rocío",
+    cta: "Contame tu proyecto", contactCta: "Escribime por mail", ctaAlt: "Hablemos", mailSubject: "Proyecto para Rocío",
     skip: "Ir al contenido", langLabel: "Idioma", themeLabel: "Cambiar modo claro / oscuro", portraitAlt: "Foto de Rocío Jacob",
     nav: { home: "Inicio", about: "Sobre mí", work: "Trabajo", experience: "Experiencia", skills: "Stack", books: "Libros", writing: "Escritos", contact: "Contacto", play: "Playground", services: "Servicios" },
     h: { services: "Servicios", about: "Sobre mí", work: "Proyectos destacados", experience: "Experiencia", skills: "Herramientas", books: "Libros", writing: "Escritos", contact: "Trabajemos juntos", finance: "El lado financiero", lab: "Lab", numbers: "En números" },
@@ -548,12 +721,12 @@ const content = {
         body: "Lideré una iniciativa de optimización de procesos para la práctica de CFO & Enterprise Value: automaticé trabajo manual con Excel y Power Automate. Fue lo que más disfruté de la consultoría. También participé en una implementación de Anaplan para una aerolínea norteamericana.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] }
     ],
     timeline: [
-      { when: "Abr 2026 – presente", org: "Una universidad", role: "Project Manager & Business Partner · BI, Automatización, IA", note: "Backend del sistema de seguimiento de trabajos finales; automatización, BI e IA para la universidad.", tags: ["API", "BI", "Agentes de IA"] },
-      { when: "Jun 2026 – presente", org: "Una universidad", role: "Ayudante de cátedra, Finanzas Corporativas", note: "Clases de tutorial, part-time.", tags: ["Docencia", "Finanzas"] },
+      { when: "Abr 2026 – presente", org: "Universidad de San Andrés", role: "Project Manager & Business Partner · BI, Automatización, IA", note: "Backend del sistema de seguimiento de trabajos finales; automatización, BI e IA para la universidad.", tags: ["API", "BI", "Agentes de IA"] },
+      { when: "Jun 2026 – presente", org: "Universidad de San Andrés", role: "Ayudante de cátedra, Finanzas Corporativas", note: "Clases de tutorial, part-time.", tags: ["Docencia", "Finanzas"] },
       { when: "Abr 2027 – 2028", org: "Universidad de San Andrés", kind: "edu", role: "Maestría en Finanzas (MFin), inicio en 2027", note: "Promoción 2028.", tags: ["MFin"] },
-      { when: "May 2025 – Mar 2026", org: "Consultora global", role: "Management Consultant Senior Analyst", note: "Lideré una iniciativa de automatización de procesos; Anaplan para una aerolínea.", tags: ["Anaplan", "Scrum", "Power Automate"] },
-      { when: "Nov 2023 – Abr 2025", org: "Estudio de software", role: "Project Leader", note: "SaaS de eventos para más de 5 clientes en tres continentes; equipo de seis.", tags: ["Jira", "Roadmap", "Clientes"] },
-      { when: "Mar 2021 – Oct 2023", org: "Estudio de software", role: "Senior Developer", note: "Apps móviles y un checkout que procesa más de 300 pagos diarios.", tags: ["React Native", "Expo", "React"] },
+      { when: "May 2025 – Mar 2026", org: "Accenture", role: "Management Consultant Senior Analyst", note: "Lideré una iniciativa de automatización de procesos; Anaplan para una aerolínea.", tags: ["Anaplan", "Scrum", "Power Automate"] },
+      { when: "Nov 2023 – Abr 2025", org: "Muvinai", role: "Project Leader", note: "SaaS de eventos para más de 5 clientes en tres continentes; equipo de seis.", tags: ["Jira", "Roadmap", "Clientes"] },
+      { when: "Mar 2021 – Oct 2023", org: "Muvinai", role: "Senior Developer", note: "Apps móviles y un checkout que procesa más de 300 pagos diarios.", tags: ["React Native", "Expo", "React"] },
       { when: "Ene – May 2023", org: "IE University, Madrid", kind: "edu", role: "Semestre de intercambio, BBA", note: "", tags: [] },
       { when: "Mar 2020 – Dic 2024", org: "Universidad de San Andrés", kind: "edu", role: "Lic. en Administración de Empresas y Negocios Digitales", note: "Promedio 8,6/10, top 10%, beca al mérito. Ayudante en Arquitectura de Datos, Finance Club.", tags: [] }
     ],
@@ -573,12 +746,12 @@ const content = {
       { k: "Base", v: "Administración y Negocios Digitales en UdeSA, top 10%. Miembro del Finance Club." }
     ],
     services: [
-      { code: "SV.01", name: "Automatización y BI", sub: "Procesos", body: "Convierto un proceso manual (planillas sueltas, mails, cargas a mano) en un flujo automático, con tableros que el equipo realmente usa.", deliv: "Mapa del proceso, automatización en funcionamiento y documentación.", ideal: "Finanzas, operaciones, instituciones." },
-      { code: "SV.02", name: "Agentes de IA", sub: "Procesos internos", body: "Agentes que clasifican, cargan datos, responden y hacen seguimiento, siempre con supervisión de personas.", deliv: "Un prototipo en uso real y criterios para evaluarlo.", ideal: "Equipos con tareas repetitivas de clasificación, carga o respuesta." },
-      { code: "SV.03", name: "Web y producto", sub: "Con soporte mensual", body: "Sitio o app con su infraestructura, CMS y formularios, y mantenimiento por abono mensual.", deliv: "Sitio o app publicada, con CMS y documentación.", ideal: "Negocios que necesitan presencia web sin un equipo técnico propio." }
+      { code: "SV.01", name: "Automatización y BI", sub: "Procesos", body: "Tu equipo repite tareas entre planillas, mails y sistemas desconectados.", deliv: "Entrego una automatización en funcionamiento, un tablero y documentación.", ideal: "Finanzas, operaciones, instituciones." },
+      { code: "SV.02", name: "Agentes de IA", sub: "Procesos internos", body: "Clasificar, cargar datos y hacer seguimiento consume tiempo de tu equipo.", deliv: "Desarrollo un prototipo con IA, revisión humana y criterios para evaluarlo.", ideal: "Equipos con tareas repetitivas de clasificación, carga o respuesta." },
+      { code: "SV.03", name: "Web y producto", sub: "Con soporte mensual", body: "Necesitás un sitio o una app sin ocuparte de la parte técnica.", deliv: "Lo desarrollo y publico, con mantenimiento mensual después del lanzamiento.", ideal: "Negocios que necesitan presencia web sin un equipo técnico propio." }
     ],
     delivLabel: "Entregable", idealLabel: "Ideal para",
-    freelance: "Tomo proyectos freelance en estos tres formatos y en todos me ocupo también de la gestión. Trabajo de forma remota para Argentina y Europa, con autorización laboral en la Unión Europea.",
+    freelance: "También me ocupo de la gestión de cada proyecto. Trabajo de forma remota para Argentina y Europa, con autorización laboral en la Unión Europea.",
     lab: [
       { name: "Juegos en Python", status: "Terminado", why: "Así aprendí Python: loops, estado y colisiones.", url: "https://github.com/rochijacob/python_games" },
       { name: "Detector de perros en la pileta", status: "En progreso", why: "Visión por computadora aplicada a un problema doméstico." },
@@ -586,26 +759,27 @@ const content = {
     ],
     labIntro: "Cosas que armo por curiosidad.",
     off: { t: "Fuera del trabajo", p: "Soy DJ y toco música electrónica. Me encantan el arte y la fotografía. La panterita rosa en píxeles es un guiño a mi dibujo animado favorito." },
-    today: "Combino ingeniería de producto, operaciones y negocio para construir herramientas que ahorran tiempo y mejoran decisiones. Disponible para proyectos freelance seleccionados.",
-    heroIntro: "Combino ingeniería de producto, operaciones y negocio para construir herramientas que ahorran tiempo y mejoran decisiones.",
-    availability: "Disponible para proyectos freelance seleccionados.",
+    today: "Combino ingeniería de producto, operaciones y negocio para construir herramientas que ahorran tiempo y mejoran decisiones.",
+    heroIntro: "Combino desarrollo y gestión de proyectos para convertir un proceso disperso en una herramienta que tu equipo pueda usar.",
     featured: {
       "WK.01": { title: "App de gimnasios", summary: "Rendimiento y experiencia de uso para una app de todos los días.", number: "500K+", label: "descargas · 40K usuarios diarios" },
       "WK.02": { title: "Plataforma de eventos", summary: "Venta y control de entradas en tres continentes.", number: "15K+", label: "usuarios · 5+ clientes" },
       "WK.04": { title: "Seguimiento de trabajos finales", summary: "De la coordinación manual a un flujo automatizado.", number: "100+", label: "trabajos por entrega" }
     },
     profile: [
-      "Soy autodidacta. Todo lo que sé de tecnología lo aprendí por mi cuenta, porque me gusta: empecé en 2021 con libros y la web, y no paré.",
+      "Aprendí a programar por mi cuenta en 2021. Desde entonces desarrollo productos, lidero proyectos y sigo aprendiendo con cada entrega.",
       "Construyo el producto y entiendo el negocio que hay detrás. Estudié Administración y Negocios Digitales, trabajé en consultoría y doy clases de Finanzas Corporativas en una universidad.",
       "Cuido cómo funciona un producto y cómo se siente al usarlo. El diseño no llega al final."
     ],
     approach: "Cómo encaro un proyecto", moreTitle: "Más sobre mí", expFold: "Experiencia y formación",
+    expDetails: "Ver roles y fechas",
+    educationSummary: "Administración y Negocios Digitales en la Universidad de San Andrés; intercambio en IE University. Maestría en Finanzas en San Andrés desde abril de 2027.",
     copy: "Copiar mail", copied: "Copiado", copySuccess: "Mail copiado al portapapeles.", copyError: "No se pudo copiar. Seleccioná el mail de abajo para copiarlo manualmente.", orLinkedin: "o escribime por LinkedIn",
     think: { title: "Cómo pienso", intro: "Las preguntas que me hago en cada proyecto, en este orden.", loop: "y vuelta al inicio",
       phases: { u: "Entender", b: "Construir", l: "Aprender" },
       steps: [
         { ph: "u", q: "¿Qué pasa de verdad hoy?", s: "Entender la situación real.", ex: "Trabajos finales: mails y planillas a mano" },
-        { ph: "u", q: "¿De dónde sale la verdad?", s: "Una única fuente de datos.", ex: "Universidad: un repositorio central de datos" },
+        { ph: "u", q: "¿Qué datos podemos tomar como referencia?", s: "Una única fuente de datos.", ex: "Universidad: un repositorio central de datos" },
         { ph: "b", q: "¿Quién lo usa y cómo?", s: "Diseñar sobre sus hábitos.", ex: "Web: el cliente edita desde un CMS" },
         { ph: "b", q: "¿Qué puede fallar y quién supervisa?", s: "Capas y control humano.", ex: "Agentes: permisos por rol" },
         { ph: "l", q: "¿Qué aprendimos?", s: "Medir y ajustar.", ex: "Cada caso cierra con un aprendizaje" }
@@ -614,11 +788,12 @@ const content = {
     why: "Por qué trabajar conmigo", menu: "Menú", workCols: { p: "Proyecto", w: "Período", i: "Resultado" },
     readCase: "Leer el caso completo", svcMore: "Entregable y para quién", seeWork: "Ver proyectos", remoteNote: "Buenos Aires · Trabajo remoto", moreWork: "Otros proyectos",
     fact: { scale: "Escala", role: "Rol", stack: "Stack", when: "Cuándo" },
-    gotMind: "¿Tenés un proceso manual, una automatización trabada o un producto que necesita avanzar?", reach: "O escribime a",
+    gotMind: "¿Qué necesitás mejorar en tu operación?", contactIntro: "Contame el problema y lo que ya probaste.", reach: "O escribime a",
     illo: "Croquis arquitectónico de Buenos Aires: Kavanagh, Congreso, Obelisco y Puente de la Mujer",
     cityHeight: "67,5 m",
     booksIntro: "Aprendo leyendo y después pongo en práctica lo que leí.",
     booksNote: "Pasá el cursor o tocá un lomo.",
+    booksList: "Ver lista",
     writingIntro: "Notas sobre producto, finanzas y lo que voy aprendiendo.",
     soon: "pronto",
     contactTitle: "¿Tenés un producto, un proyecto o un proceso que necesita dueña?",
@@ -726,6 +901,8 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 };
 let lang = (() => {
+  const pageLanguage = document.documentElement.dataset.pageLanguage;
+  if (pageLanguage === "en" || pageLanguage === "es") return pageLanguage;
   const s = store.get("rj-lang");
   if (s === "en" || s === "es") return s;
   return (navigator.language || "en").toLowerCase().startsWith("es") ? "es" : "en";
@@ -819,6 +996,11 @@ function apply() {
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-lang]");
   if (!b || b.dataset.lang === lang) return;
+  if (b.matches("a[href]")) {
+    e.preventDefault();
+    location.href = b.getAttribute("href") + location.search + location.hash;
+    return;
+  }
   lang = b.dataset.lang; store.set("rj-lang", lang);
   swap(() => {
     const y = scrollY; apply(); scrollTo(0, y);
@@ -936,65 +1118,92 @@ const obelisk = alt => {
 /* ---------- Site H · Studio ---------- */
 let theme = store.get("rj-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 document.documentElement.dataset.theme = theme;
-const clock = () => new Date().toLocaleTimeString(lang === "es" ? "es-AR" : "en-GB", { timeZone: "America/Argentina/Buenos_Aires", hour: "2-digit", minute: "2-digit", hour12: false });
 const DOCK = [["work", "work"], ["offers", "services"], ["about", "about"], ["contact", "contact"]];
 const MAIN = ["WK.01", "WK.02", "WK.04"];
+const trackedViews = new Set();
+let analyticsObserver;
+const track = (event, parameters = {}) => {
+  if (!["project_view", "select_content", "case_open", "contact_click", "email_copy"].includes(event)) return;
+  gtag("event", event, { language: lang, ...parameters });
+};
 const COPY_ICON = '<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>', CHECK_ICON = '<path d="M5 12.5l4.5 4.5L19 7.5"/>';
 const setCopy = (b, done) => { $("span", b).textContent = done ? T().copied : T().copy; $("svg", b).innerHTML = done ? CHECK_ICON : COPY_ICON; };
 const themeIcon = () => theme === "dark" ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>' : '<path d="M20 14A8 8 0 0110 4a8 8 0 1010 10z"/>';
 const dockMarkup = t => `<nav class="dock" aria-label="${esc(t.menu)}"><span class="cat" id="cat" aria-hidden="true">${pixelCat(2)}${pixelCat(2, CAT_STEP)}</span><button type="button" class="mn" data-menu aria-expanded="false" aria-controls="dlinks"><span id="mlabel">${t.menu}</span><span aria-hidden="true">▾</span></button><span class="lks" id="dlinks">${DOCK.map(([id, k]) => `<a href="#${id}" data-sec="${id}">${t.nav[k]}</a>`).join("")}</span><i aria-hidden="true"></i>
   <button type="button" data-theme-btn aria-label="${esc(t.themeLabel)}" aria-pressed="${theme === "dark"}"><svg viewBox="0 0 24 24" aria-hidden="true">${themeIcon()}</svg></button>
-  <span class="lg" role="group" aria-label="${esc(t.langLabel)}"><button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="${lang === "en"}">EN</button><button type="button" data-lang="es" lang="es" aria-label="Español" aria-pressed="${lang === "es"}">ES</button></span></nav>`;
+  ${languageControl(t)}</nav>`;
+function languageControl(t) {
+  const tag = document.documentElement.dataset.pageLanguage ? 'a' : 'button';
+  return `<span class="lg" role="group" aria-label="${esc(t.langLabel)}">${['en','es'].map(next => {
+    const attrs = tag === 'a' ? `href="${next === 'es' ? 'es.html' : './'}" hreflang="${next}"${next === lang ? ' aria-current="true"' : ''}` : `type="button" aria-pressed="${next === lang}"`;
+    return `<${tag} ${attrs} data-lang="${next}" lang="${next}" aria-label="${next === 'es' ? 'Español' : 'English'}">${next.toUpperCase()}</${tag}>`;
+  }).join('')}</span>`;
+}
 function render(t) {
-  const m = t.pitch.match(/^(.*?)( into | en )(.*)$/);
-  const h1 = m ? `${m[1]} <span>${m[2].trim()}&nbsp;${m[3]}</span>` : t.pitch;
-  const sec = (id, title, body) => `<section class="sec" id="${id}"><h2>${title}</h2><div>${body}</div></section>`;
+  const h1 = `${esc(t.heroPitch.slice(0, -t.heroAccent.length))}<span>${esc(t.heroAccent)}</span>`;
+  const sec = (id, title, body) => `<section class="sec" id="${id}" data-track-view="section_view" data-track-id="${id}"><h2>${title}</h2><div class="reading">${body}</div></section>`;
   const main = MAIN.map(c => t.cases.find(x => x.code === c)), rest = t.cases.filter(x => !MAIN.includes(x.code));
   const fid = c => "f" + c.code.replace(".", "");
   $("#app").innerHTML = `
 <a class="skip" href="#main">${t.skip}</a>
 <header class="w"><div class="hd">
-  <a class="me" href="#top">${t.name}</a>
-  <span class="k lk"><a href="${L.linkedin}" ${ext}>${t.footer.linkedin}</a><a href="${L.github}" ${ext}>${t.footer.github}</a></span>
+  <a class="me" href="#top" data-track-event="navigation_click" data-track-section-id="top">${t.name}</a>
+  <span class="k lk"><a href="${L.linkedin}" data-track-event="contact_click" data-track-method="linkedin" data-track-location="header" ${ext}>${t.footer.linkedin}</a><a href="${L.github}" ${ext}>${t.footer.github}</a></span>
 </div></header>
 <main id="main" class="w">
   <div class="hero" id="top">
     <div>
       <h1>${h1}</h1>
       <p class="today">${t.heroIntro}</p>
-      <p class="availability">${t.availability}</p>
-      <div class="cta"><a class="btn" href="#contact">${t.cta} ↗</a><a class="btn o" href="#work">${t.seeWork}</a><span class="k">${t.remoteNote} · <span id="clock">${clock()}</span></span></div>
+      <div class="cta"><a class="btn" href="#contact">${t.cta} ↗</a><a class="btn o" href="#work">${t.seeWork}</a><span class="k">${t.remoteNote}</span></div>
     </div>
     <figure class="fig">${obelisk(t.j.opts[0].alt)}<p class="note"><svg viewBox="0 0 74 40" aria-hidden="true"><path d="M70 6C52 4 30 10 14 30"/><path d="M12 18l1 13 13-3"/></svg>${t.a.notes.here}</p></figure>
   </div>
-  <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => { const f = t.featured[c.code]; return `<a href="#${fid(c)}"><span class="n">${f.number}</span><span class="metric-label">${f.label}</span><b>${f.title} ›</b></a>`; }).join("")}</nav>
+  <nav class="hi" aria-label="${esc(t.h.work)}">${main.map(c => { const f = t.featured[c.code]; return `<a href="#${fid(c)}" data-track-event="select_content" data-track-content-type="project" data-track-content-id="${c.code}"><span class="n">${f.number}</span><span class="metric-label">${f.label}</span><b>${f.title} ›</b></a>`; }).join("")}</nav>
 
-  <div id="work">${main.map(c => { const f = t.featured[c.code]; return `<section class="feat" id="${fid(c)}"><div><span class="k">${c.org} · ${c.when}</span><h2>${f.title}</h2><p class="case-summary">${f.summary}</p><p class="case-result">${c.impact}</p>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div>
-    <div><p>${c.body}</p><dl class="f"><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl></div></section>`; }).join("")}
-    <details class="fold related" id="more-work"><summary><h3>${t.moreWork}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b">${rest.map(c => `<h4>${c.name}</h4><p class="s">${c.org} · ${c.role} · ${c.when}</p><p>${caseBody(c)}</p>`).join("")}</div></details>
+  <div id="work">${main.map(c => { const f = t.featured[c.code]; return `<section class="feat" id="${fid(c)}" data-track-view="project_view" data-track-id="${c.code}"><div class="reading"><span class="k">${c.org} · ${c.when}</span><h2>${f.title}</h2><p class="case-summary">${f.summary}</p><p class="case-result">${c.impact}</p>${c.img ? `<img class="shot" src="${c.img}" alt="${esc(c.name)}" loading="lazy">` : ""}</div>
+    <div class="reading"><p>${c.body}</p><dl class="f"><dt>${t.fact.role}</dt><dd>${c.role}</dd><dt>${t.fact.stack}</dt><dd>${c.tags.join(", ")}</dd></dl></div></section>`; }).join("")}
+    <details class="fold related reading" id="more-work"><summary><h3>${t.moreWork}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b">${rest.map(c => `<h4>${c.name}</h4><p class="s">${c.org} · ${c.role} · ${c.when}</p><p>${caseBody(c)}</p>`).join("")}</div></details>
   </div>
 
-  ${sec("offers", t.talk.services, `<div class="services">${t.services.map((s, i) => `<article class="service"><h3>${s.name}</h3><p>${s.body}</p></article>`).join("")}</div>
+  ${sec("offers", t.talk.services, `<div class="services">${t.services.map(s => `<article class="service"><h3>${s.name}</h3><p>${s.body}</p><p class="deliverable">${s.deliv}</p></article>`).join("")}</div>
     <p>${t.freelance}</p>`)}
 
   ${sec("about", t.h.about, `${portrait()}<p class="lead">${t.profile[0]}</p>${t.profile.slice(1).map(p => `<p>${p}</p>`).join("")}
     <h3 class="sub">${t.approach}</h3>
     <ol class="steps">${t.think.steps.map((x, i) => `<li><span class="k">0${i + 1}</span><b>${x.q}</b><span class="s">${x.s}</span></li>`).join("")}</ol>
     <div style="margin-top:32px">${offClock()}</div>
-    <details class="fold related" id="experience"><summary><h3>${t.expFold}</h3><span class="x" aria-hidden="true">+</span></summary><div class="b" style="max-width:none"><ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}</span></span></li>`, "li", "k")}</ul></div></details>`)}
+    <div class="experience" id="experience"><h3>${t.expFold}</h3><dl class="experience-overview"><dt>${t.expWork}</dt><dd>${[...new Set(t.timeline.filter(e => e.kind !== "edu").map(e => e.org))].map(esc).join(" · ")}</dd><dt>${t.expEdu}</dt><dd>${t.educationSummary}</dd></dl>
+    <details class="fold"><summary><span>${t.expDetails}</span><span class="x" aria-hidden="true">+</span></summary><div class="b" style="max-width:none"><ul class="r">${expSplit(t, e => `<li><span class="k">${e.when}</span><span><b style="font-weight:500">${e.role}</b><br><span class="s">${e.org}</span></span></li>`, "li", "k")}</ul></div></details></div>`)}
 
-  ${sec("books", t.h.books, `<p>${t.booksIntro}</p>${bookShelf()}`)}
+  ${sec("books", t.h.books, `<p>${t.booksIntro}</p>${bookShelf()}<details class="fold book-list"><summary><span>${t.booksList}</span><span class="x" aria-hidden="true">+</span></summary><ul>${content.books.map(b => `<li><b>${esc(b.title)}</b><span>${esc(b.author)}</span></li>`).join("")}</ul></details>`)}
 
-  <section class="end" id="contact">
-    <p class="big">${t.gotMind}</p>
-    <div class="cta" style="margin:0 0 18px"><a class="btn" href="${mailto()}">${t.cta} ↗</a><button type="button" class="copy" data-copy><svg viewBox="0 0 24 24" aria-hidden="true">${COPY_ICON}</svg><span>${t.copy}</span></button></div>
+  <section class="end" id="contact" data-track-view="section_view" data-track-id="contact">
+    <h2 class="big">${t.gotMind}</h2>
+    <p>${t.contactIntro}</p>
+    <div class="cta" style="margin:0 0 18px"><a class="btn" href="${mailto()}" data-track-event="contact_click" data-track-method="email" data-track-location="contact">${t.contactCta} ↗</a><button type="button" class="copy" data-copy><svg viewBox="0 0 24 24" aria-hidden="true">${COPY_ICON}</svg><span>${t.copy}</span></button></div>
     <p class="copy-status" id="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
-    <p class="s"><a class="m" href="${mailto()}">${L.email}</a>, ${t.orLinkedin.replace("LinkedIn", `<a href="${L.linkedin}" ${ext}>LinkedIn</a>`)}.</p>
+    <p class="s"><a class="m" href="${mailto()}" data-track-event="contact_click" data-track-method="email" data-track-location="contact_text">${L.email}</a>, ${t.orLinkedin.replace("LinkedIn", `<a href="${L.linkedin}" data-track-event="contact_click" data-track-method="linkedin" data-track-location="contact" ${ext}>LinkedIn</a>`)}.</p>
   </section>
   <div class="cityw">${city(t.illo)}</div>
   <footer class="k"><span>${t.footer.rights}</span><span>${footerLinks()}</span></footer>
 </main>${dockMarkup(t)}`;
   spy(); walk(); soften();
+  observeAnalytics();
+}
+function observeAnalytics() {
+  analyticsObserver?.disconnect();
+  if (!("IntersectionObserver" in window)) return;
+  analyticsObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const event = entry.target.dataset.trackView;
+    const id = entry.target.dataset.trackId;
+    const key = `${event}:${id}`;
+    if (trackedViews.has(key)) return;
+    trackedViews.add(key);
+    track(event, event === "project_view" ? { project_code: id } : { section_id: id });
+  }), { threshold: .15 });
+  $$('[data-track-view]').forEach(element => analyticsObserver.observe(element));
 }
 /* Scroll reveal that cannot hide content: only blocks that start below the fold get the "pre" state,
    and it is removed as soon as they come into view (or immediately if observers are unavailable). */
@@ -1023,7 +1232,7 @@ let lastY = 0;
 function spy() {
   const readingLine = innerHeight * .35;
   const current = DOCK.find(([id]) => { const r = $("#" + id).getBoundingClientRect(); return r.top <= readingLine && r.bottom > readingLine; });
-  $$(".dock a").forEach(a => { if (a.dataset.sec === current?.[0]) a.setAttribute("aria-current", "location"); else a.removeAttribute("aria-current"); });
+  $$(".dock a[data-sec]").forEach(a => { if (a.dataset.sec === current?.[0]) a.setAttribute("aria-current", "location"); else a.removeAttribute("aria-current"); });
 }
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-theme-btn]"); if (!b) return;
@@ -1032,7 +1241,23 @@ document.addEventListener("click", e => {
   b.setAttribute("aria-pressed", theme === "dark");
   $("svg", b).innerHTML = themeIcon();
   $('meta[name="theme-color"]').content = theme === "dark" ? "#00202f" : "#f4f6f7";
+  track("theme_change", { selected_theme: theme });
 });
+document.addEventListener("click", e => {
+  const target = e.target.closest("[data-track-event]"); if (!target) return;
+  const parameters = {};
+  for (const [key, value] of Object.entries(target.dataset)) {
+    if (key.startsWith("track") && key !== "trackEvent") {
+      const raw = key.slice(5);
+      const name = (raw[0].toLowerCase() + raw.slice(1)).replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`);
+      parameters[name] = value;
+    }
+  }
+  track(target.dataset.trackEvent, parameters);
+});
+document.addEventListener("toggle", e => {
+  if (e.target.matches("details.more") && e.target.open) track("case_open", { project_code: e.target.id.replace("case-", "") });
+}, true);
 function closeMenu() {
   $(".dock")?.classList.remove("open");
   $("[data-menu]")?.setAttribute("aria-expanded", "false");
@@ -1056,9 +1281,11 @@ document.addEventListener("click", async e => {
     await navigator.clipboard.writeText(L.email);
     if (!b.isConnected) return;
     setCopy(b, true); status.textContent = T().copySuccess;
+    track("email_copy", { result: "success" });
     setTimeout(() => { if (b.isConnected) setCopy(b, false); }, 1800);
   } catch {
     if (b.isConnected) { setCopy(b, false); status.textContent = T().copyError; }
+    track("email_copy", { result: "failure" });
   } finally { b.disabled = false; }
 });
 addEventListener("scroll", () => {
@@ -1066,7 +1293,6 @@ addEventListener("scroll", () => {
   scrollFrame = requestAnimationFrame(() => { scrollFrame = 0; spy(); walk(); });
 }, { passive: true });
 addEventListener("resize", () => { spy(); walk(); if (innerWidth > 640) closeMenu(); });
-setInterval(() => { const c = $("#clock"); if (c) c.textContent = clock(); }, 30000);
 /* Loader: shown until the web fonts are in (at least 450 ms so it never flashes, at most 1.8 s so a
    slow font never blocks the page). The page is already rendered underneath; the hero intro starts as it lifts. */
 document.body.insertAdjacentHTML("beforeend", `<div id="loader" aria-hidden="true"><span>${pixelCat(3)}${pixelCat(3, CAT_STEP)}</span></div>`);

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rochijacob.github.io/portfolio_rj/sitemap.xml

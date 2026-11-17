@@ -3,10 +3,11 @@ const path = require('path');
 const root = path.join(__dirname, '..'), out = process.env.SHOTS || path.join(require('os').tmpdir(), 'portfolio-shots'); require('fs').mkdirSync(out, { recursive: true });
 const sites = (process.env.SITES || 'site-A-notebook,site-A-article,site-B-dock,site-D-ledger,site-I-talk,site-J-hero,site-K-case,site-H-studio').split(',');
 (async () => {
-  const br = await chromium.launch();
+  const br = await chromium.launch(process.env.BROWSER_CHANNEL ? { channel: process.env.BROWSER_CHANNEL } : {});
   for (const s of sites) for (const w of [390, 768, 1440]) for (const lg of ['en', 'es']) {
     const ctx = await br.newContext({ viewport: { width: w, height: 900 }, locale: lg === 'es' ? 'es-AR' : 'en-US', reducedMotion: 'reduce' });
     const p = await ctx.newPage(); const errs = [];
+    await p.route('https://www.googletagmanager.com/**', route => route.fulfill({ status: 200, contentType: 'application/javascript', body: '' }));
     p.on('console', m => { if (m.type() === 'error' && !/fonts\.g|ERR_|profile\.jpg|Failed to load resource/.test(m.text())) errs.push(m.text()); });
     p.on('pageerror', e => errs.push('PAGEERR ' + e.message));
     await p.goto('file://' + root + '/' + s + '.html'); await p.waitForTimeout(250);

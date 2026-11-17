@@ -13,6 +13,19 @@ Un portfolio personal bilingüe (EN/ES) para Rocío Jacob, Buenos Aires.
 
 ## Estado
 
+**Ajustes editoriales aprobados (2026-11-16, decisión vigente sobre las notas históricas de abajo).** Rocío pidió aplicar el wording y las mejoras de lectura en H. Implementados en `codex/editorial-reading-refinements`, pendientes de publicación:
+
+- Hero EN/ES orientado a productos web y reducción de trabajo manual; CTA «Contame tu proyecto» / «Tell me about your project». Contacto: pregunta breve, frase de apoyo y «Escribime por mail» / «Email me», con copia de mail al lado.
+- Tres servicios, cada uno con una frase de problema y una de entrega. Sin tarjetas ni nuevos CTA intermedios.
+- Fondo punteado atenuado detrás de casos, servicios, perfil y libros. Misma paleta y tamaños de letra. Columnas de casos equilibradas, perfil más ancho y preguntas del método con explicación debajo.
+- Menos separación dentro de grupos relacionados; se conserva el aire entre secciones principales. Croquis del hero móvil dentro de un bloque de 190 px de alto; skyline completo al cierre. Reloj eliminado.
+- Empleadores e instituciones visibles sin desplegar; roles y fechas dentro de un desplegable. La maestría sigue indicada como futura, desde abril de 2027.
+- Libros: se conservan los lomos y se agrega «Ver lista» / «View list» con los diez títulos y autores, accesible por teclado y sin enlaces de compra.
+- Se mantiene la mascota, el menú y las animaciones. Por pedido explícito se restaura el loader también en las páginas prerenderizadas; el HTML sigue disponible sin JS. Las capturas de productos quedan para una etapa futura.
+- Verificado: build, matriz de Studio de 20 combinaciones (320–1440 px, EN/ES, claro/oscuro), controles y clipboard, SEO y navegación sin JS, UTMs, capturas con fuentes cargadas y desplegables por teclado. `check.js` también se ejecutó sobre el laboratorio: D tiene un desborde móvil en ES ya presente en HEAD; no es una regresión de H.
+
+Esta aprobación habilita los cambios en H y reemplaza la restricción histórica «la web publicada no se toca» para este alcance. La rama aún no se empujó ni se integró a main.
+
 **Laboratorio tipográfico (2026-11-16, lo más reciente).** A Rocío H le parece prolija pero "le falta creatividad" y sospecha de la tipografía: H usa Geist en todo, como muchos portfolios de desarrolladores. Pidió retomar A, B y D como **laboratorio para ir combinando** (no candidatas a reemplazar H) y sumar opciones con referencias nuevas: falakgala.dev, lokiii.me, 10xshivam.dev (wording), d0xxed.com (bichitos de fondo) y nan.fyi/database (esqueleto de artículo). Diseño en `docs/superpowers/specs/2026-11-16-laboratorio-tipografico-design.md`; plan en `docs/superpowers/plans/`.
 
 **La web publicada (H, `index.html`, rama `main`) no se toca:** Rocío dijo "la web posta dejémosla así". Ve las variantes por capturas y decide qué pasa a H. No empujar a `main` sin que lo pida.
@@ -278,19 +291,25 @@ node scripts/check.js
 5. **El nombre es "Rocío Jacob", con tilde.** El ticker de D es `ROCI`.
 6. **El teléfono no va en el sitio.**
 
-### Anonimización (decisión de Rocío, 2026-11-14)
+### Anonimización (actualizada por Rocío, 2026-11-16)
 
-No se nombran empleadores ni clientes:
+En **Experiencia y formación** se muestran los empleadores reales: Muvinai, Accenture y Universidad de San Andrés. Las instituciones educativas ya se mostraban con su nombre real.
+
+Los casos y el resto del relato siguen anonimizados, en especial el caso universitario que tiene permiso de publicación bajo esa condición:
 
 | Real | En el sitio |
 |---|---|
-| Muvinai | "Estudio de software" / "Software studio" |
-| Accenture | "Consultora global" / "Global consulting firm" |
-| UdeSA como empleadora (PM & Business Partner, docencia) | "Una universidad" / "A university" |
+| Muvinai en casos | "Estudio de software" / "Software studio" |
+| Accenture en casos y perfil | "Consultora global" / "Global consulting firm" |
+| UdeSA en casos | "Una universidad" / "A university" |
 | Cliente del gimnasio | "la cadena de gimnasios más grande de Argentina" (aprobado así) |
 | DataHub (sistema interno) | "un data hub central" |
 
-Sí se nombran las instituciones de su educación (Universidad de San Andrés, IE University): son credenciales suyas y Rocío lo aprobó, sabiendo que facilita deducir quién es "una universidad".
+No volver a anonimizar el bloque de experiencia/formación. No trasladar los nombres reales a los casos sin una indicación explícita, porque la autorización del caso universitario depende de mantenerlo anónimo.
+
+**Analytics (2026-11-16, actualizado):** carga GTM-TW2MSTRV (contenedor público vacío, tags:[]) y GA4 directo G-FFMYCXQZFJ. Los eventos elegidos se envían con gtag('event'). GTM-K79GS3KK es otro contenedor y en su versión pública usa G-DV2NR6RG18; no se instala. No duplicar G-FFMYCXQZFJ dentro de GTM mientras esté instalado directo. Prioridad: X, LinkedIn y orgánico; verificar recepción en GA4 Realtime/DebugView. Enlaces x/ e in/ publicados con UTMs. Detalles en docs/ANALYTICS.md.
+
+**SEO y auditoría (2026-11-16):** se integró origin/main para conservar hero, foto y diseño actuales. La raíz es EN y es.html ES, con HTML prerenderizado por src/seo.mjs, metadatos, hreflang, canonical, Person/ProfilePage y sitemap. Se omite el loader en páginas públicas prerenderizadas. El selector de idiomas usa enlaces reales. Las propuestas editoriales y de UX están en docs/AUDIT-2026-11-16.md; no se aplicaron rediseños extensos. Dominio confirmado: https://rochijacob.github.io/portfolio_rj/. GitHub Pages necesita sitemap enviado en Search Console; robots del proyecto no controla la raíz del host. Fast-forward a main realizado y despliegue público verificado.
 
 En los casos se usan órdenes de magnitud ("más de cien", "de días a minutos") y no cifras internas exactas. No se mencionan personas, áreas internas, VPN ni GitLab.
 
@@ -349,13 +368,13 @@ El sitio está en **GitHub Pages**: https://rochijacob.github.io/portfolio_rj/ (
 
 - `main` es lo publicado. Se actualiza con avance rápido desde la rama de trabajo cuando Rocío pide "actualicemos la web"; el agente necesita ese permiso explícito para empujar a `main`.
 - La rama de la sesión (`claude/...`) es donde se trabaja.
-- La rama `codex/portfolio-ux-refinements` está totalmente contenida en la de trabajo y se puede borrar.
+- La rama `codex/portfolio-ux-refinements` contiene ahora el nuevo trabajo de SEO, auditoría y Analytics; NO borrarla antes de integrarlo a main.
 
 **Pasos que solo Rocío puede hacer en GitHub** (el agente no tiene acceso a esos ajustes), en este orden:
 
 1. Settings, Pages, Source: rama `main`, carpeta `/ (root)`, Save. Esperar a que figure como publicado.
 2. Settings, Branches, Default branch: cambiar a `main`.
-3. Recién entonces borrar `codex/portfolio-ux-refinements`. La rama `claude/...` conviene borrarla al terminar la sesión, no antes.
+3. Integrar primero los cambios nuevos de `codex/portfolio-ux-refinements`; solo después considerar borrar ramas terminadas.
 
 Si se borra la rama desde la que Pages publica antes del paso 1, el sitio da 404.
 
