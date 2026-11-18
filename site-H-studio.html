@@ -238,10 +238,25 @@ footer a{margin-left:22px;display:inline-block;padding:10px 0}footer a:first-chi
   .cta .k{margin-left:0;flex-basis:100%}
 }
 @media(max-width:640px){
-  body{font-size:1rem;padding-bottom:104px}
+  html{scroll-padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  body{font-size:1rem;padding-bottom:calc(88px + env(safe-area-inset-bottom))}
   .hd{min-height:60px;gap:0 14px}.hd .k a{margin-left:14px}
-  .hero{padding-top:28px}
-  .today{font-size:1.0625rem}
+  .hero{padding-top:20px;row-gap:16px}
+  .today{font-size:1.0625rem;line-height:1.55;margin-top:16px}
+  .hero .cta{margin-top:20px;gap:8px 12px}
+  .fig .sk{height:clamp(160px,44vw,185px)}
+  .picks{margin-top:44px}
+  .pick .pic{padding:12px 18px 6px}
+  .pick .pic .sk{height:clamp(148px,40vw,180px)}
+  .pick .tx{padding:16px 18px 18px}
+  .pick .met{display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 8px;padding-top:8px}
+  .pick .met .n{margin:0}
+  dialog.case{max-height:calc(100dvh - 28px);overscroll-behavior:contain}
+  .case .x-close{position:sticky;top:0;float:right;margin:-12px -8px 0 8px;background:var(--bg);z-index:1}
+  .case-sketch{max-width:146px}
+  .dock .lks{max-height:calc(100dvh - 100px - env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain}
+  .dock .lg a,.dock .lg button{min-height:44px}
+  .copy-status:empty{min-height:0;margin:0}
   .cta .btn{flex:1 1 auto;justify-content:center}
   .city{width:860px;max-width:none;margin-left:calc(50% - 430px)}.city text{font-size:11px;letter-spacing:.08em}
   .sec{padding-top:88px}
