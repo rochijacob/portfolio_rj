@@ -175,7 +175,7 @@ Los tres proyectos principales de H están en la constante `MAIN` de `src/site-H
 
 **Croquis, versión alineada (2026-11-16):** seguía viéndolo "muy desalineado". La causa era real: ventanas sin centrar, líneas que las cruzaban y edificios de fondo que se pisaban con los del frente. Se redibujó con reglas: cada edificio se genera con `bld()` (caja más grilla de ventanas centrada en su cara), todo lo simétrico es simétrico respecto de su eje, no hay edificios de fondo ni elementos superpuestos, y los rótulos usan la misma línea de referencia. Al agregar algo al croquis, respetar esas reglas.
 
-**"Cómo pienso":** Rocío pasó un diagrama con las cinco preguntas que se hace en cada proyecto (entender, construir, aprender, y vuelta al inicio). Está en H como sección propia, dibujado con el lenguaje del croquis (filas con esquinas que se pasan, flechas, línea punteada de retorno). Textos en `content.*.think`. En su diagrama decía "Academ: un DataHub central" y "TFG"; por la regla de anonimato quedó "Universidad: un data hub central" y "Trabajos finales".
+**"Cómo pienso":** Rocío pasó un diagrama con las cinco preguntas que se hace en cada proyecto (entender, construir, aprender, y vuelta al inicio). Está en H como sección propia, dibujado con el lenguaje del croquis (filas con esquinas que se pasan, flechas, línea punteada de retorno). Textos en `content.*.think`; los ejemplos publicados usan descripciones genéricas.
 
 **Orden de H, pensado como historia para alguien que evalúa contratarla:** hero, por qué trabajar con ella (tres afirmaciones), prueba (tres proyectos destacados), cómo piensa, otros proyectos, sobre mí, experiencia y formación, herramientas, servicios freelance, lab, libros, contacto. Antes los servicios interrumpían la historia en el medio y el "por qué" llegaba tarde.
 
@@ -309,15 +309,7 @@ node scripts/check.js
 
 En **Experiencia y formación** se muestran los empleadores reales: Muvinai, Accenture y Universidad de San Andrés. Las instituciones educativas ya se mostraban con su nombre real.
 
-Los casos y el resto del relato siguen anonimizados, en especial el caso universitario que tiene permiso de publicación bajo esa condición:
-
-| Real | En el sitio |
-|---|---|
-| Muvinai en casos | "Estudio de software" / "Software studio" |
-| Accenture en casos y perfil | "Consultora global" / "Global consulting firm" |
-| UdeSA en casos | "Una universidad" / "A university" |
-| Cliente del gimnasio | "la cadena de gimnasios más grande de Argentina" (aprobado así) |
-| DataHub (sistema interno) | "un data hub central" |
+Los casos y el resto del relato usan descriptores genéricos de organizaciones y clientes. El caso universitario tiene permiso de publicación condicionado a ese anonimato. No publicar nombres de clientes, detalles de infraestructura ni una tabla que relacione cada caso con un empleador: este repositorio es público.
 
 No volver a anonimizar el bloque de experiencia/formación. No trasladar los nombres reales a los casos sin una indicación explícita, porque la autorización del caso universitario depende de mantenerlo anónimo.
 
@@ -326,6 +318,8 @@ No volver a anonimizar el bloque de experiencia/formación. No trasladar los nom
 **SEO y auditoría (2026-11-16):** se integró origin/main para conservar hero, foto y diseño actuales. La raíz es EN y es.html ES, con HTML prerenderizado por src/seo.mjs, metadatos, hreflang, canonical, Person/ProfilePage y sitemap. Se omite el loader en páginas públicas prerenderizadas. El selector de idiomas usa enlaces reales. Las propuestas editoriales y de UX están en docs/AUDIT-2026-11-16.md; no se aplicaron rediseños extensos. Dominio confirmado: https://rochijacob.github.io/portfolio_rj/. GitHub Pages necesita sitemap enviado en Search Console; robots del proyecto no controla la raíz del host. Fast-forward a main realizado y despliegue público verificado.
 
 En los casos se usan órdenes de magnitud ("más de cien", "de días a minutos") y no cifras internas exactas. No se mencionan personas, áreas internas, VPN ni GitLab.
+
+**Vista previa para LinkedIn y X (2026-11-17):** `og-hero-en.png` y `og-hero-es.png` son imágenes del hero de 1200 × 627 px, generadas por `scripts/render-social.js`. El título sigue una grilla alineada, separado del croquis, con la anotación debajo. `src/seo.mjs` publica una por idioma con Open Graph y Twitter Card grande. La revisión de privacidad simplificó el caso universitario y quitó de este documento la tabla que vinculaba casos con organizaciones. Los nombres de empleadores permanecen en experiencia/formación por decisión de Rocío. Las versiones antiguas del repositorio público siguen accesibles en Git; no prometer anonimato irreversible ni que la relación entre caso y empleador sea imposible de inferir.
 
 ## Datos confirmados
 

@@ -145,11 +145,11 @@ const content = {
       { code: "WK.03", name: "High-volume checkout", org: "Software studio", role: "Senior Developer", when: "2021 – 2023", impact: "300+ payments / day",
         body: "Designed and launched, as part of a team, a checkout with custom billing that processes 300+ payments a day. It was one of the first React integrations of Mercado Pago.", tags: ["React", "Mercado Pago", "Billing"] },
       { code: "WK.04", line: "From manual coordination to an automated flow.", name: "Final-project tracking", org: "A university", role: "Product & automation lead", when: "Apr 2026 – present", impact: "100+ projects per cycle",
-        body: "I own the backend of the system that tracks student capstone projects and coordinates their defense committees: the data layer, the sync and the workflows. Alongside it, I drive automation, BI and AI projects for university operations.",
+        body: "I lead the product and automation work for tracking student capstone projects and coordinating their defense committees. Alongside it, I drive automation, BI and AI projects for university operations.",
         steps: [
           { k: "Context", v: "Each submission cycle involves 100+ projects, with defense committees to coordinate within a window of a few days. Approvals arrived as system emails that someone logged by hand in a spreadsheet, and notices to students, mentors and committee members went out manually." },
           { k: "Problem", v: "That manual work was repetitive and error-prone, especially at peak times." },
-          { k: "Decision", v: "· One source of truth: a central data hub. I started by parsing notification emails and realized the process needed the underlying data, not just the messages. I also chose the hub over querying the operational system directly.<br>· A separate sync process inside the university's private network, since the hub can't be reached from a spreadsheet script.<br>· n8n workflows for the process itself: confirm project groupings, collect data through a form, email committee members for availability, detect when schedules converge.<br>· Sheets and Gmail stay as the interface, because that is where the team already works." },
+          { k: "Decision", v: "· Establish one reliable source of data instead of relying on notification emails.<br>· Automate confirmations, data collection and committee scheduling in one workflow.<br>· Keep familiar tools as the interface for the team." },
           { k: "Result", v: "Implemented and in use: approvals, data collection, availability requests and scheduling now run through one coordinated flow." },
           { k: "Learning", v: "Define the source of truth before the tool." }
         ], tags: ["n8n", "Python", "Google Workspace", "AWS", "API design", "Backend"] },
@@ -157,7 +157,7 @@ const content = {
         body: "I led a process-optimisation initiative for the CFO & Enterprise Value practice, automating manual work with Excel and Power Automate. It was the part of consulting I enjoyed most. I also worked on an Anaplan implementation for a North American airline, run in Scrum with Jira.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] }
     ],
     timeline: [
-      { when: "Apr 2026 – present", org: "Universidad de San Andrés", role: "Project Manager & Business Partner · BI, Automation, AI", note: "Backend owner of the final-project tracking system; automation, BI and AI projects for university operations.", tags: ["API", "BI", "AI agents"] },
+      { when: "Apr 2026 – present", org: "Universidad de San Andrés", role: "Project Manager & Business Partner · BI, Automation, AI", note: "Automation, BI and AI projects for university operations.", tags: ["API", "BI", "AI agents"] },
       { when: "Jun 2026 – present", org: "Universidad de San Andrés", role: "Tutorial instructor, Corporate Finance", note: "Part-time teaching assistant for Corporate Finance.", tags: ["Teaching", "Finance"] },
       { when: "Apr 2027 – 2028", org: "Universidad de San Andrés", kind: "edu", role: "Master in Finance (MFin), incoming", note: "Class of 2028.", tags: ["MFin"] },
       { when: "May 2025 – Mar 2026", org: "Accenture", role: "Management Consultant Senior Analyst", note: "Led a process-automation initiative for the CFO & Enterprise Value practice; Anaplan for a North American airline.", tags: ["Anaplan", "Scrum", "Power Automate"] },
@@ -367,11 +367,11 @@ const content = {
       { code: "WK.03", name: "Checkout de alto volumen", org: "Estudio de software", role: "Senior Developer", when: "2021 – 2023", impact: "300+ pagos / día",
         body: "Diseñé y lancé en equipo un checkout con facturación a medida que procesa más de 300 pagos por día. Una de las primeras integraciones de Mercado Pago en React.", tags: ["React", "Mercado Pago", "Facturación"] },
       { code: "WK.04", line: "De la coordinación manual a un flujo automatizado.", name: "Seguimiento de trabajos finales", org: "Una universidad", role: "Líder de producto y automatización", when: "Abr 2026 – presente", impact: "Más de 100 trabajos por entrega",
-        body: "Estoy a cargo del backend del sistema que hace el seguimiento de los trabajos finales de grado y coordina las mesas de defensa: datos, sincronización y flujos de trabajo. En paralelo llevo adelante proyectos de automatización, BI e IA para la universidad.",
+        body: "Lidero el trabajo de producto y automatización para el seguimiento de trabajos finales de grado y la coordinación de mesas de defensa. En paralelo llevo adelante proyectos de automatización, BI e IA para la universidad.",
         steps: [
           { k: "Contexto", v: "Cada entrega suma más de 100 trabajos y hay que coordinar las mesas de defensa en pocos días. Las aprobaciones llegaban por mail y alguien las cargaba a mano en una planilla; los avisos a alumnos, mentores y jurados también salían a mano." },
           { k: "Problema", v: "Era un trabajo repetitivo y propenso a errores, sobre todo en las semanas de más entregas." },
-          { k: "Decisión", v: "· Una sola fuente de verdad: un repositorio central de datos. Empecé procesando los mails de notificación y entendí que el proceso necesitaba los datos en sí, no solo los mensajes. Por eso elegí el repositorio en lugar de consultar directamente el sistema de gestión.<br>· Un proceso de sincronización separado, dentro de la red privada de la universidad, porque al repositorio no se puede acceder desde un script de la planilla.<br>· Flujos en n8n para el proceso: confirmar los grupos de trabajos, reunir datos con un formulario, pedirles disponibilidad a los jurados y detectar cuándo coinciden las agendas.<br>· Sheets y Gmail siguen siendo la interfaz, porque es donde el equipo ya trabaja." },
+          { k: "Decisión", v: "· Definir una fuente de datos confiable en lugar de depender de los mails de notificación.<br>· Automatizar confirmaciones, recolección de datos y coordinación de mesas en un mismo flujo.<br>· Mantener como interfaz las herramientas que el equipo ya usa." },
           { k: "Resultado", v: "Implementado y en uso: las aprobaciones, la recolección de datos, los pedidos de disponibilidad y el armado de mesas corren en un solo flujo coordinado." },
           { k: "Aprendizaje", v: "Definir la fuente de verdad antes que la herramienta." }
         ], tags: ["n8n", "Python", "Google Workspace", "AWS", "Diseño de APIs", "Backend"] },
@@ -379,7 +379,7 @@ const content = {
         body: "Lideré una iniciativa de optimización de procesos para la práctica de CFO & Enterprise Value: automaticé trabajo manual con Excel y Power Automate. Fue lo que más disfruté de la consultoría. También participé en una implementación de Anaplan para una aerolínea norteamericana.", tags: ["Power Automate", "Excel", "Anaplan", "Scrum"] }
     ],
     timeline: [
-      { when: "Abr 2026 – presente", org: "Universidad de San Andrés", role: "Project Manager & Business Partner · BI, Automatización, IA", note: "Backend del sistema de seguimiento de trabajos finales; automatización, BI e IA para la universidad.", tags: ["API", "BI", "Agentes de IA"] },
+      { when: "Abr 2026 – presente", org: "Universidad de San Andrés", role: "Project Manager & Business Partner · BI, Automatización, IA", note: "Proyectos de automatización, BI e IA para operaciones universitarias.", tags: ["API", "BI", "Agentes de IA"] },
       { when: "Jun 2026 – presente", org: "Universidad de San Andrés", role: "Ayudante de cátedra, Finanzas Corporativas", note: "Clases de tutorial, part-time.", tags: ["Docencia", "Finanzas"] },
       { when: "Abr 2027 – 2028", org: "Universidad de San Andrés", kind: "edu", role: "Maestría en Finanzas (MFin), inicio en 2027", note: "Promoción 2028.", tags: ["MFin"] },
       { when: "May 2025 – Mar 2026", org: "Accenture", role: "Management Consultant Senior Analyst", note: "Lideré una iniciativa de automatización de procesos; Anaplan para una aerolínea.", tags: ["Anaplan", "Scrum", "Power Automate"] },
