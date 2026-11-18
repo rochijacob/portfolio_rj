@@ -23,6 +23,8 @@ const root = path.join(__dirname, '..');
       await page.goto(base + (lang === 'es' ? 'es.html' : '') + '?utm_source=linkedin&utm_medium=social');
       assert.equal(await page.locator('html').getAttribute('lang'), lang);
       assert.equal(await page.locator('h1').count(), 1);
+      const title = await page.title();
+      assert.ok(lang === 'es' ? title.includes('IA, automatización y productos digitales') : title.includes('AI, Automation & Digital Products'));
       assert.ok((await page.locator('#experience').textContent()).includes('Accenture'));
       assert.ok((await page.locator('meta[name=description]').getAttribute('content')).length > 100);
       assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'), 'https://rochijacob.github.io/portfolio_rj/' + (lang === 'es' ? 'es.html' : ''));
@@ -36,10 +38,13 @@ const root = path.join(__dirname, '..');
       assert.deepEqual(errors, []);
       await context.close();
     }
-    for (const [slug, source] of [['x','x'],['in','linkedin']]) {
-      const html = readFileSync(path.join(root, slug, 'index.html'), 'utf8');
+    for (const [slug, source] of [['x','x'],['in','linkedin']]) for (const lang of ['', 'en', 'es']) {
+      const html = readFileSync(path.join(root, slug, lang, 'index.html'), 'utf8');
       const destination = JSON.parse(html.match(/location.replace\((".*?")\)/)[1]);
-      assert.equal(new URL(destination).searchParams.get('utm_source'), source);
+      const url = new URL(destination);
+      assert.equal(url.searchParams.get('utm_source'), source);
+      assert.equal(url.pathname.endsWith('/es.html'), lang === 'es');
+      assert.ok(html.includes(`lang="${lang || 'en'}"`));
       assert.ok(html.includes('noindex,follow'));
       assert.ok(!html.includes('googletagmanager'));
     }

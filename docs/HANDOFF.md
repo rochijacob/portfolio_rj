@@ -321,6 +321,10 @@ En los casos se usan órdenes de magnitud ("más de cien", "de días a minutos")
 
 **Vista previa para LinkedIn y X (2026-11-17):** `og-hero-en.png` y `og-hero-es.png` son imágenes del hero de 1200 × 627 px, generadas por `scripts/render-social.js`. El título sigue una grilla alineada, separado del croquis, con la anotación debajo. `src/seo.mjs` publica una por idioma con Open Graph y Twitter Card grande. La revisión de privacidad simplificó el caso universitario y quitó de este documento la tabla que vinculaba casos con organizaciones. Los nombres de empleadores permanecen en experiencia/formación por decisión de Rocío. Las versiones antiguas del repositorio público siguen accesibles en Git; no prometer anonimato irreversible ni que la relación entre caso y empleador sea imposible de inferir.
 
+**Enlaces por idioma (2026-11-17):** raíz EN y `es.html` ES. `src/build.mjs` genera `/in/en/`, `/in/es/`, `/x/en/` y `/x/es/` con UTMs; `/in/` y `/x/` conservan el destino inglés previo. Para posts con vista previa usar las URLs finales con UTM, no las redirecciones HTML. Tabla y ejemplos en `docs/ANALYTICS.md`.
+
+**Foco SEO (2026-11-17):** Rocío prefiere que los títulos y descripciones de búsqueda destaquen IA, automatización y proyectos/productos digitales en lugar de posicionarse principalmente como desarrollo web. Se mencionan *prototipos* con agentes de IA para no atribuirse productos de IA publicados que el sitio no muestra. El hero visual sigue expresando el trabajo de producto web y automatización.
+
 ## Datos confirmados
 
 - Descargas de la app de gimnasios: **500K+** (el CV manda sobre las notas, que decían ~300K). 40K usuarios activos diarios, hito de **2022**.

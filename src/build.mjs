@@ -20,8 +20,11 @@ for (const f of ["site-A-notebook", "site-A-article", "site-B-dock", "site-D-led
 writeFileSync(new URL('../robots.txt', dir), `User-agent: *\nAllow: /\nSitemap: ${origin}sitemap.xml\n`);
 writeFileSync(new URL('../sitemap.xml', dir), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${['', 'es.html'].map(path => `  <url><loc>${origin}${path}</loc></url>`).join('\n')}\n</urlset>\n`);
 for (const [slug, source, placement] of [['x', 'x', 'bio'], ['in', 'linkedin', 'profile']]) {
-  const destination = origin + `?utm_source=${source}&utm_medium=social&utm_campaign=portfolio&utm_content=${placement}`;
-  const folder = new URL(`../${slug}/`, dir);
-  mkdirSync(folder, { recursive: true });
-  writeFileSync(new URL('index.html', folder), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0;url=${destination.replace(/&/g, '&amp;')}"><title>Rocío Jacob</title></head><body><a href="${destination.replace(/&/g, '&amp;')}">Rocío Jacob — portfolio</a><script>location.replace(${JSON.stringify(destination)});</script></body></html>\n`);
+  for (const language of ['', 'en', 'es']) {
+    const lang = language || 'en';
+    const destination = origin + (lang === 'es' ? 'es.html' : '') + `?utm_source=${source}&utm_medium=social&utm_campaign=portfolio&utm_content=${placement}`;
+    const folder = new URL(`../${slug}/${language ? language + '/' : ''}`, dir);
+    mkdirSync(folder, { recursive: true });
+    writeFileSync(new URL('index.html', folder), `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0;url=${destination.replace(/&/g, '&amp;')}"><title>Rocío Jacob</title></head><body><a href="${destination.replace(/&/g, '&amp;')}">Rocío Jacob — portfolio</a><script>location.replace(${JSON.stringify(destination)});</script></body></html>\n`);
+  }
 }

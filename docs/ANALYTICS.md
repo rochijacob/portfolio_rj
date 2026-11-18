@@ -6,14 +6,20 @@ La web carga GTM-TW2MSTRV y la etiqueta GA4 directa G-FFMYCXQZFJ. GTM-K79GS3KK e
 
 Verificación del 16/11/2026: el recurso público de GTM-TW2MSTRV devuelve tags:[], predicates:[], rules:[]. Por eso GA4 se carga directamente desde el sitio. El script y los eventos están implementados; la recepción en la cuenta se debe confirmar en Realtime y DebugView.
 
-## Enlaces listos para copiar
+## Elegir el idioma del enlace
 
-Enlaces cortos publicados:
+La portada `https://rochijacob.github.io/portfolio_rj/` abre en **inglés** y `https://rochijacob.github.io/portfolio_rj/es.html` abre en **español**. El idioma no depende del navegador: el enlace que compartís determina la página inicial. Después, la persona puede cambiarlo desde el selector del sitio; el cambio conserva los UTMs.
 
-- X: https://rochijacob.github.io/portfolio_rj/x/
-- LinkedIn: https://rochijacob.github.io/portfolio_rj/in/
+Enlaces cortos para perfiles y bios (las variantes `/en/` y `/es/` se agregaron el 17/11/2026):
 
-Redirigen a las URLs UTM de abajo. No cargan Analytics durante el salto ni se incluyen en el sitemap. La URL larga se ve en el navegador al llegar. Son redirecciones HTML/JavaScript compatibles con GitHub Pages, no redirects HTTP 301.
+| Canal | Inglés | Español |
+|---|---|---|
+| LinkedIn | https://rochijacob.github.io/portfolio_rj/in/en/ | https://rochijacob.github.io/portfolio_rj/in/es/ |
+| X | https://rochijacob.github.io/portfolio_rj/x/en/ | https://rochijacob.github.io/portfolio_rj/x/es/ |
+
+Los enlaces antiguos `/in/` y `/x/` siguen funcionando y abren en inglés. Cada enlace corto redirige a la página del idioma elegido con `utm_source`, `utm_medium=social`, `utm_campaign=portfolio` y `utm_content=profile` o `bio`. No carga Analytics durante el salto ni se incluye en el sitemap. La URL larga se ve en el navegador al llegar. Son redirecciones HTML/JavaScript compatibles con GitHub Pages, no redirects HTTP 301.
+
+Para **posts de LinkedIn**, compartir la URL final con UTM en lugar de `/in/es/` o `/in/en/`: así LinkedIn lee directamente los metadatos Open Graph y muestra la imagen del hero correspondiente. La página en español usa `og-hero-es.png`; la inglesa, `og-hero-en.png`.
 
 Bio de X:
 https://rochijacob.github.io/portfolio_rj/?utm_source=x&utm_medium=social&utm_campaign=portfolio&utm_content=bio
@@ -27,9 +33,15 @@ https://rochijacob.github.io/portfolio_rj/?utm_source=linkedin&utm_medium=social
 Post de LinkedIn:
 https://rochijacob.github.io/portfolio_rj/?utm_source=linkedin&utm_medium=social&utm_campaign=portfolio&utm_content=post
 
-Para dirigir al español, reemplazar /? por /es.html?. Usar utm_content=post_20261116 para distinguir publicaciones. No incluir nombres de personas, emails ni datos privados en UTMs. No etiquetar enlaces internos ni el sitemap.
+Para las cuatro URLs largas de arriba, reemplazar `/?` por `/es.html?` para abrir en español. Por ejemplo, un post de LinkedIn en español:
+
+https://rochijacob.github.io/portfolio_rj/es.html?utm_source=linkedin&utm_medium=social&utm_campaign=portfolio&utm_content=post
+
+Usar `utm_content=post_20261117` para distinguir publicaciones. No incluir nombres de personas, emails ni datos privados en UTMs. No etiquetar enlaces internos ni el sitemap.
 
 El tráfico orgánico no lleva UTM: GA4 usa el referente del buscador. Visitas sin referente pueden aparecer como direct; no es posible recuperar con certeza un origen perdido. X sin UTM también puede aparecer como t.co. Los cambios de idioma conservan UTMs y anclas.
+
+El idioma elegido en el enlace no cambia `utm_source`: LinkedIn sigue siendo `linkedin / social` tanto para EN como para ES. Para comparar interacciones por idioma, los eventos del sitio envían el parámetro `language`; registrarlo como dimensión personalizada de evento si se quiere usar en Exploraciones. El título SEO de cada idioma ahora destaca IA, automatización y productos digitales. Las búsquedas orgánicas pueden entrar a `/` o a `/es.html` según la URL que encuentre y elija el buscador.
 
 ## Eventos que emite el código
 
@@ -48,7 +60,7 @@ case_open está preparado para futuros casos completos: la versión actual de ma
 ## Cómo confirmar que funciona
 
 1. En GA4, abrir Informes → Tiempo real para confirmar visitas y eventos. La tarjeta «Usuarios activos por Primera fuente del usuario» muestra cómo llegó esa persona **por primera vez**; no sirve para probar el origen de una visita posterior. Puede tardar en procesar usuarios nuevos.
-2. Abrir `/x/` y `/in/` en sesiones privadas separadas. Confirmar que la URL final contiene respectivamente `utm_source=x` o `utm_source=linkedin`. Para comparar fuentes, ir a Informes → Adquisición → Adquisición de tráfico y elegir «Fuente/medio de la sesión» o «Fuente/medio manual de la sesión» como dimensión de la tabla. Buscar `x / social` y `linkedin / social`. El procesamiento de informes puede demorar entre 24 y 48 horas.
+2. Abrir `/x/es/` y `/in/en/` en sesiones privadas separadas. Confirmar que la URL final contiene respectivamente `es.html?utm_source=x` o `?utm_source=linkedin` y que el idioma inicial es el correcto. Para comparar fuentes, ir a Informes → Adquisición → Adquisición de tráfico y elegir «Fuente/medio de la sesión» o «Fuente/medio manual de la sesión» como dimensión de la tabla. Buscar `x / social` y `linkedin / social`. El procesamiento de informes puede demorar entre 24 y 48 horas.
 3. Para DebugView, habilitar modo debug con Tag Assistant o con `gtag('set','debug_mode',true)` temporalmente en la consola antes de interactuar. Confirmar nombre y parámetros. No dejar debug_mode activado para todos los visitantes.
 4. Revisar una sola vista de página por carga. Si aparecen dos, verificar que no haya otra etiqueta G-FFMYCXQZFJ publicada en GTM o instalada por otro medio.
 
